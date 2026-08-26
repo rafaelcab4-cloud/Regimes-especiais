@@ -1,0 +1,74 @@
+import type { SummaryRow } from "./types";
+
+export const SUMMARY_TABLE: SummaryRow[] = [
+  {
+    id: "ch",
+    fiscal: "Lump-Sum / Forfait Fiscal (CHF 435k+ base)",
+    fs: "ok",
+    visa: "Residência fiscal por Lump-Sum",
+    vs: "ok",
+  },
+  {
+    id: "it",
+    fiscal: "Flat Tax €300k/ano (desde jan/2026)",
+    fs: "changed",
+    visa: "Investor Visa €250k–€2M",
+    vs: "ok",
+  },
+  {
+    id: "pt",
+    fiscal: "IFICI / NHR 2.0 — escopo restrito",
+    fs: "changed",
+    visa: "Golden Visa restrito",
+    vs: "changed",
+  },
+  {
+    id: "es",
+    fiscal: "Lei Beckham + Ley Mbappé (Madrid)",
+    fs: "ok",
+    visa: "Golden Visa EXTINTO · NLV · DNV",
+    vs: "ext",
+  },
+  {
+    id: "gr",
+    fiscal: "Flat Tax €100k/ano",
+    fs: "ok",
+    visa: "Golden Visa ativo (€250k–€800k)",
+    vs: "changed",
+  },
+  {
+    id: "ae",
+    fiscal: "Zero IR pessoal (estrutural)",
+    fs: "ok",
+    visa: "Golden Visa 10 anos + Green Visa",
+    vs: "ok",
+  },
+  {
+    id: "us",
+    fiscal: "CBDT · Tributação por cidadania",
+    fs: "risk",
+    visa: "Gold Card · Platinum · EB-2 NIW · EB-5",
+    vs: "new",
+  },
+  {
+    id: "uy",
+    fiscal: "IRNR · 7% vitalício ou tax holiday 11 anos",
+    fs: "ok",
+    visa: "Residência invest. ~USD 1,7M",
+    vs: "ok",
+  },
+  {
+    id: "gb",
+    fiscal: "FIG 4 anos · Non-Dom abolido",
+    fs: "new",
+    visa: "Innovator Founder · HPI",
+    vs: "ok",
+  },
+  {
+    id: "hk",
+    fiscal: "Territorial · IR máx. 17%",
+    fs: "ok",
+    visa: "CIES HKD 30M + TTPS",
+    vs: "new",
+  },
+];

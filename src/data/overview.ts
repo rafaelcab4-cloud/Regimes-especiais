@@ -4,8 +4,6 @@ export interface HeroStat {
   accent: boolean;
 }
 
-export const HERO_EYEBROW = "Maio 2026 · Briefing executivo";
-
 export const HERO_SUBTITLE =
   "Monitor analítico das principais janelas de planejamento patrimonial e mobilidade global. Inclui mudanças de alto impacto entre 2024–2026: abolição do Non-Dom britânico, encerramento do Golden Visa espanhol, reajuste da Flat Tax italiana e lançamento do Trump Gold Card americano.";
 

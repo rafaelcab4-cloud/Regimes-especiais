@@ -625,27 +625,6 @@ tbody tr:last-child td {
   color: #fff;
   margin-bottom: 14px;
 }
-.dh-attract {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(168, 94, 58, 0.18);
-  border: 1px solid rgba(168, 94, 58, 0.4);
-  padding: 8px 16px;
-  border-radius: 30px;
-}
-.dh-attract .stars {
-  font-size: 14px;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-}
-.dh-attract .alabel {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #f1d8a8;
-  text-transform: uppercase;
-  font-weight: 500;
-}
 .dh-back {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);

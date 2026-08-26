@@ -18,10 +18,6 @@ export default function DetailHero({ country }: { country: Country }) {
           />
           <div className="dh-eyebrow">— Dossiê · {country.region}</div>
           <h1 className="dh-name">{country.name}</h1>
-          <div className="dh-attract">
-            <span className="stars">{country.attract}</span>
-            <span className="alabel">{country.attractLabel}</span>
-          </div>
         </div>
         <Link href="/" className="dh-back">
           <ArrowLeft size={13} aria-hidden /> Voltar à visão geral

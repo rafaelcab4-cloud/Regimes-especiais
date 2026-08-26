@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import { ALERTS } from "@/data/alerts";
 import { COUNTRY_ORDER } from "@/data/countries";
+import { EditionBadge } from "./EditionMeta";
 
 export default function Topbar() {
   return (
@@ -13,7 +14,7 @@ export default function Topbar() {
             <span className="sr-only">Buscar</span>
           </button>
           <span className="topbar-meta">
-            Edição <span>Maio · 2026</span>
+            Edição <EditionBadge />
           </span>
         </div>
         <Link href="/" className="brand-mark">

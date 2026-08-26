@@ -1,9 +1,12 @@
-import { HERO_EYEBROW, HERO_STATS, HERO_SUBTITLE } from "@/data/overview";
+import { HERO_STATS, HERO_SUBTITLE } from "@/data/overview";
+import { HeroEyebrow } from "./EditionMeta";
 
 export default function Hero() {
   return (
     <div className="hero">
-      <div className="hero-eyebrow">{HERO_EYEBROW}</div>
+      <div className="hero-eyebrow">
+        <HeroEyebrow />
+      </div>
       <h1 className="hero-title serif">
         Regimes fiscais especiais e programas imigratórios para{" "}
         <em>HNWIs</em> em 10 jurisdições estratégicas.

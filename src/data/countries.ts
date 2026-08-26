@@ -19,8 +19,6 @@ export const COUNTRIES: Record<CountryId, Country> = {
     flagCode: "ch",
     name: "Suíça",
     region: "Europa",
-    attract: "⭐⭐⭐⭐⭐",
-    attractLabel: "Máxima · Longo prazo",
     alert: false,
     sumFiscal: "Lump-Sum / Forfait Fiscal (CHF 435k+ base)",
     sumFS: "ok",
@@ -46,7 +44,7 @@ export const COUNTRIES: Record<CountryId, Country> = {
           { l: "Inclui", v: "IR + Patrimônio + SS" },
         ],
         impact:
-          "Máxima eficiência fiscal para patrimônios USD 20M+. Sem declaração de ativos e rendimentos globais (privacidade integral). Ganhos de capital sobre ativos financeiros pessoais isentos. Rede de 60+ tratados CDT. Passaporte suíço acessível após 10–12 anos.",
+          "Aplicável a patrimônios a partir de USD 20M. Não exige declaração de ativos e rendimentos globais. Ganhos de capital sobre ativos financeiros pessoais são isentos. Rede de 60+ tratados de dupla tributação (CDT). Elegibilidade a passaporte suíço após 10–12 anos.",
         warning:
           "Não-EU/EFTA em Ticino devem ter ao menos 55 anos como regra geral. Proposta de imposto sucessório sobre patrimônio >CHF 50M em debate político (não aprovada). Referendum de 2014 rejeitou abolição por 59% a 41%.",
         sources: [
@@ -71,7 +69,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Naturalização", v: "10–12 anos" },
         ],
         impact:
-          "Combinação exclusiva: residência estável, privacidade fiscal, zero CGT, passaporte de alta potência e qualidade de vida. Perfil ideal: patrimônio líquido USD 20M+.",
+          "Combina residência estável, privacidade fiscal e isenção de CGT (ganhos de capital). Direcionado a patrimônio líquido a partir de USD 20M.",
         sources: [
           { t: "Richmond Chambers", u: "https://www.richmondchambers.ch" },
           {
@@ -87,8 +85,6 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
     flagCode: "it",
     name: "Itália",
     region: "Europa",
-    attract: "⭐⭐⭐",
-    attractLabel: "Média · Renda ativa",
     alert: true,
     sumFiscal: "Flat Tax €300k/ano (desde jan/2026)",
     sumFS: "changed",
@@ -110,7 +106,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Crédito ext.", v: "❌ Não disponível" },
         ],
         impact:
-          "Vantajoso para rendas globais >€2M/ano, mas progressivamente menos competitivo. Grécia mantém €100k/ano — 3× mais barato. Residentes anteriores ao aumento mantêm €100k.",
+          "Aplica-se a rendas globais acima de €2M/ano. O valor equivale a 3× o praticado pela Grécia (€100k/ano). Residentes anteriores ao aumento de 2026 mantêm a alíquota de €100k.",
         warning:
           "Risco de escalada: regime aumentado 3 vezes em 8 anos. Sem garantia de estabilidade por horizonte de 15 anos.",
         sources: [
@@ -134,7 +130,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Familiar", v: "Qualifica separadamente" },
         ],
         impact:
-          "Melhor regime fiscal para aposentados com pensões internacionais na Europa Ocidental. Custo inferior ao regime HNWI (7% sobre renda real vs. €300k fixo).",
+          "Aplicável a aposentados com pensões internacionais residentes na Europa Ocidental. Alíquota de 7% sobre a renda efetiva, em contraste com o valor fixo de €300k do regime para novos residentes.",
         sources: [
           { t: "Agenzia delle Entrate", u: "https://www.agenziaentrate.gov.it" },
         ],
@@ -154,7 +150,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Residência perm.", v: "Após 5 anos" },
         ],
         impact:
-          "Modalidade startup (€250k) é a mais acessível para combinar regime fiscal 7% do Sul + residência ativa. Títulos governamentais (€2M) adequados para perfis passivos.",
+          "A modalidade startup (€250k) é a de menor valor entre as quatro opções e pode ser combinada com o regime de 7% do Sul da Itália. A modalidade de títulos governamentais (€2M) não exige atividade empresarial ativa.",
         sources: [
           {
             t: "Ministero degli Esteri · VPI",
@@ -169,8 +165,6 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
     flagCode: "pt",
     name: "Portugal",
     region: "Europa",
-    attract: "⭐⭐",
-    attractLabel: "Baixa · Pós-NHR",
     alert: true,
     sumFiscal: "IFICI / NHR 2.0 — escopo restrito",
     sumFS: "changed",
@@ -188,7 +182,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Base legal", v: "Lei 82/2023" },
         ],
         impact:
-          "Perda crítica de atratividade de Portugal para HNWIs passivos. Alternativas diretas: Grécia (€100k) e EAU (zero IR pessoal).",
+          "Afeta o planejamento fiscal de HNWIs com renda passiva em Portugal. Regimes de imposto fixo alternativos incluem Grécia (€100k) e EAU (zero IR pessoal).",
         sources: [
           { t: "Portal das Finanças · AT", u: "https://www.portaldasfinancas.gov.pt" },
         ],
@@ -196,7 +190,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
       {
         name: "IFICI — Incentivo à Investigação (NHR 2.0)",
         status: "new",
-        desc: `Criado pela Lei 82/2023, substituiu o NHR com escopo dramaticamente mais restrito. <strong>Benefício:</strong> alíquota flat de 20% sobre rendimentos portugueses qualificados. Pensões estrangeiras agora tributadas progressivamente (14,5%–48%). <strong>Elegibilidade:</strong> I&D, ensino superior, startups em setores estratégicos, profissionais de saúde, artistas reconhecidos.`,
+        desc: `Criado pela Lei 82/2023, substituiu o NHR com escopo mais restrito. <strong>Benefício:</strong> alíquota flat de 20% sobre rendimentos portugueses qualificados. Pensões estrangeiras agora tributadas progressivamente (14,5%–48%). <strong>Elegibilidade:</strong> I&D, ensino superior, startups em setores estratégicos, profissionais de saúde, artistas reconhecidos.`,
         kv: [
           { l: "Alíquota flat", v: "20% renda PT qualif." },
           { l: "Renda passiva ext.", v: "Progressiva" },
@@ -206,9 +200,9 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Base legal", v: "Lei 82/2023" },
         ],
         impact:
-          "Não aplicável à maioria dos HNWIs com renda passiva. Portugal deixou de ser referência para planejamento fiscal passivo. Adequado apenas para profissionais qualificados.",
+          "Não se aplica a rendimentos passivos — o benefício está restrito a rendimentos portugueses qualificados, conforme os critérios de elegibilidade acima.",
         warning:
-          "Para brasileiros: a eliminação do NHR aumenta a atratividade relativa do Uruguai (territorial 5+5).",
+          "Para brasileiros: a extinção do NHR é um dos fatores que motivam a avaliação de regimes territoriais alternativos, como o do Uruguai (isenção de 5 anos + opção de 5 adicionais).",
         sources: [{ t: "Lei 82/2023 · AT", u: "https://www.portaldasfinancas.gov.pt" }],
       },
     ],
@@ -226,7 +220,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Naturalização", v: "Após 5 anos" },
         ],
         impact:
-          "Com NHR extinto e Golden Visa restrito, Portugal perdeu competitividade como destino HNWI. Combinação Golden Visa + IFICI ainda funciona para empreendedores qualificados.",
+          "Com o NHR extinto e o Golden Visa restrito a modalidades não-imobiliárias, a combinação Golden Visa + IFICI permanece disponível para empreendedores elegíveis.",
         sources: [{ t: "AIMA", u: "https://aima.gov.pt" }],
       },
     ],
@@ -236,8 +230,6 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
     flagCode: "es",
     name: "Espanha",
     region: "Europa",
-    attract: "⭐⭐⭐",
-    attractLabel: "Média · Lei Beckham",
     alert: true,
     sumFiscal: "Lei Beckham + Ley Mbappé (Madrid)",
     sumFS: "ok",
@@ -259,7 +251,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Base legal", v: "DL 5/2024 · BOCM" },
         ],
         impact:
-          "Reforço significativo da atratividade de Madrid: stack Beckham (24% sobre renda ES) + isenção de Wealth Tax (Bonificação 100%) + Ley Mbappé (dedução de 20% sobre investimento). Conjunto torna Madrid o território mais competitivo da Espanha para HNWIs.",
+          "Pode ser combinada com a Lei Beckham (24% sobre renda espanhola) e com a isenção de Wealth Tax vigente na Comunidade de Madrid (Bonificação 100%), somando três benefícios acumuláveis: alíquota fixa sobre renda espanhola, isenção de patrimônio e dedução de 20% sobre o investimento.",
         sources: [
           { t: "Comunidad de Madrid · BOCM", u: "https://www.bocm.es" },
           { t: "Comunidad de Madrid · Decreto 5/2024", u: "https://www.comunidad.madrid" },
@@ -278,7 +270,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "CCAA 0% Wealth", v: "Madri, Andaluzia, Galícia" },
         ],
         impact:
-          "Altamente competitivo para executivos com salário >€300k/ano. Madri oferece combinação única: Beckham + isenção total de Patrimônio. Menos vantajoso para HNWIs puramente passivos.",
+          "Aplica-se a rendimentos de trabalho de fonte espanhola; rendimentos de fonte estrangeira ficam fora da base de cálculo. Em Madrid, pode ser combinado com a isenção de Wealth Tax. Não alcança rendimentos passivos, que seguem as regras gerais.",
         sources: [{ t: "AEAT · Art. 93 LIRPF", u: "https://www.agenciatributaria.es" }],
       },
     ],
@@ -295,7 +287,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Alternativa imed.", v: "NLV ou DNV" },
         ],
         impact:
-          "Impacto significativo para HNWIs que planejavam o Golden Visa como porta de entrada para Beckham. NLV e DNV permanecem como alternativas viáveis.",
+          "Afeta HNWIs que planejavam usar o Golden Visa como via de acesso à Lei Beckham. NLV e DNV permanecem como alternativas de residência.",
         sources: [{ t: "BOE · L.O. 1/2025", u: "https://www.boe.es" }],
       },
       {
@@ -310,7 +302,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Empresa ES", v: "❌ Proibido" },
         ],
         impact:
-          "Melhor opção para HNWIs trabalhadores remotos que combinam presença na Espanha com Beckham. Especialmente atraente em Madri.",
+          "Aplicável a trabalhadores remotos empregados por empresas estrangeiras que buscam presença na Espanha. Compatível com a Lei Beckham.",
         sources: [{ t: "Ministerio de Inclusión", u: "https://www.inclusion.gob.es" }],
       },
     ],
@@ -320,10 +312,8 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
     flagCode: "gr",
     name: "Grécia",
     region: "Europa",
-    attract: "⭐⭐⭐⭐⭐",
-    attractLabel: "Máxima · HNWI passivo",
     alert: false,
-    sumFiscal: "Flat Tax €100k/ano · Mais competitivo da UE",
+    sumFiscal: "Flat Tax €100k/ano",
     sumFS: "ok",
     sumVisa: "Golden Visa ativo · Reforma 2024",
     sumVS: "changed",
@@ -331,11 +321,11 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
       {
         name: "Flat Tax HNWIs — Art. 5A do Código Tributário",
         status: "ok",
-        desc: `Atualmente o <strong>regime mais competitivo da Europa</strong> para HNWIs com renda passiva estrangeira. Imposto fixo de <strong>€100.000/ano</strong> sobre todos os rendimentos estrangeiros. Familiar: €20.000/pessoa/ano.
+        desc: `Regime de imposto fixo para HNWIs com renda passiva estrangeira. Imposto fixo de <strong>€100.000/ano</strong> sobre todos os rendimentos estrangeiros. Familiar: €20.000/pessoa/ano.
 
 <strong>Elegibilidade:</strong> não-residência fiscal grega por 7 dos 8 anos anteriores. Investimento mínimo de €500.000 em ativos gregos em 3 anos. <strong>Duração:</strong> 15 anos.
 
-<em>Comparativo:</em> Itália €300k, Portugal NHR extinto, UK Non-Dom abolido — Grécia é o único flat tax genuinamente competitivo.`,
+<em>Para contexto:</em> a Itália aplica €300.000/ano em regime equivalente; o NHR português foi extinto; o Non-Dom britânico foi abolido.`,
         kv: [
           { l: "Imposto anual", v: "€100.000" },
           { l: "Familiar", v: "€20.000/pessoa" },
@@ -345,7 +335,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "vs. Itália", v: "3× mais barato" },
         ],
         impact:
-          "Melhor regime europeu ativo para HNWIs passivos. Combinação Golden Visa + Flat Tax oferece caminho para cidadania grega (7 anos). Passaporte grego = UE + mobilidade global excepcional.",
+          "A combinação entre Golden Visa e Flat Tax oferece um caminho à cidadania grega em 7 anos, com acesso à cidadania da União Europeia.",
         sources: [{ t: "AADE", u: "https://www.aade.gr" }],
       },
       {
@@ -360,7 +350,7 @@ O resultado é uma permissão de residência B (anual, renovável). Estima-se qu
           { l: "Familiar", v: "Separadamente" },
         ],
         impact:
-          "Melhor regime europeu para aposentados — mais amplo e longo que o italiano. Ausência de CDT Brasil-Grécia pode ser limitador.",
+          "Vigora por 15 anos, ante 10 anos no regime equivalente italiano. A ausência de acordo de dupla tributação entre Brasil e Grécia deve ser considerada no planejamento.",
         sources: [{ t: "AADE", u: "https://www.aade.gr" }],
       },
     ],
@@ -384,7 +374,7 @@ Visto inicial 5 anos. Residência permanente após 5 anos. <strong>Cidadania em 
           { l: "Cidadania", v: "7 anos · 183 dias" },
         ],
         impact:
-          "Combinação Golden Visa + Flat Tax €100k é a oferta mais competitiva da Europa para HNWIs passivos com patrimônio USD 5M–50M.",
+          "A combinação entre Golden Visa e Flat Tax de €100k é direcionada a HNWIs passivos com patrimônio na faixa de USD 5M–50M.",
         sources: [
           { t: "Migration.gov.gr · Lei 5100/2024", u: "https://migration.gov.gr" },
         ],
@@ -396,8 +386,6 @@ Visto inicial 5 anos. Residência permanente após 5 anos. <strong>Cidadania em 
     flagCode: "ae",
     name: "Emirados Árabes Unidos",
     region: "Oriente Médio",
-    attract: "⭐⭐⭐⭐⭐",
-    attractLabel: "Máxima · Zero IR pessoal",
     alert: false,
     sumFiscal: "Zero IR pessoal (estrutural)",
     sumFS: "ok",
@@ -419,7 +407,7 @@ Visto inicial 5 anos. Residência permanente após 5 anos. <strong>Cidadania em 
           { l: "Withholding", v: "0%" },
         ],
         impact:
-          "Máxima eficiência fiscal global. Para brasileiros: ausência de CDT Brasil–EAU significa que rendas de controladas no exterior podem estar sujeitas ao IRPF brasileiro (transparência fiscal — Lei 12.973/2014).",
+          "Ausência de imposto de renda pessoal sobre qualquer categoria de rendimento. Para brasileiros: a ausência de CDT Brasil–EAU significa que rendas de controladas no exterior podem estar sujeitas ao IRPF brasileiro (transparência fiscal — Lei 12.973/2014).",
         warning:
           "Para brasileiros: mudança de residência fiscal exige DIRPF de saída definitiva, recolhimento do ganho de capital na saída e planejamento das estruturas. Sem CDT, há risco de dupla tributação.",
         sources: [
@@ -441,10 +429,10 @@ Incluídos: cônjuge, filhos, pais, empregados domésticos. <strong>Sem requisit
           { l: "Validade", v: "10 anos" },
           { l: "Permanência", v: "Não exigida" },
           { l: "Família", v: "✅ Incluída" },
-          { l: "Cidadania", v: "Excepcional" },
+          { l: "Cidadania", v: "Caso a caso" },
         ],
         impact:
-          "Combinação imbatível: zero IR pessoal + 10 anos sem requisito de permanência. Ideal para HNWIs que desejam estrutura fiscal eficiente sem mudança permanente.",
+          "Combina zero IR pessoal com validade de 10 anos e sem requisito de permanência mínima, permitindo manter a estrutura fiscal sem residência efetiva no país.",
         sources: [{ t: "ICP", u: "https://icp.gov.ae" }],
       },
       {
@@ -470,8 +458,6 @@ Incluídos: cônjuge, filhos, pais, empregados domésticos. <strong>Sem requisit
     flagCode: "us",
     name: "Estados Unidos",
     region: "Américas",
-    attract: "Complexo",
-    attractLabel: "Citizenship-Based Tax",
     alert: false,
     sumFiscal: "CBDT · Tributação por cidadania",
     sumFS: "risk",
@@ -551,7 +537,7 @@ Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Volt
           { l: "Base legal", v: "Executive Order 14351" },
         ],
         impact:
-          "O Platinum Card é o produto mais relevante para HNWIs passivos com renda global elevada — a isenção de SPT por 270 dias/ano elimina o principal obstáculo do CBDT americano. Porém, indisponibilidade prolongada e fundamentos legais incertos limitam a viabilidade prática até 2026.",
+          "Para HNWIs passivos com renda global elevada, a isenção do Substantial Presence Test por até 270 dias/ano remove a exigência de residência fiscal americana que normalmente decorreria dessa permanência. O programa segue indisponível para novas aplicações e sua base legal (Executive Order, sem amparo do Congresso) permanece incerta até abr/2026.",
         warning:
           "Sem cronograma oficial de liberação. A própria existência depende da continuidade do EO 14351 — sem amparo legislativo, vulnerável a revogação.",
         sources: [
@@ -579,7 +565,7 @@ Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Volt
           { l: "Base legal", v: "INA §203(b)(2)(B)" },
         ],
         impact:
-          "Via mais eficiente em custo–benefício para HNWIs profissionais qualificados (STEM, biotech, finanças, AI). Sem investimento mínimo. Atratividade superior ao EB-5 para perfis com méritos acadêmicos ou empresariais comprováveis.",
+          "Não exige investimento mínimo nem oferta de emprego, ao contrário do EB-5. Aplicável a profissionais com grau acadêmico avançado ou habilidade excepcional em áreas como STEM, biotecnologia, finanças ou IA, mediante comprovação de mérito acadêmico ou empresarial.",
         sources: [
           {
             t: "USCIS · EB-2 NIW Policy Manual",
@@ -604,7 +590,7 @@ Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Volt
           { l: "Base legal", v: "INA §203(b)(5)" },
         ],
         impact:
-          "Segurança jurídica superior ao Gold Card. Capital tem possibilidade de retorno. Prazo 5–8 anos é limitador.",
+          "Via estatutária, prevista em lei — diferente do Gold Card, criado por Executive Order. O capital investido tem possibilidade de retorno. Processamento em 5–8 anos.",
         sources: [
           {
             t: "USCIS · EB-5 Program",
@@ -623,8 +609,6 @@ Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Volt
     flagCode: "uy",
     name: "Uruguai",
     region: "Américas",
-    attract: "⭐⭐⭐⭐",
-    attractLabel: "Alta · América Latina",
     alert: false,
     sumFiscal: "IRNR · 7% vitalício ou tax holiday 11 anos",
     sumFS: "ok",
@@ -652,7 +636,7 @@ Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Volt
           { l: "Herança / CFC PF", v: "0% / Não aplicável" },
         ],
         impact:
-          "Flexibilidade única: HNWIs com horizonte de longo prazo (>11 anos) tendem a preferir Opção B (7% vitalício); perfis em transição (5–10 anos) preferem Opção A. Melhor janela de otimização fiscal na América Latina para brasileiros em desvinculação fiscal do Brasil. Maior rule of law da AL.",
+          "Perfis com horizonte de longo prazo (>11 anos) tendem a optar pela Opção B (7% vitalício); perfis em transição (5–10 anos) tendem a optar pela Opção A. Relevante para brasileiros em processo de desvinculação da residência fiscal no Brasil.",
         warning:
           "A opção entre A e B é <strong>irrevogável</strong> e deve ser exercida no primeiro exercício de residência. Saída fiscal do Brasil (DIRPF de saída definitiva + ganho de capital sobre patrimônio global) exige planejamento; obter residência UY não basta — é necessária comunicação formal à RFB.",
         sources: [
@@ -681,7 +665,7 @@ Naturalização em 3 anos (investimento) ou 5 anos (geral). Passaporte uruguaio:
           { l: "Naturalização ger.", v: "5 anos" },
         ],
         impact:
-          "Processo imigratório mais ágil e seguro da AL para HNWIs. Sem burocracia excessiva, sem corrupção sistêmica, sem risco político material. Montevidéu como centro financeiro regional.",
+          "Processamento de residência em 3–6 meses. Montevidéu funciona como centro financeiro regional.",
         sources: [
           { t: "Dirección Nacional de Migración", u: "https://migracion.minterior.gub.uy" },
         ],
@@ -693,8 +677,6 @@ Naturalização em 3 anos (investimento) ou 5 anos (geral). Passaporte uruguaio:
     flagCode: "gb",
     name: "Reino Unido",
     region: "Europa",
-    attract: "⭐⭐",
-    attractLabel: "Baixa · Pós-Non-Dom",
     alert: true,
     sumFiscal: "FIG 4 anos · Non-Dom abolido abr/2025",
     sumFS: "new",
@@ -731,7 +713,7 @@ Após 4 anos: tributação global (IT até 45%; CGT até 24%; IHT 40% >£325k). 
           { l: "IHT", v: "40% (>£325k)" },
         ],
         impact:
-          "Janela muito estreita: 4 anos vs. 15 anos da Grécia/Itália, sem prorrogação. Londres mantém atratividade para missões temporárias e gestores de fundos, mas perdeu relevância de longo prazo.",
+          "Duração de 4 anos, sem prorrogação, ante 15 anos nos regimes equivalentes da Grécia e da Itália. Aplicável a missões temporárias e gestores de fundos; não cobre planejamento de longo prazo.",
         warning:
           "HNWIs no Non-Dom que permaneceram passam a ser tributados sobre renda global desde abr/2025. Avaliação urgente de reestruturação patrimonial.",
         sources: [{ t: "HMRC · FIG Guidance", u: "https://www.gov.uk" }],
@@ -762,8 +744,6 @@ Após 4 anos: tributação global (IT até 45%; CGT até 24%; IHT 40% >£325k). 
     flagCode: "hk",
     name: "Hong Kong",
     region: "Ásia",
-    attract: "⭐⭐⭐",
-    attractLabel: "Média-alta · Risco político",
     alert: false,
     sumFiscal: "Tributação territorial · IR máx. 17%",
     sumFS: "ok",
@@ -807,7 +787,7 @@ Após 4 anos: tributação global (IT até 45%; CGT até 24%; IHT 40% >£325k). 
           { l: "Reativado", v: "Março 2024" },
         ],
         impact:
-          "Ticket elevado, mas HK oferece acesso único ao mercado financeiro chinês e asiático, além do sistema bancário mais sofisticado da Ásia. Adequado para family offices.",
+          "Requer investimento elevado. Hong Kong oferece acesso ao mercado financeiro chinês e asiático.",
         sources: [{ t: "Immigration Department", u: "https://www.immd.gov.hk" }],
       },
       {

@@ -41,9 +41,6 @@ export interface Country {
   flagCode: string;
   name: string;
   region: Region;
-  /** Estrelas unicode ou o literal "Complexo". */
-  attract: string;
-  attractLabel: string;
   alert: boolean;
   sumFiscal: string;
   sumFS: Status;

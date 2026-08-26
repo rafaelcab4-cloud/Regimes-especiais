@@ -13,7 +13,7 @@ export const ALERTS: Alert[] = [
     tone: "amber",
     tag: "Alterado",
     title: "Itália — Flat Tax sobe a €300k/ano",
-    body: "Lei Orçamentária 2026 aumentou pela 3ª vez: de €200k para €300k. Familiar: €50k/pessoa. Itália perde competitividade frente à Grécia (€100k).",
+    body: "Lei Orçamentária 2026 aumentou pela 3ª vez: de €200k para €300k. Familiar: €50k/pessoa. O novo valor equivale ao triplo do praticado pela Grécia (€100k).",
   },
   {
     countryId: "es",

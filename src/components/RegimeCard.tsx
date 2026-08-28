@@ -1,19 +1,39 @@
+import { ChevronRight, SquareArrowOutUpRight } from "lucide-react";
 import type { Regime } from "@/data/types";
 import { StatusBadge } from "./StatusTag";
-import SourceLinks from "./SourceLinks";
 import { sanitizeRichText } from "@/lib/richText";
 
-/** Bloco de texto com heading próprio, usado pelas seções de aprofundamento. */
-function RichBlock({ title, body }: { title: string; body: string }) {
+/**
+ * Bloco de aprofundamento, fechado por padrão. Usa <details>/<summary> —
+ * navegável por teclado e por leitor de tela sem JS adicional, e localizável
+ * pelo "buscar na página" do navegador mesmo fechado (Chrome/Firefox/Safari
+ * expandem automaticamente o <details> que contém o trecho encontrado).
+ */
+function Accordion({
+  title,
+  meta,
+  children,
+}: {
+  title: string;
+  meta?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section className="rg-block">
-      <h4 className="rg-block-title">{title}</h4>
-      <div
-        className="rg-block-body"
-        dangerouslySetInnerHTML={{ __html: sanitizeRichText(body) }}
-      />
-    </section>
+    <details className="rg-block">
+      <summary>
+        <span className="rg-block-title">
+          <ChevronRight size={11} className="rg-acc-caret" aria-hidden />
+          {title}
+        </span>
+        {meta && <span className="rg-acc-meta">{meta}</span>}
+      </summary>
+      <div className="rg-block-content">{children}</div>
+    </details>
   );
+}
+
+function pt(n: number, singular: string, plural: string) {
+  return `${n} ${n === 1 ? singular : plural}`;
 }
 
 export default function RegimeCard({
@@ -55,9 +75,21 @@ export default function RegimeCard({
         </div>
       )}
 
+      {regime.warning && (
+        <div className="warn-box">
+          <div className="l">— Atenção / Risco</div>
+          <div
+            className="t"
+            dangerouslySetInnerHTML={{ __html: sanitizeRichText(regime.warning) }}
+          />
+        </div>
+      )}
+
       {regime.requirements && regime.requirements.length > 0 && (
-        <section className="rg-block">
-          <h4 className="rg-block-title">Requisitos de elegibilidade</h4>
+        <Accordion
+          title="Requisitos de elegibilidade"
+          meta={pt(regime.requirements.length, "item", "itens")}
+        >
           <ul className="rg-checklist">
             {regime.requirements.map((req, i) => (
               <li
@@ -66,12 +98,14 @@ export default function RegimeCard({
               />
             ))}
           </ul>
-        </section>
+        </Accordion>
       )}
 
       {regime.process && regime.process.length > 0 && (
-        <section className="rg-block">
-          <h4 className="rg-block-title">Processo, passo a passo</h4>
+        <Accordion
+          title="Processo, passo a passo"
+          meta={pt(regime.process.length, "etapa", "etapas")}
+        >
           <ol className="rg-steps">
             {regime.process.map((s, i) => (
               <li key={i}>
@@ -86,12 +120,14 @@ export default function RegimeCard({
               </li>
             ))}
           </ol>
-        </section>
+        </Accordion>
       )}
 
       {regime.costs && regime.costs.length > 0 && (
-        <section className="rg-block">
-          <h4 className="rg-block-title">Custos e valores</h4>
+        <Accordion
+          title="Custos e valores"
+          meta={pt(regime.costs.length, "item", "itens")}
+        >
           <div className="rg-costs">
             {regime.costs.map((c, i) => (
               <div className="rg-cost-row" key={i}>
@@ -101,43 +137,56 @@ export default function RegimeCard({
               </div>
             ))}
           </div>
-        </section>
+        </Accordion>
       )}
 
       {regime.sections?.map((s) => (
-        <RichBlock key={s.title} title={s.title} body={s.body} />
+        <Accordion key={s.title} title={s.title}>
+          <div
+            className="rg-block-body"
+            dangerouslySetInnerHTML={{ __html: sanitizeRichText(s.body) }}
+          />
+        </Accordion>
       ))}
 
       {regime.impact && (
-        <div className="impact-box">
-          <div className="l">— Impacto HNWI</div>
-          <div className="t">{regime.impact}</div>
-        </div>
+        <Accordion title="Impacto HNWI">
+          <div className="impact-box">
+            <div className="t">{regime.impact}</div>
+          </div>
+        </Accordion>
       )}
 
       {regime.brazilNote && (
-        <div className="brazil-box">
-          <div className="l">— Interação com o Brasil</div>
-          <div
-            className="t"
-            dangerouslySetInnerHTML={{
-              __html: sanitizeRichText(regime.brazilNote),
-            }}
-          />
-        </div>
+        <Accordion title="Interação com o Brasil">
+          <div className="brazil-box">
+            <div
+              className="t"
+              dangerouslySetInnerHTML={{
+                __html: sanitizeRichText(regime.brazilNote),
+              }}
+            />
+          </div>
+        </Accordion>
       )}
 
-      {regime.warning && (
-        <div className="warn-box">
-          <div className="l">— Atenção / Risco</div>
-          <div
-            className="t"
-            dangerouslySetInnerHTML={{ __html: sanitizeRichText(regime.warning) }}
-          />
-        </div>
+      {regime.sources.length > 0 && (
+        <Accordion title="Fontes" meta={pt(regime.sources.length, "link", "links")}>
+          <div className="src-row">
+            {regime.sources.map((s) => (
+              <a
+                key={s.u}
+                className="src-link"
+                href={s.u}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SquareArrowOutUpRight size={9} aria-hidden /> {s.t}
+              </a>
+            ))}
+          </div>
+        </Accordion>
       )}
-
-      <SourceLinks sources={regime.sources} />
     </article>
   );
 }

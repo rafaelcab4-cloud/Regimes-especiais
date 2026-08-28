@@ -853,11 +853,28 @@ tbody tr:last-child td {
   margin-right: 6px;
 }
 
-/* ── blocos de aprofundamento ── */
+/* ── blocos de aprofundamento (colapsáveis) ── */
 .rg-block {
   margin-bottom: 18px;
   padding-top: 16px;
   border-top: 1px solid var(--line-soft);
+}
+.rg-block > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.rg-block > summary::-webkit-details-marker,
+.rg-block > summary::marker {
+  display: none;
+  content: "";
+}
+.rg-block > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .rg-block-title {
   font-family: var(--font-mono);
@@ -866,7 +883,29 @@ tbody tr:last-child td {
   text-transform: uppercase;
   font-weight: 600;
   color: var(--accent);
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rg-acc-caret {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.18s ease;
+}
+.rg-block[open] > summary .rg-acc-caret {
+  transform: rotate(90deg);
+}
+.rg-acc-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.rg-block-content {
+  margin-top: 14px;
 }
 .rg-block-body {
   font-size: 13px;
@@ -1168,6 +1207,9 @@ tbody tr:last-child td {
     animation: none;
   }
   .flag-tab .flag-icon {
+    transition: none;
+  }
+  .rg-acc-caret {
     transition: none;
   }
 }

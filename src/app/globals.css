@@ -834,6 +834,203 @@ tbody tr:last-child td {
   color: var(--ink);
   font-family: var(--font-sans);
 }
+/* ── base legal ── */
+.regime-legal {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: #faf8f3;
+  border-left: 2px solid var(--line);
+  padding: 9px 12px;
+  margin-bottom: 16px;
+}
+.rg-legal-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* ── blocos de aprofundamento ── */
+.rg-block {
+  margin-bottom: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+.rg-block-title {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.rg-block-body {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.75;
+}
+.rg-block-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.rg-block-body em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ── checklist de requisitos ── */
+.rg-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.rg-checklist li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.rg-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--accent);
+}
+.rg-checklist strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── passo a passo ── */
+.rg-steps {
+  list-style: none;
+  counter-reset: rgstep;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rg-steps li {
+  counter-increment: rgstep;
+  position: relative;
+  padding-left: 30px;
+}
+.rg-steps li::before {
+  content: counter(rgstep, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.rg-step-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 3px;
+}
+.rg-step-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.rg-step-timing {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: #faf8f3;
+  border: 1px solid var(--line-soft);
+  padding: 3px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.rg-step-detail {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.rg-step-detail strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── tabela de custos ── */
+.rg-costs {
+  border-top: 1px solid var(--line-soft);
+}
+.rg-cost-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.rg-cost-item {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.rg-cost-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+.rg-cost-note {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* ── caixa de interação com o Brasil ── */
+.brazil-box {
+  border-left: 2px solid var(--green);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  background: #eef3ef;
+}
+.brazil-box .l {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.brazil-box .t {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+.brazil-box .t strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .impact-box {
   border-left: 2px solid var(--blue);
   padding: 14px 18px;

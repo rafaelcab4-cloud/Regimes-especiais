@@ -96,10 +96,8 @@ export default function RegimeCard({
             {regime.costs.map((c, i) => (
               <div className="rg-cost-row" key={i}>
                 <div className="rg-cost-item">{c.item}</div>
-                <div className="rg-cost-value">
-                  {c.value}
-                  {c.note && <span className="rg-cost-note">{c.note}</span>}
-                </div>
+                <div className="rg-cost-value">{c.value}</div>
+                {c.note && <div className="rg-cost-note">{c.note}</div>}
               </div>
             ))}
           </div>

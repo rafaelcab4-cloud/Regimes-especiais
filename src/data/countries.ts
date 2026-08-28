@@ -3398,165 +3398,1657 @@ Conta bancária nos Emirados é reportável no IRPF e, acima dos limites, na <st
     flagCode: "us",
     name: "Estados Unidos",
     region: "Américas",
-    alert: false,
-    sumFiscal: "CBDT · Tributação por cidadania",
+    alert: true,
+    sumFiscal: "Tributação por cidadania · estate tax de USD 60k",
     sumFS: "risk",
-    sumVisa: "Gold Card · Platinum · EB-2 NIW · EB-5",
+    sumVisa: "EB-5 USD 800k · EB-1A · EB-2 NIW · Gold Card",
     sumVS: "new",
     fiscal: [
       {
-        name: "Sistema CBDT — Citizenship-Based Taxation",
-        status: "risk",
-        desc: `Os EUA são um dos únicos países do mundo (com a Eritréia) que tributa cidadãos e residentes permanentes sobre <strong>renda mundial independente de onde moram</strong>. Qualquer titular de cidadania americana ou green card é obrigado a declarar e pagar impostos sobre toda renda global ao IRS.
+        name: "Residência fiscal — green card test e substantial presence test",
+        status: "ok",
+        legalBasis:
+          "<strong>IRC §7701(b)</strong> — <em>Definition of resident alien and nonresident alien</em> (26 U.S.C. §7701(b)). <strong>Treas. Reg. §301.7701(b)-1 a -9</strong> (26 C.F.R.). IRS: <em>Determining an individual's tax residency status</em> e <em>Substantial Presence Test</em>.",
+        desc: `Uma pessoa física estrangeira é <strong>resident alien</strong> — tributada sobre <strong>renda mundial</strong>, como um cidadão — se satisfizer <strong>qualquer um</strong> dos dois testes:
 
-<strong>Estruturas para não-cidadãos:</strong> Foreign Grantor Trust (preserva assets antes do GC); Non-Grantor Trust (isolamento de rendimentos); Corporate Holding (atenção a CFC/PFIC rules); Pre-Immigration Planning (ganhos acumulados antes do GC são tributados).`,
+<strong>(a) Green Card Test</strong> — IRC §7701(b)(1)(A)(i). Ser <em>lawful permanent resident</em> em qualquer momento do ano-calendário. O status fiscal começa no primeiro dia de presença física nos EUA na condição de LPR e <strong>persiste até que o green card seja formalmente abandonado (Form I-407), revogado, ou administrativa ou judicialmente determinado como abandonado</strong>. <strong>Morar fora dos EUA não encerra automaticamente a obrigação fiscal.</strong>
+
+<strong>(b) Substantial Presence Test (SPT)</strong> — IRC §7701(b)(3). Cumulativamente:
+· <strong>31 dias ou mais</strong> de presença física no ano-calendário corrente; <strong>e</strong>
+· <strong>183 dias ou mais</strong> na soma ponderada de três anos: ano corrente × <strong>1</strong>; ano anterior × <strong>1/3</strong>; segundo ano anterior × <strong>1/6</strong>.
+
+<strong>Regra prática derivada:</strong> uma permanência estável de <strong>até 121 dias por ano</strong> mantém o total ponderado abaixo de 183 (121 + 40,33 + 20,17 = 181,5). <strong>A partir de 122 dias por ano constantes, o teste é satisfeito.</strong>`,
         kv: [
-          { l: "Base", v: "Renda mundial" },
-          { l: "Não-residentes", v: "Apenas fonte EUA" },
-          { l: "Estate (não-domic.)", v: "Isenção USD 60k" },
-          { l: "Estate/Gift (cidadão/GC, 2026)", v: "USD 15.000.000" },
-          { l: "Covered expatriate (patrimônio)", v: "≥USD 2M" },
-          { l: "Covered expatriate (IR médio 5a)", v: "≥USD 211.000 (2026)" },
-          { l: "Exclusão do ganho no Exit Tax", v: "USD 910.000 (2026)" },
-          { l: "PFIC reporting", v: "Obrigatório" },
+          { l: "Green card", v: "Residência fiscal imediata" },
+          { l: "SPT — ano corrente", v: "Peso 1" },
+          { l: "SPT — ano anterior", v: "Peso 1/3" },
+          { l: "SPT — segundo ano anterior", v: "Peso 1/6" },
+          { l: "Limiar do SPT", v: "183 dias ponderados" },
+          { l: "Presença segura estável", v: "Até 121 dias/ano" },
+          { l: "Closer connection", v: "Só se < 183 dias efetivos" },
+          { l: "Form 8840", v: "Prazo do 1040-NR" },
+          { l: "Form 8843", v: "Dias de exempt individual" },
+          { l: "Tie-breaker de tratado", v: "Indisponível ao Brasil" },
         ],
-        impact:
-          "EUA não são destino de otimização fiscal passiva. São destino de acesso a mercado, proteção patrimonial via trust e mobilidade. Custo de compliance substancial.",
-        warning:
-          'Renunciar à cidadania implica "Exit Tax" sobre ganhos não realizados (Sec. 877A IRC) para "covered expatriates" — patrimônio líquido ≥USD 2M, ou imposto de renda médio dos últimos 5 anos ≥USD 211.000 (2026), ou não certificação de conformidade fiscal via Form 8854. O coberto expatriado é tributado como se tivesse vendido todos os ativos no dia anterior à saída, com os primeiros USD 910.000 de ganho isentos (2026). FBAR (FinCEN 114): limiar único de USD 10.000 agregados em contas no exterior. FATCA (Form 8938): USD 50k/75k para residentes solteiros; USD 200k/300k para não-residentes solteiros ("living abroad"); USD 400k/600k para casados não-residentes.',
+        requirements: [
+          "<strong>Para permanecer NRA:</strong> não deter green card em nenhum dia do ano.",
+          "Manter <strong>dias ponderados abaixo de 183</strong> — planilha de contagem por <strong>ano-calendário</strong>, não por ano fiscal.",
+          "Se ultrapassar 183 ponderados: presença no ano corrente <strong>inferior a 183 dias efetivos</strong> e protocolo do <strong>Form 8840</strong>.",
+          "Documentar entradas e saídas — registos <strong>I-94</strong> do CBP, cartões de embarque, extratos.",
+          "Não realizar eleição de residência — §7701(b)(4) (<em>first-year election</em>) ou §6013(g) (<em>joint election</em>).",
+          "<strong>Closer connection (IRC §7701(b)(3)(B) e (C); Treas. Reg. §301.7701(b)-2):</strong> presença nos EUA <strong>inferior a 183 dias no ano-calendário corrente</strong> — a exceção é <strong>indisponível a partir de 183 dias efetivos</strong>.",
+          "<strong>Closer connection:</strong> manter <em>tax home</em> (IRC §911(d)(3)) em país estrangeiro durante todo o ano.",
+          "<strong>Closer connection:</strong> demonstrar vínculo mais estreito com esse país (ou com dois países, sob a regra especial do §301.7701(b)-2(f)) — avaliado por domicílio permanente, localização da família, bens pessoais, filiações sociais, políticas, culturais e religiosas, local de atividade económica, jurisdição da carteira de motorista, país de registo eleitoral, e país declarado como residência em formulários e contratos.",
+          "<strong>Closer connection:</strong> <strong>não</strong> ter requerido, nem ter pendente, pedido de green card — a solicitação de LPR, ou passos nessa direção, afasta a exceção (§7701(b)(3)(C)).",
+        ],
+        process: [
+          {
+            step: "Contagem e documentação dos dias",
+            detail:
+              "Planilha por ano-calendário, com registos I-94 do CBP, cartões de embarque e extratos. A contagem ponderada de três anos deve ser refeita a cada ano.",
+            timing: "Contínua",
+          },
+          {
+            step: "Form 8843 — dias de exempt individual",
+            detail:
+              "<em>Statement for Exempt Individuals and Individuals With a Medical Condition</em>. Veículo declaratório dos dias que <strong>não contam</strong>: portador de visto <strong>A/G</strong> (diplomata ou organismo internacional); <strong>F/J/M/Q</strong> (estudante — até 5 anos-calendário; professor ou pesquisador J/Q — 2 de 6 anos); atleta profissional em evento beneficente; dias em que a pessoa não pôde sair por <strong>condição médica surgida nos EUA</strong>; dias de trânsito (menos de 24h) entre dois pontos fora dos EUA; e <em>commuters</em> regulares do Canadá e do México.\n<strong>A falta de protocolo pode implicar contagem dos dias.</strong>",
+            timing: "Anual",
+          },
+          {
+            step: "Form 8840 — closer connection",
+            detail:
+              "Anexo ao <strong>Form 1040-NR</strong>, se houver obrigação de declarar; ou envio isolado ao IRS, se não houver 1040-NR devido. <em>Endereço de protocolo isolado a confirmar nas instruções vigentes do formulário.</em>",
+            timing: "15/abr, 15/jun ou 15/out",
+          },
+          {
+            step: "Prazo do 1040-NR",
+            detail:
+              "<strong>15 de abril</strong> se houver salário sujeito a retenção; <strong>15 de junho</strong> se não houver salário; extensão até <strong>15 de outubro</strong> via Form 4868.",
+            timing: "Anual",
+          },
+        ],
+        costs: [
+          { item: "Form 8840", value: "Sem taxa" },
+          { item: "Form 8843", value: "Sem taxa" },
+          { item: "Form 1040-NR", value: "Sem taxa" },
+          {
+            item: "Custo da perda do status de NRA",
+            value: "Tributação mundial",
+            note: "Renda, herança e doação sobre patrimônio global, mais o pacote declaratório completo",
+          },
+        ],
+        sections: [
+          {
+            title: "Data de início e término da residência",
+            body: `<strong>Início</strong> (§7701(b)(2)(A)): primeiro dia de presença física no ano em que o SPT é satisfeito, com regra de <em>de minimis</em> de até <strong>10 dias</strong> desconsiderados, se houver <em>closer connection</em> nesse período.
+
+<strong>Término</strong> (§7701(b)(2)(B)): último dia de presença, desde que no restante do ano haja <em>closer connection</em> com país estrangeiro e nenhuma residência no ano seguinte.
+
+<strong>Dual-status return:</strong> no ano de entrada ou de saída, declara-se parte do ano como NRA e parte como <em>resident</em> — 1040 com anexo 1040-NR, ou vice-versa. <strong>Não se permite <em>married filing jointly</em></strong> no ano de <em>dual-status</em>, salvo eleição §6013(g) ou (h).`,
+          },
+          {
+            title: "Por que o Form 8840 é a única saída para o brasileiro",
+            body: `Como <strong>não há tratado de renda entre Brasil e Estados Unidos</strong>, <strong>não existe cláusula de <em>tie-breaker</em> de residência</strong> disponível ao brasileiro.
+
+O <strong>Form 8840</strong> é o <strong>único mecanismo doméstico de desempate</strong>.
+
+Nacionais de países com tratado dispõem, adicionalmente, do <strong>Form 8833</strong> (<em>treaty-based return position</em>) — via <strong>indisponível ao residente do Brasil</strong>.
+
+<strong>Consequência do protocolo intempestivo:</strong> o Form 8840 <strong>não pode ser protocolado após o vencimento</strong> do 1040-NR correspondente, incluídas as extensões. A perda do prazo pode implicar tratamento como <em>resident alien</em>, com tributação mundial, salvo demonstração de <em>reasonable cause</em> (Treas. Reg. §301.7701(b)-8).`,
+          },
+        ],
+        brazilNote: `<strong>O brasileiro que cruza o SPT sem perceber é o cenário mais comum e mais caro deste dossiê.</strong> A contagem ponderada de três anos surpreende quem raciocina apenas com «menos de 183 dias por ano»: alguém que passe 150 dias por ano nos EUA satisfaz o teste no terceiro ano (150 + 50 + 25 = 225).
+
+<strong>Sem tratado, sem tie-breaker.</strong> Se o Brasil e os Estados Unidos considerarem a pessoa residente simultaneamente, não há regra convencional de desempate. O alívio depende do Form 8840 — que exige presença inferior a 183 dias efetivos no ano — e, no Brasil, do crédito por reciprocidade.
+
+<strong>Green card holder residindo no Brasil</strong> é o cenário de atrito máximo: US person por green card (renda mundial para o IRS) e residente fiscal brasileiro (renda mundial para a RFB), sem tie-breaker. Os alívios disponíveis são o <em>Foreign Tax Credit</em> (Form 1116) e o FEIE (Form 2555) do lado americano, e o crédito por reciprocidade (ADI SRF 28/2000) do lado brasileiro — este último <strong>rendimento a rendimento</strong>, sem <em>pooling</em>.
+
+<strong>Riscos residuais nesse cenário:</strong> (i) diferença de ano-base e de regime de caixa ou competência; (ii) rendimentos <strong>isentos no Brasil e tributáveis nos EUA</strong> — dividendos brasileiros, ganho em bolsa até R$ 20.000/mês, poupança, LCI e LCA — que geram imposto americano <strong>sem crédito brasileiro correspondente</strong>; (iii) regime PFIC sobre fundos brasileiros; (iv) o pacote FBAR, 8938, 5471 e 3520; e (v) <em>state income tax</em>, que <strong>não é creditável</strong> no Brasil.`,
         sources: [
-          { t: "IRS · IRC", u: "https://www.irs.gov" },
-          { t: "IRS Newsroom · Tax Inflation Adjustments 2026", u: "https://www.irs.gov/newsroom" },
-          { t: "IRS · Expatriation Tax", u: "https://www.irs.gov" },
-          { t: "USCIS", u: "https://www.uscis.gov" },
+          {
+            t: "IRS · Substantial Presence Test",
+            u: "https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test",
+          },
+          {
+            t: "IRS · Determining an individual's tax residency status",
+            u: "https://www.irs.gov/individuals/international-taxpayers/determining-an-individuals-tax-residency-status",
+          },
+          {
+            t: "Cornell LII · 26 U.S. Code §7701(b)",
+            u: "https://www.law.cornell.edu/uscode/text/26/7701",
+          },
+          {
+            t: "IRS · Form 8840 — Closer Connection Exception Statement for Aliens",
+            u: "https://www.irs.gov/forms-pubs/about-form-8840",
+          },
+          {
+            t: "IRS · Publication 519 — U.S. Tax Guide for Aliens",
+            u: "https://www.irs.gov/forms-pubs/about-publication-519",
+          },
+        ],
+      },
+      {
+        name: "Tributação do não residente — FDAP, ECI e a isenção de ganho de capital",
+        status: "ok",
+        legalBasis:
+          "<strong>IRC §871(a)</strong> — imposto de 30% sobre FDAP. <strong>IRC §871(b)</strong> e <strong>§864(c)</strong> — ECI, alíquotas progressivas sobre lucro líquido. <strong>IRC §1441</strong> — retenção na fonte sobre pagamentos a estrangeiros; §1442 para corporações. <strong>IRS Publication 519</strong> e <strong>Publication 515</strong>. Formulários: 1040-NR, Schedule NEC, W-8BEN, 1042-S, 1042.",
+        desc: `O não residente é tributado por dois regimes distintos e mutuamente excludentes.
+
+<strong>FDAP — <em>Fixed, Determinable, Annual or Periodical income</em>:</strong> alíquota <strong>fixa de 30% sobre o valor bruto</strong>, sem dedução alguma. Retido na fonte pelo <em>withholding agent</em> (§1441) e reportado em <strong>Form 1042-S</strong>. Alcança dividendos de empresas americanas, juros não abrangidos pela <em>portfolio interest exemption</em>, royalties, aluguéis (salvo eleição §871(d)), pensões e prémios. Declarado no <strong>Schedule NEC</strong> do Form 1040-NR.
+
+<strong>Redutível por tratado — mas não para o Brasil: aplica-se 30% cheio.</strong>
+
+<strong>ECI — <em>Effectively Connected Income</em>:</strong> renda vinculada a <em>U.S. trade or business</em> (§864(b)-(c)). Tributação por <strong>alíquotas progressivas</strong> — sete faixas de <strong>10% a 37%</strong> em 2026, estrutura tornada permanente pelo <strong>One Big Beautiful Bill Act</strong> (Pub. L. 119-21, de 4/jul/2025), com parâmetros na Rev. Proc. 2025-32 e topo de 37% acima de USD 640.600 para solteiro. Incide <strong>sobre o lucro líquido</strong>, admitindo deduções ordinárias e necessárias. Declarado na página 1 do Form 1040-NR.
+
+<strong>O NRA não tem direito à <em>standard deduction</em></strong> (USD 16.100 para solteiro em 2026 — inaplicável). A exceção histórica prevista em tratado para estudantes da Índia <strong>não se aplica ao Brasil</strong>.`,
+        kv: [
+          { l: "Dividendos de US corp", v: "30% — sem redução por tratado" },
+          { l: "Portfolio interest", v: "0%" },
+          { l: "Juros de depósito bancário", v: "0%" },
+          { l: "Royalties", v: "30%" },
+          { l: "Aluguel bruto (sem eleição)", v: "30% sobre o bruto" },
+          { l: "Aluguel com eleição §871(d)", v: "10%–37% sobre o líquido" },
+          { l: "Ganho em ações — < 183 dias", v: "0%" },
+          { l: "Ganho em ações — ≥ 183 dias", v: "30%" },
+          { l: "Ganho em imóvel US", v: "FIRPTA · ECI progressivo" },
+          { l: "ECI", v: "10% a 37%" },
+          { l: "Standard deduction", v: "Indisponível ao NRA" },
+          { l: "NIIT (3,8%)", v: "Não se aplica ao NRA" },
+        ],
+        requirements: [
+          "<strong>Portfolio interest exemption</strong> (IRC §871(h) e §881(c)) — requisitos cumulativos: o <strong>devedor é US person</strong> (ou o juro é de fonte americana); a obrigação está em <strong>forma registada</strong> (<em>registered form</em>, §163(f)) — obrigações ao portador emitidas após 18/mar/2012 não qualificam; o credor entrega <strong>Form W-8BEN</strong> (pessoa física) ou W-8BEN-E (entidade) ao pagador; o credor <strong>não é acionista de 10% ou mais</strong> do devedor (§871(h)(3)); o juro <strong>não é contingente</strong> (§871(h)(4)) — não atrelado a receita, lucro, fluxo de caixa, dividendos, valorização ou variação patrimonial do devedor; o credor <strong>não é banco</strong> recebendo o juro em extensão de crédito no curso ordinário; e o devedor <strong>não é CFC relacionado</strong> ao credor.",
+          "<strong>Efeito da portfolio interest:</strong> retenção <strong>zero</strong>; sem Form 1042 ou 1042-S; e, sem outra fonte de renda americana, <strong>não há obrigação de declarar</strong> nos EUA.",
+          "<strong>Juros de depósito bancário</strong> (§871(i)(2)(A)) — juros pagos por bancos, associações de poupança e instituições depositárias americanas a NRA <strong>não são tributados</strong>, desde que não conectados a US trade or business. Isenção <strong>distinta</strong> da portfolio interest, e <strong>não exige forma registada</strong>.",
+          "<strong>Ganho de capital — regra geral:</strong> ganho de capital de fonte americana não-ECI <strong>é isento</strong> para o NRA presente menos de 183 dias no ano-calendário.",
+          "<strong>Ganho de capital — exceção do §871(a)(2):</strong> se o NRA esteve presente <strong>183 dias ou mais no ano-calendário</strong> (aqui a contagem é de <strong>dias efetivos no ano</strong>, não ponderada), os ganhos líquidos de capital de fonte americana são tributados a <strong>30%</strong>, no Schedule NEC, <strong>sem compensação de perdas de outros anos</strong>.",
+          "<strong>Ganho de capital — exceção permanente:</strong> USRPI (FIRPTA, §897) é sempre tratado como ECI.",
+        ],
+        sections: [
+          {
+            title: "Não incidência de contribuições",
+            body: `<strong>Net Investment Income Tax (3,8%, IRC §1411):</strong> por <strong>IRC §1411(e)(1)</strong>, <strong>não se aplica a nonresident aliens</strong>. <em>A citação da subseção deve ser confirmada em law.cornell.edu/uscode/text/26/1411.</em>
+
+<strong>FICA e Medicare:</strong> não incidem sobre NRA sem vínculo empregatício nos EUA. Incidem sobre salário pago nos EUA, com isenções específicas (F/J/M/Q).
+
+<strong>Acordo de Previdência Brasil–EUA:</strong> assinado em 30/jun/2015 em Washington, promulgado pelo <strong>Decreto n.º 9.422, de 25 de junho de 2018</strong>, <strong>em vigor desde 1 de outubro de 2018</strong>. Disciplina a lei aplicável, evita a dupla contribuição previdenciária, e permite <strong>totalização de períodos</strong> — cobre aposentadoria por idade, pensão por morte e aposentadoria por invalidez.`,
+          },
+          {
+            title: "O trade-off estrutural do brasileiro que investe nos EUA",
+            body: `Um brasileiro NRA que detenha <strong>ações de empresas americanas</strong> está simultaneamente:
+· <strong>isento de imposto de renda americano</strong> sobre o ganho de capital, se presente menos de 183 dias; e
+· <strong>exposto a estate tax de até 40%</strong> sobre o mesmo ativo acima de <strong>USD 60.000</strong>, porque ação de US corporation é <em>US situs</em> (§2104(a)).
+
+O mesmo brasileiro que detenha <strong>ETF UCITS irlandês</strong> replicando o S&amp;P 500 está:
+· <strong>fora do estate tax americano</strong> (§2105); e
+· sujeito à retenção de <strong>15% sobre dividendos</strong> na camada Irlanda–EUA (tratado EUA–Irlanda), com <em>leakage</em> não recuperável no Brasil, em vez dos 30% da retenção direta. <em>Alíquota do tratado EUA–Irlanda a confirmar.</em>
+
+<strong>É a escolha central do desenho da carteira americana para o brasileiro:</strong> exposição direta preserva a isenção de ganho de capital, mas cria exposição sucessória de 40% acima de USD 60.000. A via UCITS elimina a exposição sucessória ao custo de uma camada de retenção sobre dividendos.`,
+          },
+          {
+            title: "Nota sobre o reporte de juros de depósito",
+            body: `Desde <strong>2013</strong>, instituições americanas devem reportar em <strong>Form 1042-S</strong> os juros de depósito pagos a residentes de países listados como parceiros de troca automática. A lista foi publicada e atualizada por <em>Revenue Procedures</em> — Rev. Proc. 2012-24 e sucessoras, incluindo a Rev. Proc. 2014-64.
+
+<strong>O Brasil consta dessa lista</strong> — logo, o juro é <strong>isento de imposto, porém reportado</strong>.
+
+<em>A Revenue Procedure mais recente que atualiza as listas do §1.6049-8(a) e do §1.6049-4(b)(5), e a inclusão corrente do Brasil, devem ser confirmadas.</em>`,
+          },
+        ],
+        brazilNote: `<strong>Fluxo Brasil ↔ EUA, sem tratado — o quadro completo:</strong>
+
+· <strong>Dividendos de US corp</strong> → <strong>30%</strong> na fonte nos EUA, sem redução; no Brasil, Carnê-Leão até 27,5% (recebimento direto) ou <strong>15%</strong> se via entidade offshore controlada (Lei 14.754/2023). <strong>Crédito por reciprocidade, limitado ao IR brasileiro do mesmo rendimento</strong> — e, como 30% excede os 27,5% brasileiros, <strong>a diferença é custo definitivo</strong>.
+· <strong>Portfolio interest</strong> → 0% nos EUA; <strong>15%</strong> no Brasil (Lei 14.754/2023). Não há crédito, pois não houve imposto americano.
+· <strong>Juros de depósito bancário americano</strong> → 0% nos EUA (reportado em 1042-S); 15% no Brasil.
+· <strong>US Treasuries</strong> → 0% (portfolio interest); 15% no Brasil.
+· <strong>Ganho de capital em ações, com menos de 183 dias</strong> → <strong>0%</strong> nos EUA; 15% no Brasil (Lei 14.754/2023) ou 15%–22,5% (GCAP), conforme a classificação.
+· <strong>Ganho de capital em ações, com 183 dias ou mais</strong> → 30% nos EUA; crédito por reciprocidade no Brasil.
+· <strong>Aluguel de imóvel americano, sem eleição</strong> → 30% sobre o <strong>bruto</strong> (FDAP); Carnê-Leão no Brasil; crédito limitado.
+· <strong>Aluguel com eleição §871(d)</strong> → progressivo sobre o líquido, com depreciação dedutível; Carnê-Leão no Brasil.
+· <strong>State income tax</strong> sobre qualquer dos acima → <strong>NÃO é creditável</strong> no Brasil (o ADI SRF 28/2000 exclui tributos estaduais e municipais).
+
+<strong>Cálculo ilustrativo — dividendo de USD 100.000:</strong> retenção americana de USD 30.000 (30%); líquido de USD 70.000; imposto brasileiro pelo Carnê-Leão até USD 27.500 (27,5%); crédito por reciprocidade de até USD 27.500; imposto adicional no Brasil de USD 0; e <strong>excedente de USD 2.500 perdido</strong> — não restituível, não compensável com outros rendimentos, não carregável para anos seguintes.
+
+<strong>A carga efetiva do dividendo americano para o residente brasileiro é a retenção americana de 30%</strong>, superior à alíquota brasileira máxima.
+
+<strong>No sentido inverso — americano investindo no Brasil:</strong> dividendos brasileiros <strong>não são <em>qualified dividends</em></strong> (IRC §1(h)(11)(C)(i)(II) exige tratado abrangente com cláusula de troca de informações), sendo tributados como <strong>renda ordinária, até 37%</strong>, em vez de 0/15/20%. <em>Verificar a lista do IRS de tratados qualificados na Notice 2011-64 e sucessoras.</em>`,
+        warning: `<strong>Os 30% de retenção sobre dividendos americanos não são reduzíveis para o residente do Brasil.</strong> Um residente do Reino Unido paga 15%; do México, 10% ou 15%. A ausência de tratado é um custo direto e permanente, não uma formalidade.
+
+E como a alíquota americana (30%) <strong>excede</strong> a brasileira máxima (27,5%), o crédito por reciprocidade <strong>nunca cobre a diferença</strong> — os 2,5 pontos percentuais excedentes são perda definitiva a cada distribuição.`,
+        sources: [
+          {
+            t: "IRS · Taxation of nonresident aliens",
+            u: "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens",
+          },
+          {
+            t: "IRS · Publication 515 — Withholding of Tax on Nonresident Aliens and Foreign Entities",
+            u: "https://www.irs.gov/forms-pubs/about-publication-515",
+          },
+          {
+            t: "IRS · Nontaxable types of interest income for nonresident aliens",
+            u: "https://www.irs.gov/individuals/international-taxpayers/nontaxable-types-of-interest-income-for-nonresident-aliens",
+          },
+          {
+            t: "IRS · Effectively Connected Income (ECI)",
+            u: "https://www.irs.gov/individuals/international-taxpayers/effectively-connected-income-eci",
+          },
+          {
+            t: "Planalto · Decreto n.º 9.422/2018 (Acordo de Previdência Brasil–EUA)",
+            u: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9422.htm",
+          },
+        ],
+      },
+      {
+        name: "Estate & Gift Tax do não domiciliado — a exclusão de USD 60.000",
+        status: "risk",
+        legalBasis:
+          "<strong>IRC §2101</strong> — imposto sucessório sobre o espólio de <em>nonresident not a citizen</em>. <strong>IRC §2102(b)(1)</strong> — <em>unified credit</em> de <strong>USD 13.000</strong>, equivalente a exclusão de <strong>USD 60.000</strong>. <strong>IRC §2001(c)</strong> — tabela progressiva, alíquota marginal máxima de <strong>40%</strong>. <strong>IRC §§2103 a 2106</strong> — base de cálculo, situs e deduções proporcionais. <strong>IRC §2501(a)(2)</strong> — gift tax do NRA restrito a bens tangíveis nos EUA. <strong>IRC §2010(c)(3)(A)</strong> — <em>basic exclusion amount</em> do cidadão ou residente, fixado em <strong>USD 15.000.000</strong> para 2026 pelo <strong>One Big Beautiful Bill Act (Pub. L. 119-21, de 4/jul/2025)</strong>, <strong>sem sunset</strong>, com indexação a partir de 2027.",
+        desc: `<strong>O contraste numérico — o dado mais importante deste dossiê:</strong>
+
+| Parâmetro (2026) | Cidadão ou residente domiciliado | <strong>Não residente não domiciliado</strong> |
+· Exclusão (estate) → USD <strong>15.000.000</strong> → <strong>USD 60.000</strong>
+· Unified credit → ≈USD 5.945.800 <em>(a confirmar)</em> → <strong>USD 13.000</strong>
+· Indexação da exclusão → sim, a partir de 2027 → <strong>nenhuma — congelada desde 1988</strong>
+· Base tributável → patrimônio <strong>mundial</strong> → apenas <strong>US situs assets</strong>
+· Alíquota marginal máxima → 40% → <strong>40%</strong>
+· Exclusão <em>lifetime</em> de gift tax → USD 15.000.000 → <strong>zero</strong>
+· Exclusão anual de doação, por donatário → USD 19.000 (2026) → <strong>USD 19.000</strong>
+· Exclusão anual — cônjuge não-cidadão → USD 194.000 → USD 194.000
+· <em>Marital deduction</em> ilimitada → sim, se cônjuge cidadão → <strong>não, salvo QDOT (§2056A)</strong>
+· <em>Gift splitting</em> entre cônjuges → sim → <strong>indisponível</strong> se o cônjuge for NRNC
+· Tratado sucessório com o Brasil → — → <strong>não existe</strong>
+
+<strong>Razão de proporção: 15.000.000 ÷ 60.000 = 250 vezes.</strong>
+
+<strong>Cálculo ilustrativo.</strong> Brasileiro não domiciliado falece em 2026 titular de <strong>USD 5.000.000 em ações de empresas americanas</strong> custodiadas em corretora nos EUA, sem estrutura: <em>gross estate</em> de 5.000.000, menos exclusão de 60.000, base de 4.940.000, imposto pela tabela do §2001(c) de aproximadamente <strong>USD 1.921.800</strong> <em>(cálculo aproximado, a recalcular pela tabela vigente)</em>. <strong>E não há crédito no Brasil para esse imposto.</strong>`,
+        kv: [
+          { l: "Exclusão do NRNC", v: "USD 60.000" },
+          { l: "Exclusão do cidadão (2026)", v: "USD 15.000.000" },
+          { l: "Razão de proporção", v: "250 vezes" },
+          { l: "Alíquota marginal máxima", v: "40%" },
+          { l: "Indexação da exclusão do NRNC", v: "Nenhuma desde 1988" },
+          { l: "Exclusão lifetime de gift tax", v: "Zero" },
+          { l: "Exclusão anual por donatário", v: "USD 19.000" },
+          { l: "Cônjuge não-cidadão — anual", v: "USD 194.000" },
+          { l: "Marital deduction ilimitada", v: "Só com QDOT" },
+          { l: "Tratado sucessório com o Brasil", v: "Inexistente" },
+          { l: "Form 706-NA", v: "9 meses do óbito" },
+          { l: "Transfer Certificate", v: "Meses a anos" },
+        ],
+        requirements: [
+          "<strong>Domicílio para transfer tax ≠ residência para income tax.</strong> Treas. Reg. §20.0-1(b)(1): domicílio é residir no país, ainda que por breve período, <strong>com a intenção de ali permanecer indefinidamente</strong> (<em>animus manendi</em>). É teste <strong>subjetivo e factual</strong>, distinto do SPT.",
+          "<strong>Consequência prática:</strong> uma pessoa pode ser <strong>NRA para income tax e, ainda assim, domiciliada para estate tax</strong> — com exposição mundial —, ou o inverso.",
+          "<strong>Fatores examinados:</strong> green card, imóvel de residência principal, localização da família, declarações em vistos e testamentos, sepultura, clubes, carteira de motorista, registo eleitoral.",
+          "<strong>A obtenção de green card é forte indício de domicílio</strong> — o titular passa, em regra, à exclusão de USD 15.000.000 e à base <strong>mundial</strong>.",
+          "<strong>Gift tax do NRNC — assimetria estrutural:</strong> a <strong>doação de bens intangíveis de situs americano não é tributada</strong> (IRC §2501(a)(2)) — ações de empresas americanas, títulos, participações societárias, contas bancárias. A <strong>doação de bens tangíveis situados nos EUA é tributada</strong> — imóveis, obras de arte fisicamente nos EUA, joias, dinheiro em espécie fisicamente nos EUA, veículos.",
+          "<strong>Não há exclusão lifetime de gift tax para o NRNC</strong> — apenas a exclusão anual (USD 19.000, ou USD 194.000 para cônjuge não-cidadão).",
+          "<strong>Consequência documentada:</strong> ações de empresas americanas <strong>podem ser doadas em vida por NRNC sem gift tax</strong>, mas, se mantidas até a morte, integram o <em>gross estate</em> a 40%. O tratamento diverge radicalmente conforme o evento.",
+        ],
+        process: [
+          {
+            step: "Form 706-NA — declaração do espólio",
+            detail:
+              "Devida quando os <em>US situs assets</em> superam <strong>USD 60.000</strong> no falecimento. Prazo de <strong>9 meses do óbito</strong>, com extensão de 6 meses via Form 4768.",
+            timing: "9 meses",
+          },
+          {
+            step: "Form 709 — gift tax",
+            detail:
+              "Devido na doação de bem <strong>tangível</strong> situado nos EUA acima da exclusão anual. Prazo: 15 de abril do ano seguinte.",
+            timing: "15 de abril",
+          },
+          {
+            step: "Transfer Certificate (Form 5173)",
+            detail:
+              "Documento que libera aos herdeiros os ativos custodiados nos EUA. Emitido após aceitação do 706-NA. <strong>Na prática, meses a anos.</strong>\n<strong>Ponto operacional crítico:</strong> custodiantes e <em>transfer agents</em> americanos costumam <strong>bloquear a transferência dos ativos aos herdeiros até a emissão do Transfer Certificate</strong>, o que prolonga a iliquidez do espólio <strong>independentemente do valor do imposto</strong>.",
+            timing: "Meses a anos",
+          },
+          {
+            step: "Form 706-QDT",
+            detail: "Declaração anual de distribuições de QDOT.",
+            timing: "Anual",
+          },
+        ],
+        costs: [
+          {
+            item: "Exclusão do não residente não domiciliado",
+            value: "USD 60.000",
+            note: "Unified credit de USD 13.000; congelada desde 1988",
+          },
+          {
+            item: "Alíquota sobre o excedente",
+            value: "Até 40%",
+            note: "Tabela progressiva do §2001(c); topo de 40% acima de USD 1.000.000",
+          },
+          {
+            item: "Exclusão anual de doação, por donatário",
+            value: "USD 19.000",
+            note: "Valor de 2026",
+          },
+          {
+            item: "Exclusão anual — cônjuge não-cidadão",
+            value: "USD 194.000",
+            note: "Valor de 2026",
+          },
+          {
+            item: "DIFC Wills equivalente nos EUA",
+            value: "Não existe",
+            note: "O planejamento é feito por estrutura, não por registo de testamento",
+          },
+        ],
+        sections: [
+          {
+            title: "Situs rules — o mapa dos ativos (estate tax)",
+            body: `<strong>Base legal:</strong> IRC §2104 (<em>Property within the United States</em>) e §2105 (<em>Property without</em>); Treas. Reg. §20.2104-1 e §20.2105-1; IRM 4.25.4.
+
+<strong>SÃO US situs:</strong>
+· <strong>Ações de corporação americana</strong> — <strong>mesmo que custodiadas fora dos EUA</strong>, mesmo em conta de corretora estrangeira (§2104(a)). Inclui ADRs de <em>US issuer</em> e ações não negociadas;
+· <strong>imóvel</strong> localizado nos EUA;
+· <strong>bens tangíveis</strong> fisicamente nos EUA — arte, joias, veículo, ouro em cofre;
+· <strong>caixa parado em conta de corretora (<em>brokerage</em>) ou <em>money market fund</em></strong> nos EUA — <strong>não é «bank deposit»</strong> para efeito do §2105(b);
+· <strong>US mutual funds e ETFs domiciliados nos EUA</strong> (registados como RIC) — são ações de entidade americana;
+· seguro de vida sobre a vida de <strong>terceiro</strong>, com apólice detida pelo NRNC <em>(a confirmar)</em>;
+· plano de aposentadoria americano — 401k, IRA <em>(a confirmar)</em>.
+
+<strong>NÃO SÃO US situs:</strong>
+· ações de corporação <strong>estrangeira</strong> — mesmo que custodiadas nos EUA e mesmo que a empresa detenha só ativos americanos;
+· <strong>depósito bancário em banco comercial americano</strong> (conta corrente, poupança, CD), não conectado a US trade or business — <strong>§2105(b)</strong>;
+· <em>proceeds</em> de <strong>seguro de vida sobre a vida do próprio NRNC</strong> — §2105(a);
+· dívida que se qualifique como <strong>portfolio debt</strong> (§871(h)) — §2105(b)(3);
+· <strong>US Treasuries</strong> e obrigações que gerem juros isentos ao NRA, em regra;
+· <strong>ETFs irlandeses ou luxemburgueses (UCITS)</strong> com carteira de ações americanas;
+· conta bancária em <strong>filial estrangeira</strong> de banco americano.
+
+<strong>Zonas cinzentas:</strong>
+· <strong><em>Partnership interest</em></strong> (LLC ou LP americana) — <strong>incerto</strong>; o IRS historicamente sustenta situs americano se a <em>partnership</em> tem US trade or business. Matéria litigiosa;
+· <strong>criptoativos</strong> custodiados em <em>exchange</em> americana — <strong>não há regra de situs específica publicada</strong>; posição do IRS não definida.
+
+<strong>Correção a material em circulação:</strong> «dinheiro em conta corrente doméstica» é frequentemente listado entre os US situs assets. <strong>Não é.</strong> Depósito em <strong>banco comercial</strong> americano não é US situs para estate tax (§2105(b)). <strong>É</strong> US situs, contudo, o <strong>caixa mantido em conta de corretora ou money market</strong> — distinção decisiva e frequentemente confundida.
+
+<strong>Situs para GIFT TAX (NRNC):</strong> ações de empresa americana → <strong>NÃO</strong> tributadas (intangível); conta bancária americana → <strong>NÃO</strong> (intangível); <strong>imóvel nos EUA → SIM</strong>; <strong>bens tangíveis nos EUA → SIM</strong>.`,
+          },
+          {
+            title: "Estruturas de blocker corporation e QDOT",
+            body: `<em>Descrição técnica de estruturas documentadas na literatura fiscal americana. Não constitui recomendação — cada estrutura tem custo de compliance, exposição a regras anti-abuso e efeitos colaterais de income tax que devem ser avaliados caso a caso.</em>
+
+<strong>Foreign blocker corporation.</strong> O NRNC constitui sociedade em jurisdição estrangeira; a sociedade detém o ativo americano; o NRNC detém <strong>ações da sociedade estrangeira</strong>, que por §2105 são bens de situs não-americano — logo, fora do <em>gross estate</em>.
+<strong>Efeitos colaterais documentados:</strong> <strong>branch profits tax</strong> (IRC §884) — 30% adicional sobre o <em>dividend equivalent amount</em>, <strong>não reduzido por tratado no caso brasileiro</strong>; <em>corporate income tax</em> de 21% (IRC §11) sobre ECI; <strong>perda do tratamento de <em>long-term capital gain</em></strong> (0/15/20%) na venda do imóvel — o ganho da corporação é tributado a 21% e a distribuição sofre o <em>branch profits tax</em>; perda do <em>step-up in basis</em>; e <strong>FIRPTA continua incidindo</strong> sobre a venda pela corporação (§1445(e)).
+
+<strong>Estrutura de duas camadas</strong> (foreign corp → US corp): elimina o <em>branch profits tax</em> na camada operacional e mantém situs estrangeiro na camada detida pelo indivíduo; introduz tributação corporativa de 21% e retenção de <strong>30% sobre dividendos</strong> pagos à holding estrangeira, sem redução no caso brasileiro. É também a estrutura que pode acionar o <strong>§2104(b)</strong> (transferências com retenção de controlo) se mal desenhada.
+
+<strong>Irrevocable foreign trust</strong> constituído por NRNC <strong>antes</strong> de qualquer conexão americana. Riscos: §2036 e §2038 (poderes retidos); tratamento de <em>foreign grantor trust</em> (§672(f)); e, se houver beneficiário US person, Forms 3520 e 3520-A e tributação sob §679.
+
+<strong>Seguro de vida.</strong> IRC §2105(a) exclui do <em>gross estate</em> o <em>proceeds</em> de seguro sobre a vida do próprio NRNC. Estruturas de <em>private placement life insurance</em> emitidas fora dos EUA são usadas nesse contexto. <em>Apólices emitidas por seguradora americana podem gerar retenção FDAP em certos componentes — a confirmar.</em>
+
+<strong>Debt financing.</strong> Financiar o imóvel americano com dívida <em>non-recourse</em> de terceiro reduz o valor líquido do US situs asset. <strong>Atenção à dedução proporcional do §2106(a)(1):</strong> o espólio de NRNC só deduz despesas e dívidas na <strong>proporção entre o gross estate americano e o gross estate mundial</strong> — o que <strong>exige revelar ao IRS o patrimônio global</strong>. Dívida <em>non-recourse</em> garantida apenas pelo imóvel é tratada de forma distinta (redução do valor do ativo, sem dedução proporcional). <em>A confirmar em Reg. §20.2053-7.</em>
+
+<strong>QDOT — Qualified Domestic Trust (IRC §2056A).</strong> A <em>marital deduction</em> ilimitada (§2056) exige cônjuge sobrevivente <strong>cidadão americano</strong>; o §2056(d)(1) a nega quando o cônjuge é não-cidadão. O <strong>§2056A</strong> permite a dedução se os bens passarem a um <strong>QDOT</strong>: ao menos um <em>trustee</em> americano, retenção do imposto sobre distribuições de principal, e requisitos de garantia para trusts acima de USD 2.000.000 <em>(limiar a confirmar em Reg. §20.2056A-2(d))</em>.
+<strong>Efeito: diferimento, não eliminação</strong> — o imposto incide sobre distribuições de principal e no falecimento do cônjuge sobrevivente, à <strong>alíquota marginal máxima do primeiro falecido</strong>.
+O QDOT pode ser criado pelo executor <strong>após</strong> o óbito, ou por reforma do trust, dentro do prazo do 706 ou 706-NA.
+<strong>Alternativa legal:</strong> o cônjuge sobrevivente naturalizar-se cidadão americano antes do protocolo do 706 e ter residido nos EUA continuamente desde o óbito (§2056(d)(4)).`,
+          },
+        ],
+        brazilNote: `<strong>Não existe tratado de estate ou gift tax entre Brasil e Estados Unidos.</strong> Os EUA mantêm cerca de 16 tratados sucessórios — Alemanha, Reino Unido, França, Japão, Suíça, Áustria, Dinamarca, Finlândia, Grécia, Irlanda, Itália, Holanda, Noruega, África do Sul, Austrália e Canadá. <strong>O Brasil não está entre eles.</strong> Logo, não há elevação da exclusão de USD 60.000 por tratado, nem regra de situs modificada, nem alívio de dupla tributação sucessória.
+
+<strong>ITCMD × Estate Tax — as duas incidências são independentes e não se compensam:</strong>
+· <strong>Estate Tax federal americano</strong> — imposto sobre o <strong>espólio</strong>, competência federal, base do NRNC limitada aos <em>US situs assets</em>, exclusão de USD 60.000, alíquota progressiva até 40%;
+· <strong>ITCMD brasileiro</strong> — imposto sobre a <strong>transmissão</strong>, devido pelo herdeiro ou donatário, competência <strong>estadual</strong> (CF, art. 155, I), alíquota de até 8% (teto da Resolução do Senado n.º 9/1992), com <strong>progressividade obrigatória</strong> pela EC 132/2023.
+
+<strong>Crédito recíproco: NENHUM.</strong> O estate tax americano <strong>não é creditável</strong> contra o ITCMD, e o ITCMD <strong>não é creditável</strong> contra o estate tax. O ADI SRF 28/2000 trata de imposto sobre a <strong>renda</strong>, não de imposto sobre transmissão causa mortis — não há base normativa para creditamento.
+
+<strong>Efeito documentado:</strong> o mesmo ativo — ações de empresa americana detidas por brasileiro falecido — pode ser alcançado <strong>cumulativamente</strong> pelo estate tax federal americano (até 40% acima de USD 60.000) e pelo ITCMD do estado brasileiro de domicílio do <em>de cujus</em> (até 8%), <strong>sem qualquer mecanismo de alívio</strong>.
+
+<strong>ITCMD sobre bens no exterior — o estado da questão:</strong>
+· <strong>CF, art. 155, §1.º, III</strong> exige lei complementar federal para o ITCMD incidir quando o doador tem domicílio no exterior, ou quando o <em>de cujus</em> possuía bens, era residente ou teve o inventário processado no exterior;
+· <strong>STF, RE 851.108 (Tema 825), 2021</strong> — declarou inconstitucional a cobrança pelos Estados nessas hipóteses <strong>enquanto não houver lei complementar federal</strong>;
+· <strong>EC 132/2023</strong> — inseriu o <strong>art. 16 do ADCT</strong>, estabelecendo <strong>regra transitória de competência</strong> até que sobrevenha a lei complementar: bens imóveis, ao Estado da situação do bem; bens móveis, títulos e créditos com doador no exterior, ao Estado do domicílio do donatário (ou, se este também for domiciliado no exterior, onde se encontrar o bem); bens do <em>de cujus</em>, ainda que no exterior, ao Estado onde ele era domiciliado (ou, se domiciliado no exterior, ao do domicílio do sucessor);
+· <strong>STF, outubro de 2025</strong> — ao julgar norma do Mato Grosso, <strong>reafirmou a necessidade de lei complementar federal</strong> e <strong>rejeitou expressamente a tese de «constitucionalidade superveniente»</strong>: leis estaduais anteriormente declaradas inconstitucionais (como a Lei paulista n.º 10.705/2000 no ponto) <strong>não recobram validade automaticamente</strong> com a EC 132/2023. Contexto correlato: ADI 6.838.
+
+<strong>Situação em agosto de 2026:</strong> a cobrança de ITCMD sobre heranças e doações com elementos no exterior <strong>permanece inviabilizada até a edição da lei complementar federal</strong>; e, ainda que a LC venha a ser editada, os Estados precisarão de <strong>leis estaduais novas</strong>, observando anterioridade anual e nonagesimal. <em>Verificar o status do PLP 108/2024.</em>
+
+<strong>Leitura para o cliente:</strong> um brasileiro com patrimônio nos EUA que faleça hoje enfrenta o <strong>estate tax americano com certeza</strong> e o <strong>ITCMD sobre bens no exterior com incerteza jurídica</strong> — dois riscos de naturezas distintas, sem compensação recíproca.`,
+        warning: `<strong>A exclusão de USD 60.000 é o risco mais subestimado do investimento brasileiro nos Estados Unidos.</strong> Ela está <strong>congelada desde 1988</strong>, não é indexada, e é <strong>250 vezes menor</strong> que a do cidadão americano.
+
+Uma carteira de USD 5 milhões em ações americanas, detida diretamente por brasileiro não domiciliado, gera aproximadamente <strong>USD 1,9 milhão</strong> de estate tax no falecimento — <strong>sem crédito no Brasil</strong>, e cumulativamente com o ITCMD estadual sobre os bens brasileiros.
+
+Acresce a <strong>iliquidez</strong>: custodiantes americanos bloqueiam a transferência aos herdeiros até a emissão do <strong>Transfer Certificate</strong> pelo IRS, que na prática leva <strong>meses a anos</strong> — independentemente do valor do imposto devido.
+
+<strong>E a assimetria decisiva:</strong> ações de empresas americanas podem ser <strong>doadas em vida sem gift tax</strong> (são intangíveis), mas integram o <em>gross estate</em> a 40% se mantidas até a morte.`,
+        sources: [
+          {
+            t: "IRS · Some nonresidents with U.S. assets must file estate tax returns",
+            u: "https://www.irs.gov/businesses/small-businesses-self-employed/some-nonresidents-with-us-assets-must-file-estate-tax-returns",
+          },
+          {
+            t: "IRS · Estate tax for nonresidents not citizens of the United States",
+            u: "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes-for-nonresidents-not-citizens-of-the-united-states",
+          },
+          {
+            t: "Cornell LII · 26 U.S. Code §2104 — Property within the United States",
+            u: "https://www.law.cornell.edu/uscode/text/26/2104",
+          },
+          {
+            t: "Cornell LII · 26 U.S. Code §2105 — Property without the United States",
+            u: "https://www.law.cornell.edu/uscode/text/26/2105",
+          },
+          {
+            t: "IRS · Form 706-NA",
+            u: "https://www.irs.gov/forms-pubs/about-form-706-na",
+          },
+          {
+            t: "STF · Tema 825 (RE 851.108) — ITCMD sobre bens no exterior",
+            u: "https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=4667945&numeroProcesso=851108&classeProcesso=RE&numeroTema=825",
+          },
+        ],
+      },
+      {
+        name: "FIRPTA — alienação de imóveis por estrangeiro",
+        status: "ok",
+        legalBasis:
+          "<strong>FIRPTA</strong>, Pub. L. 96-499, Title XI (1980); <strong>PATH Act de 2015</strong> (Pub. L. 114-113) elevou a retenção de 10% para 15%. <strong>IRC §897</strong> — ganho na alienação de USRPI tratado como ECI. <strong>IRC §1445</strong> — obrigação de retenção do adquirente. <strong>26 C.F.R. §1.1445-1 a -11</strong> e <strong>§1.897-1</strong> e seguintes. Formulários: <strong>8288</strong>, <strong>8288-A</strong>, <strong>8288-B</strong> e <strong>8288-C</strong>.",
+        desc: `Na alienação, por pessoa estrangeira, de <em>U.S. Real Property Interest</em> (USRPI), o <strong>comprador</strong> (<em>transferee</em>) é obrigado a reter <strong>15% do <em>amount realized</em></strong> — o <strong>preço bruto, não o ganho</strong> — e recolher ao IRS.
+
+<strong>A retenção é antecipação, não imposto definitivo:</strong> o vendedor apura o ganho real no Form 1040-NR (ou 1120-F) e pede restituição do excedente.
+
+<strong>USRPI abrange:</strong> imóveis nos EUA; benfeitorias; direitos minerários; e <strong>ações de <em>U.S. Real Property Holding Corporation</em> (USRPHC)</strong> — corporação americana cujo valor de USRPI represente 50% ou mais do valor agregado de seus ativos imobiliários (americanos e estrangeiros) mais ativos de <em>trade or business</em>, testado nos últimos 5 anos (§897(c)(2)).
+
+<strong>Escala de retenção:</strong>
+· regra geral → <strong>15%</strong> do <em>amount realized</em>
+· preço de <strong>até USD 300.000</strong> <strong>e</strong> comprador pessoa física que residirá no imóvel (teste dos 50% dos dias em cada um dos dois períodos de 12 meses subsequentes) → <strong>0%</strong>
+· preço entre <strong>USD 300.001 e USD 1.000.000</strong> <strong>e</strong> mesmo requisito de residência → <strong>10%</strong>
+· preço <strong>acima de USD 1.000.000</strong> → <strong>15%</strong> (a exceção de residência não reduz)
+· distribuições por corporações, <em>partnerships</em> e trusts (§1445(e)) → <strong>21%</strong> ou 15%, conforme o caso
+· alienação de interesse em <em>partnership</em> com ECI (§1446(f)) → <strong>10%</strong>`,
+        kv: [
+          { l: "Retenção padrão", v: "15% do preço bruto" },
+          { l: "Até USD 300.000 + residência", v: "0%" },
+          { l: "USD 300k–1M + residência", v: "10%" },
+          { l: "Acima de USD 1.000.000", v: "15%" },
+          { l: "Distribuições §1445(e)", v: "21% ou 15%" },
+          { l: "Partnership com ECI §1446(f)", v: "10%" },
+          { l: "Natureza", v: "Antecipação, não definitivo" },
+          { l: "Prazo do Form 8288", v: "20 dias da transferência" },
+          { l: "Withholding certificate", v: "Resposta-alvo em 90 dias" },
+          { l: "Depreciation recapture", v: "25%" },
+        ],
+        requirements: [
+          "<strong>Exceção — non-foreign affidavit</strong> (§1445(b)(2)): o vendedor certifica, sob pena de perjúrio, <strong>não ser pessoa estrangeira</strong>, informando o TIN.",
+          "<strong>Exceção — residência até USD 300.000:</strong> comprador pessoa física que residirá no imóvel, com o teste dos 50% dos dias em cada um dos dois períodos de 12 meses subsequentes.",
+          "<strong>Exceção — withholding certificate (Form 8288-B, §1445(b)(4)):</strong> reduz ou elimina a retenção quando o imposto efetivo devido é inferior — venda com prejuízo, base elevada, operação §1031. Deve ser protocolado <strong>até a data do fechamento</strong>; o IRS tem prazo-alvo de <strong>90 dias</strong> para responder, e enquanto pendente o valor fica retido em <em>escrow</em>.",
+          "<strong>Exceção — ações negociadas em bolsa reconhecida</strong> e o alienante detinha <strong>5% ou menos</strong> da classe nos 5 anos anteriores (§897(c)(3)).",
+          "<strong>Exceção — certificação de que a corporação não é USRPHC</strong> (§1445(b)(3)).",
+          "<strong>Exceção — transações não reconhecidas</strong> (§1031, reorganizações), mediante notificação ao IRS.",
+        ],
+        process: [
+          {
+            step: "Obtenção do ITIN",
+            detail:
+              "O vendedor estrangeiro obtém o ITIN pelo <strong>Form W-7</strong>, se ainda não o tiver. <em>Prazo corrente a confirmar; historicamente 7 a 11 semanas.</em>",
+            timing: "7–11 semanas",
+          },
+          {
+            step: "Form 8288-B (opcional)",
+            detail:
+              "Protocolo do pedido de <em>withholding certificate</em> para reduzir a retenção. Deve ser apresentado <strong>até o fechamento</strong>.",
+            timing: "Resposta-alvo em 90 dias",
+          },
+          {
+            step: "Fechamento e retenção",
+            detail:
+              "O comprador ou o <em>closing agent</em> retém 15% do <em>amount realized</em> na data do <em>closing</em>.",
+            timing: "Data do closing",
+          },
+          {
+            step: "Forms 8288 e 8288-A",
+            detail:
+              "O comprador remete os formulários com o valor retido ao IRS no prazo de <strong>20 dias</strong> após a transferência.",
+            timing: "20 dias",
+          },
+          {
+            step: "Cópia B do 8288-A",
+            detail:
+              "O IRS carimba e devolve a cópia B ao vendedor — documento necessário para reivindicar o crédito na declaração.",
+            timing: "Semanas a meses",
+          },
+          {
+            step: "Form 1040-NR e pedido de restituição",
+            detail:
+              "O vendedor declara e apura o ganho real, pedindo a restituição do excedente retido.",
+            timing: "15/abr ou 15/jun do ano seguinte",
+          },
+          {
+            step: "Restituição",
+            detail:
+              "<em>Historicamente, 6 a 18 meses. Prazo corrente a confirmar.</em>",
+            timing: "6–18 meses",
+          },
+        ],
+        costs: [
+          {
+            item: "Retenção FIRPTA",
+            value: "15% do preço bruto",
+            note: "Antecipação; excedente restituível após a declaração",
+          },
+          {
+            item: "Imposto efetivo — ganho de capital de longo prazo",
+            value: "0%, 15% ou 20%",
+            note: "Conforme a faixa de renda",
+          },
+          {
+            item: "Depreciation recapture",
+            value: "25%",
+            note: "Sobre a depreciação acumulada deduzida",
+          },
+          {
+            item: "Retenção estadual adicional",
+            value: "Variável",
+            note: "Califórnia 3,33%, e regimes próprios em Nova York, Maryland e Havaí — percentuais a verificar por estado",
+          },
+          {
+            item: "Form W-7 (ITIN)",
+            value: "Sem taxa",
+          },
+        ],
+        sections: [
+          {
+            title: "Regras de família e co-propriedade",
+            body: `O FIRPTA não tem regra de família própria.
+
+A <strong>co-propriedade entre cônjuges é tratada pro rata</strong> — a retenção é proporcional à participação do alienante estrangeiro.
+
+Se um dos cônjuges for <em>US person</em> com <em>non-foreign affidavit</em>, a retenção incide <strong>apenas sobre a parcela do estrangeiro</strong>.`,
+          },
+        ],
+        brazilNote: `<strong>Dupla incidência sem alívio pleno.</strong> O ganho imobiliário nos EUA é tributado nos EUA (FIRPTA e ECI) <strong>e também no Brasil</strong>, se o alienante for residente fiscal brasileiro — ganho de capital sob a Lei 13.259/2016, com alíquotas progressivas de <strong>15%, 17,5%, 20% e 22,5%</strong>.
+
+<strong>O imposto federal americano pode ser compensado no Brasil</strong> sob a reciprocidade do <strong>ADI SRF 28/2000</strong>.
+
+<strong>Mas o imposto estadual e municipal americano NÃO é compensável</strong> — <em>state income tax</em>, <em>transfer tax</em> e <em>property tax</em> ficam expressamente fora da reciprocidade reconhecida pelo Ato Declaratório.
+
+<strong>Atenção à retenção estadual adicional:</strong> alguns estados impõem retenção própria na venda por não residente — Califórnia a 3,33%, e regimes próprios em Nova York, Maryland e Havaí. <em>Percentuais a verificar individualmente.</em> Essa camada é <strong>custo puro</strong> para o brasileiro, sem crédito no Brasil.
+
+<strong>Planejamento de fluxo de caixa:</strong> a retenção de 15% incide sobre o <strong>preço bruto</strong>, não sobre o ganho. Numa venda com ganho pequeno ou com prejuízo, o valor retido pode exceder largamente o imposto devido — e a restituição leva de 6 a 18 meses. O <strong>Form 8288-B</strong>, protocolado até o fechamento, é o instrumento para evitar essa imobilização de capital.`,
+        sources: [
+          {
+            t: "IRS · FIRPTA withholding",
+            u: "https://www.irs.gov/individuals/international-taxpayers/firpta-withholding",
+          },
+          {
+            t: "IRS · Exceptions from FIRPTA withholding",
+            u: "https://www.irs.gov/individuals/international-taxpayers/exceptions-from-firpta-withholding",
+          },
+          {
+            t: "IRS · Form 8288",
+            u: "https://www.irs.gov/forms-pubs/about-form-8288",
+          },
+          {
+            t: "Cornell LII · 26 U.S. Code §897",
+            u: "https://www.law.cornell.edu/uscode/text/26/897",
+          },
+        ],
+      },
+      {
+        name: "Green card, tributação mundial e o pacote declaratório",
+        status: "risk",
+        legalBasis:
+          "<strong>FBAR:</strong> 31 U.S.C. §5314; 31 C.F.R. §1010.350. <strong>FATCA:</strong> IRC §6038D. <strong>Form 5471:</strong> IRC §6038 e §6046. <strong>Form 3520:</strong> IRC §6048. <strong>PFIC:</strong> IRC §§1291 a 1298 e §1298(f). <strong>FEIE:</strong> IRC §911. <strong>Foreign Tax Credit:</strong> IRC §901 e §904.",
+        desc: `Tornar-se <em>US person</em> — cidadão, LPR ou <em>resident alien</em> pelo SPT — submete a pessoa a:
+· <strong>tributação sobre renda mundial</strong> (IRC §1 e §61) — dividendos, juros, aluguéis, ganhos, lucros de empresas, <strong>independentemente da fonte e de remessa</strong>;
+· <strong>herança e doação sobre patrimônio mundial</strong>, com a contrapartida da exclusão de USD 15.000.000 (2026);
+· <strong>um dos dois únicos sistemas de tributação por cidadania do mundo</strong>, ao lado da Eritreia.
+
+<strong>Créditos disponíveis:</strong> <em>Foreign Tax Credit</em> (IRC §901 e §904, Form 1116) e, para renda de trabalho, <em>Foreign Earned Income Exclusion</em> (§911, Form 2555), cujo limite é de <strong>USD 132.900 em 2026</strong> <em>(a confirmar na Rev. Proc. 2025-32)</em>.
+
+<strong>PFIC — a armadilha crítica para brasileiros.</strong> Corporação estrangeira em que 75% ou mais da receita bruta é passiva, <strong>ou</strong> 50% ou mais dos ativos produzem renda passiva (§1297(a)). <strong>Não há limiar mínimo de participação — uma única cota aciona o regime.</strong>`,
+        kv: [
+          { l: "FBAR — limiar", v: "USD 10.000 agregados" },
+          { l: "FBAR — prazo", v: "15/abr, extensão a 15/out" },
+          { l: "Form 8938 — no exterior, solteiro", v: "USD 200k / 300k" },
+          { l: "Form 8938 — no exterior, casado", v: "USD 400k / 600k" },
+          { l: "Form 5471", v: "≥ 10% de voto ou valor" },
+          { l: "Form 3520 — doação do exterior", v: "> USD 100.000 de PF" },
+          { l: "Form 3520-A", v: "15 de março" },
+          { l: "Form 8621 (PFIC)", v: "Uma cota já aciona" },
+          { l: "FEIE 2026", v: "≈USD 132.900" },
+          { l: "Penalidade FBAR não-willful", v: "Até USD 16.536 por formulário" },
+          { l: "Penalidade FBAR willful", v: "50% do saldo" },
+          { l: "Penalidade Form 3520", v: "35% do valor transferido" },
+        ],
+        requirements: [
+          "<strong>FinCEN 114 (FBAR)</strong> — agregado superior a <strong>USD 10.000</strong> em qualquer momento do ano, em contas financeiras no exterior, <strong>inclusive por assinatura autorizada sem titularidade</strong>. Prazo: 15 de abril, com extensão automática para 15 de outubro. Penalidade não-willful: até <strong>USD 16.536 por formulário/ano</strong> — após <em>Bittner v. United States</em>, 598 U.S. 118 (2023), a penalidade é <strong>por formulário, não por conta</strong>. Willful: o maior entre cerca de USD 165.000 e <strong>50% do saldo</strong>, mais crime.",
+          "<strong>Form 8938 (FATCA)</strong> — ativos financeiros estrangeiros. Limiares: USD 50k/75k (solteiro nos EUA); USD 100k/150k (casado nos EUA); <strong>USD 200k/300k (solteiro no exterior)</strong>; <strong>USD 400k/600k (casado no exterior)</strong>. Penalidade: USD 10.000, até USD 50.000 por continuação.",
+          "<strong>Form 5471</strong> — participação em corporação estrangeira, tipicamente 10% ou mais de voto ou valor (5 categorias de <em>filers</em>). Penalidade: <strong>USD 10.000 por empresa/ano</strong>, mais até USD 50.000.",
+          "<strong>Form 3520</strong> — criação ou transferência a trust estrangeiro; distribuições recebidas; e <strong>doação ou herança do exterior superior a USD 100.000</strong> (de pessoa física) ou superior a cerca de USD 20.116 (de pessoa jurídica estrangeira) <em>(limiar indexado, a confirmar)</em>. Penalidade: <strong>35% do valor transferido</strong>, ou 5% ao mês até 25% para doações.",
+          "<strong>Form 3520-A</strong> — <em>foreign grantor trust</em> com <em>US owner</em>. Prazo: <strong>15 de março</strong>. Penalidade: 5% do valor dos ativos do trust.",
+          "<strong>Form 8621</strong> — ações de PFIC. <strong>A omissão suspende a prescrição de todo o ano fiscal</strong> enquanto não protocolado (§6501(c)(8)).",
+          "<strong>Form 8865</strong> (partnership estrangeira), <strong>Form 926</strong> (transferência de bens a corporação estrangeira — 10% do valor, até USD 100.000), <strong>Form 5472</strong> (USD 25.000) e <strong>Form 8858</strong> (<em>foreign disregarded entity</em> — USD 10.000).",
+        ],
+        sections: [
+          {
+            title: "PFIC — o que é PFIC no portfólio brasileiro típico",
+            body: `· <strong>Fundos de investimento brasileiros</strong> — multimercado, renda fixa, ações, DI → <strong>PFIC, praticamente todos</strong>
+· <strong>Fundos exclusivos e FIC-FIA</strong> → PFIC
+· <strong>FIIs (fundos imobiliários)</strong> → PFIC, em regra
+· <strong>PGBL e VGBL</strong> → <strong>PFIC ou <em>foreign trust</em></strong> — tratamento contestado, tipicamente PFIC pela composição da carteira; o VGBL pode ainda <strong>não qualificar como seguro de vida sob IRC §7702</strong>
+· <strong>ETFs brasileiros</strong> (BOVA11 e similares) → PFIC
+· <strong>Ações individuais de empresas brasileiras</strong> (PETR4, VALE3) → <strong>não</strong> são PFIC (empresas operacionais), mas geram Form 8938
+· <strong>Holding patrimonial brasileira</strong> Ltda. ou S.A. → <strong>PFIC e/ou CFC</strong>; se controlada por US persons, prevalece o regime de <strong>CFC</strong> (Subpart F e GILTI), com Form 5471
+· <strong>Poupança, CDB, LCI, LCA e Tesouro Direto</strong> → não são PFIC (são dívida), mas entram no FBAR e no 8938
+
+<strong>Os três regimes de tributação:</strong>
+
+<strong>1. Excess distribution (regime padrão, §1291) — o mais oneroso.</strong> Distribuições «em excesso» e o ganho na venda são <strong>alocados linearmente por todo o período de detenção</strong>; a parcela atribuída a anos anteriores é tributada à <strong>alíquota marginal máxima daquele ano</strong> — não à alíquota do contribuinte —, <strong>acrescida de juros compostos</strong> desde então. <strong>A carga efetiva pode superar o próprio ganho</strong> em posições antigas. Não há aproveitamento de perda.
+
+<strong>2. QEF — Qualified Electing Fund (§1295).</strong> Inclusão anual pro rata da renda ordinária e do ganho de capital líquido do fundo. <strong>Exige que o fundo forneça um <em>PFIC Annual Information Statement</em></strong> — que <strong>fundos brasileiros, na prática, não fornecem</strong>, o que torna a eleição <strong>normalmente indisponível de fato</strong>.
+
+<strong>3. Mark-to-market (§1296).</strong> Exige que a ação seja <em>marketable</em> — negociada em bolsa qualificada. Ganhos anuais tributados como <strong>renda ordinária</strong>; perdas dedutíveis apenas até ganhos previamente reconhecidos. Aplicável a ETFs listados, raramente a fundos abertos brasileiros.
+
+<strong>Regra de eleição tardia:</strong> feita a eleição QEF ou MTM em ano posterior ao primeiro de detenção, é necessário um <em>purging election</em> — venda ficta com tributação sob §1291 — para «limpar» o histórico.
+
+<strong>Consequência operacional decisiva:</strong> o brasileiro que se torna <em>US person</em> <strong>carrega para dentro do regime americano todo o portfólio brasileiro de fundos, com o histórico de detenção anterior</strong> — e o §1291 alcança o <strong>período inteiro de detenção</strong>, inclusive anos anteriores à residência, salvo eleição de <em>purging</em> na entrada.`,
+          },
+          {
+            title: "Planejamento pré-imigratório — a janela que se fecha",
+            body: `<em>Técnicas documentadas na literatura fiscal americana. Todas dependem de execução <strong>antes</strong> da <em>residency starting date</em> (§7701(b)(2)(A)) — primeiro dia de presença física no ano em que o SPT é satisfeito, ou primeiro dia como LPR.</em>
+
+· <strong>Step-up de base</strong> — venda e recompra de ativos apreciados. <strong>Não há step-up automático na entrada</strong>; a base histórica é preservada. A venda prévia realiza o ganho <strong>sob a lei brasileira</strong> (15%–22,5%), evitando tributação americana futura sobre a valorização pré-residência. Custo fiscal imediato no Brasil; atenção à Lei 14.754/2023.
+· <strong>Check-the-box election</strong> (Form 8832; Treas. Reg. §301.7701-3) — converte a holding em <em>disregarded entity</em> ou <em>partnership</em> antes da entrada, permitindo liquidação com step-up. Prazo de eficácia retroativa de 75 dias; efeitos no Brasil a analisar.
+· <strong>Liquidação de posições em PFIC</strong> antes da entrada — evita que o período pré-residência seja alcançado pelo regime de <em>excess distribution</em>.
+· <strong>Aceleração de renda</strong> (dividendos, bónus, resgates) para o ano anterior — tributa no Brasil e não nos EUA.
+· <strong>Diferimento de deduções e perdas</strong> para após a entrada — aproveitamento contra renda americana.
+· <strong>Foreign grantor trust irrevogável</strong> constituído antes da entrada, com <em>grantor</em> não-US. <strong>Atenção ao §679:</strong> trata como <em>grantor trust</em> o trust estrangeiro constituído por quem se torna <em>US person</em> <strong>dentro de 5 anos</strong> antes da mudança de residência, se houver beneficiário americano — a «regra dos 5 anos». <strong>O trust deve ser estabelecido com antecedência.</strong>
+· <strong>Reestruturação de PGBL e VGBL</strong> — evita classificação como PFIC ou como seguro não qualificado sob §7702. O resgate no Brasil tem custo fiscal e perde a tabela regressiva.
+· <strong>Revisão de testamento e regime de bens</strong> — evita perda da <em>marital deduction</em> (§2056(d) e §2056A). A comunhão universal brasileira e o <em>community property</em> americano têm efeitos distintos.
+
+<strong>Streamlined Filing Compliance Procedures</strong> permanece disponível para regularização não-willful: <strong>penalidade de 0%</strong> para quem reside no exterior (SFOP) e <strong>5% do maior saldo agregado</strong> para quem reside nos EUA (SDOP). <em>O IRS já sinalizou revisões dos programas de regularização — verificar a disponibilidade corrente.</em>`,
+          },
+          {
+            title: "Expatriação e Exit Tax — IRC §877A",
+            body: `<strong>Base legal:</strong> IRC §877A (introduzido pelo <strong>HEART Act de 2008</strong>, Pub. L. 110-245, §301, para expatriações a partir de 17/jun/2008); IRC §877(a)(2); IRC §7701(a)(50) e §877A(g)(4); <strong>IRC §2801</strong> — regulamentos finais publicados em janeiro de 2025, com <strong>Form 708</strong>. Formulários: <strong>Form 8854</strong> e <strong>Form I-407</strong>.
+
+<strong>A quem se aplica:</strong> (i) <strong>cidadão americano</strong> que renuncia à cidadania; e (ii) <strong>long-term resident (LTR)</strong> — titular de green card em <strong>8 dos últimos 15 anos fiscais</strong>, <strong>contando qualquer fração de ano como ano inteiro</strong> (§877(e)(2)) — que abandone o status (I-407), tenha-o revogado, ou passe a ser tratado como residente de outro país sob tratado (o que <strong>não é possível para o Brasil</strong>, por inexistir tratado).
+
+<strong>Testes de <em>covered expatriate</em> — basta UM:</strong>
+· <strong>Net worth test:</strong> patrimônio líquido de <strong>USD 2.000.000 ou mais</strong> na data da expatriação. <strong>Valor fixo, não indexado desde 2008.</strong>
+· <strong>Tax liability test:</strong> média do imposto de renda federal líquido dos <strong>5 anos</strong> anteriores superior a <strong>USD 211.000</strong> (2026; era USD 206.000 em 2025) <em>(a confirmar na Rev. Proc. 2025-32)</em>.
+· <strong>Certification test:</strong> deixar de certificar, sob pena de perjúrio, <strong>conformidade fiscal integral nos 5 anos anteriores</strong> (Form 8854, Part IV). <strong>A simples omissão de protocolar o Form 8854 torna a pessoa covered expatriate automaticamente, independentemente de patrimônio.</strong>
+
+<strong>Consequências:</strong>
+· <strong>Mark-to-market (§877A(a))</strong> — venda ficta de <strong>todo o patrimônio mundial</strong> pelo valor de mercado no <strong>dia anterior</strong> à expatriação, com <strong>exclusão de ganho de USD 910.000</strong> (2026, indexado). O excedente é tributado às alíquotas de <em>capital gain</em>. As <em>wash sale rules</em> não se aplicam (§877A(a)(2)(B)). Há <strong>eleição de diferimento</strong> (§877A(b)) até a venda efetiva, mediante <strong>garantia adequada</strong>, <strong>renúncia irrevogável a benefícios de tratado</strong> e incidência de juros.
+· <strong>Regimes especiais (§877A(c)-(e))</strong> — <em>deferred compensation items</em>: planos americanos elegíveis sofrem retenção de <strong>30%</strong> nas distribuições futuras; planos não elegíveis são tratados como recebidos no dia anterior. <em>Specified tax deferred accounts</em> (IRA, 529, HSA): distribuição integral ficta. Interesses em <em>non-grantor trusts</em>: retenção de 30% na porção tributável de cada distribuição futura.
+· <strong>IRC §2801 — o efeito de mais longo alcance:</strong> o <em>US citizen</em> ou <em>resident</em> que <strong>receba</strong> doação ou herança de um <em>covered expatriate</em> paga imposto de <strong>40%</strong> sobre o valor recebido acima da exclusão anual, <strong>sem limite de tempo após a expatriação</strong>. Declarado em <strong>Form 708</strong>. <strong>Atinge a geração seguinte.</strong>
+· <strong>INA §212(a)(10)(E) — «Reed Amendment»:</strong> inadmissibilidade do ex-cidadão que renunciou «com propósito de evasão fiscal». Historicamente <strong>sem aplicação operacional relevante</strong> por ausência de regulamento. <em>Verificar se houve mudança em 2025-2026.</em>
+
+<strong>Custos:</strong> taxa consular de renúncia à cidadania de <strong>USD 2.350</strong> <em>(houve proposta de redução para USD 450 em 2023, com litígio — verificar a taxa vigente)</em>; <strong>Form I-407 sem taxa</strong>; Form 8854 sem taxa.
+
+<strong>A via mais frequente de exposição para brasileiros: obter green card e depois desistir.</strong>
+· O <strong>relógio de 8 anos</strong> começa no primeiro ano-calendário de posse do green card, <strong>contando frações de ano como ano cheio</strong> — um green card obtido em <strong>dezembro de 2026 já consome o ano-calendário de 2026</strong>;
+· consequência aritmética: green card emitido em <strong>dezembro de 2026</strong> e abandonado em <strong>janeiro de 2033</strong> já perfaz <strong>8 anos-calendário</strong> (2026 a 2033);
+· <strong>abandono com 7 anos ou menos de contagem afasta integralmente o regime de LTR</strong> — não há teste de patrimônio, nem exit tax, nem Form 8854;
+· o <strong>net worth test de USD 2.000.000</strong> considera o <strong>patrimônio mundial</strong>, inclusive imóveis, participações societárias e previdência no Brasil — limiar alcançado por boa parte do público de family office.`,
+          },
+          {
+            title: "State tax e state estate tax",
+            body: `<strong>Nove estados sem imposto de renda estadual sobre pessoa física (2026):</strong> Alasca, Flórida, Nevada, New Hampshire, Dakota do Sul, Tennessee, Texas, Washington e Wyoming.
+
+<strong>Notas de precisão:</strong>
+· <strong>New Hampshire</strong> revogou o <em>Interest &amp; Dividends Tax</em> com efeitos a partir de <strong>1/jan/2025</strong> — passou a não ter imposto de renda nem imposto sobre vendas, combinação que compartilha apenas com o Alasca;
+· <strong>Tennessee</strong> revogou o <em>Hall Income Tax</em> a partir de 2021;
+· <strong>Washington</strong> não tributa renda ordinária, mas <strong>tributa ganho de capital de longo prazo a 7%</strong> na primeira faixa e <strong>9,9%</strong> acima de USD 1.000.000, com dedução-padrão de aproximadamente USD 262.000 <em>(valores de 2026 a confirmar)</em>;
+· ausência de imposto de renda estadual <strong>não</strong> implica ausência de outros tributos — <em>property tax</em>, <em>sales tax</em>, <em>franchise/margin tax</em> (Texas) e regimes municipais.
+
+<strong>Residência fiscal estadual:</strong> cada estado define de forma própria. Regras recorrentes: <strong>domicílio</strong> (intenção) mais <strong>statutory residence</strong> — em Nova York, <em>permanent place of abode</em> mais <strong>183 dias</strong> no estado. Estados de alta tributação (NY, CA) conduzem <strong>auditorias de mudança de domicílio</strong> com escrutínio documental intenso — registos de celular, cartões de crédito, dentista, veterinário. <strong>Não há tratado nem crédito estadual disponível ao Brasil.</strong>
+
+<strong>Doze estados mais o Distrito de Columbia com estate tax:</strong> Connecticut, Havaí, Illinois, Maine, Maryland, Massachusetts, Minnesota, Nova York, Oregon, Rhode Island, Vermont e Washington.
+· <strong>Oregon: USD 1.000.000</strong> — a menor exclusão do país
+· Massachusetts: USD 2.000.000 · Minnesota: USD 3.000.000
+· <strong>Washington: USD 3.076.000</strong> até 30/jun/2026; <strong>USD 3.000.000</strong> a partir de 1/jul/2026
+· Illinois: USD 4.000.000
+· <strong>Maryland: USD 5.000.000</strong> — <strong>único estado com estate tax E inheritance tax</strong> (10%)
+· Maine: USD 7.160.000
+· <strong>Nova York: USD 7.350.000</strong> — possui o <strong>«cliff»</strong>: ultrapassados 105% da exclusão, tributa-se <strong>todo</strong> o espólio
+· <strong>Connecticut: USD 15.000.000</strong> — acompanha o valor federal
+· Havaí, Rhode Island, Vermont e D.C. têm valores próprios <em>(a verificar)</em>
+
+<strong>Cinco estados com inheritance tax</strong> (imposto sobre o herdeiro, com alíquota variando pelo grau de parentesco): Kentucky, Maryland, Nebraska, Nova Jersey e Pensilvânia.
+
+<strong>O ponto crítico para o não domiciliado:</strong> diversos estados com estate tax <strong>tributam o não residente sobre imóveis e bens tangíveis localizados no estado</strong>, com exclusão calculada de forma proporcional — e <strong>as exclusões estaduais são muito inferiores à federal</strong>. Um brasileiro NRNC com apartamento em Manhattan ou em Boston pode enfrentar <strong>estate tax estadual além do federal</strong>, e <strong>nenhum dos dois é creditável no Brasil</strong>. <em>As regras de incidência sobre não residentes e o método de proporcionalização variam por estado e devem ser verificados individualmente.</em>
+
+<strong>Estados sem estate tax nem inheritance tax</strong> incluem Flórida, Texas, Nevada e Arizona. A Califórnia tem <em>income tax</em> elevado, mas <strong>não tem estate tax</strong>.`,
+          },
+        ],
+        brazilNote: `<strong>Não existe tratado para evitar a dupla tributação da renda entre Brasil e Estados Unidos.</strong> As negociações remontam à década de 1960 e nunca se concluíram — os obstáculos historicamente apontados incluem os <strong>juros sobre capital próprio (JCP)</strong> brasileiros, a exigência americana de cláusula de <em>limitation on benefits</em>, e a tributação brasileira na fonte.
+
+<strong>O mecanismo substitutivo: reciprocidade de tratamento.</strong>
+· <strong>Lei n.º 4.862/1965, art. 5.º</strong> — autoriza a dedução do imposto pago no exterior quando houver reciprocidade;
+· <strong>Ato Declaratório SRF n.º 28, de 26 de abril de 2000</strong> — <strong>reconhece expressamente a reciprocidade de tratamento entre Brasil e Estados Unidos</strong>;
+· <strong>IN SRF n.º 208/2002, art. 16</strong> — disciplina a compensação;
+· <strong>Decreto n.º 9.580/2018 (RIR/2018)</strong>.
+
+<strong>Conteúdo do ADI SRF 28/2000:</strong> (1) a legislação <strong>federal</strong> americana admite a dedução, do imposto lá devido, do imposto pago no Brasil sobre rendimentos ali auferidos e tributados — configurando reciprocidade; (2) o imposto pago nos EUA <strong>pode ser compensado</strong> com o imposto devido no Brasil, dentro dos limites estabelecidos; e (3) <strong>a reciprocidade NÃO se estende aos impostos pagos a governos estaduais e municipais americanos</strong>.
+
+<strong>Requisitos de eficácia da compensação:</strong> compensação <strong>rendimento a rendimento</strong> (não há <em>pooling</em> global como no FTC americano); crédito <strong>limitado ao imposto brasileiro devido sobre aquele mesmo rendimento</strong>; conversão pela taxa de câmbio do BACEN <em>(regra exata a confirmar no art. 16)</em>; e <strong>comprovação documental</strong> do imposto pago — Form 1042-S, comprovante de retenção do custodiante, ou documento consularizado. A RFB pode exigir documento reconhecido pelo órgão arrecadador estrangeiro e traduzido por tradutor juramentado.
+
+<strong>O que EXISTE entre Brasil e EUA:</strong>
+· <strong>Reciprocidade de tratamento</strong> — ADI SRF 28/2000
+· <strong>TIEA</strong> — Acordo para Troca de Informações Tributárias, assinado em 20/mar/2007 <em>(número do decreto de promulgação a confirmar)</em> — troca de informações <strong>a pedido</strong>
+· <strong>IGA FATCA (Modelo 1)</strong> — assinado em 23/set/2014, promulgado pelo <strong>Decreto n.º 8.506, de 24 de agosto de 2015</strong> — troca automática de informações de contas financeiras
+· <strong>Acordo de Previdência Social</strong> — Decreto n.º 9.422/2018, em vigor desde 1/out/2018
+· <strong>Convenção de dupla tributação da renda: NÃO EXISTE</strong>
+· <strong>Tratado de estate ou gift tax: NÃO EXISTE</strong>
+
+<strong>Nenhum desses instrumentos substitui uma convenção de dupla tributação.</strong> O TIEA e o IGA são de cooperação <strong>informacional</strong>; o acordo previdenciário trata de <strong>contribuições sociais</strong>, não de imposto de renda.
+
+<strong>CRS × FATCA — a assimetria.</strong> <strong>Os Estados Unidos NÃO aderiram ao Common Reporting Standard.</strong> Optaram por manter o FATCA (IRC §§1471 a 1474, do HIRE Act de 2010) como regime próprio, aplicado por IGAs bilaterais, e não assinaram o MCAA/CRS — ao qual mais de 120 jurisdições aderiram, <strong>o Brasil incluído</strong>.
+· <strong>O que o Brasil envia aos EUA:</strong> contas financeiras mantidas no Brasil por <em>US persons</em> e por entidades brasileiras com <em>substantial U.S. owners</em> — saldo, receitas brutas, produto de alienações, identificação do titular e do <strong>beneficiário final</strong>.
+· <strong>O que os EUA enviam ao Brasil:</strong> juros de depósito pagos a residentes do Brasil (Reg. §1.6049-8) e dividendos e outros rendimentos sujeitos a retenção reportados em Form 1042-S. <strong>Não incluem, em regra:</strong> saldos de conta; produto de alienações (<em>gross proceeds</em>); nem identificação do beneficiário final de entidades — o <em>look-through</em> para <em>controlling persons</em> de sociedades, trusts e LLCs americanas. <em>O escopo exato do fluxo IRS → RFB deve ser verificado nos Anexos I e II do IGA (Decreto 8.506/2015).</em>
+· No texto do IGA, «<strong>o Governo dos Estados Unidos reconhece a necessidade de alcançar nível equivalente de troca automática de informações com o Brasil</strong>» — formulação de <strong>compromisso político</strong>, não de obrigação exigível de reciprocidade plena.
+· O <strong>Corporate Transparency Act</strong> (31 U.S.C. §5336) criou registo de <em>beneficial ownership</em> junto ao FinCEN, mas é registo <strong>doméstico de aplicação da lei</strong>, não instrumento de troca automática tributária — e em <strong>março de 2025 o FinCEN publicou regra interina restringindo a exigência às <em>foreign reporting companies</em></strong>, dispensando as empresas domésticas americanas. <em>Status corrente a verificar.</em>
+
+<strong>Isso não altera a obrigação legal de declarar.</strong> O residente fiscal brasileiro está obrigado, independentemente da troca de informações, a declarar bens no exterior na DIRPF; apresentar a <strong>CBE</strong> ao Banco Central; e tributar os rendimentos sob a <strong>Lei 14.754/2023</strong> — <strong>15%</strong> sobre aplicações financeiras no exterior e sobre lucros de entidades controladas, estas apuradas em 31 de dezembro, <strong>independentemente de distribuição</strong>, quando a entidade esteja em jurisdição de tributação favorecida <strong>ou</strong> tenha renda ativa própria inferior a 60%. Trusts seguem regime específico de transparência.`,
+        warning: `<strong>O green card é uma decisão fiscal, não apenas migratória.</strong> Ele submete a pessoa à tributação sobre <strong>renda mundial</strong> e ao pacote declaratório completo — FBAR, 8938, 5471, 3520, 8621 —, com penalidades que partem de USD 10.000 por formulário e chegam a 50% do saldo no caso de FBAR <em>willful</em>.
+
+<strong>O portfólio brasileiro padrão entra no regime PFIC no momento da residência</strong>, e o §1291 alcança o <strong>período inteiro de detenção</strong>, inclusive anos anteriores. A eleição QEF, que seria a saída, é <strong>indisponível de fato</strong>, porque fundos brasileiros não emitem o <em>PFIC Annual Information Statement</em>.
+
+<strong>E a saída tem preço.</strong> O relógio de 8 anos do <em>long-term resident</em> conta <strong>frações de ano como ano cheio</strong>; o limiar de patrimônio de <strong>USD 2.000.000</strong> não é indexado desde 2008; e o <strong>§2801</strong> alcança, a 40% e <strong>sem limite de tempo</strong>, qualquer <em>US person</em> que venha a receber doação ou herança de um <em>covered expatriate</em> — atingindo a geração seguinte.
+
+<strong>Todo o planejamento eficaz é pré-imigratório</strong>, e a janela fecha na <em>residency starting date</em>.`,
+        sources: [
+          {
+            t: "IRS · Report of Foreign Bank and Financial Accounts (FBAR)",
+            u: "https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar",
+          },
+          {
+            t: "IRS · Form 8938 — Statement of Specified Foreign Financial Assets",
+            u: "https://www.irs.gov/forms-pubs/about-form-8938",
+          },
+          {
+            t: "IRS · Form 8621 — Information Return by a Shareholder of a PFIC",
+            u: "https://www.irs.gov/forms-pubs/about-form-8621",
+          },
+          {
+            t: "IRS · Expatriation tax",
+            u: "https://www.irs.gov/individuals/international-taxpayers/expatriation-tax",
+          },
+          {
+            t: "IRS · Form 8854 — Initial and Annual Expatriation Statement",
+            u: "https://www.irs.gov/forms-pubs/about-form-8854",
+          },
+          {
+            t: "Receita Federal · Acordo Multilateral sobre o intercâmbio automático de informações (MCAA-CRS)",
+            u: "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/legislacao/acordos-internacionais/acordos-para-intercambio-de-informacoes-relativas-a-tributos/convencao-multilateral-sobre-assistencia-mutua-administrativa-em-materia-tributaria/acordo-multilateral-entre-autoridades-competentes-sobre-o-intercambio-automatico-de-informacoes-financeiras-mcaa-crs",
+          },
+          {
+            t: "Receita Federal · Perguntas e respostas — offshores, Lei 14.754 e IN RFB 2.180 (PDF)",
+            u: "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2024/abril/receita-federal-e-secretaria-da-reforma-tributaria-lancam-atualizacao-do-perguntas-e-respostas-sobre-tributacao-de-rendimentos-no-exterior/perguntas-e-respostas-offshores-lei-14-754-e-in-rfb-2-180.pdf",
+          },
+          {
+            t: "Receita Federal · Comunicação de Saída Definitiva do País",
+            u: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/preenchimento/dsdp",
+          },
         ],
       },
     ],
     visa: [
       {
-        name: "Trump Gold Card — Executive Order 14351",
-        status: "new",
-        desc: `Lançado em dez/2025 via trumpcard.gov, criado pelo Executive Order 14351 (set/2025). <strong>Não é categoria separada de visto</strong>, mas via expedita para as categorias EB-1 (capacidade extraordinária) ou EB-2 NIW (interesse nacional) da lei migratória existente — o Form I-140G dispensa aprovação prévia de um I-140 tradicional, e o requerente comprova os critérios de EB-1A ou EB-2 NIW diretamente no próprio formulário do programa.
+        name: "EB-5 Immigrant Investor Program",
+        status: "changed",
+        legalBasis:
+          "<strong>INA §203(b)(5)</strong> — 8 U.S.C. §1153(b)(5). Criado pelo <strong>Immigration Act of 1990</strong>, Pub. L. 101-649, §121. <strong>EB-5 Reform and Integrity Act of 2022 (RIA)</strong> — Division BB do Consolidated Appropriations Act, 2022, <strong>Pub. L. 117-103</strong>, sancionado em <strong>15 de março de 2022</strong>. <strong>8 C.F.R. §204.6</strong> (petição) e <strong>§216.6</strong> (remoção de condições). <strong>INA §216A</strong> — residência condicional. Formulários: I-526, I-526E, I-829, I-485, I-956, I-956F e I-956G.",
+        desc: `<strong>Valores de investimento vigentes:</strong>
+· <strong>TEA rural</strong> → <strong>USD 800.000</strong>
+· <strong>TEA de alta taxa de desemprego (HUA)</strong> → <strong>USD 800.000</strong>
+· <strong>Projeto de infraestrutura</strong> → <strong>USD 800.000</strong>
+· <strong>Padrão (fora de TEA)</strong> → <strong>USD 1.050.000</strong>
 
-<strong>Modalidades:</strong>
-• <em>Individual Gold Card:</em> contribuição de USD 1.000.000 ao Tesouro americano (não recuperável) + USD 15.000 de taxa DHS no registro;
-• <em>Corporate Gold Card:</em> patrocínio empresarial de USD 2.000.000 por funcionário.
+<strong>Reajuste automático programado.</strong> O RIA determina ajuste inflacionário <strong>a cada 5 anos, a partir de 1 de janeiro de 2027</strong>, pelo <strong>CPI-U</strong> acumulado desde a base de dezembro de 2021, com arredondamento para baixo ao múltiplo de USD 50.000; o valor de TEA e infraestrutura é fixado em <strong>75% do valor padrão ajustado</strong>.
+<em>Dados de base: CPI-U de dez/2021 = 278,802; jan/2026 = 325,252 — variação acumulada de cerca de 16,7%. Projeções de mercado para 1/jan/2027: TEA entre USD 900.000 e USD 937.500; padrão entre USD 1.200.000 e USD 1.250.000. São projeções de fontes privadas do setor — o valor oficial dependerá do CPI-U até a data-base e de publicação pelo USCIS.</em>
 
-<strong>Processo:</strong> registro em trumpcard.gov → taxa DHS → vetting (antecedentes, origem dos fundos) → I-140G → aprovação → processamento consular. Não permite Adjustment of Status nos EUA.
+<strong>Reserved visas (set-asides), INA §203(b)(5)(B):</strong> do total anual de EB-5 (7,1% do teto de imigração baseada em emprego), <strong>20% rural</strong>, <strong>10% HUA</strong>, <strong>2% infraestrutura</strong> e <strong>68% unreserved</strong>. Vistos reservados não utilizados transitam para o ano seguinte <strong>dentro da mesma categoria</strong>; se não usados no segundo ano, migram para <em>unreserved</em>.
 
-<strong>Situação (dado mais recente publicamente disponível, abr/2026):</strong> 338 registros no portal desde o lançamento, dos quais 165 pagaram a taxa e 59 protocolaram efetivamente o Form I-140G; apenas 1 aprovação reportada (declaração do Secretário de Comércio Howard Lutnick), sem retificação identificada até ago/2026 [fonte jornalística]. O programa é objeto de ação judicial em curso — <em>AAUP v. DHS</em> (D.D.C., Juiz Richard J. Leon), questionando sua base legal sob a Administrative Procedure Act e a Immigration and Nationality Act; até ago/2026 não há decisão de mérito, apenas moção de dismissal do governo pendente, focada em standing dos autores.`,
+<strong>Visa Bulletin — situação do Brasil (agosto e setembro de 2026):</strong> <strong>EB-5 unreserved CURRENT</strong> para «All Chargeability Areas Except Those Listed», faixa que <strong>inclui o Brasil</strong>. <strong>Todas as categorias reservadas CURRENT para todos os países.</strong> China (mainland) com <em>final action date</em> de 22/set/2016 (cerca de 9,5 anos de backlog) e Índia em 1/mai/2022 (cerca de 4 anos).
+<strong>Advertência do Departamento de Estado:</strong> o aumento de demanda na EB-5 Unreserved pode exigir <strong>retrogressão ou tornar a categoria indisponível antes do fim do FY-2026</strong> (30/set/2026). <em>Verificar o Visa Bulletin do mês antes de qualquer protocolo — travel.state.gov.</em>`,
         kv: [
-          { l: "Individual", v: "USD 1.000.000 + USD 15k DHS" },
-          { l: "Corporate", v: "USD 2.000.000/funcionário" },
-          { l: "Visa base", v: "EB-1 ou EB-2 NIW" },
-          { l: "AoS", v: "❌ Não permitido (consular only)" },
-          { l: "Registros/protocolos/aprovações", v: "338 / 59 / ~1 (até ago/2026)" },
-          { l: "Litígio em curso", v: "AAUP v. DHS, sem decisão de mérito" },
-          { l: "Base legal", v: "Executive Order 14351" },
+          { l: "TEA rural / HUA / infraestrutura", v: "USD 800.000" },
+          { l: "Padrão (fora de TEA)", v: "USD 1.050.000" },
+          { l: "Próximo reajuste", v: "1 de janeiro de 2027" },
+          { l: "Empregos exigidos", v: "10 full-time" },
+          { l: "Sustainment period", v: "2 anos" },
+          { l: "Set-aside rural", v: "20% da cota anual" },
+          { l: "Set-aside HUA", v: "10%" },
+          { l: "Set-aside infraestrutura", v: "2%" },
+          { l: "Brasil no Visa Bulletin", v: "Current (ago/2026)" },
+          { l: "Green card inicial", v: "Condicional, 2 anos" },
+          { l: "Concurrent filing", v: "Permitido se já nos EUA" },
+          { l: "Regional Center Program", v: "Autorizado até 30/set/2027" },
         ],
-        impact:
-          "Qualificação sob EB-1A ou EB-2 NIW é substancial e não dispensada pelo pagamento. Programa muito mais complexo que divulgado inicialmente.",
-        warning:
-          "Risco jurídico elevado: criado por Executive Order, não por lei do Congresso, e sob questionamento judicial em curso. Pode ser suspenso ou revogado por decisão judicial ou por administração futura. Contribuição USD 1M é irrecuperável mesmo em caso de negativa ou revogação.",
-        sources: [
-          { t: "USCIS · Form I-140G", u: "https://www.uscis.gov/i-140g" },
-          { t: "trumpcard.gov · Portal oficial", u: "https://www.trumpcard.gov" },
+        requirements: [
+          "Investimento de <strong>USD 800.000</strong> (TEA, rural ou infraestrutura) ou <strong>USD 1.050.000</strong> (padrão) em <em>new commercial enterprise</em> (NCE) constituída após <strong>29/nov/1990</strong>, ou reestruturada ou expandida.",
+          "<strong>Capital <em>at risk</em></strong> — sem garantia de retorno, sem acordo de recompra, sem arranjo de <em>redemption</em> garantida.",
+          "<strong>Comprovação lícita da origem dos fundos</strong> (<em>source of funds</em>) e do <strong>caminho dos fundos</strong> (<em>path of funds</em>). O RIA ampliou a exigência: documentação de <strong>7 anos</strong> de declarações de imposto e de transações, com rastreamento de cada transferência internacional. <strong>Fundos emprestados são admitidos se garantidos por ativos de propriedade do investidor</strong> — mudança do RIA.",
+          "<strong>Criação ou preservação de 10 empregos full-time</strong> (35 horas ou mais por semana) para <em>qualifying U.S. workers</em> — cidadãos, LPRs, asilados e refugiados. <strong>Não conta o próprio investidor nem cônjuge e filhos.</strong>",
+          "<strong>Investimento direto:</strong> apenas empregos <strong>diretos</strong> da NCE. <strong>Via regional center:</strong> admite empregos <strong>indiretos e induzidos</strong> por modelagem econométrica (RIMS II, IMPLAN); o RIA limitou os <strong>empregos de construção com duração inferior a 2 anos a no máximo 75%</strong> do total computado.",
+          "<strong>Sustainment period de 2 anos</strong> — o RIA e a política do USCIS (2023/2024) fixam a manutenção do capital em risco por <strong>2 anos a contar da colocação integral do capital à disposição da NCE ou JCE</strong>, e não mais pelo período de residência condicional.",
+          "<strong>Envolvimento na gestão</strong> — como <em>limited partner</em> ou membro de LLC com direitos estatutários, o requisito é satisfeito; <strong>não exige gestão diária</strong>.",
+          "Admissibilidade migratória geral (INA §212).",
+          "<strong>Definição de TEA (pós-RIA):</strong> <strong>rural</strong> — fora de qualquer <em>Metropolitan Statistical Area</em> <strong>e</strong> fora do limite territorial de cidade ou vila com <strong>20.000 habitantes ou mais</strong> pelo censo decenal mais recente; <strong>HUA</strong> — <em>census tract</em>, ou conjunto de <em>tracts</em> diretamente contíguos, com taxa de desemprego de <strong>pelo menos 150% da média nacional</strong>; <strong>infraestrutura</strong> — projeto administrado por agência governamental como financiamento de obra pública.",
+          "<strong>Autoridade exclusiva do USCIS</strong> para designar TEA — o RIA <strong>eliminou</strong> a designação por autoridades estaduais. A designação vale por <strong>2 anos</strong>, renovável.",
+        ],
+        process: [
           {
-            t: "White House · EO 14351",
-            u: "https://www.whitehouse.gov/presidential-actions/",
+            step: "Seleção de projeto e due diligence",
+            detail:
+              "Verificação do regional center — I-956F aprovado, histórico e estrutura. Análise do PPM e da modelagem de empregos.",
+            timing: "1–3 meses",
           },
           {
-            t: "CBS News · Gold Card approvals (jornalístico)",
-            u: "https://www.cbsnews.com",
+            step: "Subscrição e transferência do capital",
+            detail:
+              "Assinatura da <em>subscription</em> e do PPM; transferência do capital, em <em>escrow</em> ou direta.",
+            timing: "1–2 meses",
+          },
+          {
+            step: "Montagem do dossiê de source of funds",
+            detail:
+              "Documentação de 7 anos de declarações e transações, com rastreamento de cada transferência internacional — a etapa mais trabalhosa para o investidor brasileiro.",
+            timing: "2–4 meses",
+          },
+          {
+            step: "Protocolo do I-526E ou I-526",
+            detail:
+              "<strong>I-526E</strong> para investimento via regional center; <strong>I-526</strong> para investimento direto.",
+            timing: "—",
+          },
+          {
+            step: "Adjudicação do I-526E",
+            detail:
+              "Prazos por categoria (dados de março de 2026): <strong>rural: 11,5 a 36,5 meses</strong>; <strong>HUA: 17 a 52 meses</strong>; <strong>unreserved: 30,5 a 61 meses</strong>. Média geral reportada em agosto de 2026: cerca de <strong>35 meses</strong> para o I-526E e 34 meses para o I-526.",
+            timing: "11,5–61 meses",
+          },
+          {
+            step: "Concurrent filing do I-485 — inovação do RIA",
+            detail:
+              "Se já estiver nos EUA em status válido e a categoria estiver <strong>current</strong>, o I-485 pode ser protocolado <strong>junto</strong> com o I-526E. <strong>Vantagem operacional decisiva:</strong> o investidor obtém <strong>EAD</strong> (I-765) e <strong>Advance Parole</strong> (I-131) em prazo tipicamente muito inferior à adjudicação do I-526E, com autorização de trabalho e viagem enquanto aguarda.",
+            timing: "Simultâneo ao I-526E",
+          },
+          {
+            step: "Alternativa — processamento consular",
+            detail:
+              "NVC → <strong>DS-260</strong> → entrevista no Consulado (Rio de Janeiro ou São Paulo). NVC: 2 a 6 meses; entrevista variável.",
+            timing: "2–6 meses no NVC",
+          },
+          {
+            step: "Green card condicional de 2 anos",
+            detail:
+              "Emissão do visto CR/IR ou aprovação do I-485. Prazo do I-485 em categoria EB: <strong>9 a 42,5 meses</strong>.",
+            timing: "9–42,5 meses",
+          },
+          {
+            step: "Protocolo do I-829",
+            detail:
+              "Nos <strong>90 dias anteriores</strong> ao segundo aniversário do green card condicional. <em>Adjudicação de vários anos; prazos correntes a verificar em egov.uscis.gov/processing-times.</em>",
+            timing: "90 dias antes do 2.º aniversário",
+          },
+          {
+            step: "Green card permanente e cidadania",
+            detail:
+              "Green card de 10 anos após o I-829. Elegibilidade ao N-400 <strong>5 anos a contar da data de admissão como residente condicional</strong>.",
+            timing: "5 anos até o N-400",
+          },
+        ],
+        costs: [
+          {
+            item: "Investimento — TEA, rural ou infraestrutura",
+            value: "USD 800.000",
+            note: "Reajuste previsto para 1/jan/2027; capital at risk, com possibilidade de retorno",
+          },
+          {
+            item: "Investimento — padrão",
+            value: "USD 1.050.000",
+          },
+          {
+            item: "Taxa administrativa do regional center",
+            value: "USD 50.000–70.000",
+            note: "Não reembolsável; varia por RC e estrutura",
+          },
+          {
+            item: "Form I-526E — filing fee",
+            value: "USD 3.675",
+            note: "Restaurado por decisão judicial (Moody et al. v. Mayorkas), que anulou o aumento de abril/2024 para USD 11.160 por ausência do fee study exigido pelo RIA",
+          },
+          {
+            item: "EB-5 Integrity Fund fee",
+            value: "USD 1.000",
+            note: "Por petição, para investimentos de USD 800.000 ou mais",
+          },
+          {
+            item: "Form I-485 (adjustment of status)",
+            value: "USD 1.440",
+            note: "Por requerente",
+          },
+          {
+            item: "Taxa consular DS-260 / NVC",
+            value: "USD 345",
+            note: "Por requerente, se via consular — a confirmar em travel.state.gov",
+          },
+          {
+            item: "USCIS Immigrant Fee",
+            value: "USD 235",
+            note: "Após emissão do visto, antes da entrada — a confirmar",
+          },
+          {
+            item: "Exame médico (panel physician, Brasil)",
+            value: "USD 200–400",
+          },
+          {
+            item: "Form I-829",
+            value: "USD 3.750",
+            note: "Fee restaurado; algumas fontes ainda indicam USD 9.525 (tabela de abril/2024) — divergência a confirmar no Form G-1055",
+          },
+          {
+            item: "Honorários advocatícios de imigração",
+            value: "USD 25.000–60.000",
+            note: "Mercado, não oficial",
+          },
+          {
+            item: "Assessoria de source of funds e contabilidade",
+            value: "USD 5.000–20.000",
+            note: "Mercado",
+          },
+          {
+            item: "Premium processing",
+            value: "Indisponível",
+            note: "Para I-526E e I-829 — a confirmar",
+          },
+        ],
+        sections: [
+          {
+            title: "Regras de família",
+            body: `<strong>INA §203(d):</strong> o <strong>cônjuge</strong> e os <strong>filhos solteiros menores de 21 anos</strong> (<em>derivative beneficiaries</em>) obtêm green card com o investidor principal, <strong>sem investimento adicional</strong> — apenas as taxas por requerente (I-485 ou DS-260, exame médico, <em>immigrant fee</em>).
+
+<strong>Child Status Protection Act (CSPA)</strong>, Pub. L. 107-208: protege o filho que completa 21 anos durante a adjudicação — a idade «congela» durante o período de pendência do I-526 ou I-526E. Requer <em>«sought to acquire»</em> dentro de 1 ano da disponibilidade do visto.
+
+<strong>Filhos casados e filhos com 21 anos ou mais não são derivativos</strong> — precisam de petição própria.
+
+Filhos adotados e enteados seguem as regras do INA §101(b)(1) — no caso do enteado, casamento antes dos 18 anos do menor.
+
+<em>Nota: há debate sobre se o RIA alterou a forma como os derivativos contam contra a cota anual de vistos — item a verificar.</em>`,
+          },
+          {
+            title: "Riscos documentados",
+            body: `· A <strong>autorização do Regional Center Program</strong> foi estendida pelo RIA até <strong>30 de setembro de 2027</strong>. Investimentos diretos (I-526) <strong>não dependem</strong> dessa autorização.
+· <strong>Capital «at risk» significa possibilidade real de perda</strong> — não há garantia de devolução; historicamente houve projetos com perda total.
+· <strong>I-829 negado</strong> implica <strong>perda do green card condicional</strong>, mesmo com o capital investido.
+· O Federal Register de <strong>2 de julho de 2026</strong> publicou norma sobre <strong>revogação automática de petições</strong> em contexto de integridade do programa. <em>Conteúdo específico a verificar — federalregister.gov, documento 2026-13392.</em>
+· <strong>Volatilidade das taxas:</strong> em outubro de 2025 o DHS publicou proposta de novo <em>fee rule</em>; em novembro de 2025 decisão judicial restaurou as taxas anteriores a abril de 2024; há regra proposta pendente. <strong>As taxas devem ser conferidas no Form G-1055 na data do protocolo.</strong>`,
+          },
+        ],
+        brazilNote: `<strong>O Brasil está CURRENT em EB-5 unreserved e em todas as categorias reservadas</strong> no Visa Bulletin de agosto de 2026 — situação materialmente diferente da de China e Índia, que enfrentam <em>backlogs</em> de 9,5 e 4 anos na categoria <em>unreserved</em>.
+
+<strong>Mas há advertência formal do Departamento de Estado</strong> de que o aumento de demanda pode exigir <strong>retrogressão ou indisponibilidade da EB-5 Unreserved antes do fim do ano fiscal de 2026</strong> (30 de setembro). O reinício do ano fiscal em 1 de outubro tipicamente restaura a disponibilidade. <strong>As categorias reservadas — rural, HUA e infraestrutura — permanecem current para todos os países</strong>, e são a via de menor exposição a esse risco.
+
+<strong>Consequência fiscal decisiva:</strong> o EB-5 concede <strong>green card</strong> — e, com ele, o <strong>status de US person</strong> descrito no dossiê fiscal: tributação sobre renda mundial; herança e doação sobre patrimônio mundial; pacote declaratório completo (FBAR, 8938, 5471, 3520, 8621); e <strong>regime PFIC sobre todo o portfólio brasileiro de fundos</strong>, alcançando inclusive o período de detenção anterior à residência.
+
+<strong>O planejamento pré-imigratório precisa ser concluído antes da <em>residency starting date</em></strong> — que, no EB-5, é o primeiro dia de presença física nos EUA na condição de LPR. Liquidação de PFICs, step-up de base, <em>check-the-box</em> e estruturação de trust devem estar feitos antes disso.
+
+<strong>E a saída tem preço:</strong> o relógio de <strong>8 anos</strong> do <em>long-term resident</em> começa no primeiro ano-calendário de posse do green card, contando frações de ano como ano cheio. Um green card obtido em dezembro de 2026 e abandonado em janeiro de 2033 já perfaz 8 anos-calendário — acionando o exit tax do §877A se o patrimônio mundial atingir USD 2.000.000.
+
+<strong>Reajuste de 1/jan/2027:</strong> quem pretende entrar pelo valor de USD 800.000 tem uma janela até 31 de dezembro de 2026. Projeções de mercado apontam para USD 900.000 a 937.500 a partir de 2027 — mas o valor oficial dependerá do CPI-U apurado e de publicação pelo USCIS.`,
+        sources: [
+          {
+            t: "USCIS · EB-5 Immigrant Investor Program",
+            u: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program",
+          },
+          {
+            t: "USCIS · EB-5 Reform and Integrity Act of 2022",
+            u: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program/eb-5-reform-and-integrity-act-of-2022",
+          },
+          {
+            t: "Cornell LII · 8 U.S. Code §1153(b)(5)",
+            u: "https://www.law.cornell.edu/uscode/text/8/1153",
+          },
+          {
+            t: "Departamento de Estado · Visa Bulletin",
+            u: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html",
+          },
+          {
+            t: "USCIS · Form G-1055 — Fee Schedule",
+            u: "https://www.uscis.gov/g-1055",
+          },
+          {
+            t: "USCIS · Check case processing times",
+            u: "https://egov.uscis.gov/processing-times/",
           },
         ],
       },
       {
-        name: "Trump Platinum Card — Em lista de espera",
-        status: "new",
-        desc: `Modalidade premium do programa Gold Card, anunciada em set/2025 mas ainda <strong>não liberada para aplicações</strong> até ago/2026 — nenhuma fonte oficial ou jornalística indica data de lançamento definida. Diferenciador-chave em relação ao Gold Card individual: permite ao titular permanecer até <strong>270 dias por ano nos EUA sem ser sujeito ao Substantial Presence Test</strong> — ou seja, sem se tornar residente fiscal americano e, portanto, sem tributação americana sobre rendimentos de fonte estrangeira.
+        name: "E-2 Treaty Investor — o Brasil NÃO é país-tratado",
+        status: "ext",
+        legalBasis:
+          "<strong>INA §101(a)(15)(E)(ii)</strong> — 8 U.S.C. §1101(a)(15)(E)(ii). <strong>8 C.F.R. §214.2(e)</strong>. <strong>9 FAM 402.9</strong> (Foreign Affairs Manual). Lista oficial de países-tratado: Departamento de Estado, <em>Treaty Countries</em>. Restrição: <strong>AMIGOS Act</strong> — <em>Advancing Mutual Interests and Growing Our Success Act</em> —, incorporado ao <strong>National Defense Authorization Act for FY2023, Pub. L. 117-263</strong>, sancionado em dezembro de 2022.",
+        desc: `<strong>O visto E-2 depende da existência de tratado bilateral de comércio e navegação, ou de investimento (BIT), em vigor com os Estados Unidos, que contemple a categoria E.</strong>
 
-Contribuição: <strong>USD 5.000.000</strong> ao Tesouro (irrecuperável). Voltado para HNWIs globais que querem residência efetiva nos EUA sem o ônus do Citizenship-Based Taxation. Lista de espera ativa em trumpcard.gov.`,
+<strong>O Brasil está entre as maiores economias excluídas da lista de países-tratado E-2.</strong> As fontes consultadas são convergentes e explícitas. <strong>Nacionais brasileiros não podem requerer o E-2 com base na nacionalidade brasileira.</strong>
+
+<strong>Contexto histórico:</strong> o tratado de comércio e navegação Brasil–EUA de 1935 foi <strong>denunciado</strong>; o BIT assinado em 1995 <strong>nunca foi ratificado</strong> pelo Senado americano; e o <strong>ATEC</strong> (Acordo de Cooperação Económica e Comercial de 2011) e seus protocolos <strong>não incluem cláusula de investidor E-2</strong>. Houve, em legislaturas sucessivas, projetos de lei para incluir o Brasil (<em>Brazil Treaty Trader and Investor Act</em> e correlatos), <strong>nenhum aprovado</strong> até este levantamento. <em>Status legislativo corrente a verificar em congress.gov.</em>
+
+A lista do Departamento de Estado abrange <strong>mais de 80 países</strong>, incluindo Alemanha, Reino Unido, Canadá, Espanha, México, Colômbia, Turquia e Granada.`,
         kv: [
-          { l: "Contribuição", v: "USD 5.000.000" },
-          { l: "Permanência sem SPT", v: "Até 270 dias/ano" },
-          { l: "Tributação renda ext.", v: "Isenta (não-residente fiscal)" },
-          { l: "Status atual", v: "Lista de espera (ago/2026)" },
-          { l: "Recuperabilidade", v: "❌ Não recuperável" },
-          { l: "Base legal", v: "Executive Order 14351" },
+          { l: "Brasil na lista E-2", v: "Não consta" },
+          { l: "BIT de 1995", v: "Nunca ratificado" },
+          { l: "Tratado de 1935", v: "Denunciado" },
+          { l: "ATEC de 2011", v: "Sem cláusula E-2" },
+          { l: "Países-tratado", v: "Mais de 80" },
+          { l: "AMIGOS Act — domicílio exigido", v: "3 anos contínuos" },
+          { l: "Vigência do AMIGOS Act", v: "Dezembro de 2022" },
+          { l: "Natureza do E-2", v: "Não-imigrante; não gera green card" },
+          { l: "Cônjuge — trabalho", v: "Autorizado automaticamente" },
+          { l: "Filhos — trabalho", v: "Não autorizado" },
+          { l: "Filhos — perda do status", v: "Aos 21 anos, sem CSPA" },
         ],
-        impact:
-          "Para HNWIs passivos com renda global elevada, a isenção do Substantial Presence Test por até 270 dias/ano remove a exigência de residência fiscal americana que normalmente decorreria dessa permanência. O programa segue indisponível para novas aplicações e sua base legal (Executive Order, sem amparo do Congresso) permanece incerta.",
-        warning:
-          "Sem cronograma oficial de liberação. A própria existência depende da continuidade do EO 14351 — sem amparo legislativo, vulnerável a revogação.",
-        sources: [
-          { t: "trumpcard.gov · Portal oficial", u: "https://www.trumpcard.gov" },
+        requirements: [
+          "<strong>Nacionalidade de país-tratado</strong> — o requisito é de <strong>nacionalidade</strong>, não de residência. <strong>Brasileiros não qualificam pela nacionalidade brasileira.</strong>",
+          "<strong>Restrição decisiva do AMIGOS Act:</strong> o estrangeiro que <strong>adquiriu a nacionalidade do país-tratado por meio de investimento financeiro</strong> e que <strong>nunca antes obteve status E</strong> deve ter estado <strong>domiciliado naquele país por período contínuo de, no mínimo, 3 anos</strong>, em algum momento anterior ao pedido do visto E.",
+          "<strong>Não estão sujeitos ao requisito de 3 anos:</strong> quem já obteve status E anteriormente; e quem adquiriu a nacionalidade do país-tratado por <strong>nascimento, ascendência, casamento ou naturalização por residência</strong> — ou seja, por via não-investimento.",
+          "<strong>Investimento substancial</strong> — não há valor mínimo legal; a prática consular aplica o <strong>teste de proporcionalidade</strong>: o investimento deve ser substancial em relação ao custo total de aquisição ou implantação do negócio. Valores abaixo de USD 100.000 enfrentam escrutínio elevado.",
+          "Fundos <strong>irrevogavelmente comprometidos</strong> e <em>at risk</em>.",
+          "Empresa <strong>real e operante</strong> (<em>bona fide enterprise</em>) — <strong>não pode ser marginal</strong> (<em>marginality test</em>): deve gerar renda além do sustento do investidor e da família, ou ter capacidade comprovada de gerar empregos em 5 anos.",
+          "O investidor exerce <strong>desenvolvimento e direção</strong> do negócio — 50% ou mais de propriedade, ou controlo operacional.",
+          "<strong>Intenção de saída</strong> ao término do status — o E-2 é <strong>não-imigrante</strong> e <strong>não gera green card</strong>.",
+        ],
+        sections: [
           {
-            t: "White House · EO 14351",
-            u: "https://www.whitehouse.gov/presidential-actions/",
+            title: "A rota indireta via cidadania de país-tratado — e por que ficou mais longa",
+            body: `Como o E-2 exige <strong>nacionalidade</strong> de país-tratado, a via utilizada por brasileiros na prática é a <strong>obtenção prévia de cidadania de país-tratado</strong>, tipicamente por programas de cidadania por investimento (CBI):
+
+· <strong>Granada</strong> — Citizenship by Investment (doação ao NTF ou imóvel aprovado), a partir de cerca de USD 235.000 <em>(valores revisados por acordo regional do Caribe Oriental em 2024 — a confirmar)</em>. <strong>É país-tratado E-2.</strong>
+· <strong>Turquia</strong> — cidadania por investimento imobiliário, USD 400.000 <em>(a confirmar)</em>. <strong>É país-tratado E-2.</strong>
+· <strong>Portugal</strong> — é país-tratado E-2, mas a naturalização portuguesa <strong>exige residência</strong>, não é CBI.
+· <strong>Egito</strong> — é país-tratado E-2.
+
+<strong>A restrição que mudou tudo: o AMIGOS Act (dezembro de 2022).</strong>
+
+Alterou o INA §101(a)(15)(E) para exigir <strong>3 anos de domicílio contínuo</strong> no país-tratado, para quem adquiriu a nacionalidade <strong>por investimento financeiro</strong> e nunca antes teve status E.
+
+<strong>Consequências práticas:</strong>
+· <strong>Comprar passaporte de Granada e requerer E-2 imediatamente NÃO é possível desde dezembro de 2022.</strong>
+· O requisito é de <strong>domicílio contínuo de 3 anos</strong>, <strong>não de mera titularidade do passaporte por 3 anos</strong> — a distinção é substancial e frequentemente ignorada em material comercial.
+· Ficam <strong>fora</strong> da restrição quem já teve status E, e quem obteve a nacionalidade por nascimento, ascendência, casamento ou naturalização por residência.
+
+<em>A seção específica do Pub. L. 117-263 que veicula o AMIGOS Act deve ser verificada em congress.gov ou govinfo.gov.</em>`,
+          },
+          {
+            title: "Características operacionais, para quem tem nacionalidade elegível",
+            body: `· <strong>Não é caminho para green card</strong> — é status não-imigrante <strong>renovável indefinidamente</strong> em incrementos de até 2 anos de admissão, com visto de validade variável por reciprocidade.
+· <strong>Cônjuge de titular E-2 tem autorização de trabalho automática</strong> (<em>work-authorized incident to status</em>, desde política do USCIS de 2021/2022) — não precisa de EAD, embora possa solicitá-lo.
+· <strong>Filhos solteiros menores de 21 anos</strong> obtêm status E-2 derivado, <strong>com autorização de estudo, sem autorização de trabalho</strong>; e <strong>perdem o status ao completar 21 anos</strong> — <strong>não há CSPA para não-imigrantes</strong>.
+· <strong>Taxas:</strong> Form DS-160 mais taxa consular de visto de <strong>USD 315</strong> para a categoria E <em>(a confirmar)</em>, mais <strong>USD 250 de Visa Integrity Fee</strong>; ou, para mudança de status dentro dos EUA, Form I-129 a <strong>USD 1.015</strong> mais <em>premium processing</em> de <strong>USD 2.965</strong> <em>(valores a confirmar no Form G-1055)</em>.`,
+          },
+        ],
+        brazilNote: `<strong>O E-2 está fechado ao brasileiro pela nacionalidade brasileira.</strong> Esta é uma conclusão firme, não uma incerteza.
+
+A rota indireta — obter cidadania de país-tratado por investimento e depois requerer o E-2 — <strong>continua juridicamente possível, mas deixou de ser rápida</strong>: o <strong>AMIGOS Act</strong>, desde dezembro de 2022, exige <strong>3 anos de domicílio contínuo</strong> no país-tratado antes do pedido do visto E, para quem adquiriu a nacionalidade por investimento.
+
+<strong>Isso significa que o desenho «passaporte de Granada mais E-2» passou de um projeto de meses para um projeto de mais de três anos</strong>, com exigência de <strong>domicílio efetivo</strong> — não apenas de titularidade do passaporte.
+
+<strong>Alternativas reais para o brasileiro que busca residência ativa nos EUA:</strong> <strong>EB-5</strong> (investimento, com green card), <strong>EB-1A</strong> e <strong>EB-2 NIW</strong> (mérito, com auto-petição e green card), <strong>O-1A</strong> e <strong>L-1A</strong> (não-imigrantes, com patrocinador).
+
+<strong>Materiais comerciais que apresentem o E-2 via Granada como solução de curto prazo para brasileiros estão desatualizados em mais de três anos.</strong>`,
+        warning: `<strong>Brasileiros não são elegíveis ao E-2 pela nacionalidade brasileira</strong> — o Brasil não é país-tratado, o BIT de 1995 nunca foi ratificado, e nenhum projeto de inclusão foi aprovado.
+
+<strong>E a via indireta por cidadania por investimento exige agora 3 anos de domicílio contínuo</strong> no país-tratado (AMIGOS Act, dezembro de 2022), não bastando a titularidade do passaporte. Qualquer oferta que prometa E-2 imediato mediante compra de cidadania caribenha está incorreta.`,
+        sources: [
+          {
+            t: "Departamento de Estado · Treaty Countries",
+            u: "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/fees/treaty.html",
+          },
+          {
+            t: "Departamento de Estado · Treaty Trader (E-1) e Treaty Investor (E-2)",
+            u: "https://travel.state.gov/content/travel/en/us-visas/employment/treaty-trader-investor-visa-e.html",
+          },
+          {
+            t: "Cornell LII · 8 U.S. Code §1101(a)(15)(E)",
+            u: "https://www.law.cornell.edu/uscode/text/8/1101",
+          },
+          {
+            t: "Congress.gov · National Defense Authorization Act for FY2023 (Pub. L. 117-263)",
+            u: "https://www.congress.gov/bill/117th-congress/house-bill/7776",
           },
         ],
       },
       {
-        name: "EB-2 NIW — National Interest Waiver",
+        name: "EB-1A e EB-2 NIW — as rotas de auto-petição",
         status: "ok",
-        desc: `Categoria estatutária da segunda preferência empregatícia (INA §203(b)(2)), permite que profissionais com grau acadêmico avançado ou habilidade excepcional obtenham green card <strong>sem oferta de emprego e sem certificação trabalhista (PERM)</strong>, mediante demonstração de que o seu trabalho beneficia o interesse nacional dos EUA.
+        legalBasis:
+          "<strong>EB-1A:</strong> INA §203(b)(1)(A) — 8 U.S.C. §1153(b)(1)(A); <strong>8 C.F.R. §204.5(h)</strong>; USCIS Policy Manual, Volume 6, Part F, Chapter 2. <strong>EB-2 NIW:</strong> INA §203(b)(2)(B)(i) — 8 U.S.C. §1153(b)(2)(B)(i); <strong>8 C.F.R. §204.5(k)</strong>; USCIS Policy Manual, Volume 6, Part F, Chapter 5. Metodologia de análise: <em>Kazarian v. USCIS</em>, 596 F.3d 1115 (9th Cir. 2010). Critérios do <em>waiver</em>: <strong><em>Matter of Dhanasar</em>, 26 I&amp;N Dec. 884 (AAO 2016)</strong>.",
+        desc: `As duas rotas de <strong>green card sem oferta de emprego, sem patrocinador e sem PERM</strong> — e ambas admitem <strong>auto-petição</strong>.
 
-<strong>Critérios (Matter of Dhanasar, 2016):</strong> (i) o empreendimento proposto tem mérito substancial e importância nacional; (ii) o requerente está bem posicionado para avançar o empreendimento; (iii) o waiver da oferta de emprego beneficia os EUA.
+<strong>EB-1A — Alien of Extraordinary Ability.</strong> Padrão: «<em>one of that small percentage who have risen to the very top of the field of endeavor</em>» (8 C.F.R. §204.5(h)(2)), com <strong>aclamação nacional ou internacional sustentada</strong>.
+<strong>Estrutura probatória em duas etapas</strong> (confirmada em decisões da AAO de 2026): (1) <strong>critérios</strong> — prémio internacional único de grande relevo (Nobel, Óscar, Pulitzer, medalha olímpica) <strong>ou</strong> satisfação de <strong>3 ou mais dos 10 critérios</strong> do §204.5(h)(3); e (2) <strong><em>final merits determination</em></strong> — análise holística da totalidade das provas para aferir se há aclamação sustentada e posicionamento no topo da área.
 
-<strong>Perfis típicos:</strong> pesquisadores, médicos, engenheiros, profissionais STEM, empreendedores tecnológicos, executivos de alto escalão. Auto-petição permitida (sem necessidade de patrocinador). Adjustment of Status permitido se em status válido. Base do Trump Gold Card individual.`,
+<strong>EB-2 NIW — National Interest Waiver.</strong> Pré-requisito de categoria EB-2: <strong>grau académico avançado</strong> (mestrado ou superior, ou bacharelado mais 5 anos de experiência progressiva), <strong>ou</strong> <strong>habilidade excecional</strong> (3 ou mais de 6 critérios do §204.5(k)(3)(ii)).
+Sobre isso, aplicam-se os <strong>três <em>prongs</em> cumulativos de <em>Matter of Dhanasar</em></strong>, que substituiu o padrão anterior de <em>Matter of New York State Dept. of Transportation</em> (NYSDOT), 22 I&amp;N Dec. 215 (1998).
+
+<strong>Visa Bulletin:</strong> <strong>EB-1 e EB-2 CURRENT para «All Chargeability Areas», faixa que inclui o Brasil</strong>, em agosto de 2026. EB-2 Índia consta como <em>unavailable</em>. Houve retrogressões pontuais em julho de 2026, e categorias <em>current</em> podem retrogredir antes do encerramento do ano fiscal por esgotamento de cota.`,
         kv: [
-          { l: "Investimento", v: "❌ Não exigido" },
-          { l: "Oferta de emprego", v: "❌ Não exigida" },
-          { l: "Auto-petição", v: "✅ Permitida" },
-          { l: "AoS", v: "✅ Permitida" },
-          { l: "Processamento", v: "12–24 meses (varia por país)" },
-          { l: "Visa Bulletin (Brasil)", v: "Current — sem backlog" },
-          { l: "Visa Bulletin (Índia/China)", v: "Unavailable / ~5 anos backlog" },
-          { l: "Base legal", v: "INA §203(b)(2)(B)" },
+          { l: "Auto-petição", v: "Permitida em ambas" },
+          { l: "Oferta de emprego", v: "Não exigida" },
+          { l: "PERM (labor certification)", v: "Dispensada" },
+          { l: "EB-1A — critérios", v: "3 de 10, mais final merits" },
+          { l: "EB-2 NIW — critérios", v: "3 prongs de Dhanasar" },
+          { l: "Brasil no Visa Bulletin", v: "Current (ago/2026)" },
+          { l: "Form I-140", v: "USD 715" },
+          { l: "Premium processing", v: "USD 2.805 · 15 dias úteis" },
+          { l: "I-140 sem premium", v: "12–24 meses" },
+          { l: "Green card", v: "Permanente, não condicional" },
         ],
-        impact:
-          'Não exige investimento mínimo nem oferta de emprego, ao contrário do EB-5. Aplicável a profissionais com grau acadêmico avançado ou habilidade excepcional em áreas como STEM, biotecnologia, finanças ou IA, mediante comprovação de mérito acadêmico ou empresarial. Para nascidos no Brasil, a categoria está correntemente "Current" no Visa Bulletin (sem data de corte), diferente do backlog enfrentado por Índia e China — a cota pode retrogredir antes do fim do ano fiscal por alta demanda, aplicável a todos os países.',
+        requirements: [
+          "<strong>EB-1A — Etapa 1, os 10 critérios (bastam 3):</strong> prémios nacionais ou internacionais de menor relevo por excelência; filiação a associações que exijam realização destacada, julgada por especialistas reconhecidos; <strong>matérias publicadas SOBRE o requerente</strong> em mídia profissional ou de grande circulação; atuação como <strong>juiz ou avaliador</strong> do trabalho de terceiros na área; <strong>contribuições originais de significância maior</strong> (científica, académica, artística, atlética ou empresarial); <strong>autoria</strong> de artigos académicos em periódicos profissionais ou mídia de grande circulação; exposição do trabalho em mostras artísticas; desempenho de <strong>papel principal ou crítico</strong> em organizações de reputação destacada; <strong>remuneração elevada</strong> em relação a pares; e sucesso comercial em artes cénicas.",
+          "<strong>EB-1A — Etapa 2:</strong> <em>final merits determination</em> — análise holística da totalidade das provas, sob a metodologia de <em>Kazarian</em>.",
+          "<strong>EB-1A — atualizações de política do USCIS (2024–2026):</strong> <strong>prémios de equipe podem contar</strong>, desde que documentada a contribuição específica e crítica do requerente; e <strong>filiações passadas passam a contar</strong>, não apenas as vigentes, desde que a associação exigisse realização destacada à época. <em>Datas e números das atualizações do Policy Manual a verificar.</em>",
+          "<strong>EB-2 NIW — Prong 1:</strong> o <em>proposed endeavor</em> tem <strong>mérito substancial</strong> e <strong>importância nacional</strong>. Mérito pode ser em negócios, empreendedorismo, ciência, tecnologia, cultura, saúde ou educação. A importância nacional é avaliada pelas <strong>implicações prospetivas do empreendimento</strong> — <strong>não pela área em abstrato</strong>.",
+          "<strong>EB-2 NIW — Prong 2:</strong> o requerente está <strong>bem posicionado</strong> para avançar o empreendimento — avaliado por formação, histórico de sucesso, conhecimento especializado, plano de execução, interesse de investidores, utilizadores ou clientes, e progresso já alcançado.",
+          "<strong>EB-2 NIW — Prong 3:</strong> no cômputo geral, <strong>beneficia os Estados Unidos dispensar</strong> os requisitos de oferta de emprego e de <em>labor certification</em>. Considera-se a impraticabilidade de obter oferta de emprego, o benefício mesmo havendo trabalhadores americanos disponíveis, e a urgência do interesse nacional.",
+          "<strong>EB-1A:</strong> intenção de continuar trabalhando na área de <em>expertise</em> nos Estados Unidos.",
+        ],
+        process: [
+          {
+            step: "Montagem do dossiê probatório",
+            detail:
+              "Cartas de recomendação independentes, métricas de citação, evidências dos critérios, plano de <em>endeavor</em> (no NIW). É a etapa que determina o resultado.",
+            timing: "2–6 meses",
+          },
+          {
+            step: "Form I-140",
+            detail:
+              "Petição com pedido de classificação EB-1A ou EB-2 NIW. Adjudicação regular de <strong>12 a 24 meses</strong>; com <em>premium processing</em>, <strong>15 dias úteis</strong>.",
+            timing: "15 dias a 24 meses",
+          },
+          {
+            step: "Form I-485 — concurrent filing",
+            detail:
+              "Se já estiver nos EUA em status válido e a categoria estiver <strong>current</strong>, o I-485 pode ser protocolado junto com o I-140. Prazo do I-485 em categoria EB: <strong>9 a 42,5 meses</strong>.",
+            timing: "9–42,5 meses",
+          },
+          {
+            step: "Alternativa — processamento consular",
+            detail:
+              "NVC → DS-260 → entrevista no Consulado (Rio de Janeiro ou São Paulo). NVC: 2 a 6 meses.",
+            timing: "2–6 meses no NVC",
+          },
+          {
+            step: "Green card permanente",
+            detail:
+              "<strong>Green card de 10 anos, não condicional</strong> — não há I-829 nem remoção de condições, ao contrário do EB-5.",
+            timing: "—",
+          },
+        ],
+        costs: [
+          { item: "Form I-140", value: "USD 715" },
+          {
+            item: "Premium processing do I-140",
+            value: "USD 2.805",
+            note: "15 dias úteis; valor de 2026, com ajustes por CPI-U",
+          },
+          {
+            item: "Form I-485 (adjustment of status)",
+            value: "USD 1.440",
+            note: "Por requerente",
+          },
+          {
+            item: "Forms I-765 (EAD) e I-131 (Advance Parole)",
+            value: "A confirmar",
+            note: "Verificar no Form G-1055",
+          },
+          {
+            item: "Taxa consular DS-260 / NVC",
+            value: "USD 345",
+            note: "Por requerente — a confirmar",
+          },
+          {
+            item: "USCIS Immigrant Fee",
+            value: "USD 235",
+            note: "A confirmar",
+          },
+          {
+            item: "Honorários advocatícios",
+            value: "USD 10.000–30.000",
+            note: "Mercado",
+          },
+        ],
+        sections: [
+          {
+            title: "EB-1A e EB-2 NIW — quando cada uma se aplica",
+            body: `<strong>EB-1A</strong> exige <strong>aclamação sustentada</strong> e posicionamento no topo da área. É a rota de quem já tem reconhecimento consolidado — prémios, cobertura de mídia, cargos de liderança, citações relevantes.
+<strong>Vantagem:</strong> a categoria EB-1 tem prioridade na fila de vistos, e permanece <em>current</em> para o Brasil.
+
+<strong>EB-2 NIW</strong> não exige aclamação — exige que o <strong>empreendimento proposto</strong> tenha mérito substancial e importância nacional, que o requerente esteja bem posicionado para executá-lo, e que dispensar a oferta de emprego beneficie os Estados Unidos.
+<strong>Perfis documentados:</strong> pesquisadores, profissionais STEM, médicos, engenheiros, empreendedores de base tecnológica, executivos, especialistas em saúde pública, IA e biotecnologia.
+
+<strong>Ambas dispensam PERM e admitem auto-petição</strong> — o que as torna as únicas rotas de green card que <strong>não dependem de terceiro</strong> além do EB-5.
+
+<em>Premium processing está disponível para o I-140 em ambas desde 2023 — disponibilidade corrente a confirmar.</em>`,
+          },
+          {
+            title: "Regras de família",
+            body: `<strong>INA §203(d):</strong> cônjuge e filhos solteiros menores de 21 anos como <strong>derivativos</strong>, sem petição própria.
+
+<strong>CSPA aplicável</strong> — a idade do filho «congela» durante a pendência do I-140.
+
+<strong>Green card permanente (10 anos), sem condicionalidade</strong> — diferentemente do EB-5, não há residência condicional de 2 anos nem I-829.`,
+          },
+        ],
+        brazilNote: `<strong>EB-1 e EB-2 estão CURRENT para o Brasil</strong> no Visa Bulletin de agosto de 2026 — situação favorável em comparação com a Índia (EB-2 <em>unavailable</em>) e a China. <em>Categorias current podem retrogredir antes do encerramento do ano fiscal; conferir o bulletin do mês.</em>
+
+<strong>São as rotas de menor dependência de terceiros:</strong> sem oferta de emprego, sem patrocinador, sem PERM, com auto-petição. Para o profissional brasileiro com trajetória consolidada — pesquisador, médico, engenheiro, executivo, empreendedor de base tecnológica —, tendem a ser a via mais direta ao green card, e a um custo de taxas oficiais uma ordem de grandeza inferior ao EB-5.
+
+<strong>Mas o resultado depende inteiramente do dossiê.</strong> Cartas de recomendação de instituições brasileiras devem contextualizar a reputação da instituição no setor; publicações, patentes e prémios brasileiros precisam ser explicados quanto ao seu alcance; e o <em>proposed endeavor</em> do NIW deve ser articulado em termos de <strong>implicações prospetivas para os Estados Unidos</strong>, não da relevância da área em abstrato.
+
+<strong>Consequência fiscal idêntica à do EB-5:</strong> o green card traz o status de <em>US person</em>, com tributação sobre renda mundial, o pacote declaratório completo e o regime PFIC sobre o portfólio brasileiro. <strong>O planejamento pré-imigratório deve estar concluído antes da <em>residency starting date</em></strong> — e, no caso de aprovação por <em>premium processing</em>, essa data pode chegar bem mais rápido do que no EB-5.`,
         sources: [
           {
-            t: "USCIS · EB-2 NIW Policy Manual",
-            u: "https://www.uscis.gov/policy-manual/volume-6-part-f-chapter-5",
+            t: "USCIS · Employment-Based Immigration: First Preference EB-1",
+            u: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-first-preference-eb-1",
           },
           {
-            t: "Matter of Dhanasar (AAO 2016)",
-            u: "https://www.justice.gov/eoir/file/904501/dl",
+            t: "USCIS · Employment-Based Immigration: Second Preference EB-2",
+            u: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-second-preference-eb-2",
           },
           {
-            t: "Department of State · Visa Bulletin",
+            t: "USCIS Policy Manual · Volume 6, Part F — Employment-Based Classifications",
+            u: "https://www.uscis.gov/policy-manual/volume-6-part-f",
+          },
+          {
+            t: "Cornell LII · 8 C.F.R. §204.5",
+            u: "https://www.law.cornell.edu/cfr/text/8/204.5",
+          },
+          {
+            t: "Departamento de Estado · Visa Bulletin",
             u: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html",
           },
         ],
       },
       {
-        name: "EB-5 Immigrant Investor Visa",
+        name: "O-1A, L-1A e H-1B — as rotas não-imigrantes",
         status: "changed",
-        desc: `Única via <em>estatutária</em> de residência por investimento — proteção legislativa que o Gold Card não possui. Reformado pelo EB-5 RIA (2022). <strong>Investimentos:</strong> USD 800.000 em TEA (Targeted Employment Area) ou USD 1.050.000 em demais regiões. Criação de 10 empregos. Capital "em risco". Adjustment of Status permitido. Inclui cônjuge e filhos solteiros menores de 21 anos.
+        legalBasis:
+          "<strong>O-1A:</strong> INA §101(a)(15)(O)(i) — 8 U.S.C. §1101(a)(15)(O)(i); 8 C.F.R. §214.2(o). <strong>L-1A:</strong> INA §101(a)(15)(L) — 8 U.S.C. §1101(a)(15)(L); 8 C.F.R. §214.2(l). <strong>H-1B:</strong> INA §101(a)(15)(H)(i)(b); 8 C.F.R. §214.2(h); 20 C.F.R. Part 655 (LCA). <strong>EB-1C:</strong> INA §203(b)(1)(C).",
+        desc: `<strong>O-1A — Extraordinary Ability in Sciences, Education, Business or Athletics.</strong> Prémio internacional único de grande relevo <strong>ou 3 ou mais de 8 critérios</strong> do §214.2(o)(3)(iii). <em>Nota: são <strong>8</strong> critérios no O-1A, contra <strong>10</strong> no EB-1A.</em>
+<strong>Exige petição por empregador ou agente americano — NÃO admite auto-petição</strong>, diferença central em relação ao EB-1A. Um <em>agent</em> pode peticionar em nome de múltiplos empregadores. <strong>Sem cota anual</strong>; <em>dual intent</em> admitido na prática. Validade inicial de até 3 anos, com extensões de 1 ano ilimitadas. Exige <strong>consultation letter</strong> de organização ou sindicato da área.
 
-<strong>Definição de TEA:</strong> área rural (fora de qualquer Metropolitan Statistical Area e fora de cidade/vila com 20.000+ habitantes pelo censo mais recente) ou área de alto desemprego (census tract, ou tracts contíguos, com taxa de desemprego ≥150% da média nacional). Desde a reforma de 2022, o USCIS tem autoridade exclusiva para determinar se uma área se qualifica como TEA — os estados não determinam mais essa classificação.`,
+<strong>L-1A — Intracompany Transferee (Executive or Manager).</strong> Exige <strong>relação societária qualificada</strong> entre a entidade estrangeira e a americana — matriz, filial, subsidiária ou afiliada sob controlo comum. Duração máxima de <strong>7 anos</strong> (L-1A) ou 5 anos (L-1B).
+<strong>Ponte direta para green card:</strong> o L-1A gerencial ou executivo tem correspondência com o <strong>EB-1C</strong> (<em>Multinational Manager or Executive</em>), que <strong>dispensa PERM</strong>. <em>Dual intent</em> expressamente admitido (8 C.F.R. §214.2(l)(16)).
+
+<strong>H-1B — Specialty Occupation.</strong> Cota anual de <strong>85.000</strong> (65.000 mais 20.000 para mestres e doutores de instituições americanas). Duração de 3 anos, extensível a 6; extensões além disso sob AC21 §§104(c) e 106(a). <strong>Duas alterações estruturais em 2025–2026</strong> — ver a seção específica.`,
         kv: [
-          { l: "Investimento TEA", v: "USD 800.000" },
-          { l: "Geral", v: "USD 1.050.000" },
-          { l: "Empregos", v: "10" },
-          { l: "Processamento", v: "5–8 anos" },
-          { l: "AoS", v: "✅ Permitido" },
-          { l: "Determinação de TEA", v: "Exclusiva do USCIS (desde 2022)" },
-          { l: "Base legal", v: "INA §203(b)(5)" },
+          { l: "O-1A — auto-petição", v: "Não admitida" },
+          { l: "O-1A — critérios", v: "3 de 8" },
+          { l: "O-1A — cota", v: "Nenhuma" },
+          { l: "O-1A — duração", v: "3 anos + 1/1 ilimitado" },
+          { l: "O-3 (dependentes)", v: "Sem autorização de trabalho" },
+          { l: "L-1A — experiência prévia", v: "1 ano em 3" },
+          { l: "L-1A — duração máxima", v: "7 anos" },
+          { l: "L-1A — new office", v: "Aprovação inicial de 1 ano" },
+          { l: "L-2 (cônjuge)", v: "Trabalho automático" },
+          { l: "H-1B — cota anual", v: "85.000" },
+          { l: "H-1B — taxa de USD 100k", v: "Em vigor sob stay judicial" },
+          { l: "H-1B — loteria", v: "Ponderada por salário, FY 2027" },
+          { l: "Visa Integrity Fee", v: "USD 250, sem waiver" },
         ],
-        impact:
-          "Via estatutária, prevista em lei — diferente do Gold Card, criado por Executive Order. O capital investido tem possibilidade de retorno. Processamento em 5–8 anos.",
-        sources: [
+        requirements: [
+          "<strong>O-1A:</strong> prémio internacional único de grande relevo, ou <strong>3 ou mais de 8 critérios</strong> — prémios; filiações; matérias publicadas sobre o requerente; participação como juiz; contribuições originais de significância maior; autoria de artigos académicos; papel crítico em organizações de reputação destacada; e alta remuneração.",
+          "<strong>O-1A:</strong> petição por <strong>empregador ou agente americano</strong>; e <strong>consultation letter</strong> de organização, sindicato ou <em>peer group</em> da área.",
+          "<strong>L-1A:</strong> relação societária <strong>qualificada</strong> entre a entidade estrangeira e a americana — matriz, filial, subsidiária ou afiliada sob controlo comum.",
+          "<strong>L-1A:</strong> o empregado trabalhou <strong>1 ano contínuo nos 3 anos anteriores</strong> para a entidade estrangeira, em função <strong>executiva ou gerencial</strong> (L-1A) ou de <strong>conhecimento especializado</strong> (L-1B).",
+          "<strong>L-1A:</strong> a entidade estrangeira <strong>permanece em operação</strong> durante todo o período do L-1; e a função nos EUA é executiva ou gerencial.",
+          "<strong>L-1A «new office»</strong> (entidade americana em operação há menos de 1 ano) — escrutínio elevado: <strong>instalações físicas suficientes já contratadas</strong> para abrigar o novo escritório; prova de que a empresa <strong>suportará uma posição executiva ou gerencial em 1 ano</strong>; e <strong>aprovação inicial limitada a 1 ano</strong>, contra 3 anos da petição padrão, com extensões subsequentes de até 2 anos.",
+          "<strong>H-1B:</strong> ocupação especializada exigindo, no mínimo, <strong>bacharelado</strong> (ou equivalente) na área específica; <strong>LCA certificada pelo DOL</strong> (Form ETA-9035) com pagamento do <em>prevailing wage</em>; e patrocínio por empregador — <strong>não admite auto-petição</strong>, salvo estruturas de <em>employer-employee relationship</em> válidas.",
+          "<strong>H-1B — cap-exempt:</strong> instituições de ensino superior, entidades ligadas e organizações de pesquisa sem fins lucrativos estão <strong>fora da cota</strong>.",
+        ],
+        sections: [
           {
-            t: "USCIS · EB-5 Program",
-            u: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program",
+            title: "H-1B — as duas alterações estruturais de 2025 e 2026",
+            body: `<strong>1. Taxa de USD 100.000 — Proclamação de 19 de setembro de 2025.</strong>
+Impõe pagamento de <strong>USD 100.000 pelo empregador, ANTES do protocolo</strong> da petição H-1B, para beneficiário <strong>que esteja fora dos Estados Unidos</strong> — inclusive nos casos de processamento consular.
+
+<strong>Status judicial em agosto de 2026:</strong> o tribunal federal do <strong>Distrito de Massachusetts declarou a taxa ilegal em 8 de junho de 2026</strong>, qualificando-a como tributo que o Executivo não tem competência para instituir. <strong>Em 12 de junho de 2026, o mesmo tribunal suspendeu a própria decisão (<em>stay</em>)</strong>, restabelecendo a cobrança durante a apelação. <strong>A taxa vinha sendo cobrada no fim de junho de 2026</strong>, com recurso pendente no <strong>First Circuit</strong>. Um tribunal no estado de Washington havia anteriormente <strong>mantido</strong> a taxa, configurando divergência entre circuitos.
+<em>Número da Proclamação e status processual mais recente a verificar em federalregister.gov e nos autos do First Circuit.</em>
+
+<strong>2. Loteria ponderada por nível salarial.</strong>
+Regra final do DHS publicada em <strong>29 de dezembro de 2025</strong>, <strong>sem acolhimento de comentários públicos</strong>, com <strong>eficácia a partir de 27 de fevereiro de 2026</strong>.
+Aplica-se a partir da <strong>loteria do FY 2027</strong>: as 85.000 vagas passam a ser sorteadas por sistema que atribui de <strong>1 a 4 entradas por registo</strong>, conforme o <strong>nível de <em>prevailing wage</em></strong> da posição (OES Levels I a IV).
+<strong>Efeito documentado:</strong> eleva a probabilidade de seleção de posições de salário mais alto e <strong>reduz a de posições de nível I</strong>.`,
           },
           {
-            t: "EB-5 Reform and Integrity Act 2022",
-            u: "https://www.congress.gov/bill/117th-congress/house-bill/2471",
+            title: "Custos e taxas transversais",
+            body: `<strong>O-1A:</strong> Form I-129 a <strong>USD 1.015</strong> <em>(a confirmar)</em>, mais <em>premium processing</em> de <strong>USD 2.965</strong> — efetivo desde 1/mar/2026, após reajuste de 5,72% por CPI-U, saindo de USD 2.805 —, mais <strong>Visa Integrity Fee de USD 250</strong>.
+
+<strong>L-1A:</strong> Form I-129 a USD 1.015 <em>(a confirmar)</em>; <strong>Fraud Prevention and Detection Fee de USD 500</strong>; taxa «L Fraud» (Pub. L. 114-113) de <strong>USD 4.500</strong> para empregadores com 50 ou mais empregados e mais de 50% do quadro em status H-1B ou L-1 <em>(vigência a confirmar)</em>; <em>premium processing</em> de USD 2.965; e Visa Integrity Fee de USD 250. Existe <strong>Blanket L</strong> para grupos que atendam critérios de porte.
+
+<strong>H-1B:</strong> registo de loteria <em>(valor a confirmar)</em>; Form I-129 a USD 1.015 <em>(a confirmar)</em>; <strong>Asylum Program Fee de USD 600</strong> (USD 300 para pequeno empregador; USD 0 para <em>nonprofit</em>); taxa ACWIA de USD 750 ou 1.500 <em>(a confirmar)</em>; Fraud Fee de USD 500; a <strong>taxa de USD 100.000</strong> para beneficiário fora dos EUA (em litígio); e Visa Integrity Fee de USD 250.
+
+<strong>Taxas transversais criadas pelo One Big Beautiful Bill Act</strong> (Pub. L. 119-21, de 4/jul/2025):
+· <strong>Visa Integrity Fee — USD 250</strong>: incide sobre <strong>todo visto de não-imigrante</strong>; <strong>não é passível de <em>waiver</em></strong>; nominalmente reembolsável ao viajante que cumprir as condições e sair no prazo, mas <strong>não há processo de reembolso operacional divulgado</strong>;
+· <strong>ESTA</strong>: de USD 21 para <strong>USD 40</strong>, desde 30/set/2025 — <strong>não aplicável a brasileiros</strong>, pois o Brasil não integra o Visa Waiver Program;
+· <strong>I-94 (fronteira terrestre)</strong>: de USD 6 para USD 30;
+· <strong>TPS</strong>: de USD 50 para USD 500;
+· <strong>EAD vinculado a TPS ou asilo</strong>: de USD 470 para USD 550, <strong>sem <em>waiver</em></strong>.`,
+          },
+          {
+            title: "Regras de família",
+            body: `<strong>O-3</strong> — cônjuge e filhos solteiros menores de 21 anos. <strong>SEM autorização de trabalho.</strong> Há ainda o <strong>O-2</strong>, para pessoal de apoio essencial.
+
+<strong>L-2</strong> — cônjuge com <strong>autorização de trabalho automática</strong> <em>incident to status</em> (política do USCIS desde novembro de 2021); filhos solteiros menores de 21 anos com autorização de estudo.
+
+<strong>H-4</strong> — cônjuge e filhos. <strong>EAD H-4 apenas se o principal tiver I-140 aprovado</strong> ou extensão sob AC21 §106.
+
+<strong>Em todos os casos, filhos perdem o status ao completar 21 anos — não há CSPA para não-imigrantes.</strong>`,
+          },
+        ],
+        brazilNote: `Para o brasileiro, estas três rotas têm perfis muito distintos:
+
+<strong>O-1A</strong> — o padrão probatório é próximo ao do EB-1A (8 critérios em vez de 10), mas <strong>exige empregador ou agente americano</strong>. Na prática, funciona como <strong>ponte</strong>: entra-se com O-1A e peticiona-se o EB-1A em paralelo, aproveitando o mesmo dossiê.
+
+<strong>L-1A</strong> — a rota natural para o executivo de empresa brasileira que abre operação nos Estados Unidos. A modalidade <strong>«new office»</strong> tem escrutínio elevado e aprovação inicial de apenas <strong>1 ano</strong>, exigindo instalações físicas já contratadas e prova de que a operação suportará uma posição executiva em 12 meses. <strong>Ponte direta para o EB-1C</strong>, que dispensa PERM.
+
+<strong>H-1B</strong> — a rota de maior atrito hoje. A <strong>taxa de USD 100.000</strong> para beneficiário fora dos EUA — em vigor sob <em>stay</em> judicial, com apelação pendente — atinge exatamente o brasileiro que se candidata do Brasil. E a <strong>loteria ponderada por salário</strong>, a partir do FY 2027, reduz a probabilidade de seleção de posições de nível salarial inicial.
+
+<strong>Nenhuma das três é imigrante.</strong> O-1A e L-1A admitem <em>dual intent</em> e servem como ponte ao green card (EB-1A e EB-1C, respetivamente). O H-1B também admite <em>dual intent</em>, mas depende de patrocinador e de sorteio.
+
+<strong>Consequência fiscal:</strong> o titular de visto não-imigrante <strong>não é automaticamente US person</strong> — mas cruza o <strong>Substantial Presence Test</strong> rapidamente, se residir efetivamente nos Estados Unidos. A partir daí, aplicam-se integralmente a tributação sobre renda mundial e o pacote declaratório. <strong>O planejamento pré-imigratório deve preceder a mudança, não a obtenção do green card.</strong>`,
+        sources: [
+          {
+            t: "USCIS · O-1 Visa: Individuals with Extraordinary Ability or Achievement",
+            u: "https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement",
+          },
+          {
+            t: "USCIS · L-1A Intracompany Transferee Executive or Manager",
+            u: "https://www.uscis.gov/working-in-the-united-states/temporary-workers/l-1a-intracompany-transferee-executive-or-manager",
+          },
+          {
+            t: "USCIS · H-1B Specialty Occupations",
+            u: "https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations",
+          },
+          {
+            t: "Cornell LII · 8 C.F.R. §214.2",
+            u: "https://www.law.cornell.edu/cfr/text/8/214.2",
+          },
+          {
+            t: "Federal Register",
+            u: "https://www.federalregister.gov",
+          },
+        ],
+      },
+      {
+        name: "Gold Card e Platinum Card — Executive Order 14351",
+        status: "risk",
+        legalBasis:
+          "<strong>Executive Order 14351, «The Gold Card»</strong>, assinada em <strong>19 de setembro de 2025</strong>. <strong>Criada por ato do Executivo, sem lei do Congresso.</strong> Portal: trumpcard.gov. Formulário: <strong>Form I-140G</strong> (USCIS). Abertura de aplicações: <strong>10 de dezembro de 2025</strong>.",
+        desc: `<strong>Estrutura do programa:</strong>
+· <strong>Individual Gold Card</strong> — contribuição de <strong>USD 1.000.000</strong> ao Departamento de Comércio ou ao Tesouro, <strong>não reembolsável</strong>, mais <strong>USD 15.000</strong> de taxa de processamento do DHS, também não reembolsável;
+· <strong>Corporate Gold Card</strong> — <strong>USD 2.000.000</strong> por funcionário patrocinado;
+· <strong>Membros da família</strong> — <strong>cada um exige contribuição própria de USD 1.000.000 mais USD 15.000</strong>;
+· <strong>Platinum Card</strong> — <strong>USD 5.000.000</strong>, <strong>em lista de espera; não liberado</strong>.
+
+<strong>Ponto estrutural decisivo:</strong> o Gold Card <strong>NÃO é uma nova categoria de visto</strong>. É apresentado como via de <strong>processamento acelerado dentro das categorias estatutárias existentes EB-1 e EB-2 NIW</strong> — o Form I-140G substitui o I-140 tradicional, mas <strong>o requerente ainda precisa demonstrar os requisitos substantivos de EB-1A ou EB-2 NIW</strong>. <strong>O pagamento não dispensa a qualificação.</strong>
+
+Fontes indicam ainda que o programa <strong>não admite <em>Adjustment of Status</em></strong> — apenas processamento consular. <em>A confirmar nas instruções do Form I-140G.</em>`,
+        kv: [
+          { l: "Individual Gold Card", v: "USD 1.000.000 + USD 15.000" },
+          { l: "Corporate Gold Card", v: "USD 2.000.000 por funcionário" },
+          { l: "Por familiar", v: "USD 1.000.000 + USD 15.000 cada" },
+          { l: "Platinum Card", v: "USD 5.000.000 — não lançada" },
+          { l: "Contribuição", v: "Não reembolsável" },
+          { l: "Base jurídica", v: "Executive Order, não lei" },
+          { l: "Categoria estatutária", v: "EB-1 ou EB-2 NIW" },
+          { l: "Qualificação substantiva", v: "Não dispensada" },
+          { l: "Adjustment of Status", v: "Não admitido (a confirmar)" },
+          { l: "Aprovações até 27/jul/2026", v: "1" },
+          { l: "Litígio", v: "AAUP v. DHS, sem decisão" },
+        ],
+        requirements: [
+          "<strong>Contribuição de USD 1.000.000</strong> (individual) ou <strong>USD 2.000.000</strong> (corporate, por funcionário patrocinado), <strong>não reembolsável</strong>.",
+          "<strong>Taxa de processamento do DHS de USD 15.000</strong>, também não reembolsável.",
+          "<strong>Cada membro da família exige contribuição própria</strong> de USD 1.000.000 mais USD 15.000 — não há derivação gratuita como no EB-5 ou no EB-1A.",
+          "<strong>Demonstrar os requisitos substantivos de EB-1A ou EB-2 NIW</strong> — o Form I-140G substitui o I-140, mas <strong>não substitui a qualificação</strong>. O pagamento acelera o processamento, não dispensa o mérito.",
+          "<strong>Processamento consular</strong> — o programa não admitiria <em>Adjustment of Status</em>. <em>A confirmar nas instruções do formulário.</em>",
+        ],
+        sections: [
+          {
+            title: "Os números divulgados — a adesão real",
+            body: `Dados apurados até <strong>27 de julho de 2026</strong>:
+· registos no portal: <strong>338</strong> (fim de abril de 2026)
+· registos que pagaram a taxa: <strong>165</strong> (fim de abril de 2026)
+· petições <strong>I-140G efetivamente protocoladas: 59</strong> (fim de abril de 2026)
+· <strong>aprovações confirmadas: 1</strong>
+
+<em>Fonte: divulgação em litígio e cobertura jornalística. Não confirmado por dado oficial do USCIS.</em>
+
+<strong>Fatores de adesão reportados.</strong> A cobertura jornalística associa a baixa adesão a dois fatores: (i) a <strong>incerteza jurídica do programa</strong>; e (ii) a <strong>sujeição do <em>green card holder</em> à tributação mundial americana</strong> — descrita nas reportagens como resistência de investidores globais a submeter patrimônio e renda internacionais ao IRS em troca do status. <em>Fatos reportados, sem juízo de valor.</em>`,
+          },
+          {
+            title: "Litígio — AAUP v. DHS",
+            body: `<strong>Ação ajuizada em 3 de fevereiro de 2026</strong>, no <em>U.S. District Court for the District of Columbia</em>, pela <strong>American Association of University Professors (AAUP)</strong> e por profissionais imigrantes individuais, contra o DHS, o Departamento de Estado e o Departamento de Comércio.
+
+<strong>Fundamentos:</strong> o programa cria sistema de <em>pay-to-play</em> que <strong>contorna os critérios meritórios estatutários</strong>; carece de <strong>autorização do Congresso</strong>; e viola o <strong>Administrative Procedure Act</strong> (5 U.S.C. §§551 e seguintes, e §706) e a <strong>Immigration and Nationality Act</strong>.
+
+<strong>Status em meados de 2026:</strong> <strong>nenhuma liminar concedida; nenhuma decisão de mérito; moção de <em>dismissal</em> do governo pendente</strong>, centrada primordialmente em <em>standing</em> dos autores, <strong>sem enfrentar o mérito</strong>.
+
+<em>Juiz relatado: Richard J. Leon — atribuição mencionada em fonte secundária, a verificar no PACER ou CourtListener. Há ainda ação separada relativa a transparência/FOIA movida pela Democracy Defenders Fund — a confirmar.</em>`,
+          },
+          {
+            title: "Platinum Card — e a promessa tributária sem base normativa",
+            body: `<strong>Anunciada em setembro de 2025; em agosto de 2026 permanece em fase de lista de espera — não aberta a aplicações, sem data de lançamento divulgada.</strong>
+
+Contribuição anunciada: <strong>USD 5.000.000</strong>, não reembolsável.
+
+<strong>Diferenciador anunciado pela administração:</strong> permitiria ao titular permanecer <strong>até 270 dias por ano nos Estados Unidos sem sujeição ao Substantial Presence Test</strong> — e, portanto, sem tributação americana sobre renda de fonte estrangeira.
+
+<strong>Ressalva jurídica essencial.</strong> O <strong>Substantial Presence Test é definido em lei federal (IRC §7701(b)(3))</strong>. <strong>Uma exceção ao SPT não pode ser criada por Executive Order nem por ato administrativo do DHS — exigiria alteração do Internal Revenue Code pelo Congresso.</strong>
+
+<strong>Nenhuma legislação nesse sentido foi identificada.</strong> Não foi localizada qualquer norma, projeto de lei aprovado, regulamento do Tesouro ou <em>guidance</em> do IRS que implemente a isenção de 270 dias. <strong>O benefício tributário anunciado permanece, até este levantamento, sem base normativa identificável.</strong>`,
+          },
+          {
+            title: "Base de risco — comparação factual com o EB-5",
+            body: `· Criado por <strong>Executive Order, não por lei</strong> — sujeito a revogação por administração subsequente ou por decisão judicial;
+· <strong>contribuição de USD 1.000.000 declarada não reembolsável</strong>, inclusive em caso de <strong>indeferimento</strong> ou de <strong>extinção do programa</strong>;
+· <strong>litígio de mérito pendente</strong>, sem decisão;
+· o estatuto substantivo continua sendo <strong>EB-1 ou EB-2 NIW</strong> — a qualificação técnica <strong>não é dispensada</strong>;
+· <strong>cada familiar exige contribuição própria</strong> de USD 1.000.000.
+
+<strong>Comparação factual:</strong> o <strong>EB-5 tem base estatutária</strong> (INA §203(b)(5), Pub. L. 101-649 e Pub. L. 117-103) e <strong>prevê possibilidade de retorno do capital</strong>; o <strong>Gold Card tem base em Executive Order</strong> e a contribuição é <strong>declaradamente não recuperável</strong>.`,
+          },
+        ],
+        brazilNote: `Para o brasileiro, o Gold Card apresenta um perfil de risco que merece leitura literal dos números:
+
+· <strong>USD 1.000.000 não reembolsáveis por pessoa</strong> — uma família de quatro custaria <strong>USD 4.060.000</strong> em contribuições e taxas, sem qualquer possibilidade de retorno;
+· contra o <strong>EB-5</strong>, cujo investimento de <strong>USD 800.000</strong> é capital <em>at risk</em> com <strong>possibilidade de retorno</strong>, cobre toda a família sem aporte adicional, e tem <strong>base estatutária</strong>;
+· contra o <strong>EB-1A e o EB-2 NIW</strong>, que custam <strong>USD 715 de I-140</strong> e não exigem investimento algum — e cujos requisitos substantivos o Gold Card <strong>não dispensa</strong>.
+
+<strong>Ou seja:</strong> quem qualifica para EB-1A ou EB-2 NIW pode obter o green card sem contribuição; e quem não qualifica <strong>também não obtém o Gold Card</strong>, porque a qualificação substantiva permanece exigida. O que o pagamento compra é <strong>velocidade de processamento</strong>, não elegibilidade.
+
+<strong>A promessa de isenção de 270 dias do Platinum Card não tem base normativa identificável</strong> — o SPT está em lei federal e não pode ser alterado por Executive Order. Qualquer planejamento fiscal construído sobre essa premissa é, hoje, especulativo.
+
+<strong>E o green card traz o pacote completo:</strong> tributação sobre renda mundial, exclusão sucessória de USD 15.000.000 (contra os USD 60.000 do não domiciliado), pacote declaratório, regime PFIC sobre o portfólio brasileiro, e o relógio de 8 anos do exit tax.`,
+        warning: `<strong>A contribuição de USD 1.000.000 é declaradamente não reembolsável — inclusive em caso de indeferimento do pedido ou de extinção do programa.</strong>
+
+O Gold Card foi criado por <strong>Executive Order, não por lei do Congresso</strong>, está sob <strong>litígio de mérito pendente</strong> (AAUP v. DHS), e <strong>não dispensa os requisitos substantivos de EB-1A ou EB-2 NIW</strong>. Em cerca de oito meses de operação, registou <strong>1 aprovação confirmada</strong>.
+
+<strong>A isenção de 270 dias do Substantial Presence Test anunciada para o Platinum Card não tem base normativa identificável</strong> — o SPT é definido em lei federal (IRC §7701(b)(3)) e não pode ser excecionado por ato do Executivo.`,
+        sources: [
+          {
+            t: "USCIS · Form I-140G",
+            u: "https://www.uscis.gov/i-140g",
+          },
+          {
+            t: "Federal Register · Executive Orders",
+            u: "https://www.federalregister.gov/presidential-documents/executive-orders",
+          },
+          {
+            t: "CourtListener · AAUP v. DHS (D.D.C.)",
+            u: "https://www.courtlistener.com",
+          },
+          {
+            t: "Cornell LII · 26 U.S. Code §7701(b) — Substantial Presence Test",
+            u: "https://www.law.cornell.edu/uscode/text/26/7701",
+          },
+        ],
+      },
+      {
+        name: "Caminho à cidadania — N-400",
+        status: "changed",
+        legalBasis:
+          "<strong>INA §316(a)</strong> — 8 U.S.C. §1427(a): regra geral de 5 anos. <strong>INA §319(a)</strong> — 8 U.S.C. §1430(a): 3 anos para cônjuge de cidadão americano. <strong>INA §312</strong> — 8 U.S.C. §1423: requisitos de inglês e <em>civics</em>. <strong>INA §337</strong> — juramento. <strong>8 C.F.R. Parts 316, 319, 335 e 337</strong>. Formulários: N-400, N-445, N-336, N-470, N-600. <strong>Child Citizenship Act of 2000</strong> (Pub. L. 106-395) — INA §320.",
+        desc: `<strong>Regra geral (INA §316):</strong> <strong>18 anos ou mais</strong>; <strong>LPR por, no mínimo, 5 anos</strong> imediatamente anteriores ao protocolo; <strong>residência contínua</strong> de 5 anos; <strong>presença física de, no mínimo, 30 meses</strong> (metade dos 5 anos); <strong>residência de 3 meses</strong> no estado ou distrito do USCIS onde protocola; <em>good moral character</em>; registo no <em>Selective Service</em> (homens que residiram nos EUA entre 18 e 26 anos); inglês; e <em>civics test</em>.
+
+<strong>Regra dos 3 anos (INA §319(a)):</strong> LPR por 3 anos; <strong>casado com cidadão americano e vivendo em união conjugal durante os 3 anos inteiros</strong>; o cônjuge é cidadão durante todos os 3 anos; <strong>presença física de 18 meses</strong>; demais requisitos idênticos.
+
+<strong>Mudança confirmada no <em>civics test</em>:</strong>
+· N-400 protocolado <strong>antes de 20 de outubro de 2025</strong> → <strong>teste de 2008</strong>: banco de 100 questões, 10 perguntadas, <strong>6 acertos</strong> para aprovação;
+· N-400 protocolado <strong>em 20 de outubro de 2025 ou depois</strong> → <strong>teste de 2025</strong>: banco de <strong>128 questões</strong>, <strong>20 perguntadas</strong>, <strong>12 acertos</strong> exigidos.`,
+        kv: [
+          { l: "Regra geral", v: "5 anos de LPR" },
+          { l: "Cônjuge de cidadão", v: "3 anos" },
+          { l: "Presença física — 5 anos", v: "30 meses" },
+          { l: "Presença física — 3 anos", v: "18 meses" },
+          { l: "Residência no estado", v: "3 meses" },
+          { l: "Ausência de 6 meses a 1 ano", v: "Presunção rebatível de ruptura" },
+          { l: "Ausência de 1 ano ou mais", v: "Rompe a residência contínua" },
+          { l: "Civics test — desde 20/out/2025", v: "128 questões · 12 de 20" },
+          { l: "N-400 online", v: "USD 710" },
+          { l: "N-400 papel", v: "USD 760" },
+          { l: "Taxa reduzida", v: "USD 380" },
+          { l: "Protocolo antecipado", v: "90 dias antes" },
+        ],
+        requirements: [
+          "<strong>18 anos ou mais</strong> na data do protocolo.",
+          "<strong>LPR por, no mínimo, 5 anos</strong> imediatamente anteriores ao protocolo (3 anos para cônjuge de cidadão).",
+          "<strong>Continuous residence:</strong> ausência de <strong>6 meses a 1 ano</strong> cria <strong>presunção rebatível</strong> de ruptura; ausência de <strong>1 ano ou mais</strong> <strong>rompe</strong> a residência contínua, salvo <strong>Form N-470</strong> (preservação para trabalho qualificado no exterior). Rompido, o relógio reinicia — com regra de 4 anos e 1 dia após o retorno.",
+          "<strong>Physical presence</strong> de, no mínimo, <strong>30 meses</strong> (metade dos 5 anos), ou <strong>18 meses</strong> (metade dos 3 anos).",
+          "<strong>Residência de 3 meses</strong> no estado ou distrito do USCIS onde protocola.",
+          "<strong>Good moral character (GMC)</strong> no período estatutário — o USCIS pode examinar período anterior em situações graves. <strong>Bares permanentes:</strong> homicídio e <em>aggravated felony</em> posterior a 29/nov/1990. <strong>Bares condicionais:</strong> crimes de torpeza moral, embriaguez habitual, poligamia, jogo ilegal, falso testemunho para benefício migratório, <strong>inadimplência de imposto de renda</strong>, <strong>atraso em pensão alimentícia</strong>, e prisão agregada de 180 dias.",
+          "<strong>Registo no Selective Service</strong> — homens que residiram nos EUA entre 18 e 26 anos.",
+          "<strong>Inglês</strong> — leitura, escrita e fala. <strong>Isenções:</strong> <strong>50/20</strong> (50 anos ou mais e 20 anos de LPR) e <strong>55/15</strong>; a isenção <strong>65/20</strong> tem também versão simplificada do <em>civics</em>, com 20 questões designadas.",
+          "<strong>Civics test</strong> — 6 de 10 (teste de 2008) ou <strong>12 de 20</strong> (teste de 2025, para protocolos desde 20/out/2025).",
+          "Adesão aos princípios constitucionais e prestação do <strong>Oath of Allegiance</strong>.",
+        ],
+        process: [
+          {
+            step: "Protocolo do N-400",
+            detail:
+              "Online ou em papel. Pode ser protocolado <strong>90 dias antes</strong> de completar 5 (ou 3) anos de LPR.",
+            timing: "90 dias antes",
+          },
+          {
+            step: "Recibo (I-797C)",
+            detail: "Confirmação de recebimento pelo USCIS.",
+            timing: "2–4 semanas",
+          },
+          {
+            step: "Biometria",
+            detail: "Em <em>Application Support Center</em>, se exigida.",
+            timing: "3–8 semanas",
+          },
+          {
+            step: "Entrevista",
+            detail:
+              "Revisão do N-400 e aplicação dos testes de inglês e de <em>civics</em>, no <em>USCIS Field Office</em>.",
+            timing: "Variável por escritório",
+          },
+          {
+            step: "Decisão (N-652)",
+            detail:
+              "Na mesma data da entrevista, ou em até <strong>120 dias</strong>.",
+            timing: "Até 120 dias",
+          },
+          {
+            step: "Cerimónia de juramento (N-445)",
+            detail:
+              "Perante o USCIS ou tribunal federal.",
+            timing: "Semanas a meses",
+          },
+          {
+            step: "Certificado e passaporte",
+            detail:
+              "Certificado de naturalização pelo USCIS; passaporte americano pelo Departamento de Estado.",
+            timing: "—",
+          },
+          {
+            step: "Indeferimento e recurso",
+            detail:
+              "Recurso <strong>N-336</strong> em 30 dias; depois, revisão judicial <em>de novo</em> perante o <em>District Court</em> (8 U.S.C. §1421(c)).",
+            timing: "30 dias para o N-336",
+          },
+        ],
+        costs: [
+          {
+            item: "Form N-400 — online",
+            value: "USD 710",
+            note: "Biometria incluída",
+          },
+          { item: "Form N-400 — papel", value: "USD 760" },
+          {
+            item: "Taxa reduzida",
+            value: "USD 380",
+            note: "Renda entre 150% e 400% do federal poverty guideline",
+          },
+          {
+            item: "Isenção integral (Form I-912)",
+            value: "USD 0",
+            note: "Mediante requisitos",
+          },
+          {
+            item: "Form N-336 (recurso)",
+            value: "A confirmar",
+          },
+          {
+            item: "Passaporte americano (primeira via, adulto)",
+            value: "≈USD 165",
+            note: "A confirmar",
+          },
+        ],
+        sections: [
+          {
+            title: "Aumento proposto — ainda não vigente",
+            body: `Há <strong>regra proposta (NPRM)</strong> do DHS elevando a taxa do N-400 em aproximadamente <strong>75% a 80%</strong> — de USD 710 para faixa em torno de <strong>USD 1.280</strong>.
+
+<strong>Em agosto de 2026 é apenas proposta em fase de comentário público, não está em vigor.</strong> <em>Estágio processual atual a verificar em federalregister.gov e uscis.gov.</em>`,
+          },
+          {
+            title: "Regras de família e o Child Citizenship Act",
+            body: `<strong>Cada membro da família naturaliza-se individualmente</strong> — não há naturalização «por dependência» para adultos.
+
+<strong>Filhos menores de 18 anos adquirem cidadania automaticamente</strong> sob o <strong>Child Citizenship Act of 2000</strong> (Pub. L. 106-395), <strong>INA §320</strong>, se: (i) ao menos um dos pais é cidadão americano, por nascimento ou naturalização; (ii) o filho é menor de 18; (iii) é LPR; e (iv) reside nos EUA sob custódia legal e física do pai ou mãe cidadão.
+Documenta-se com <strong>Form N-600</strong> (<em>Application for Certificate of Citizenship</em>) ou diretamente com passaporte americano.`,
+          },
+        ],
+        brazilNote: `<strong>Dupla cidadania:</strong> os Estados Unidos <strong>não exigem renúncia</strong> à nacionalidade anterior. Do lado brasileiro, a Constituição Federal, art. 12, §4.º, II, na redação dada pela <strong>EC 131/2023</strong>, restringiu a perda da nacionalidade brasileira essencialmente a <strong>pedido expresso do próprio interessado</strong>. <strong>O brasileiro que se naturaliza americano mantém a nacionalidade brasileira</strong> — e, com ela, as obrigações brasileiras associadas, inclusive as fiscais, enquanto não formalizar a saída fiscal. <em>Redação vigente a confirmar.</em>
+
+<strong>Efeito fiscal decisivo — e irreversível na prática.</strong> A naturalização <strong>converte a tributação mundial de condicional em vinculada à cidadania</strong>:
+· o <strong>green card</strong> pode ser encerrado por <strong>Form I-407</strong>, com o exit tax do §877A incidindo apenas se houver <strong>8 dos últimos 15 anos</strong> de LPR;
+· a <strong>cidadania</strong> só se encerra por <strong>renúncia formal perante consulado</strong> (INA §349(a)(5)), com taxa consular de USD 2.350 <em>(a confirmar)</em>, e o §877A aplica-se <strong>sem o filtro dos 8 anos</strong> — bastam os testes de patrimônio (USD 2.000.000), de imposto médio (USD 211.000 em 2026) ou de certificação.
+
+<strong>Atenção ao <em>good moral character</em>:</strong> a <strong>conformidade fiscal é examinada</strong> na naturalização. Débitos com o IRS, declarações em atraso — inclusive FBAR e Forms 8938, 5471 e 3520 —, ou participação em esquemas de evasão podem fundamentar <strong>recusa</strong>. Para o brasileiro com estruturas no Brasil, a regularização declaratória deve estar concluída <strong>antes</strong> do protocolo do N-400, não depois.
+
+<strong>Perda do green card por ausência:</strong> ausência de <strong>2 anos consecutivos</strong> faz o LPR caducar, com necessidade de <em>Returning Resident visa</em> e critérios discricionários. A <strong>cidadania não caduca</strong> — é a proteção definitiva contra esse risco, ao custo da vinculação fiscal permanente.`,
+        sources: [
+          {
+            t: "USCIS · Citizenship Through Naturalization",
+            u: "https://www.uscis.gov/citizenship/learn-about-citizenship/citizenship-and-naturalization",
+          },
+          {
+            t: "USCIS · Form N-400, Application for Naturalization",
+            u: "https://www.uscis.gov/n-400",
+          },
+          {
+            t: "USCIS Policy Manual · Volume 12 — Citizenship and Naturalization",
+            u: "https://www.uscis.gov/policy-manual/volume-12",
+          },
+          {
+            t: "USCIS · Civics test (2025) e materiais de estudo",
+            u: "https://www.uscis.gov/citizenship/find-study-materials-and-resources",
+          },
+          {
+            t: "Cornell LII · 8 U.S. Code §1427 — Requirements of naturalization",
+            u: "https://www.law.cornell.edu/uscode/text/8/1427",
           },
         ],
       },
@@ -5908,100 +7400,1200 @@ Some-se a isso o <strong>IHT tail de até 10 anos</strong> após a saída e a pr
     flagCode: "hk",
     name: "Hong Kong",
     region: "Ásia",
-    alert: false,
-    sumFiscal: "Tributação territorial · IR máx. 17%",
+    alert: true,
+    sumFiscal: "Territorialidade · sem CGT, sem herança, sem IVA",
     sumFS: "ok",
-    sumVisa: "CIES HKD 30M + TTPS",
-    sumVS: "new",
+    sumVisa: "New CIES HKD 30M · Top Talent Pass · QMAS",
+    sumVS: "changed",
     fiscal: [
       {
-        name: "Sistema Territorial — Salaries Tax & Profits Tax",
+        name: "Princípio da territorialidade e a estrutura do sistema tributário",
         status: "ok",
-        desc: `HK tributa exclusivamente rendimentos de <strong>fonte local</strong>. Dividendos, ganhos de capital, aluguéis estrangeiros, royalties internacionais e rendimentos de investimentos no exterior são <strong>integralmente isentos</strong>.
+        legalBasis:
+          "<strong>Inland Revenue Ordinance (IRO), Cap. 112</strong> — norma-matriz de todos os impostos sobre renda em Hong Kong. Seções relevantes: s. 8 (Salaries Tax), s. 14 (Profits Tax), s. 5 (Property Tax), s. 41 (Personal Assessment), s. 15 (<em>deemed trading receipts</em>). <em>A numeração das Schedules deve ser confirmada em elegislation.gov.hk.</em>",
+        desc: `Hong Kong adota o <strong>princípio da fonte territorial</strong>: <strong>somente lucros e rendimentos com fonte em Hong Kong são tributados</strong>. Rendimento de fonte estrangeira, em regra, não é tributado — <strong>independentemente de ser remetido ou não</strong> para Hong Kong. Não há regime de <em>remittance basis</em> como o do antigo sistema britânico.
 
-<strong>Salaries Tax:</strong> compara o imposto progressivo (2%–17% sobre a renda líquida, após deduções) com uma taxa-padrão de dois níveis ("two-tiered standard rate") — 15% até HKD 5.000.000 de renda líquida tributável, 16% acima disso — pagando-se o menor valor entre os dois cálculos.
+Sob a IRO, uma pessoa é sujeita a <strong>Profits Tax</strong> quando <strong>cumulativamente</strong>:
+1. exerce um comércio, profissão ou negócio (<em>trade, profession or business</em>) em Hong Kong;
+2. esse negócio gera lucros; e
+3. os lucros <strong>surgem em, ou derivam de, Hong Kong</strong>.
 
-<strong>Profits Tax:</strong> também de dois níveis — 8,25% sobre os primeiros HKD 2.000.000 de lucro tributável e 16,5% sobre o excedente, para sociedades (7,5%/15% para empresas não incorporadas); apenas uma entidade por grupo pode usar a faixa reduzida. <strong>Sem imposto sobre herança, ganhos de capital ou patrimônio.</strong>
+A ausência de qualquer um dos três elementos afasta a incidência.
 
-<strong>Hong Kong Minimum Top-up Tax (Pillar Two/BEPS):</strong> em vigor desde 1/jan/2025 para grupos multinacionais com receita consolidada ≥€750M em pelo menos 2 dos últimos 4 exercícios, com alíquota mínima de 15%; a primeira notificação é devida em 2026 e o primeiro relatório (GIR) em 2027.`,
+<strong>Ponto crítico para planejamento:</strong> o regime FSIE <strong>não alterou</strong> o princípio da fonte. Ele opera como regra de tributação <em>superveniente</em> sobre rendimento de fonte estrangeira <strong>recebido em Hong Kong por entidades de grupos multinacionais</strong> — e <strong>não se aplica a pessoas físicas</strong>.`,
         kv: [
-          { l: "Salaries Tax", v: "2%–17% ou 15%/16% (o menor)" },
-          { l: "Profits Tax", v: "8,25% (até HKD 2M) / 16,5%" },
-          { l: "Dividendos", v: "0%" },
-          { l: "Ganhos capital", v: "0%" },
-          { l: "Herança", v: "0%" },
-          { l: "HK Minimum Top-up Tax", v: "15%, grupos ≥€750M, desde 01/2025" },
-          { l: "Renda ext.", v: "Isenta" },
+          { l: "Princípio", v: "Fonte territorial" },
+          { l: "Rendimento estrangeiro de PF", v: "Não tributado" },
+          { l: "Regime de remessa", v: "Inexistente" },
+          { l: "Ano fiscal", v: "1 de abril a 31 de março" },
+          { l: "Salaries Tax — progressiva", v: "2% a 17%" },
+          { l: "Salaries Tax — standard rate", v: "15% até HKD 5M · 16% acima" },
+          { l: "Profits Tax — corporações", v: "8,25% até HKD 2M · 16,5%" },
+          { l: "Profits Tax — não incorporadas", v: "7,5% até HKD 2M · 15%" },
+          { l: "Property Tax", v: "15% sobre o NAV" },
+          { l: "MPF — contribuição", v: "5% + 5%, teto HKD 30.000/mês" },
         ],
-        impact:
-          "Sistema territorial aplicável a gestores de investimentos, family offices e traders com renda predominantemente de fonte estrangeira.",
-        warning:
-          "A Lei de Segurança Nacional (2020) e a progressiva integração com legislação continental criaram incerteza jurídica quanto à autonomia regulatória de longo prazo.",
-        sources: [
-          { t: "Inland Revenue Department", u: "https://www.ird.gov.hk" },
+        sections: [
           {
-            t: "IRD · Two-tiered Profits Tax Rates FAQ",
-            u: "https://www.ird.gov.hk/eng/faq/2tr.htm",
+            title: "Testes de fonte (source rules)",
+            body: `O IRD aplica o <em>«operations test»</em> consolidado em <strong>CIR v. Hang Seng Bank</strong> e <strong>CIR v. HK-TVB International</strong>: pergunta-se <strong>«o que o contribuinte fez para ganhar o lucro e onde o fez»</strong>.
+
+Regras práticas usualmente citadas:
+· <strong>comércio de mercadorias</strong> — local onde os contratos de compra e de venda são efetivamente negociados e concluídos;
+· <strong>serviços</strong> — local onde os serviços são prestados;
+· <strong>juros</strong> (fora do setor financeiro) — <em>provision of credit test</em>: onde o crédito foi disponibilizado;
+· <strong>aluguéis de imóveis</strong> — local do imóvel;
+· <strong>comissões</strong> — onde a atividade que gerou a comissão foi exercida.
+
+<em>Nota de verificação: confirmar na DIPN n.º 21 do IRD (Locality of profits), última revisão.</em>`,
           },
           {
-            t: "IRD · Global Minimum Tax and HK Minimum Top-up Tax",
-            u: "https://www.ird.gov.hk/eng/tax/bus_beps.htm",
+            title: "Salaries Tax — a regra do «melhor dos dois cálculos»",
+            body: `O contribuinte paga <strong>o menor</strong> entre:
+
+<strong>(a) Cálculo pelas alíquotas progressivas</strong> — aplicadas sobre o <em>net chargeable income</em> (rendimento avaliável menos deduções menos <em>allowances</em> pessoais):
+· primeiros HKD 50.000 → 2%
+· HKD 50.001 – 100.000 → 6%
+· HKD 100.001 – 150.000 → 10%
+· HKD 150.001 – 200.000 → 14%
+· acima de HKD 200.000 → 17%
+
+<strong>(b) Cálculo pelo <em>standard rate</em></strong> — aplicado sobre o <em>net income</em> (rendimento avaliável menos deduções, <strong>sem</strong> as <em>allowances</em> pessoais).
+
+<strong>Two-tiered standard rates — mudança confirmada.</strong> A partir do ano de avaliação <strong>2024/25</strong> (iniciado em 1/abr/2024), o <em>standard rate</em> deixou de ser único de 15% e passou a ser escalonado:
+· primeiros <strong>HKD 5.000.000</strong> de <em>net income</em> → <strong>15%</strong>
+· excedente acima de HKD 5.000.000 → <strong>16%</strong>
+
+Segundo o Governo, a medida afeta cerca de <strong>12.000 contribuintes (0,6% do total)</strong>, com arrecadação estimada de <strong>HKD 910 milhões por ano</strong>.
+
+<strong>Implicação de teto:</strong> o <em>standard rate</em> funciona como <strong>teto efetivo</strong> da tributação do trabalho. Para rendimentos elevados, a carga tende a 15% até HKD 5 milhões de rendimento líquido e 16% no excedente.
+
+<strong>Personal Assessment</strong> (IRO, s. 41): mecanismo eletivo pelo qual residentes agregam Salaries Tax, Profits Tax (negócio não incorporado) e Property Tax numa única base, aplicando <em>allowances</em> e podendo deduzir juros de empréstimo para aquisição do imóvel locado e prejuízos. <strong>A partir de 2024/25, as two-tiered standard rates também se aplicam sob Personal Assessment.</strong>`,
+          },
+          {
+            title: "Allowances e deduções — valores de referência",
+            body: `<strong>Allowances pessoais</strong> (congeladas desde 2018/19 em vários casos) — <em>valores a confirmar integralmente em ird.gov.hk</em>:
+· Basic allowance (individual): HKD 132.000
+· Married person's allowance: HKD 264.000
+· Child allowance (1.º ao 9.º filho, cada): HKD 130.000, com adicional de HKD 130.000 no ano de nascimento
+· Dependent parent ou grandparent com 60 anos ou mais: HKD 50.000 cada; entre 55 e 59 anos: HKD 25.000 cada
+· <em>Additional</em> dependent parent (coabitação): dobra o valor
+· Dependent brother ou sister: HKD 37.500
+· Single parent allowance: HKD 132.000
+· Disabled dependant allowance e Personal disability allowance: HKD 75.000 cada
+
+<strong>Deduções</strong> (aplicáveis a ambos os cálculos), com tetos anuais:
+· despesas de autoaperfeiçoamento (<em>self-education</em>): HKD 100.000
+· juros de financiamento habitacional: HKD 100.000, limitado a 20 anos de avaliação
+· aluguel de residência (<em>domestic rents</em>): HKD 100.000, elevado para 120.000 em caso de recém-nascido, a partir de 2024/25
+· despesas com lar de idosos: HKD 100.000
+· contribuições obrigatórias ao MPF: HKD 18.000
+· contribuições voluntárias qualificadas (TVC) mais produtos de anuidade diferida (QDAP): HKD 60.000 no conjunto
+· prémios VHIS (seguro-saúde voluntário), por segurado: HKD 8.000
+· doações a instituições de caridade aprovadas: 35% do rendimento
+
+<strong>Redução anual («tax rebate»):</strong> Hong Kong concede anualmente uma redução percentual do imposto devido, com teto — 100% com teto de HKD 3.000 em 2023/24, reduzido para HKD 1.500 em 2024/25. <em>Tetos de 2025/26 e 2026/27 a verificar no Budget respectivo.</em>
+
+<strong>Prazos:</strong> ano fiscal de 1/abr a 31/mar; <em>Individual Tax Return</em> (BIR60) emitida em maio, com prazo de 1 mês (3 meses se houver negócio individual); empregador emite <strong>IR56B</strong> anualmente.
+
+<strong>Saída de Hong Kong:</strong> o empregador deve notificar o IRD com <strong>1 mês de antecedência</strong> (formulário <strong>IR56G</strong>) e <strong>reter pagamentos</strong> até a liberação fiscal (<em>tax clearance</em>). Esta é a etapa de saída do regime para o expatriado.`,
+          },
+          {
+            title: "Profits Tax e regimes concessionários",
+            body: `<strong>Pessoas jurídicas (corporations):</strong>
+· primeiros <strong>HKD 2.000.000</strong> de lucro tributável → <strong>8,25%</strong>
+· excedente → <strong>16,5%</strong>
+
+<strong>Negócios não incorporados</strong> (firmas individuais e <em>partnerships</em>):
+· primeiros HKD 2.000.000 → <strong>7,5%</strong>
+· excedente → <strong>15%</strong>
+
+<strong>Regra «um grupo, uma entidade»:</strong> dentro de um grupo de <em>connected entities</em>, <strong>apenas uma</strong> pode gozar da alíquota reduzida em cada ano; as demais aplicam 16,5% sobre a totalidade. A eleição é feita na declaração anual.
+
+<strong>Características estruturais:</strong>
+· <strong>sem tributação em base mundial</strong> e <strong>sem regras CFC</strong> próprias;
+· <strong>sem imposto sobre dividendos distribuídos</strong> nem retenção na fonte sobre dividendos pagos ao exterior;
+· <strong>sem retenção sobre juros</strong> pagos ao exterior;
+· <strong>retenção sobre royalties</strong>: existe, via <em>deemed trading receipt</em> (IRO, s. 15(1)(a)/(b)); alíquota efetiva usual de <strong>4,95%</strong> (16,5% sobre 30% do bruto) para não residentes não associados, ou 16,5% sobre 100% se associado e o IP já tiver sido tributado em Hong Kong;
+· <strong>prejuízos fiscais</strong>: transporte indefinido para frente; <strong>sem <em>carry-back</em></strong>;
+· <strong>sem consolidação fiscal de grupo</strong>.
+
+<strong>Regimes concessionários setoriais</strong> (alíquota de 8,25% ou menor): <em>corporate treasury centres</em>, <em>aircraft leasing</em>, <em>ship leasing</em> e <em>ship agency</em>, resseguro e <em>captive insurance</em>, e <strong>patent box</strong> — alíquota concessionária de <strong>5%</strong>, introduzida pela Inland Revenue (Amendment) (Tax Concessions for Intellectual Property Income) Ordinance 2024.
+
+<strong>Pillar Two:</strong> Hong Kong promulgou em 2025 a Inland Revenue (Amendment) (Minimum Tax for Multinational Enterprise Groups) Ordinance 2025, implementando a <strong>IIR</strong> e o <strong>Hong Kong Minimum Top-up Tax (HKMTT) a 15%</strong> para grupos multinacionais com receita consolidada igual ou superior a <strong>€750 milhões</strong>, com efeitos para exercícios iniciados a partir de 1/jan/2025. <em>Data de sanção, escopo e existência de UTPR a confirmar.</em>
+<strong>Relevância para famílias brasileiras:</strong> grupos familiares cujo faturamento consolidado global atinja €750 milhões podem estar no escopo — situação plausível em famílias com operações produtivas no Brasil.`,
+          },
+          {
+            title: "Tributos que não existem em Hong Kong",
+            body: `· <strong>Imposto sobre ganhos de capital: não existe.</strong> <em>Atenção:</em> o IRD pode <strong>requalificar ganhos como lucro comercial</strong> tributável por Profits Tax quando houver <em>badges of trade</em> — frequência, prazo de detenção, motivação, financiamento. Existe o <strong>Tax Certainty Enhancement Scheme</strong> (desde 2023), que permite obter certeza de tratamento como capital em alienações de participações societárias que atendam a requisitos objetivos <em>(participação de 15% ou mais, mantida por 24 meses ou mais, entre outros — a confirmar)</em>.
+· <strong>Imposto sobre dividendos recebidos: não existe</strong> — dividendos de fonte de Hong Kong são isentos (IRO, s. 26); dividendos estrangeiros seguem o FSIE, quando aplicável.
+· <strong>Retenção sobre dividendos pagos: não existe.</strong>
+· <strong>Imposto sobre juros de depósito: não existe</strong> — juros pagos por bancos, associações de poupança e instituições depositárias autorizadas em Hong Kong são isentos para pessoas físicas e para negócios.
+· <strong>IVA, GST ou imposto geral sobre consumo: não existem.</strong> Há impostos especiais sobre 4 produtos: bebidas alcoólicas fortes, tabaco, hidrocarbonetos e álcool metílico.
+· <strong>Imposto sucessório (Estate Duty): abolido.</strong> Aplica-se a falecimentos ocorridos <strong>em ou após 11 de fevereiro de 2006</strong>, por força da <strong>Revenue (Abolition of Estate Duty) Ordinance 2005</strong>, que emendou a Estate Duty Ordinance, Cap. 111. <em>Data e número a confirmar em elegislation.gov.hk.</em>
+· <strong>Imposto sobre doações: não existe.</strong>
+· <strong>Imposto sobre patrimônio ou fortuna: não existe.</strong>
+· <strong>Contribuições sociais sobre folha:</strong> não há previdência estatal contributiva clássica; há o <strong>MPF (Mandatory Provident Fund)</strong> — contribuição obrigatória de <strong>5% do empregador mais 5% do empregado</strong>, com teto de rendimento relevante de <strong>HKD 30.000/mês</strong> (contribuição máxima de HKD 1.500/mês cada).
+
+<strong>Consequência para o planejamento sucessório:</strong> com o Estate Duty abolido desde 2006 e sem imposto sobre doações, a transmissão de ativos situados em Hong Kong <strong>não gera tributo local</strong>. O risco tributário para o brasileiro migra integralmente para o <strong>lado brasileiro</strong> — ITCMD estadual e IRPF sobre ganho de capital.`,
+          },
+          {
+            title: "Property Tax, rates e Stamp Duty — o que mudou em 2024, 2025 e 2026",
+            body: `<strong>Property Tax</strong> (IRO, s. 5): incide a <strong>15% sobre o Net Assessable Value (NAV)</strong> de imóveis situados em Hong Kong locados a terceiros. NAV = aluguel bruto recebido, menos as <em>rates</em> pagas pelo proprietário, menos <strong>abatimento padrão de 20%</strong> para reparos e manutenção (não há dedução de despesas reais). Fórmula efetiva: 15% sobre 80% do aluguel líquido de rates — <strong>carga efetiva de aproximadamente 12% do aluguel</strong>.
+· <strong>Sociedades</strong> que auferem aluguéis podem obter isenção de Property Tax e tributar por Profits Tax (IRO, s. 5(2)(a)), o que em geral permite deduzir juros e depreciação.
+· <strong>Pessoas físicas</strong> podem eleger <strong>Personal Assessment</strong> para deduzir juros do financiamento.
+· Imóvel de uso próprio não paga Property Tax, mas paga <em>rates</em> e <em>Government rent</em>.
+
+<strong>Rates e Government rent:</strong> <em>rates</em> a 5% do <em>rateable value</em> anual, pagas trimestralmente; <em>Government rent</em> a 3% do <em>rateable value</em> para a maioria dos terrenos. Não são impostos sobre renda.
+
+<strong>Stamp Duty sobre imóveis — a sequência de três mudanças:</strong>
+
+<strong>1. Abolição das medidas de arrefecimento — 28 de fevereiro de 2024.</strong> Foram <strong>abolidas todas as <em>demand-side management measures</em></strong> para transações residenciais:
+· <strong>BSD — Buyer's Stamp Duty</strong> (15% que incidia sobre compradores <strong>não residentes permanentes</strong> de Hong Kong e sobre pessoas jurídicas) — <strong>abolido</strong>;
+· <strong>SSD — Special Stamp Duty</strong> (imposto de revenda rápida, até 20%) — <strong>abolido</strong>;
+· <strong>NRSD — New Residential Stamp Duty</strong> (15% flat) — <strong>abolido</strong>.
+
+<strong>Consequência direta:</strong> desde 28/fev/2024, o <strong>comprador estrangeiro — incluindo o brasileiro não residente permanente — paga a mesma alíquota que o residente permanente de Hong Kong</strong>: a Scale 2 do AVD. Este é o ponto de maior relevância prática para o público-alvo.
+
+<strong>2. Ad Valorem Stamp Duty (AVD) — Scale 2 desde 26 de fevereiro de 2025.</strong> Todas as transações, residenciais e não residenciais, independentemente da nacionalidade ou residência do comprador e de já possuir outro imóvel, sujeitam-se às <em>rates</em> originais da Scale 2:
+· imóveis de valor <strong>até HKD 4.000.000</strong> pagam <strong>HKD 100</strong> de selo;
+· alíquota máxima da Scale 2: <strong>4,25%</strong>, atingida a partir de <strong>HKD 21.739.120</strong>.
+<em>A tabela progressiva completa entre HKD 4M e HKD 21,74M deve ser obtida em ird.gov.hk ou no anexo à Stamp Duty Ordinance.</em>
+
+<strong>3. Nova faixa superior — desde 26 de fevereiro de 2026 (Budget 2026-27).</strong> Para instrumentos executados em ou após 26/fev/2026:
+· até HKD 100.000.000 → Scale 2, máximo de <strong>4,25%</strong>
+· HKD 100.000.001 – 109.574.470 → <strong>HKD 4.250.000 mais 30% do excedente sobre HKD 100.000.000</strong> (faixa de transição)
+· HKD 109.574.471 ou mais → <strong>6,5% flat</strong> sobre a contraprestação total
+Segundo o IRD, a medida afeta aproximadamente <strong>0,3% das transações residenciais</strong>.
+
+<strong>Outros selos:</strong>
+· <strong>transferência de ações de sociedade de Hong Kong</strong>: 0,1% por parte (comprador e vendedor), total de <strong>0,2%</strong> — reduzido de 0,26% em 17/nov/2023. Relevante para reorganizações societárias e veículos de family office;
+· <strong>contratos de locação</strong>: 0,25% a 1%, conforme o prazo;
+· <strong>alívio para transferências intragrupo</strong> (Stamp Duty Ordinance, s. 45): isenção para transferências entre sociedades associadas com 90% ou mais de participação. Houve modernização da arquitetura de <em>corporate relief</em> nos Orçamentos de 2024-25 a 2026-27, e o Budget 2026-27 iniciou a abertura de incentivos de <em>stamp duty</em> a novas estruturas de mercado, incluindo REITs. <em>Detalhes a confirmar.</em>`,
+          },
+        ],
+        brazilNote: `<strong>Hong Kong CONSTA da lista brasileira de jurisdições com tributação favorecida.</strong> Esta é, do ponto de vista de wealth planning brasileiro, a informação mais determinante de todo este dossiê.
+
+Hong Kong está incluída no <strong>art. 1.º da IN RFB n.º 1.037, de 4 de junho de 2010</strong>, e <strong>permanece na lista após as alterações de 2025</strong>. A <strong>IN RFB n.º 2.265/2025</strong> (assinada em 9/mai/2025, publicada em 13/mai/2025) excluiu os Emirados Árabes Unidos da lista de jurisdições com tributação favorecida e o regime austríaco de holding da lista de regimes fiscais privilegiados — <strong>Hong Kong não foi excluída</strong>.
+
+<strong>Racional técnico:</strong> Hong Kong satisfaz o critério do art. 24 da Lei 9.430/1996 porque (i) <strong>não tributa rendimento de fonte estrangeira</strong> e (ii) a alíquota máxima de Profits Tax, de <strong>16,5%</strong>, é <strong>inferior ao limiar de 17%</strong> (reduzido de 20% para 17% para jurisdições alinhadas aos padrões de transparência, pela Portaria MF n.º 488/2014). <em>O inciso exato do art. 1.º em que «Hong Kong» figura deve ser verificado no texto compilado da IN.</em>
+
+<strong>Consequências jurídicas da classificação como JTF — todas relevantes:</strong>
+
+· <strong>IRRF majorado a 25%</strong> (Lei 9.779/1999, art. 8.º) — rendimentos, ganhos de capital e demais proventos pagos, creditados, entregues, empregados ou remetidos por fonte no Brasil a pessoa física ou jurídica residente ou domiciliada em JTF sofrem IRRF de <strong>25%</strong>, em vez das alíquotas ordinárias.
+· <strong>Ganho de capital de não residente</strong> (Lei 10.833/2003, art. 18) — alienação de bens no Brasil por residente em JTF: <strong>25%</strong>, em vez da escala progressiva de 15% a 22,5%.
+· <strong>Perda dos benefícios de investidor estrangeiro (Res. CMN 4.373)</strong> — investidor não residente em JTF <strong>não</strong> faz jus à alíquota zero de IR sobre ganhos em bolsa, títulos públicos federais, FIP e FIA.
+· <strong>Preços de transferência</strong> (Lei 14.596/2023, vigente desde 1/jan/2024) — operações com residente em JTF, <strong>ainda que não vinculado</strong>, sujeitam-se obrigatoriamente às regras de <em>arm's length</em>.
+· <strong>Subcapitalização</strong> (Lei 12.249/2010, arts. 24 a 26) — juros pagos a residente em JTF: dedutibilidade limitada a <strong>30% do patrimônio líquido</strong> da devedora brasileira, regra mais restritiva que a de 2:1 aplicável a vinculadas comuns.
+· <strong>Dedutibilidade de despesas</strong> (Lei 9.430/1996, art. 26, com a redação da Lei 12.249/2010) — pagamentos a residente em JTF só são dedutíveis se houver identificação do <strong>beneficiário efetivo</strong>, comprovação de <strong>capacidade operacional</strong> e prova documental do efetivo pagamento e do recebimento dos bens ou serviços.
+· <strong>Tributação automática de controladas no exterior</strong> (<strong>Lei 14.754/2023, art. 5.º, §1.º, I</strong>) — <strong>o ponto crítico:</strong> entidades controladas por pessoa física residente no Brasil que estejam <strong>localizadas em JTF</strong> têm seus lucros <strong>tributados anualmente a 15%, em 31 de dezembro de cada ano, INDEPENDENTEMENTE da composição de sua renda</strong> — isto é, <strong>sem</strong> o filtro de «renda passiva superior a 40%». <strong>Uma holding em Hong Kong controlada por brasileiro cai automaticamente nesta hipótese.</strong>
+
+<strong>Síntese para o consultor:</strong> a residência fiscal do indivíduo em Hong Kong e a tributação em Hong Kong são uma coisa; a <strong>classificação de Hong Kong como JTF pelo Brasil</strong> é outra, e produz efeitos (a) enquanto o cliente ainda for residente fiscal brasileiro e (b) sobre quaisquer ativos que permaneçam no Brasil após a saída. <strong>A estrutura FIHV ou UFR de Hong Kong, do ponto de vista brasileiro e enquanto o titular for residente no Brasil, é uma entidade controlada em JTF sujeita a tributação anual automática de 15% pela Lei 14.754/2023 — a alíquota de 0% de Profits Tax local não produz diferimento algum.</strong> A eficiência dessas estruturas só se materializa <strong>após</strong> a efetiva saída fiscal do Brasil.
+
+<strong>Saída fiscal do Brasil</strong> (IN SRF n.º 208/2002; Lei n.º 3.470/1958, art. 17; RIR/2018): <strong>CSDP</strong> da data da saída até o último dia de fevereiro do ano-calendário subsequente, e <strong>DSDP</strong> no prazo da DIRPF do ano seguinte.
+· <strong>Saída em caráter permanente:</strong> não residente <strong>a partir da data da saída</strong>, desde que apresentada a CSDP.
+· <strong>Saída em caráter temporário:</strong> não residente a partir do <strong>dia seguinte ao 12.º mês</strong> consecutivo de ausência.
+· <strong>Sem CSDP:</strong> residente nos primeiros 12 meses; não residente a partir do 13.º.
+· Após a saída, rendimentos de fonte brasileira passam a sofrer tributação exclusiva na fonte — <strong>e, por Hong Kong ser JTF, à alíquota de 25% em vez de 15%</strong>. É necessário nomear procurador no Brasil, comunicar fontes pagadoras, bancos e CVM/B3, e migrar investimentos para o regime da Resolução CMN n.º 4.373/2014 — <strong>sem</strong> acesso às alíquotas favorecidas, por conta da classificação JTF.
+
+<strong>CRS.</strong> Hong Kong é participante do CRS, com regime AEOI implementado na IRO. Em abril de 2026, tinha relações de troca ativadas com <strong>mais de 80 jurisdições</strong>, com base em acordo bilateral ou no MCAA. Hong Kong só realiza AEOI com uma jurisdição reportável quando há arranjo em vigor com ela. Instituições financeiras de Hong Kong devem identificar contas de residentes fiscais de jurisdições reportáveis <strong>e de NFEs passivas cujas <em>controlling persons</em> sejam residentes fiscais de jurisdições reportáveis</strong>, reportando ao IRD.
+<em>Item de verificação crítica: a inclusão específica do BRASIL na lista de «Reportable Jurisdictions» de Hong Kong não pôde ser confirmada nesta pesquisa. Verificar em ird.gov.hk/eng/tax/aeoi/rpt_jur.htm.</em> Indicação de conhecimento prévio sugere que o Brasil consta desde a expansão de 2020, quando a lista passou de cerca de 75 para mais de 126 jurisdições — tratar como <strong>provável, mas não verificado</strong>.
+Em <strong>dezembro de 2025</strong>, Hong Kong abriu <strong>consulta pública sobre a implementação do Cryptoasset Reporting Framework (CARF) e do CRS 2.0</strong> — a acompanhar, pois ampliará o reporte a criptoativos.
+
+<strong>Obrigações brasileiras independem da troca de informações:</strong> declarar bens no exterior na <strong>DIRPF</strong>; apresentar a <strong>Declaração de Capitais Brasileiros no Exterior (CBE)</strong> ao Banco Central — anual se os ativos no exterior somarem <strong>USD 1.000.000 ou mais</strong> em 31/12, e trimestral se <strong>USD 100.000.000 ou mais</strong> <em>(limiares revisados pela Resolução BCB n.º 281/2022 e sucessoras — confirmar)</em>; e tributar os rendimentos sob a Lei 14.754/2023.
+<strong>Penalidades por omissão:</strong> multa da CBE de até R$ 250.000, com agravantes; multa de ofício de 75% a 150% sobre imposto não pago; e, conforme o caso, tipificação penal (Lei 8.137/1990 e Lei 9.613/1998).`,
+        warning: `<strong>Hong Kong é jurisdição de tributação favorecida para o Brasil.</strong> A consequência mais severa é o art. 5.º, §1.º, I da Lei 14.754/2023: uma entidade controlada em Hong Kong por pessoa física residente no Brasil tem os lucros <strong>tributados anualmente a 15%, em 31 de dezembro, independentemente de distribuição e independentemente da composição da renda</strong> — sem o filtro de renda passiva que se aplica a outras jurisdições.
+
+Isso significa que a alíquota de <strong>0% de Profits Tax</strong> do regime FIHV, e a alíquota de 8,25%/16,5% do Profits Tax ordinário, <strong>não produzem diferimento algum</strong> para o titular ainda residente no Brasil. A eficiência só existe <strong>depois</strong> da saída fiscal formalizada.
+
+Acresce que remessas do Brasil para Hong Kong sofrem <strong>IRRF de 25%</strong>, e o ganho de capital de não residente sobre bem no Brasil é tributado a <strong>25%</strong> — em vez das alíquotas ordinárias.`,
+        sources: [
+          {
+            t: "IRD · A Simple Guide on The Territorial Source Principle of Taxation",
+            u: "https://www.ird.gov.hk/eng/paf/bus_pft_tsp.htm",
+          },
+          {
+            t: "elegislation.gov.hk · Inland Revenue Ordinance (Cap. 112) e demais Ordinances",
+            u: "https://www.elegislation.gov.hk",
+          },
+          {
+            t: "IRD · FAQ",
+            u: "https://www.ird.gov.hk/eng/faq/index.htm",
+          },
+          {
+            t: "IRD · Reportable Jurisdictions (AEOI/CRS)",
+            u: "https://www.ird.gov.hk/eng/tax/aeoi/rpt_jur.htm",
+          },
+          {
+            t: "Receita Federal · IN RFB n.º 1.037/2010 (texto compilado)",
+            u: "http://normas.receita.fazenda.gov.br/sijut2consulta/link.action?idAto=16002&visao=compilado",
+          },
+          {
+            t: "Receita Federal · Listas de jurisdições com tributação favorecida atualizadas (IN 2.265/2025)",
+            u: "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/maio/listas-de-jurisdicoes-com-tributacao-favorecida-e-de-regimes-fiscais-privilegiados-e-atualizada",
+          },
+          {
+            t: "DLA Piper · Medidas fiscais do Budget 2026-2027 de Hong Kong",
+            u: "https://www.dlapiper.com/en/insights/publications/2026/03/key-tax-measures-proposed-under-the-2026-2027-hong-kong-budget",
+          },
+          {
+            t: "Budget 2026-27 · Public Finance",
+            u: "https://www.budget.gov.hk/2026/eng/pf.html",
+          },
+        ],
+      },
+      {
+        name: "FSIE — Foreign-sourced Income Exemption (aplicável apenas a grupos multinacionais)",
+        status: "changed",
+        legalBasis:
+          "<strong>FSIE 1.0</strong> — Inland Revenue (Amendment) (Taxation on Specified Foreign-sourced Income) Ordinance 2022, em vigor para rendimento auferido e recebido em Hong Kong a partir de <strong>1/jan/2023</strong>. <strong>FSIE 2.0</strong> — lei promulgada em <strong>8 de dezembro de 2023</strong>, aplicável a rendimento no escopo auferido e recebido a partir de <strong>1/jan/2024</strong>. Localização na IRO: <strong>Part 4AA, ss. 15H a 15V</strong> <em>(numeração a confirmar)</em>. Origem: compromisso com o Código de Conduta da UE, após a inclusão de Hong Kong na lista cinzenta (Annex II) em outubro de 2021.",
+        desc: `<strong>Escopo subjetivo — o ponto que decide tudo:</strong>
+
+<strong>O regime FSIE aplica-se EXCLUSIVAMENTE a «MNE entities»</strong> — entidades que integram um grupo multinacional, isto é, grupo com pelo menos uma entidade ou estabelecimento permanente em jurisdição diferente da da entidade-mãe.
+
+<strong>O FSIE NÃO se aplica a pessoas físicas.</strong> Também <strong>não se aplica a entidades puramente domésticas</strong> de Hong Kong (<em>standalone</em> ou grupos locais).
+
+<strong>Consequência prática:</strong>
+· um <strong>indivíduo brasileiro residente fiscal em Hong Kong</strong> que aufere dividendos, juros, royalties ou ganhos de capital de fonte estrangeira <strong>não é alcançado pelo FSIE</strong>. Seu rendimento estrangeiro permanece fora da base de Salaries Tax por força do princípio da territorialidade;
+· uma <strong>holding familiar de Hong Kong que integre um grupo multinacional</strong> — por exemplo, com subsidiária no Brasil ou nas BVI — <strong>está no escopo</strong> e precisa satisfazer os testes abaixo para não ser tributada a 16,5% sobre rendimento estrangeiro recebido em Hong Kong.`,
+        kv: [
+          { l: "Escopo subjetivo", v: "Só entidades de grupos multinacionais" },
+          { l: "Pessoas físicas", v: "Fora do escopo" },
+          { l: "Entidades puramente domésticas", v: "Fora do escopo" },
+          { l: "Juros, dividendos, ganhos em equity", v: "No escopo desde 1/jan/2023" },
+          { l: "Rendimentos de IP", v: "No escopo desde 1/jan/2023" },
+          { l: "Ganhos em todos os demais ativos", v: "No escopo desde 1/jan/2024" },
+          { l: "Alíquota se não excluído", v: "16,5%" },
+          { l: "Participation exemption — participação", v: "≥ 5%" },
+          { l: "Participation exemption — detenção", v: "≥ 12 meses" },
+          { l: "Subject to tax condition", v: "≥ 15% no exterior" },
+        ],
+        requirements: [
+          "<strong>Rendimento no escopo</strong> (<em>specified foreign-sourced income</em>): juros; dividendos; ganhos na alienação de <strong>participações societárias</strong>; e rendimentos de <strong>propriedade intelectual</strong> — todos desde <strong>1/jan/2023</strong>. Desde <strong>1/jan/2024</strong> (FSIE 2.0), acrescem os <strong>ganhos na alienação de todos os demais tipos de ativos</strong> — móveis e imóveis, financeiros e não financeiros, de capital ou de renda.",
+          "<strong>Teste de «recebimento em Hong Kong»:</strong> considera-se recebido quando (i) remetido a, transmitido para ou trazido para Hong Kong; (ii) usado para satisfazer dívida contraída em relação a negócio exercido em Hong Kong; ou (iii) usado para adquirir bem móvel trazido para Hong Kong. <em>A confirmar no guidance do IRD.</em>",
+          "<strong>Via de exclusão A — teste de substância económica</strong> (para juros, dividendos e ganhos não-IP): empregar número <strong>adequado</strong> de funcionários qualificados em Hong Kong; incorrer em montante <strong>adequado</strong> de despesas operacionais em Hong Kong; e exercer em Hong Kong as <strong>atividades essenciais geradoras de renda (CIGA)</strong>. Para <strong>entidades puramente de holding</strong> (<em>pure equity holding entities</em>), o teste é <strong>reduzido</strong>: basta cumprir as obrigações de registo societário e ter recursos humanos e locais adequados em Hong Kong. É admitido <strong>outsourcing</strong> das CIGA para prestador em Hong Kong, desde que a entidade exerça monitoramento e controlo adequados.",
+          "<strong>Via de exclusão B — teste de nexo</strong> (exclusivo para rendimento de IP): aplicável apenas a <strong>patentes e ativos assimilados</strong> (software protegido por copyright); <strong>marcas e direitos autorais de marketing NÃO qualificam</strong>. Fração do nexo = despesas de P&amp;D qualificadas × 1,3, limitado ao total, dividido pelas despesas totais. <strong>Apenas a porção correspondente à fração é excluída</strong> da tributação.",
+          "<strong>Via de exclusão C — participation exemption</strong> (para dividendos e ganhos em alienação de participações): ser <strong>residente de Hong Kong</strong> ou ter EP em Hong Kong; deter <strong>5% ou mais</strong> das participações na entidade investida; detenção mantida por <strong>12 meses ou mais</strong> ininterruptos imediatamente antes do fato gerador; e observar as regras anti-abuso.",
+          "<strong>Regras anti-abuso da participation exemption:</strong> <em>subject to tax condition</em> — o rendimento (ou o lucro subjacente) foi sujeito a imposto em jurisdição estrangeira a alíquota de <strong>15% ou mais</strong>; <em>switch-over rule</em> — se a alíquota estrangeira for inferior a 15%, aplica-se crédito em vez de isenção; <em>main purpose rule</em> — o arranjo não pode ter como um de seus propósitos principais a obtenção da vantagem fiscal; e regra <strong>anti-hibridismo</strong> — o pagamento não pode ser dedutível na jurisdição do pagador.",
+        ],
+        sections: [
+          {
+            title: "Intra-group transfer relief e advance rulings",
+            body: `<strong>Intra-group transfer relief.</strong> O FSIE 2.0 introduziu <strong>diferimento</strong> da tributação quando o ativo é transferido entre <strong>entidades associadas</strong>, sujeito a regras anti-abuso específicas.
+
+<strong>Advance rulings.</strong> A entidade de grupo multinacional pode requerer <em>advance ruling</em> ao Commissioner of Inland Revenue sobre o cumprimento do teste de substância económica — para juros, dividendos e ganhos não-IP —, se exercer <em>trade or business</em> em Hong Kong. Os prazos de referência de acúmulo são <strong>1/jan/2023</strong> (juros, dividendos e alienação de <em>equity</em>) e <strong>1/jan/2024</strong> (alienação de ativos não-IP).
+
+<em>O ruling é usualmente concedido por até 5 anos de avaliação, sem taxa nos primeiros anos do regime — a confirmar em ird.gov.hk.</em>
+
+<strong>Situação na lista da UE:</strong> Hong Kong foi <strong>removida da lista cinzenta</strong> da União Europeia após a implementação do FSIE 2.0 (decisão de fevereiro de 2024). <em>Confirmar o status atual na lista Annex II do Conselho da UE.</em>`,
+          },
+        ],
+        brazilNote: `<strong>O FSIE não altera a posição brasileira.</strong> Ainda que uma entidade de Hong Kong satisfaça o teste de substância económica e obtenha exclusão do FSIE — pagando, portanto, <strong>0% em Hong Kong</strong> sobre o rendimento estrangeiro —, essa mesma entidade continua sendo, para o Brasil, uma <strong>entidade controlada em jurisdição de tributação favorecida</strong>.
+
+<strong>Resultado:</strong> lucros tributados a <strong>15% anualmente, em 31 de dezembro, independentemente de distribuição</strong> (Lei 14.754/2023, art. 5.º, §1.º, I), enquanto o controlador for pessoa física residente no Brasil.
+
+<strong>Ponto de atenção para o indivíduo:</strong> se o brasileiro <strong>já é residente fiscal em Hong Kong</strong> e detém os ativos <strong>pessoalmente</strong> (não por meio de entidade), o FSIE <strong>não se aplica</strong> — e o rendimento de fonte estrangeira fica fora da base de Hong Kong pela territorialidade. A introdução de uma holding de Hong Kong entre a pessoa e os ativos é justamente o que traz o FSIE para dentro do quadro, com os testes de substância que ele exige.
+
+A decisão de estruturar por meio de entidade em Hong Kong deve, portanto, ponderar simultaneamente (i) os testes de substância do FSIE, (ii) o custo de manter substância real em Hong Kong, e (iii) a tributação brasileira automática de 15% enquanto o controlador for residente no Brasil.`,
+        sources: [
+          {
+            t: "IRD · Foreign-sourced Income Exemption",
+            u: "https://www.ird.gov.hk/eng/tax/bus_fsie.htm",
+          },
+          {
+            t: "IRD · Press release sobre o FSIE (29/nov/2023)",
+            u: "https://www.ird.gov.hk/eng/ppr/archives/23112905.htm",
+          },
+          {
+            t: "EY · Hong Kong revê o seu regime FSIE",
+            u: "https://www.ey.com/en_gl/technical/tax-alerts/hong-kong-to-further-revise-its-foreign-source-income-exemption-",
+          },
+          {
+            t: "PwC China · Regime FSIE de Hong Kong",
+            u: "https://www.pwccn.com/en/services/tax/fsie.html",
+          },
+          {
+            t: "International Tax Review · O regime FSIE expandido de Hong Kong",
+            u: "https://www.internationaltaxreview.com/article/2cr3bcal3erhsfmwcdszk/sponsored/hong-kongs-expanded-foreign-sourced-income-exemption-regime-key-considerations",
+          },
+        ],
+      },
+      {
+        name: "Regimes de family office — FIHV e Unified Fund Exemption",
+        status: "changed",
+        legalBasis:
+          "<strong>Inland Revenue (Amendment) (Tax Concessions for Family-owned Investment Holding Vehicles) Ordinance 2023</strong>, publicada no Diário Oficial em <strong>19 de maio de 2023</strong>, com <strong>efeito retroativo a 1 de abril de 2022</strong> (ano de avaliação 2022/23). Introduziu na IRO a Schedule 16E e as seções operativas ss. 19E a 19M <em>(numeração a confirmar)</em>. <strong>UFR:</strong> IRO, ss. 20AM a 20AY, introduzidas pela Inland Revenue (Profits Tax Exemption for Funds) (Amendment) Ordinance 2019, com efeito desde 1/abr/2019.",
+        desc: `Hong Kong estruturou uma política dedicada a family offices, com unidade própria dentro do <strong>InvestHK</strong> (<em>FamilyOfficeHK</em>), o <em>Policy Statement on Developing Family Office Businesses in Hong Kong</em> (março de 2023), a <em>Network of Family Office Service Providers</em> e a <em>Hong Kong Academy for Wealth Legacy</em>.
+
+<strong>FIHV — Family-owned Investment Holding Vehicle.</strong> Alíquota de <strong>Profits Tax de 0%</strong> sobre lucros do FIHV — e de FSPEs (<em>Family-owned Special Purpose Entities</em>) — decorrentes de <strong>transações qualificadas</strong> em ativos da Schedule 16C da IRO.
+
+<strong>Unified Fund Exemption (UFR).</strong> Isenção de Profits Tax para «funds» conforme definidos na s. 20AM, <strong>independentemente de estrutura</strong> (sociedade, <em>partnership</em>, trust), <strong>de domicílio</strong> (<em>onshore</em> ou <em>offshore</em> — o regime unificou os antigos regimes de <em>offshore fund</em> e <em>offshore private equity fund</em>), <strong>de tamanho ou de finalidade</strong>.
+
+<strong>FIHV × UFR:</strong> o FIHV foi criado justamente porque o UFR exige <strong>múltiplos investidores</strong> — a definição de «fund» é importada da Securities and Futures Ordinance (Cap. 571) e pressupõe arranjo de investimento coletivo com múltiplos investidores que não têm controlo diário sobre a gestão. <strong>Uma família única não satisfaz essa definição.</strong>`,
+        kv: [
+          { l: "FIHV — Profits Tax", v: "0%" },
+          { l: "FIHV — AUM mínimo", v: "HKD 240.000.000" },
+          { l: "FIHV — empregados em HK", v: "Mínimo 2, em tempo integral" },
+          { l: "FIHV — despesa operacional anual", v: "Mínimo HKD 2.000.000" },
+          { l: "FIHV — participação familiar", v: "≥ 95% dos interesses económicos" },
+          { l: "FIHV — máximo por família", v: "50 veículos (a confirmar)" },
+          { l: "ESFO — receita de serviços à família", v: "≥ 75% (safe harbour)" },
+          { l: "Eleição pelo regime", v: "Irrevogável" },
+          { l: "Efeito retroativo", v: "1 de abril de 2022" },
+          { l: "Bill 2026", v: "Em escrutínio no LegCo" },
+        ],
+        requirements: [
+          "<strong>FIHV:</strong> ser uma <strong>entidade</strong> (sociedade, <em>partnership</em> ou trust), constituída em ou fora de Hong Kong.",
+          "<strong>FIHV:</strong> <strong>não</strong> ser um empreendimento com finalidade comercial ou industrial geral.",
+          "<strong>FIHV:</strong> ser <strong>normalmente gerido ou controlado em Hong Kong</strong> durante o período-base.",
+          "<strong>FIHV:</strong> ser <strong>gerido por um Eligible Single Family Office (ESFO)</strong> em Hong Kong.",
+          "<strong>FIHV:</strong> <strong>95% ou mais dos interesses económicos</strong> detidos, direta ou indiretamente, por membros de <strong>uma única família</strong>. <em>Percentual e definição de «família» a confirmar na Schedule 16E.</em>",
+          "<strong>FIHV:</strong> máximo de <strong>50 FIHVs por família</strong> podem gozar da concessão em cada ano. <em>A confirmar em ird.gov.hk.</em>",
+          "<strong>Limiar de ativos:</strong> o agregado dos ativos da <strong>Schedule 16C</strong> geridos pelo ESFO para a família deve ser de <strong>no mínimo HKD 240.000.000</strong>. Ativos da Schedule 16C incluem valores mobiliários, ações, debêntures, <em>bonds</em> e <em>notes</em> de sociedades privadas, entre outros.",
+          "<strong>Requisito de atividade substancial:</strong> no mínimo <strong>2 empregados em tempo integral</strong> em Hong Kong que executem as atividades de investimento e possuam as qualificações necessárias.",
+          "<strong>Requisito de atividade substancial:</strong> no mínimo <strong>HKD 2.000.000 de despesa operacional anual</strong> incorrida em Hong Kong para a execução dessas atividades.",
+          "<strong>ESFO:</strong> ser <em>private company</em> constituída em ou fora de Hong Kong; ser normalmente gerida ou controlada em Hong Kong; ter <strong>95% ou mais</strong> dos interesses económicos detidos por membros da família; prestar serviços a membros da família e/ou aos FIHVs, com <strong>75% ou mais da receita</strong> proveniente desses serviços (<em>safe harbour rule</em>); e <strong>não prestar serviços a terceiros</strong> fora da família.",
+          "<strong>Eleição:</strong> a opção pelo regime é <strong>irrevogável</strong> e feita por escrito ao Commissioner, aplicando-se ao ano eleito e a todos os subsequentes.",
+        ],
+        sections: [
+          {
+            title: "Reforma em curso — o Bill 2026",
+            body: `Em <strong>12 de junho de 2026</strong>, o Governo publicou no Diário Oficial o <strong>Inland Revenue (Amendment) (Preferential Tax Regimes for Funds, Family-owned Investment Holding Vehicles and Carried Interest) Bill 2026</strong>.
+
+<strong>Escopo:</strong> reforma simultânea de <strong>três regimes</strong> — Unified Fund Exemption (UFR), FIHV, e a concessão sobre <em>carried interest</em>.
+
+<strong>Tramitação:</strong> precedido de consulta pública com <em>stakeholders</em> em 2024 e sessões de engajamento em 2025; <strong>primeira leitura no Legislative Council em 24 de junho de 2026</strong>; <strong>em agosto de 2026, ainda em escrutínio de comissão — NÃO PROMULGADO</strong>. Se aprovado, com <strong>efeito retroativo ao ano de avaliação 2025/26</strong>.
+
+<strong>Principais alterações propostas ao FIHV:</strong>
+1. <strong>Mudança do cálculo do limiar mínimo de ativos</strong> — substituição da regra de <em>Net Asset Value</em> por um requisito de <em>asset value</em>, de modo que <strong>empréstimos de sócios (<em>shareholders' loans</em>) ao FIHV deixem de ser deduzidos</strong> no cômputo do valor;
+2. <strong>expansão da Schedule 16C</strong> para refletir estratégias de investimento contemporâneas;
+3. <strong>eliminação das referências a «qualifying transactions» e «incidental transactions»</strong> e do limiar de transações incidentais (atualmente 5%), simplificando a qualificação;
+4. <strong>inclusão de classes de ativos alternativos</strong> no perímetro da concessão: <strong>crédito privado (<em>private credit</em>), ativos digitais, imóveis no exterior, metais preciosos e instrumentos ligados a carbono</strong>.
+
+<strong>Nota de planejamento:</strong> para famílias brasileiras avaliando a estruturação de um FIHV em 2026, a existência do Bill 2026 significa que <strong>o desenho definitivo do regime ainda não está estabilizado</strong>. Recomenda-se acompanhar a tramitação no LegCo antes de comprometer estrutura.`,
+          },
+          {
+            title: "Unified Fund Exemption — mecânica",
+            body: `<strong>Efeito:</strong> isenção de Profits Tax para «funds» definidos na IRO, s. 20AM, independentemente de estrutura, domicílio, tamanho ou finalidade.
+
+<strong>Definição de «fund»</strong> importada da Securities and Futures Ordinance (Cap. 571) — arranjo de investimento coletivo com <strong>múltiplos investidores</strong> que não têm controlo diário sobre a gestão.
+
+<strong>Transações qualificadas:</strong> ativos da Schedule 16C da IRO.
+<strong>Transações incidentais:</strong> isentas se representarem <strong>5% ou menos</strong> do valor total das receitas <em>— percentual a confirmar</em>.
+
+<strong>Regras anti-abuso:</strong> <em>anti-round-tripping</em> — investidores residentes em Hong Kong com 30% ou mais de participação, ou qualquer participação se o fundo for entidade associada, podem ser tributados por <em>deeming</em>.
+
+<strong>SPEs (Special Purpose Entities):</strong> isentas na proporção da participação do fundo.
+
+<strong>Investimento em empresas privadas:</strong> sujeito a testes adicionais — teste de imóveis, teste de detenção de 2 anos, teste de controlo de curto prazo.
+
+<strong>Veículos domésticos comumente utilizados:</strong> <strong>OFC</strong> (Open-ended Fund Company) e <strong>LPF</strong> (Limited Partnership Fund, Cap. 637, desde 31/ago/2020).
+
+<em>Toda esta seção deve ser confirmada em ird.gov.hk/eng/tax/bus_ufe.htm.</em>`,
+          },
+          {
+            title: "Carried interest",
+            body: `<strong>Inland Revenue (Amendment) (Tax Concessions for Carried Interest) Ordinance 2021:</strong> <strong>0% de Profits Tax e 0% de Salaries Tax</strong> sobre <em>eligible carried interest</em> distribuído por fundos de <em>private equity</em> qualificados, com efeito retroativo a 1 de abril de 2020, mediante <strong>certificação pela Hong Kong Monetary Authority (HKMA)</strong>.
+
+<strong>Também objeto de reforma pelo Bill 2026</strong> — confirmado que o projeto abrange o regime de <em>carried interest</em>.
+
+<em>Detalhes a confirmar em ird.gov.hk e junto à HKMA.</em>`,
+          },
+        ],
+        brazilNote: `<strong>Para o titular ainda residente fiscal no Brasil, a alíquota de 0% do FIHV não produz efeito algum.</strong>
+
+Hong Kong é <strong>jurisdição de tributação favorecida</strong> na IN RFB 1.037/2010. Por força do <strong>art. 5.º, §1.º, I da Lei 14.754/2023</strong>, uma entidade controlada por pessoa física residente no Brasil localizada em JTF tem os lucros <strong>tributados a 15% anualmente, em 31 de dezembro, independentemente de distribuição e independentemente da composição da renda</strong>.
+
+<strong>Ou seja:</strong> o FIHV paga 0% em Hong Kong e 15% no Brasil, todos os anos, sobre o lucro apurado — sem diferimento. <strong>A eficiência do FIHV só se materializa após a efetiva saída fiscal do Brasil</strong> (CSDP e DSDP formalizadas, com a caracterização da não residência).
+
+<strong>Custo de substância.</strong> O FIHV exige, em Hong Kong: <strong>2 empregados qualificados em tempo integral</strong>, <strong>HKD 2.000.000 de despesa operacional anual</strong>, e <strong>HKD 240.000.000 de ativos sob gestão</strong>. Esse é o piso de entrada — e é um piso real, não formal.
+
+<strong>Selo sobre transferência de ações</strong> de sociedade de Hong Kong: 0,1% por parte, total de 0,2%, reduzido de 0,26% em 17/nov/2023 — relevante para as reorganizações societárias envolvidas na montagem da estrutura.
+
+<strong>Recomendação de sequência:</strong> a estruturação de um family office em Hong Kong por família brasileira deve vir <strong>depois</strong> da saída fiscal, não antes — e deve aguardar a estabilização do Bill 2026, cuja tramitação ainda estava em escrutínio de comissão em agosto de 2026.`,
+        sources: [
+          {
+            t: "IRD · Tax Concessions for Family-owned Investment Holding Vehicles",
+            u: "https://www.ird.gov.hk/eng/tax/bus_fihv.htm",
+          },
+          {
+            t: "InvestHK / FamilyOfficeHK · Novas concessões fiscais para family offices",
+            u: "https://www.familyofficehk.gov.hk/en/new-tax-concessions-family-offices/index.html",
+          },
+          {
+            t: "KPMG China · Hong Kong apresenta projeto de lei para tornar o regime de family office mais atrativo",
+            u: "https://kpmg.com/cn/en/insights/2026/06/tax-alert-11-hk-hong-kong-sar-unveils-draft-law-to-make-its-family-office-tax-regime-more-attractive.html",
+          },
+          {
+            t: "Baker McKenzie · Regimes de concessão fiscal para fundos, family offices e carried interest (jul/2026)",
+            u: "https://www.bakermckenzie.com/en/insight/publications/2026/07/hk-enhanced-tax-concession-regimes-funds-family-offices-carried-interest",
+          },
+          {
+            t: "Withers · A nova lei de concessão fiscal para veículos de investimento familiar",
+            u: "https://www.withersworldwide.com/en-gb/insight/read/hong-kong-s-new-law-providing-a-tax-concession-for-family-investment-vehicles-has-finally-passed",
+          },
+          {
+            t: "Charltons · Novos regimes fiscais para fundos, family offices e carried interest",
+            u: "https://www.charltonslaw.com/new-tax-regimes-for-hong-kong-funds-family-offices-and-carried-interest/",
+          },
+        ],
+      },
+      {
+        name: "Rede de CDTs e a inexistência de acordo com o Brasil",
+        status: "risk",
+        legalBasis:
+          "Hong Kong é <strong>Região Administrativa Especial com sistema tributário autónomo</strong> (art. 108 da Basic Law) e <strong>negocia os seus próprios CDTAs</strong>. Não é coberta pelos tratados tributários da República Popular da China continental — o CDTA Hong Kong–Mainland China é acordo <strong>separado</strong>, o que confirma a autonomia.",
+        desc: `<strong>Rede de Hong Kong:</strong> <strong>59 CDTAs assinados</strong> e negociações iniciadas ou agendadas com <strong>16 jurisdições</strong>, segundo dado apurado em julho de 2026. <em>Conferir o número exato em ird.gov.hk.</em> Hong Kong é parte da Convenção Multilateral (MLI) e mantém ainda <strong>TIEAs</strong> (acordos de troca de informações) e a rede <strong>AEOI/CRS</strong>.
+
+CDTAs recentes: <strong>Bangladesh e Croácia</strong> entraram em vigor em dezembro de 2024; <strong>CDTA Hong Kong–Noruega</strong> assinado em dezembro de 2025.
+
+<strong>NÃO EXISTE acordo de dupla tributação entre Brasil e Hong Kong.</strong>`,
+        kv: [
+          { l: "CDTAs de Hong Kong", v: "59 assinados" },
+          { l: "Em negociação", v: "16 jurisdições" },
+          { l: "CDT Brasil–Hong Kong", v: "Não existe" },
+          { l: "CDT Brasil–China", v: "Não se estende a Hong Kong" },
+          { l: "Brasil na lista de prioridades", v: "Sim — como parceiro proposto" },
+          { l: "Retenção reduzida", v: "Indisponível" },
+          { l: "Procedimento amigável (MAP)", v: "Indisponível" },
+          { l: "Troca de informações", v: "Via CRS/MCAA" },
+        ],
+        sections: [
+          {
+            title: "A verificação: o que a pesquisa encontrou",
+            body: `<strong>Não foi encontrada qualquer evidência da existência de um Acordo para Evitar a Dupla Tributação entre o Brasil e Hong Kong</strong> — assinado em 24 de novembro de 2022 ou em qualquer outra data.
+
+<strong>Evidências apuradas:</strong>
+1. Documento da <strong>ASIFMA</strong>, «Annex B — Proposed CDTA partners to be accorded with priority» (março de 2024), lista o <strong>Brasil como jurisdição PROPOSTA</strong> como parceiro prioritário para negociação de um CDTA com Hong Kong, com a justificativa de que «um CDTA apoiaria a competitividade dos bancos de Hong Kong que prestam serviços financeiros a clientes sediados no Brasil». Isso demonstra que, <strong>em março de 2024, não havia acordo</strong> — o Brasil era apenas alvo de negociação futura.
+2. As buscas em fontes brasileiras — Receita Federal, Câmara dos Deputados, Senado, Itamaraty/Concórdia — <strong>não retornaram nenhum decreto legislativo, mensagem presidencial ou decreto de promulgação</strong> relativo a acordo com Hong Kong.
+3. As buscas na base de CDTAs de Hong Kong (FSTB, IRD) <strong>não listam o Brasil</strong> entre os signatários.
+
+<strong>Hipótese sobre a origem da confusão</strong> (não confirmada): em torno da data indicada, o Brasil assinou o <strong>Acordo de Dupla Tributação Brasil–Reino Unido, em 29 de novembro de 2022, em Brasília</strong> — data muito próxima. Outra possibilidade é confusão com o <strong>Protocolo Alterando o Acordo Brasil–China</strong>, assinado em 23 de maio de 2022 e promulgado pelo <strong>Decreto n.º 12.620, de 12 de setembro de 2025</strong>.
+
+<strong>ATENÇÃO — erro frequente em planejamentos mal elaborados:</strong> <strong>nem o acordo Brasil–China, nem qualquer acordo brasileiro com a República Popular da China, se estende a Hong Kong.</strong> Como Região Administrativa Especial com sistema tributário autónomo (art. 108 da Basic Law), Hong Kong negocia os próprios CDTAs.`,
+          },
+          {
+            title: "Consequências práticas da ausência de acordo",
+            body: `· <strong>Nenhuma redução de alíquotas de retenção na fonte</strong> entre Brasil e Hong Kong;
+· <strong>nenhum mecanismo de MAP</strong> (procedimento amigável) para resolver dupla tributação;
+· <strong>nenhum artigo de não-discriminação</strong>;
+· <strong>nenhuma troca de informações por via de tratado</strong> — a troca ocorre apenas via <strong>CRS/MCAA</strong> e, eventualmente, via <strong>Convenção Multilateral sobre Assistência Mútua Administrativa em Matéria Tributária</strong>. <em>Nota: a extensão da Convenção Multilateral a Hong Kong foi feita pela China por declaração territorial — verificar.</em>
+· A eliminação de dupla tributação depende <strong>exclusivamente da legislação interna</strong> de cada lado: no Brasil, o crédito de imposto pago no exterior sob a Lei 9.249/1995, art. 26, e a Lei 14.754/2023; em Hong Kong, a própria territorialidade torna a questão quase sempre irrelevante, já que rendimento estrangeiro não é tributado.
+
+<strong>Nota de contexto:</strong> a ausência de tratado, somada à classificação de Hong Kong como jurisdição de tributação favorecida pelo Brasil, produz o cenário mais desfavorável do ponto de vista de fluxo Brasil → Hong Kong: <strong>IRRF de 25%</strong> sobre remessas, sem redução convencional, e sem mecanismo de resolução de disputas.`,
+          },
+        ],
+        brazilNote: `A combinação de <strong>ausência de CDT</strong> e <strong>classificação como jurisdição de tributação favorecida</strong> define o perfil de risco de Hong Kong para o brasileiro.
+
+<strong>Fluxo Brasil → Hong Kong:</strong> IRRF de <strong>25%</strong> sobre rendimentos, ganhos e proventos remetidos, sem redução convencional; ganho de capital de não residente sobre bem no Brasil a <strong>25%</strong>; perda dos benefícios da Resolução CMN 4.373; preços de transferência obrigatórios ainda que sem vinculação; subcapitalização limitada a 30% do PL; e dedutibilidade condicionada à identificação do beneficiário efetivo e à comprovação de capacidade operacional.
+
+<strong>Estruturas de Hong Kong detidas por residente fiscal brasileiro:</strong> tributação automática de <strong>15% ao ano</strong>, em 31 de dezembro, independentemente de distribuição e da composição da renda.
+
+<strong>Do lado de Hong Kong:</strong> a territorialidade significa que o rendimento de fonte brasileira auferido por residente de Hong Kong <strong>não é tributado em Hong Kong</strong> — logo, não há dupla tributação a resolver nesse sentido, e a ausência de tratado importa pouco. O problema está no sentido inverso, do Brasil para Hong Kong.
+
+<strong>Monitorar:</strong> o Brasil consta da lista de <strong>parceiros propostos</strong> para negociação de CDTA com Hong Kong (documento ASIFMA de março de 2024). Um eventual acordo alteraria materialmente o quadro — e poderia, inclusive, abrir caminho para a revisão da classificação de Hong Kong na IN RFB 1.037/2010.`,
+        sources: [
+          {
+            t: "IRD · Comprehensive Double Taxation Agreements concluded",
+            u: "https://www.ird.gov.hk/eng/tax/dta_inc.htm",
+          },
+          {
+            t: "FSTB · Comprehensive Avoidance of Double Taxation Agreement",
+            u: "https://www.fstb.gov.hk/en/treasury/general/comprehensive-avoidance-of-double-taxation-agreement.htm",
+          },
+          {
+            t: "ASIFMA · Annex B — Proposed CDTA partners to be accorded with priority (PDF, mar/2024)",
+            u: "https://www.asifma.org/wp-content/uploads/2024/04/240307-proposed-tax-treaty-partners-for-hk.pdf",
+          },
+          {
+            t: "Receita Federal · Acordos para evitar a dupla tributação",
+            u: "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/legislacao/acordos-internacionais/acordos-para-evitar-a-dupla-tributacao/acordos-para-evitar-a-dupla-tributacao",
+          },
+          {
+            t: "Itamaraty · Sistema Concórdia (base de atos internacionais)",
+            u: "https://concordia.itamaraty.gov.br",
           },
         ],
       },
     ],
     visa: [
       {
-        name: "CIES — Capital Investment Entrant Scheme",
-        status: "new",
-        desc: `Reativado em mar/2024 após suspensão em 2015. Investimento mínimo total de <strong>HKD 30.000.000</strong> (~USD 3,8M): HKD 27.000.000 em ativos financeiros elegíveis e/ou imóveis, mais HKD 3.000.000 obrigatórios no CIES Investment Portfolio, gerido pela Hong Kong Investment Corporation Limited (HKIC).
+        name: "New Capital Investment Entrant Scheme (New CIES)",
+        status: "changed",
+        legalBasis:
+          "Esquema administrativo com base na <strong>Immigration Ordinance, Cap. 115</strong>. CIES original: 2003, <strong>suspenso em 2015</strong>. <strong>Relançado em 1 de março de 2024</strong> como New CIES. Órgãos: <strong>New CIES Office</strong> (unidade do InvestHK), <strong>Immigration Department</strong> e <strong>Hong Kong Investment Corporation Limited (HKIC)</strong>. Portal oficial: newcies.gov.hk.",
+        desc: `Programa de residência por investimento de <strong>HKD 30.000.000</strong>, estruturado em duas camadas:
+· <strong>HKD 27.000.000 ou mais</strong> em ativos permissíveis (financeiros e imobiliários);
+· <strong>HKD 3.000.000</strong> obrigatoriamente destinados ao <strong>CIES Investment Portfolio</strong>, gerido pela HKIC.
 
-<strong>Atualização (out/2024):</strong> imóveis voltaram a ser elegíveis — não-residenciais, e residenciais com preço unitário ≥HKD 50.000.000 — limitados a um teto agregado de HKD 10.000.000 do investimento total. Ativos financeiros elegíveis incluem ações listadas na SEHK, títulos de dívida, certificados de depósito (prazo remanescente ≥12 meses, teto de 10%/HKD 3M) e fundos constantes da lista de "Eligible Collective Investment Schemes" mantida pela SFC.
+Acresce o <strong>requisito patrimonial</strong>: o requerente deve demonstrar ser <strong>absolutamente titular beneficiário</strong> de ativos líquidos não inferiores a <strong>HKD 30.000.000</strong> — ou equivalente em outras moedas — durante <strong>todo o período de 6 meses imediatamente anteriores</strong> à data do pedido de <em>Net Asset Assessment</em>.
 
-<strong>Processo:</strong> (1) Net Asset Assessment por contador certificado, comprovando patrimônio líquido ≥HKD 30M por 6 meses antes do pedido; (2) Approval-in-Principle (AIP), com visto de visitante de até 180 dias para efetivar o investimento; (3) comprovação do investimento e Formal Approval, válido por até 24 meses; (4) extensão por 3 anos; (5) relatório anual de cumprimento por contador certificado. Dependentes: cônjuge e filhos solteiros menores de 18 anos, mediante patrocínio. Direito de residência permanente após 7 anos de residência ordinária e contínua — ausências temporárias (férias, negócios, estudo) não interrompem a contagem.`,
+<strong>Alteração vigente desde 1 de março de 2026:</strong> o New CIES atualizou as condições relativas a <strong>sociedades de participação privadas</strong>, permitindo que o requerente utilize uma <em>eligible private holding company</em> constituída há <strong>menos de seis meses</strong> para fins de avaliação do cumprimento dos requisitos de investimento, <strong>sem período mínimo de constituição</strong>. Efeito prático: o investimento pode ser feito por meio de veículo societário recém-constituído. <em>O requisito de titularidade integral do veículo não foi confirmado.</em>`,
         kv: [
-          { l: "Investimento total", v: "HKD 30M (USD 3,8M)" },
-          { l: "Ativos financeiros/imóveis", v: "HKD 27M" },
-          { l: "CIES Investment Portfolio (HKIC)", v: "HKD 3M" },
-          { l: "Teto para imóveis", v: "HKD 10M" },
-          { l: "AIP — prazo p/ efetivar", v: "Até 180 dias" },
-          { l: "Formal Approval", v: "Até 24 meses" },
-          { l: "Permanência", v: "7 anos (residência contínua)" },
+          { l: "Investimento total", v: "HKD 30.000.000" },
+          { l: "Ativos permissíveis", v: "≥ HKD 27.000.000" },
+          { l: "CIES Investment Portfolio", v: "HKD 3.000.000 (obrigatório)" },
+          { l: "Patrimônio líquido exigido", v: "HKD 30.000.000 por 6 meses" },
+          { l: "Certificados de depósito", v: "Teto de HKD 3.000.000" },
+          { l: "Imóveis não residenciais", v: "Computáveis até HKD 10.000.000" },
+          { l: "Entry permit para investir", v: "Visitante, até 180 dias" },
+          { l: "Right of Abode", v: "Após 7 anos" },
+          { l: "Residentes do Continente", v: "Não elegíveis (sem PR estrangeira)" },
+          { l: "Taxa de aplicação", v: "HKD 600 por pessoa" },
+          { l: "Taxa de emissão (> 180 dias)", v: "HKD 1.300" },
         ],
-        impact:
-          "Requer investimento elevado. Hong Kong oferece acesso ao mercado financeiro chinês e asiático. Imóveis voltaram a ser elegíveis desde out/2024, dentro de um teto de HKD 10M.",
-        sources: [
-          { t: "Immigration Department · New CIES", u: "https://www.immd.gov.hk/eng/services/visas/newcies.html" },
+        requirements: [
+          "<strong>Requisito patrimonial (Net Asset Requirement):</strong> demonstrar ser <strong>absolutamente titular beneficiário</strong> de ativos líquidos não inferiores a <strong>HKD 30.000.000</strong>, ou equivalente em outras moedas, durante <strong>todo o período de 6 meses imediatamente anteriores</strong> à data do pedido de avaliação. <em>A exigência formal de verificação por CPA de Hong Kong ou profissional aprovado deve ser confirmada.</em>",
+          "<strong>Requisito de investimento:</strong> <strong>HKD 27.000.000 ou mais</strong> em ativos permissíveis, mais <strong>HKD 3.000.000</strong> no CIES Investment Portfolio — total de <strong>HKD 30.000.000</strong>.",
+          "<strong>Ativos financeiros permissíveis:</strong> <strong>ações</strong> listadas na Bolsa de Hong Kong e negociadas em HKD ou RMB <em>(restrição de moeda a confirmar)</em>; <strong>títulos de dívida</strong>; <strong>certificados de depósito (CD)</strong> — sujeitos a <strong>teto de HKD 3.000.000</strong>; <strong>dívida subordinada</strong>; <strong>esquemas de investimento coletivo elegíveis</strong> — fundos autorizados pela SFC, OFCs, REITs; e <strong>limited partnership funds (LPFs)</strong> registados em Hong Kong.",
+          "<strong>Imóveis:</strong> imóveis <strong>não residenciais</strong> são computáveis até o <strong>teto de HKD 10.000.000</strong>. <em>Desde 16 de outubro de 2024 (medida de aprimoramento do Policy Address 2024), imóveis residenciais adquiridos por preço igual ou superior a HKD 50.000.000 também passaram a ser computáveis, até o mesmo teto de HKD 10.000.000 — ponto relevante para clientes brasileiros que deve ser verificado obrigatoriamente na página de Enhancement Measures do familyofficehk.gov.hk.</em>",
+          "<strong>Apólices de seguro elegíveis:</strong> mencionadas em material de mercado e comercializadas por AIA, Manulife e HSBC como produtos CIES, <strong>mas não localizadas explicitamente entre os ativos permissíveis</strong> nas fontes oficiais consultadas. <em>Verificar em newcies.gov.hk antes de estruturar.</em>",
+          "<strong>Idade:</strong> 18 anos ou mais.",
+          "<strong>Elegíveis:</strong> nacionais estrangeiros; residentes de Macau; residentes chineses de Taiwan; e nacionais chineses que tenham obtido residência permanente em país estrangeiro.",
+          "<strong>NÃO elegíveis:</strong> residentes do Continente (Mainland China) que não possuam residência permanente no exterior — <strong>diferença relevante em relação ao Top Talent Pass Scheme</strong>. Também não elegíveis: nacionais de Afeganistão, Cuba, Coreia do Norte, Laos, Nepal e Vietnã.",
+          "Sem antecedentes criminais nem registo adverso de imigração; capacidade de sustentar-se e aos dependentes.",
+        ],
+        process: [
           {
-            t: "Government · Enhancement measures on New CIES (out/2024)",
-            u: "https://www.info.gov.hk/gia/general/202410/16/P2024101600293.htm",
+            step: "Pedido de Net Asset Assessment",
+            detail:
+              "Comprovação de <strong>HKD 30.000.000 de patrimônio líquido durante 6 meses</strong>, junto ao <strong>New CIES Office / InvestHK</strong>. Resulta na emissão do <strong>Certifying Proof for Net Asset Requirement</strong>; o Office notifica o Director of Immigration.",
+            timing: "A confirmar",
+          },
+          {
+            step: "Entry Application ao Director of Immigration",
+            detail:
+              "Submissão do pedido de entrada ao <strong>Immigration Department</strong>, dentro do prazo de validade do certificado.",
+            timing: "Dentro da validade do certificado",
+          },
+          {
+            step: "Approval-in-Principle (AIP)",
+            detail:
+              "Avaliação sob a perspectiva de imigração e concessão do <strong>Approval-in-Principle</strong>.",
+            timing: "A confirmar",
+          },
+          {
+            step: "Entry permit como visitante",
+            detail:
+              "Emissão de visto ou <em>entry permit</em> para entrada como <strong>VISITANTE por até 180 dias</strong>, destinado a permitir a realização do investimento comprometido.",
+            timing: "Até 180 dias",
+          },
+          {
+            step: "Realização do investimento",
+            detail:
+              "Investimento de <strong>HKD 30.000.000</strong> — HKD 27 milhões em ativos permissíveis e HKD 3 milhões no CIES Investment Portfolio. Prazo prático: dentro dos 180 dias do <em>entry permit</em>.",
+            timing: "Dentro dos 180 dias",
+          },
+          {
+            step: "Verificação do Investment Requirement",
+            detail:
+              "Pedido de verificação junto ao <strong>InvestHK</strong>, resultando na emissão do <strong>Certifying Proof for Fulfillment of Investment Requirements</strong>.",
+            timing: "A confirmar",
+          },
+          {
+            step: "Apresentação ao ImmD e Formal Approval",
+            detail:
+              "Apresentação do <em>Certifying Proof</em> ao Immigration Department, dentro do seu prazo de validade, seguida de avaliação final e <strong>Formal Approval</strong>, com concessão do visto de residência.",
+            timing: "A confirmar",
+          },
+          {
+            step: "Registo do HKID",
+            detail:
+              "Registo do Hong Kong Identity Card junto ao Registration of Persons Office, dentro de <strong>30 dias</strong> da chegada. <em>Prazo a confirmar.</em>",
+            timing: "30 dias",
+          },
+          {
+            step: "Extensões periódicas",
+            detail:
+              "Mediante comprovação de manutenção do investimento. <em>Padrão histórico de 2 + 3 + 3 anos, a confirmar.</em>",
+            timing: "Periódicas",
+          },
+          {
+            step: "Right of Abode",
+            detail:
+              "Após <strong>7 anos</strong> de residência ordinária contínua, pedido de Right of Abode; alternativamente, <em>unconditional stay</em>.",
+            timing: "7 anos",
+          },
+        ],
+        costs: [
+          {
+            item: "Investimento em ativos permissíveis",
+            value: "≥ HKD 27.000.000",
+          },
+          {
+            item: "CIES Investment Portfolio (HKIC)",
+            value: "HKD 3.000.000",
+            note: "Obrigatório; não resgatável durante a permanência no esquema; retorno não garantido",
+          },
+          {
+            item: "TOTAL de investimento",
+            value: "HKD 30.000.000",
+          },
+          {
+            item: "Taxa de aplicação de visto — requerente principal",
+            value: "HKD 600",
+            note: "Não reembolsável; nova estrutura em vigor desde 11h00 de 26/fev/2025",
+          },
+          {
+            item: "Taxa de aplicação — cada dependente",
+            value: "HKD 600",
+            note: "Não reembolsável",
+          },
+          {
+            item: "Taxa de emissão de visto — validade acima de 180 dias",
+            value: "HKD 1.300",
+            note: "A taxa anterior era fixa em HKD 230",
+          },
+          {
+            item: "Taxa de emissão — validade de até 180 dias",
+            value: "HKD 600",
+          },
+          {
+            item: "Mudança de condições de estada ou extensão",
+            value: "HKD 600 por pedido",
+          },
+          {
+            item: "Taxa do New CIES Office pela Net Asset Assessment",
+            value: "Não identificada",
+            note: "Nenhuma taxa localizada nas fontes; verificar",
+          },
+          {
+            item: "Honorários de CPA ou auditor para certificação patrimonial",
+            value: "Custo de mercado",
+          },
+        ],
+        sections: [
+          {
+            title: "O CIES Investment Portfolio",
+            body: `Constituído e gerido pela <strong>Hong Kong Investment Corporation Limited (HKIC)</strong>.
+
+Investe em <strong>empresas e projetos com nexo em Hong Kong</strong>, com vistas a apoiar o desenvolvimento das <strong>indústrias de inovação e tecnologia</strong> e de outras indústrias estratégicas.
+
+<strong>O aporte de HKD 3 milhões é não resgatável durante a permanência no esquema, e o retorno não é garantido.</strong> É a parcela do investimento com risco e liquidez menos favoráveis, e deve ser tratada, no modelo financeiro, como custo de entrada e não como investimento.`,
+          },
+          {
+            title: "Regras de manutenção e saída do regime",
+            body: `<strong>Manutenção:</strong> o investimento deve ser mantido durante todo o período de estada sob o esquema.
+
+<strong>Realocação (<em>switching</em>):</strong> é permitido realocar entre ativos permissíveis, mas <strong>não é permitido retirar capital ou realizar lucros para fora do portfólio</strong> durante o período.
+
+<strong>Queda de valor:</strong> se o valor de mercado cair, <strong>não há obrigação de aporte adicional</strong> (<em>no top-up required</em>).
+
+<strong>Após obter o Right of Abode</strong> ou a <em>unconditional stay</em>, o investidor deixa de estar sujeito à manutenção do portfólio.
+
+<strong>Não há imposto de saída nem <em>clawback</em> fiscal</strong> em Hong Kong.
+
+<em>Itens a verificar nas «Rules on Portfolio Maintenance» em newcies.gov.hk: se dividendos, juros e cupões podem ser retirados livremente durante o período.</em>`,
+          },
+          {
+            title: "Regras de família",
+            body: `<strong>Cônjuge</strong> e <strong>filhos solteiros dependentes com menos de 18 anos</strong> podem ser incluídos como dependentes.
+
+Cada dependente paga as próprias taxas de <strong>HKD 600</strong> de aplicação, mais a taxa de emissão.
+
+<strong>Não foi identificada</strong>, no New CIES, a exigência de aumento do valor de investimento por dependente que existia no CIES original. <em>A confirmar.</em>
+
+<strong>Dependentes computam o próprio período de 7 anos</strong> para o Right of Abode.`,
+          },
+        ],
+        brazilNote: `Brasileiros são <strong>nacionais estrangeiros</strong> e, portanto, elegíveis ao New CIES.
+
+<strong>O ponto decisivo, contudo, não é a elegibilidade migratória — é a posição fiscal brasileira.</strong> Hong Kong é <strong>jurisdição de tributação favorecida</strong> na IN RFB 1.037/2010, e enquanto o investidor for residente fiscal no Brasil:
+· qualquer entidade de Hong Kong que ele controle tem lucros <strong>tributados a 15% ao ano no Brasil</strong>, independentemente de distribuição (Lei 14.754/2023, art. 5.º, §1.º, I);
+· os ativos financeiros mantidos em Hong Kong são <strong>reportáveis na DIRPF</strong> e, acima dos limiares, na <strong>CBE</strong> ao Banco Central;
+· rendimentos de aplicações financeiras no exterior são tributados a <strong>15%</strong> anualmente.
+
+<strong>O visto não encerra a residência fiscal brasileira.</strong> Sem <strong>CSDP</strong> (até o último dia de fevereiro do ano seguinte à saída) e <strong>DSDP</strong> (no prazo da DIRPF), o titular permanece residente fiscal brasileiro, tributado em bases universais — e, como não há CDT Brasil–Hong Kong, <strong>não existe tie-breaker convencional</strong> para resolver a dupla residência.
+
+<strong>Após a saída fiscal</strong>, os rendimentos de fonte brasileira passam a sofrer tributação exclusiva na fonte — e, por Hong Kong ser JTF, à alíquota de <strong>25%</strong> em vez de 15%, com perda dos benefícios da Resolução CMN 4.373.
+
+<strong>Sequência recomendada:</strong> a formalização da saída fiscal deve ser planejada em conjunto com o investimento, não depois dele.`,
+        sources: [
+          {
+            t: "New CIES · Visão geral do processo",
+            u: "https://www.newcies.gov.hk/en/application-procedures/overview/",
+          },
+          {
+            t: "New CIES · Critérios de elegibilidade",
+            u: "https://www.newcies.gov.hk/en/eligibility-criteria/",
+          },
+          {
+            t: "New CIES · Investment Requirement",
+            u: "https://www.newcies.gov.hk/en/application-procedures/application-to-investhk/investment-requirement/",
+          },
+          {
+            t: "New CIES · Nova medida em vigor desde 1 de março de 2026",
+            u: "https://www.newcies.gov.hk/en/new-measures/",
+          },
+          {
+            t: "Immigration Department · New Capital Investment Entrant Scheme",
+            u: "https://www.immd.gov.hk/eng/services/visas/newcies.html",
+          },
+          {
+            t: "InvestHK / FamilyOfficeHK · Enhancement Measures do New CIES",
+            u: "https://www.familyofficehk.gov.hk/en/new-capital-investment-entrant-scheme/index.html",
+          },
+          {
+            t: "Gov.HK · Nova taxa de aplicação e de visto para esquemas de admissão (26/fev/2025)",
+            u: "https://www.info.gov.hk/gia/general/202502/26/P2025022600221.htm",
+          },
+          {
+            t: "Morrison Foerster · O New CIES de Hong Kong",
+            u: "https://www.mofo.com/resources/insights/240115-hong-kong-capital-investment-cies",
           },
         ],
       },
       {
         name: "Top Talent Pass Scheme (TTPS)",
-        status: "ok",
-        desc: `Para profissionais altamente qualificados. <strong>Cat. A:</strong> renda anual ≥HKD 2,5M (~USD 320k), validade inicial de 36 meses desde 16/out/2024. <strong>Cat. B:</strong> lista de universidades elegíveis + 3 anos de experiência, validade inicial de 24 meses. <strong>Cat. C:</strong> lista de universidades elegíveis, sem experiência exigida (até 5 anos de formado), validade inicial de 24 meses.
+        status: "changed",
+        legalBasis:
+          "Esquema administrativo do <strong>Immigration Department</strong>, sob a Immigration Ordinance, Cap. 115, e as Immigration Regulations, Cap. 115A. Lançado em <strong>28 de dezembro de 2022</strong>. Apoio institucional: <strong>Hong Kong Talent Engage (HKTE)</strong>.",
+        desc: `Esquema de admissão de talentos que <strong>não exige oferta de emprego prévia</strong> em Hong Kong — característica que o distingue das demais rotas.
 
-<strong>Lista de universidades:</strong> não é um recorte fixo de "top 100" — é revisada anualmente pelo governo de Hong Kong, combinando as 100 melhores posições em quatro rankings internacionais (QS, Times Higher Education, US News &amp; World Report e Shanghai Jiao Tong/ARWU), acrescida de instituições especializadas em hotelaria e artes/design, e das 20 melhores universidades chinesas continentais. A lista vigente desde 1/jan/2026 contém 200 instituições.
+<strong>Três categorias:</strong>
+· <strong>Categoria A</strong> — renda anual de <strong>HKD 2.500.000 ou mais</strong> (ou equivalente em moeda estrangeira) no ano imediatamente anterior ao pedido. <strong>Sem cota.</strong> Estada inicial de <strong>36 meses</strong>.
+· <strong>Categoria B</strong> — graduado (bacharelado em regime integral) de universidade elegível, <strong>com 3 anos ou mais de experiência profissional</strong> nos últimos 5 anos. <strong>Sem cota.</strong> Estada inicial de <strong>24 meses</strong>.
+· <strong>Categoria C</strong> — graduado de universidade elegível <strong>com menos de 3 anos de experiência</strong> nos últimos 5 anos (graduação nos últimos 5 anos). <strong>Cota anual de 10.000.</strong> Estada inicial de <strong>24 meses</strong>.
 
-<strong>Renovação:</strong> não é automática desde 30/jan/2026 — exige "Exclusive Survey" e, no ciclo de extensão (3+3 anos), comprovação de vínculo econômico efetivo em Hong Kong (emprego compatível com o grau em salário de mercado, ou negócio substantivo estabelecido). Dependentes: cônjuge/parceiro e filhos solteiros menores de 18 anos, com direito irrestrito a trabalho e estudo.`,
+<strong>Duas correções a materiais em circulação:</strong>
+1. a estada inicial da <strong>Categoria A foi elevada de 24 para 36 meses</strong>; as Categorias B e C permanecem em 24 meses — a afirmação genérica de que «o visto passou a 3 anos» vale <strong>apenas para a Categoria A</strong>;
+2. as Categorias B e C <strong>não estão mais limitadas às «top 100 universidades»</strong>: aplica-se a <strong>lista agregada de universidades elegíveis</strong>, atualizada anualmente.`,
         kv: [
-          { l: "Cat. A renda", v: "≥HKD 2,5M/ano" },
-          { l: "Cat. A validade inicial", v: "36 meses (desde out/2024)" },
-          { l: "Cat. B/C validade inicial", v: "24 meses" },
-          { l: "Lista de universidades", v: "200 instituições (desde 01/2026)" },
-          { l: "Renovação", v: "Não automática — exige vínculo econômico" },
-          { l: "Oferta emprego", v: "Não exigida" },
-          { l: "Familiar", v: "✅ Trabalho/estudo irrestritos" },
+          { l: "Categoria A — renda", v: "HKD 2.500.000/ano" },
+          { l: "Categoria A — estada inicial", v: "36 meses" },
+          { l: "Categoria A e B — cota", v: "Sem cota" },
+          { l: "Categoria C — cota anual", v: "10.000" },
+          { l: "Categorias B e C — estada", v: "24 meses" },
+          { l: "Oferta de emprego", v: "Não exigida" },
+          { l: "Universidades elegíveis (2026)", v: "200 instituições" },
+          { l: "Extensão típica", v: "36 meses" },
+          { l: "Via top-tier (2+6)", v: "6 anos, renda ≥ HKD 2M" },
+          { l: "Exclusive Survey", v: "Obrigatória desde 30/jan/2026" },
+          { l: "Taxa de aplicação", v: "HKD 600" },
         ],
-        impact:
-          "Via de acesso para executivos e profissionais de alta renda, sem o compromisso financeiro do CIES. A renovação, desde jan/2026, passou a exigir comprovação de vínculo econômico efetivo em Hong Kong.",
-        sources: [
-          { t: "Immigration · TTPS", u: "https://www.immd.gov.hk/eng/services/visas/TTPS.html" },
+        requirements: [
+          "<strong>Categoria A:</strong> renda anual de <strong>HKD 2.500.000 ou mais</strong> no ano imediatamente anterior à data do pedido.",
+          "<strong>Categoria B:</strong> bacharelado em regime integral de universidade constante da lista agregada, <strong>mais 3 anos ou mais de experiência profissional</strong> nos últimos 5 anos anteriores ao pedido.",
+          "<strong>Categoria C:</strong> graduação de universidade elegível nos últimos 5 anos, com <strong>menos de 3 anos de experiência</strong>. Sujeita a <strong>cota anual de 10.000</strong>.",
+          "Não possuir <strong>antecedentes criminais</strong> nem registo adverso de imigração.",
+          "Ter <strong>meios suficientes</strong> para sustentar-se e aos dependentes sem recurso a fundos públicos.",
+          "<strong>Não ser nacional</strong> de Afeganistão, Cuba, Coreia do Norte, Laos, Nepal ou Vietnã (restrição usual dos esquemas de admissão de Hong Kong).",
+          "Residentes do Continente (Mainland) <strong>podem</strong> aplicar ao TTPS — ao contrário do New CIES.",
+          "<strong>Não é necessário ter oferta de emprego</strong> em Hong Kong no momento do pedido.",
+        ],
+        process: [
           {
-            t: "Government · Annual update of eligible universities under TTPS",
-            u: "https://www.info.gov.hk/gia/general/202412/27/P2024122700198.htm",
+            step: "Preparação da documentação",
+            detail:
+              "Passaporte, comprovação de renda (Categoria A) ou diploma e comprovação de experiência (Categorias B e C), certidões.",
+            timing: "—",
+          },
+          {
+            step: "Submissão online",
+            detail:
+              "Via <em>Immigration Department e-Services</em>, ou aplicação em papel.",
+            timing: "—",
+          },
+          {
+            step: "Pagamento da taxa de aplicação",
+            detail: "HKD 600, não reembolsável.",
+            timing: "—",
+          },
+          {
+            step: "Processamento e decisão",
+            detail:
+              "Pelo Immigration Department. <em>O prazo-alvo divulgado historicamente é de cerca de 4 semanas para casos completos; verificar em immd.gov.hk.</em>",
+            timing: "≈4 semanas (a confirmar)",
+          },
+          {
+            step: "Emissão do visto ou entry permit",
+            detail: "Mediante pagamento da taxa de emissão.",
+            timing: "—",
+          },
+          {
+            step: "Entrada e registo do HKID",
+            detail:
+              "Registo do Hong Kong Identity Card junto ao Registration of Persons Office, dentro de <strong>30 dias</strong> da chegada. <em>Prazo a confirmar.</em>",
+            timing: "30 dias",
+          },
+          {
+            step: "Exclusive Survey — obrigatória desde 30/jan/2026",
+            detail:
+              "<strong>Todos os titulares de TTPS devem completar uma «Exclusive Survey» online ANTES de submeter qualquer pedido de extensão.</strong> A pesquisa recolhe dados de renda e de resultados de integração. É <strong>etapa obrigatória e bloqueante</strong> do procedimento.",
+            timing: "Antes de cada extensão",
+          },
+          {
+            step: "Pedido de extensão",
+            detail:
+              "Desde <strong>1 de novembro de 2024</strong>, o pedido pode ser apresentado com até <strong>3 meses (90 dias) de antecedência</strong> do vencimento — antes eram 4 semanas.",
+            timing: "Até 90 dias antes",
+          },
+        ],
+        costs: [
+          {
+            item: "Taxa de aplicação",
+            value: "HKD 600",
+            note: "Nova taxa introduzida em 26/fev/2025; antes não havia taxa de aplicação",
+          },
+          {
+            item: "Taxa de emissão de visto — validade acima de 180 dias",
+            value: "HKD 1.300",
+            note: "A taxa anterior era fixa em HKD 230",
+          },
+          {
+            item: "Taxa de emissão — validade de até 180 dias",
+            value: "HKD 600",
+          },
+          {
+            item: "Extensão ou mudança de condições",
+            value: "HKD 600 por pedido",
+          },
+          {
+            item: "Cartão de identidade de Hong Kong (HKID)",
+            value: "Historicamente gratuito",
+            note: "A confirmar",
+          },
+        ],
+        sections: [
+          {
+            title: "A lista de universidades elegíveis — atualização de 2026",
+            body: `<strong>Anúncio governamental em 28 de dezembro de 2025; lista em vigor desde 1 de janeiro de 2026.</strong>
+
+<strong>200 instituições</strong> na lista de 2026, contra 199 em 2025.
+
+<strong>Metodologia:</strong> consolidação dos rankings <strong>Times Higher Education, QS, U.S. News e Shanghai ARWU</strong>, mantendo <strong>sub-listas dedicadas</strong> para hotelaria (<em>hospitality management</em>), arte e design, e as 20 melhores universidades do Continente.
+
+<strong>Alterações de 2026:</strong> inclusão da <strong>IE University</strong> (Espanha); <strong>remoção</strong> de École Polytechnique, Université Grenoble Alpes, Université Sorbonne Paris Cité (USPC) e University of Freiburg.
+
+<strong>Item de verificação indispensável para o cliente brasileiro:</strong> a <strong>presença de universidades brasileiras na lista não pôde ser confirmada</strong>. USP e UNICAMP historicamente figuram em rankings globais próximos das faixas de corte. <strong>Verificar obrigatoriamente a lista nominal em immd.gov.hk/eng/services/visas/TTPS.html antes de aconselhar cliente brasileiro sobre as Categorias B e C.</strong>
+
+Para a <strong>Categoria A</strong>, a lista é irrelevante — o critério é exclusivamente de renda (HKD 2.500.000 no ano anterior), o que a torna a via mais direta para o público de family office.`,
+          },
+          {
+            title: "Extensão — o que muda no primeiro pedido",
+            body: `Ao término da estada inicial, o titular deve apresentar ao Immigration Department <strong>informação e documentação concretas</strong> comprovando que:
+· <strong>assumiu emprego em Hong Kong com renda estável</strong>; <strong>OU</strong>
+· <strong>constituiu ou ingressou em um negócio em Hong Kong</strong>.
+
+O emprego deve ser de <strong>nível compatível com portador de diploma superior</strong> e a remuneração deve estar <strong>em nível de mercado</strong>.
+
+<strong>Duração da extensão:</strong> normalmente <strong>36 meses adicionais</strong>.
+
+<strong>Via «top-tier employment stream» (2 + 6):</strong> quem tenha permanecido em Hong Kong sob o TTPS por <strong>2 anos ou mais</strong> <strong>e</strong> tenha rendimento tributável para fins de Salaries Tax de <strong>HKD 2.000.000 ou mais</strong> no ano de avaliação anterior obtém extensão normalmente concedida por <strong>6 anos</strong>.
+
+<strong>Novo requisito de conformidade — desde 30 de janeiro de 2026:</strong> todos os titulares devem completar a <strong>«Exclusive Survey»</strong> online <strong>antes</strong> de submeter qualquer pedido de extensão. É etapa <strong>bloqueante</strong>.`,
+          },
+          {
+            title: "Regras de família",
+            body: `<strong>Cônjuge</strong> — incluindo, por política do Immigration Department, parceiro de união civil ou parceria registada de mesmo sexo, desde a decisão <em>QT v. Director of Immigration</em> (2018). <em>A confirmar.</em>
+
+<strong>Filhos solteiros dependentes menores de 18 anos.</strong>
+
+Dependentes recebem <strong>visto de dependente com estada coincidente</strong> com a do requerente principal.
+
+Dependentes têm, em regra, <strong>direito irrestrito de trabalhar e estudar</strong> em Hong Kong — o <em>dependant visa</em> de Hong Kong não impõe restrição de emprego, ao contrário de vários outros regimes asiáticos. <em>A confirmar.</em>
+
+<strong>Pais e filhos com 18 anos ou mais não são elegíveis</strong> como dependentes.
+
+<strong>O tempo de residência dos dependentes também conta</strong> para o cômputo dos 7 anos rumo ao Right of Abode.`,
+          },
+          {
+            title: "Como se sai do regime",
+            body: `<strong>Não requerimento de extensão</strong> → a estada expira; o titular deve deixar Hong Kong.
+
+<strong>Indeferimento da extensão</strong> por não comprovação de emprego ou negócio → mesma consequência.
+
+<strong>Não há penalidade nem imposto de saída</strong> em Hong Kong; apenas o <em>tax clearance</em> de Salaries Tax, se houver emprego local (formulário IR56G, com notificação do empregador ao IRD com 1 mês de antecedência e retenção de pagamentos até a liberação).`,
+          },
+        ],
+        brazilNote: `O TTPS é, para o brasileiro, a rota de <strong>menor custo e maior simplicidade</strong> entre as de Hong Kong — <strong>não exige investimento nem oferta de emprego prévia</strong>.
+
+<strong>Categoria A</strong> é a via mais direta para o público de family office: basta comprovar renda anual de <strong>HKD 2.500.000</strong> (aproximadamente USD 320.000) no ano anterior, sem depender de lista de universidades. Concede <strong>36 meses</strong> de estada inicial.
+
+<strong>Categorias B e C</strong> dependem de a universidade brasileira constar da lista agregada de 200 instituições — <strong>ponto que deve ser verificado nominalmente antes de qualquer orientação</strong>.
+
+<strong>Atenção ao requisito de extensão:</strong> ao fim da estada inicial, é necessário comprovar <strong>emprego em Hong Kong com renda estável, ou negócio constituído em Hong Kong</strong>. O TTPS não é rota de residência passiva — exige integração económica efetiva no segundo ciclo.
+
+<strong>Posição fiscal:</strong> valem integralmente as observações do dossiê fiscal — Hong Kong é jurisdição de tributação favorecida para o Brasil, e a residência migratória não encerra a residência fiscal brasileira sem <strong>CSDP</strong> e <strong>DSDP</strong>.`,
+        sources: [
+          {
+            t: "Immigration Department · Top Talent Pass Scheme",
+            u: "https://www.immd.gov.hk/eng/services/visas/TTPS.html",
+          },
+          {
+            t: "Immigration Department · TTPS FAQ",
+            u: "https://www.immd.gov.hk/eng/faq/TTPS.html",
+          },
+          {
+            t: "Hong Kong Talent Engage · Lista agregada de universidades elegíveis atualizada",
+            u: "https://www.hkengage.gov.hk/en/media/news/top-talent-pass-scheme-aggregate-list-of-eligible-universities-updated",
+          },
+          {
+            t: "Gov.HK · Atualização anual da lista agregada de universidades (28/dez/2025)",
+            u: "https://www.info.gov.hk/gia/general/202512/28/P2025122400232.htm",
+          },
+          {
+            t: "Gov.HK · Medidas para aprimorar o TTPS e o QMAS (1/nov/2024)",
+            u: "https://www.info.gov.hk/gia/general/202411/01/P2024110100288.htm",
+          },
+          {
+            t: "VisaHQ · Novo passo de conformidade para titulares de TTPS (6/fev/2026)",
+            u: "https://www.visahq.com/news/2026-02-06/hk/new-compliance-step-for-top-talent-pass-holders-mandatory-online-survey-before-visa-extension/",
+          },
+        ],
+      },
+      {
+        name: "QMAS e demais esquemas de admissão",
+        status: "changed",
+        legalBasis:
+          "Esquemas administrativos do <strong>Immigration Department</strong>, sob a Immigration Ordinance, Cap. 115. QMAS lançado em <strong>2006</strong>; reforma do General Points Test com efeito a partir de <strong>1 de novembro de 2024</strong>.",
+        desc: `<strong>Quality Migrant Admission Scheme (QMAS)</strong> — esquema de admissão baseado em mérito, que <strong>não exige oferta de emprego prévia</strong>.
+
+<strong>Reforma confirmada, com efeito desde 1 de novembro de 2024:</strong> o Governo reformou o <strong>General Points Test (GPT)</strong>, adotando critérios «mais objetivos e claros» e simplificando o processo de aplicação e seleção.
+
+<strong>Alterações confirmadas:</strong>
+1. <strong>Eliminação da cota anual sob o GPT reformado</strong> — «<em>There will be no annual quotas under the enhanced GPT</em>». <strong>Correção a materiais em circulação:</strong> a cota do QMAS <strong>não «retornou»</strong> — ela foi <strong>abolida</strong> para o GPT. <em>A confirmar se a cota permanece aplicável ao Achievement-based Points Test.</em>
+2. <strong>Substituição do sistema de pontuação item a item por um questionário de avaliação</strong> — sistema binário de verdadeiro/falso.
+3. <strong>12 critérios de avaliação sob 6 aspectos:</strong> idade; qualificação académica; proficiência linguística; experiência profissional; <strong>renda anual</strong> (novo); e <strong>titularidade de negócio</strong> (novo).
+4. <strong>Remoção do aspecto «background familiar»</strong>, substituído pelos dois novos critérios.
+5. <strong>Limiar de submissão:</strong> o candidato pode submeter o pedido se atender a <strong>pelo menos 6 dos 12 critérios</strong>.
+6. A seleção permanece <strong>baseada em mérito</strong>, com preferência aos candidatos que satisfaçam mais critérios.
+
+<em>Item de verificação obrigatória: o conteúdo específico de cada um dos 12 critérios — limiares de idade, nível de diploma, valor de renda anual mínima, percentual de participação societária — não pôde ser apurado. Verificar em immd.gov.hk e no formulário do questionário.</em>`,
+        kv: [
+          { l: "QMAS — cota anual (GPT)", v: "Abolida em 1/nov/2024" },
+          { l: "QMAS — critérios", v: "12, sob 6 aspectos" },
+          { l: "QMAS — limiar de submissão", v: "Mínimo 6 dos 12 critérios" },
+          { l: "QMAS — oferta de emprego", v: "Não exigida" },
+          { l: "QMAS — taxa", v: "HKD 600" },
+          { l: "GEP — público", v: "Estrangeiros e empreendedores" },
+          { l: "ASMTP — público", v: "Residentes do Continente" },
+          { l: "IANG — benefício", v: "12 meses sem condições" },
+          { l: "TechTAS — mecânica", v: "Cota alocada à empresa" },
+        ],
+        requirements: [
+          "<strong>QMAS — pré-requisitos obrigatórios</strong> (ambas as vias): idade de 18 anos ou mais; capacidade de sustentar-se e aos dependentes sem recurso a fundos públicos; sem antecedentes criminais nem registo adverso de imigração; bom caráter; domínio de <strong>chinês (cantonês ou mandarim) ou inglês</strong> em nível suficiente; diploma de bacharelado de instituição reconhecida (ou qualificação profissional equivalente comprovada). <em>Conteúdo a confirmar em immd.gov.hk.</em>",
+          "<strong>QMAS — General Points Test:</strong> atender a <strong>pelo menos 6 dos 12 critérios</strong> do questionário de avaliação, distribuídos por idade, qualificação académica, proficiência linguística, experiência profissional, renda anual e titularidade de negócio.",
+          "<strong>QMAS — Achievement-based Points Test:</strong> via alternativa destinada a indivíduos com <strong>realização excecional</strong> — prémio de reconhecimento internacional (Nobel, medalha olímpica, prémio nacional ou internacional de destaque) ou contribuição significativa e reconhecida ao seu campo. <em>Pontuação de tudo-ou-nada; detalhes a confirmar.</em>",
+          "<strong>QMAS — não elegíveis:</strong> nacionais de Afeganistão, Cuba, Coreia do Norte, Laos, Nepal e Vietnã.",
+          "<strong>QMAS — não é exigida oferta de emprego prévia.</strong>",
+        ],
+        process: [
+          {
+            step: "Autoavaliação pelo questionário",
+            detail:
+              "Preenchimento do questionário de autoavaliação dos 12 critérios. É necessário atingir <strong>6 ou mais</strong> para submeter.",
+            timing: "—",
+          },
+          {
+            step: "Submissão do pedido",
+            detail:
+              "Submissão ao Immigration Department, com documentos comprobatórios e taxa de <strong>HKD 600</strong>.",
+            timing: "—",
+          },
+          {
+            step: "Avaliação e seleção",
+            detail:
+              "Seleção baseada em mérito pelo Immigration Department, com aconselhamento do <strong>Advisory Committee on Admission of Quality Migrants and Professionals</strong>. <em>Historicamente, processos de vários meses.</em>",
+            timing: "Meses (a confirmar)",
+          },
+          {
+            step: "Approval-in-Principle",
+            detail:
+              "Concedido o AIP, o candidato deve <strong>comparecer pessoalmente em Hong Kong</strong> para a etapa seguinte. <em>A confirmar.</em>",
+            timing: "—",
+          },
+          {
+            step: "Formal approval e emissão do visto",
+            detail:
+              "Aprovação formal e concessão do visto. <em>Estada inicial historicamente de 24 meses, com padrão 2-3-3; verificar se foi alterada para 36 meses.</em>",
+            timing: "A confirmar",
+          },
+        ],
+        costs: [
+          { item: "QMAS — taxa de aplicação", value: "HKD 600" },
+          {
+            item: "Taxa de emissão de visto — acima de 180 dias",
+            value: "HKD 1.300",
+          },
+          {
+            item: "Taxa de emissão — até 180 dias",
+            value: "HKD 600",
+          },
+          {
+            item: "Extensão ou mudança de condições",
+            value: "HKD 600 por pedido",
+          },
+        ],
+        sections: [
+          {
+            title: "General Employment Policy (GEP)",
+            body: `<strong>Público:</strong> profissionais estrangeiros (exceto residentes do Continente) e <strong>empreendedores</strong>.
+
+<strong>Duas vertentes:</strong>
+· <em>employment as professionals</em> — exige <strong>oferta de emprego</strong> de empregador em Hong Kong, com função que não possa ser prontamente preenchida localmente, remuneração de mercado e qualificação compatível;
+· <em>entry for investment</em> — estabelecer ou ingressar em negócio em Hong Kong, com plano de negócios e contribuição económica substancial.
+
+<strong>Estada inicial:</strong> historicamente 24 meses. <em>Verificar se foi elevada a 36 meses.</em>
+<strong>Padrão de extensão:</strong> 2-3-3 anos (ou 3-3).
+<strong>Sem cota.</strong>
+
+<em>Toda esta seção deve ser verificada em immd.gov.hk.</em>`,
+          },
+          {
+            title: "ASMTP, IANG e TechTAS",
+            body: `<strong>Admission Scheme for Mainland Talents and Professionals (ASMTP)</strong> — para <strong>residentes do Continente</strong>. Critérios substancialmente idênticos ao GEP: oferta de emprego, qualificação e remuneração de mercado. <strong>Sem cota.</strong>
+
+<strong>Immigration Arrangements for Non-local Graduates (IANG)</strong> — para não locais que obtiveram <strong>grau de bacharel ou superior</strong> em curso presencial de tempo integral em instituição de ensino superior de Hong Kong.
+<strong>Benefício:</strong> <strong>12 meses de estada sem condições</strong> (<em>unconditional stay</em>) para procurar emprego, <strong>sem necessidade de oferta prévia</strong> — pedido dentro de 6 meses da graduação, para <em>non-local fresh graduates</em>.
+<em>Extensão para 24 meses anunciada no Policy Address de 2023/2024, e ampliação-piloto para graduados de campi de universidades de Hong Kong na Grande Baía (GBA) — ambas a verificar.</em>
+
+<strong>Technology Talent Admission Scheme (TechTAS)</strong> — administrado pela <strong>Innovation and Technology Commission (ITC)</strong> em conjunto com o Immigration Department.
+<strong>Mecânica:</strong> a empresa de tecnologia elegível obtém <strong>cota</strong> junto ao ITC (<em>quota allotment</em>) e então patrocina profissionais de tecnologia sob um <em>fast-track</em> de imigração.
+<strong>Áreas cobertas:</strong> IA, biotecnologia, cibersegurança, cidade inteligente, fintech, ciência de materiais, robótica, dados.
+<strong>Requisito de treinamento local</strong> vinculado à cota, com contratação de residentes locais. <em>Verificar se ainda vigente.</em>
+
+<em>Existem ainda o Technology Talent Pass, o Admission Scheme for the Second Generation of Chinese Hong Kong Permanent Residents (ASSG) e o esquema para cônjuges e dependentes.</em>`,
+          },
+        ],
+        brazilNote: `Para o brasileiro, o <strong>QMAS</strong> é alternativa ao TTPS quando não se satisfaz o critério de renda da Categoria A nem a lista de universidades das Categorias B e C. A <strong>abolição da cota anual</strong> sob o GPT reformado, desde 1/nov/2024, removeu o principal gargalo histórico do esquema.
+
+O <strong>GEP</strong> exige oferta de emprego ou plano de negócios com contribuição económica substancial — é a via para quem já tem empregador ou pretende operar negócio em Hong Kong.
+
+O <strong>ASMTP</strong> não se aplica a brasileiros (é para residentes do Continente). O <strong>IANG</strong> aplica-se apenas a quem se graduou em instituição de Hong Kong. O <strong>TechTAS</strong> depende de a empresa contratante obter cota junto ao ITC.
+
+<strong>Em todos os casos</strong>, a residência migratória não encerra a residência fiscal brasileira — <strong>CSDP</strong> e <strong>DSDP</strong> permanecem indispensáveis, e a classificação de Hong Kong como jurisdição de tributação favorecida continua a produzir os efeitos descritos no dossiê fiscal.`,
+        sources: [
+          {
+            t: "Immigration Department · QMAS FAQ",
+            u: "https://www.immd.gov.hk/eng/faq/QMAS.html",
+          },
+          {
+            t: "Immigration Department · Esquemas de admissão de talentos, profissionais e empreendedores",
+            u: "https://www.immd.gov.hk/eng/useful_information/admission-schemes-talents-professionals-entrepreneurs.html",
+          },
+          {
+            t: "news.gov.hk · Talent and migration plans refined (1/nov/2024)",
+            u: "https://www.news.gov.hk/eng/2024/11/20241101/20241101_125039_861.html",
+          },
+          {
+            t: "Fragomen · Hong Kong — atualizações do TTPS e do QMAS",
+            u: "https://www.fragomen.com/insights/hong-kong-sar-key-updates-for-top-talent-pass-scheme-and-quality-migrant-scheme-introduced.html",
+          },
+        ],
+      },
+      {
+        name: "Right of Abode, nacionalidade e o passaporte da RAEHK",
+        status: "risk",
+        legalBasis:
+          "<strong>Basic Law da RAEHK, art. 24</strong> — define as categorias de residentes permanentes. <strong>Immigration Ordinance, Cap. 115, Schedule 1</strong> — implementação, incluindo o parágrafo 7 (perda do status). Nacionalidade: <strong>Nationality Law of the People's Republic of China (1980)</strong>, aplicada em Hong Kong desde 1/jul/1997 conforme o Anexo III da Basic Law e a Explicação do Comité Permanente da Assembleia Popular Nacional de 15 de maio de 1996.",
+        desc: `<strong>Aquisição do Right of Abode por pessoa NÃO de nacionalidade chinesa</strong> — o caso do brasileiro:
+· ter entrado em Hong Kong com <strong>visto ou entry permit válido</strong> (TTPS, QMAS, New CIES, GEP);
+· ter <strong>residido ordinariamente (<em>ordinarily resided</em>) em Hong Kong por período contínuo de não menos de 7 anos</strong>;
+· ter tomado Hong Kong como seu <strong>lugar de residência permanente</strong> — declaração juramentada, avaliando fatores como habitação habitual em Hong Kong, presença dos membros principais da família, ocupação razoável, e pagamento de impostos conforme a lei;
+· estar em Hong Kong <strong>imediatamente antes</strong> do pedido.
+
+<strong>Ponto favorável confirmado:</strong> «<strong>não é necessário estar fisicamente presente em Hong Kong durante os 7 anos inteiros; a lei apenas exige que a pessoa tenha sido <em>ordinarily resident</em> em Hong Kong durante esse período</strong>». O Director of Immigration exerce <strong>discricionariedade</strong> sobre o <em>Ordinary Residence Factor</em>, considerando a razão, a duração e a frequência de qualquer ausência, e se a pessoa tem residência habitual em Hong Kong.
+
+<strong>Implicação prática:</strong> ausências não descaracterizam automaticamente a residência ordinária, mas há <strong>risco discricionário concreto</strong>. <strong>Não existe uma «regra de X dias» objetiva publicada.</strong>`,
+        kv: [
+          { l: "Right of Abode", v: "7 anos de residência ordinária" },
+          { l: "Presença física integral", v: "Não exigida" },
+          { l: "Regra numérica de dias", v: "Não publicada" },
+          { l: "Perda do status (não chinês)", v: "36 meses de ausência contínua" },
+          { l: "Discricionariedade na perda", v: "Nenhuma" },
+          { l: "Passaporte da RAEHK", v: "Exige nacionalidade chinesa" },
+          { l: "Dupla nacionalidade chinesa", v: "Não admitida" },
+          { l: "Right to land (após perda)", v: "Estada incondicional" },
+          { l: "Documento do HKPR não chinês", v: "HKID permanente" },
+        ],
+        requirements: [
+          "Ter entrado em Hong Kong com <strong>visto ou entry permit válido</strong>.",
+          "Ter <strong>residido ordinariamente em Hong Kong por período contínuo de não menos de 7 anos</strong>.",
+          "Ter tomado Hong Kong como seu <strong>lugar de residência permanente</strong> — declaração juramentada, com avaliação de habitação habitual, presença da família, ocupação razoável e pagamento de impostos.",
+          "Estar em Hong Kong <strong>imediatamente antes</strong> do pedido de status de residente permanente. <em>A confirmar.</em>",
+          "<strong>O tempo de residência dos dependentes também conta</strong> para o próprio cômputo de 7 anos de cada um deles.",
+        ],
+        sections: [
+          {
+            title: "A regra dos 36 meses — perda automática e sem discricionariedade",
+            body: `<strong>Immigration Ordinance, Schedule 1, parágrafo 7:</strong> um residente permanente da RAEHK que <strong>NÃO seja de nacionalidade chinesa</strong> <strong>PERDERÁ o seu status de HKPR</strong> se tiver estado ausente de Hong Kong por <strong>período contínuo de não menos de 36 meses</strong>, contado desde que deixou de ser <em>ordinarily resident</em> em Hong Kong.
+
+<strong>O Director of Immigration NÃO TEM PODER DISCRICIONÁRIO</strong> para estender o período de 36 meses de ausência nem para dispensar o cumprimento por circunstâncias especiais ou imprevistas.
+
+<strong>Consequência crítica para o brasileiro:</strong> o status de residente permanente de Hong Kong obtido por um brasileiro que permanece brasileiro <strong>NÃO é vitalício e NÃO é incondicional</strong>. É preciso <strong>retornar a Hong Kong antes de completar 36 meses ininterruptos de ausência</strong>, sob pena de perda automática.
+
+<strong>«Right to land» — a rede de proteção:</strong> ao perder o status de HKPR pela regra dos 36 meses, o não chinês <strong>adquire automaticamente o <em>right to land</em></strong>, que confere <strong>estada incondicional</strong> (<em>unconditional stay</em>) — pode residir, trabalhar e estudar em Hong Kong sem restrição e <strong>não pode ser deportado</strong> —, mas <strong>não vota</strong> e <strong>não tem passaporte da RAEHK</strong>.
+<em>Item de verificação prioritária: confirmar a existência e o conteúdo do right to land em immd.gov.hk/eng/services/roa/loss.html. Esta distinção é de importância central para o cliente brasileiro.</em>`,
+          },
+          {
+            title: "Hong Kong não concede cidadania — e a China não admite dupla nacionalidade",
+            body: `<strong>Não existe «cidadania de Hong Kong».</strong> Hong Kong é Região Administrativa Especial da República Popular da China. Existem apenas dois conceitos:
+· <strong>Residência permanente (Right of Abode)</strong> — status de imigração, acessível ao estrangeiro após 7 anos;
+· <strong>Nacionalidade chinesa</strong> — regida pela Nationality Law da RPC (1980).
+
+<strong>O passaporte da RAEHK exige nacionalidade chinesa.</strong> Somente <strong>cidadãos chineses</strong> que sejam residentes permanentes de Hong Kong podem obter o <em>HKSAR Passport</em>. Um brasileiro com Right of Abode, mas sem nacionalidade chinesa, <strong>não tem direito ao passaporte da RAEHK</strong> — viaja com o passaporte brasileiro, portando o <strong>HKID permanente</strong> como prova de residência.
+
+<strong>A China não admite dupla nacionalidade.</strong> O <strong>art. 3.º</strong> da Nationality Law dispõe que a RPC <strong>não reconhece dupla nacionalidade</strong> para nenhum cidadão chinês. O <strong>art. 9.º</strong> dispõe que o cidadão chinês que se estabelece no exterior e adquire voluntariamente nacionalidade estrangeira <strong>perde automaticamente</strong> a nacionalidade chinesa.
+
+<strong>Naturalização como cidadão chinês em Hong Kong:</strong> é juridicamente possível (art. 7.º da Nationality Law — parentes próximos chineses, estabelecimento em território chinês, ou «outras razões legítimas»), mediante requerimento ao Immigration Department, que age como autoridade delegada do Ministério da Segurança Pública da RPC.
+
+<strong>CONSEQUÊNCIA CONCRETA — advertência de máxima relevância:</strong> para obter o passaporte da RAEHK, o brasileiro precisaria <strong>naturalizar-se cidadão chinês</strong>. E a naturalização como cidadão chinês exige, na prática administrativa, a <strong>renúncia à nacionalidade estrangeira anterior</strong>.
+
+Do lado brasileiro, a <strong>EC 131/2023</strong> alterou o art. 12, §4.º, II da Constituição, permitindo expressamente a manutenção da nacionalidade brasileira em caso de aquisição voluntária de outra, salvo pedido expresso do interessado. <em>Confirmar o texto vigente.</em> <strong>Mesmo assim, do lado chinês, a RPC exigirá a renúncia</strong> — de modo que o problema prático subsiste independentemente da posição brasileira.
+
+<em>Toda esta seção deve ser verificada em immd.gov.hk/eng/services/chinese_nationality/index.html e no texto da Nationality Law.</em>`,
+          },
+          {
+            title: "O desenho recomendável para o cliente brasileiro",
+            body: `Na prática, o desenho usual é:
+
+· obter o <strong>Right of Abode</strong> após 7 anos → <strong>HKID permanente</strong> (cartão com o símbolo «***» e o código «A»);
+· <strong>manter exclusivamente a nacionalidade brasileira</strong> e viajar com passaporte brasileiro;
+· solicitar o <strong>Hong Kong Document of Identity for Visa Purposes (HKDI)</strong> apenas se apátrida ou impossibilitado de obter passaporte nacional <em>(a confirmar)</em>;
+· <strong>gerir ativamente a regra dos 36 meses</strong> — nunca completar 36 meses ininterruptos fora de Hong Kong;
+· ter ciência de que, mesmo perdendo o HKPR, retém o <strong><em>right to land</em></strong> (estada incondicional) <em>(a confirmar)</em>.
+
+<strong>Direitos do HKPR não chinês:</strong> residir, trabalhar e estudar sem restrição; não pode ser deportado nem ter a entrada recusada; direito de votar e de ser eleito em determinadas circunscrições funcionais, com restrições; acesso a serviços públicos, hospitais públicos e habitação pública em condições de residente. <strong>Não obtém passaporte da RAEHK</strong> nem acesso automático ao regime de isenção de visto do passaporte da RAEHK. <em>A confirmar.</em>`,
+          },
+        ],
+        brazilNote: `<strong>Duas assimetrias definem a posição do brasileiro em Hong Kong:</strong>
+
+1. <strong>O Right of Abode não é vitalício.</strong> A regra dos 36 meses de ausência contínua produz perda automática, sem qualquer discricionariedade do Director of Immigration. Quem obtém o status precisa <strong>gerir ativamente o calendário de retornos</strong> — não há dispensa por circunstância excecional.
+
+2. <strong>O passaporte da RAEHK é inacessível sem naturalização chinesa</strong>, e a China não admite dupla nacionalidade. Para o brasileiro, o Right of Abode é um <strong>status de residência</strong>, não um segundo passaporte.
+
+<strong>Do lado sucessório e fiscal:</strong>
+· <strong>Hong Kong não cobra nada</strong> — Estate Duty abolido desde 11/fev/2006 e sem imposto sobre doações;
+· <strong>ITCMD brasileiro:</strong> ativos mantidos em Hong Kong por residente fiscal brasileiro que venha a falecer, ou por ele doados, estão potencialmente sujeitos ao ITCMD estadual sob a regra transitória do art. 16 do ADCT (EC 132/2023). O STF, no Tema 825 (RE 851.108, 2021), decidiu que os Estados não podem cobrar sem lei complementar federal; a EC 132/2023 estabeleceu regra transitória, mas subsistem controvérsias sobre autoaplicabilidade e sobre a necessidade de lei estadual nova, com observância de anterioridade. <em>Verificar o status do PLP 108/2024 e a jurisprudência atual.</em>
+· se o titular <strong>já for não residente</strong> e o herdeiro ou donatário <strong>também for não residente</strong>, a competência tende a não se firmar em nenhum Estado brasileiro — <strong>mas isso depende de o rompimento da residência ter sido efetivo e documentado</strong> (CSDP e DSDP).`,
+        warning: `<strong>Gerir a regra dos 36 meses é obrigação permanente</strong>, não formalidade. O Director of Immigration <strong>não tem poder discricionário</strong> para relevar a ausência contínua de 36 meses — a perda do Right of Abode é automática.
+
+<strong>O passaporte da RAEHK não é uma opção realista para o brasileiro:</strong> exigiria naturalização como cidadão chinês, e a China exige renúncia à nacionalidade anterior. Materiais que apresentem Hong Kong como via para «segunda cidadania» estão incorretos — Hong Kong oferece <strong>residência permanente</strong>, não cidadania.`,
+        sources: [
+          {
+            t: "Immigration Department · Elegibilidade para o Right of Abode na RAEHK",
+            u: "https://www.immd.gov.hk/eng/services/roa/eligible.html",
+          },
+          {
+            t: "Immigration Department · Perda do status de residente permanente",
+            u: "https://www.immd.gov.hk/eng/services/roa/loss.html",
+          },
+          {
+            t: "Immigration Department · Right of Abode FAQ",
+            u: "https://www.immd.gov.hk/eng/faq/faqroa.html",
+          },
+          {
+            t: "Gov.HK · Resposta do Immigration Department sobre a regra dos 36 meses (29/mar/2022)",
+            u: "https://www.info.gov.hk/gia/general/202203/29/P2022032900506.htm",
+          },
+          {
+            t: "Gov.HK · LCQ16 — residentes permanentes de Hong Kong não chineses (1/set/2021)",
+            u: "https://www.info.gov.hk/gia/general/202109/01/P2021090100418.htm",
+          },
+          {
+            t: "CLIC · Residência de 7 anos",
+            u: "https://www.clic.org.hk/en/topics/immigration/hk_permanent_residence/q1",
           },
         ],
       },

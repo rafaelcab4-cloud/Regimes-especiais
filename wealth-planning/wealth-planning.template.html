@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wealth Planning — Material de Consulta Patrimonial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.5.0/css/flag-icons.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<style>
+:root{
+  --ink:#1a2332;--ink-2:#2c3e52;--ink-soft:#5b6b7d;
+  --paper:#f6f3ee;--paper-2:#ecead9;--line:#dcd5c7;--line-soft:#e9e3d5;
+  --accent:#8b2e2e;--accent-2:#a85e3a;--gold:#a98b4a;
+  --green:#3d6b4a;--amber:#a26d20;--red:#8b2e2e;--blue:#2e4f8b;--purple:#5e3d7a;
+  --bg:#faf8f3;
+  --tag-ok-bg:#e7eee8;--tag-ok-c:#3d6b4a;
+  --tag-chg-bg:#f5ecd9;--tag-chg-c:#8a6620;
+  --tag-ext-bg:#f1dfdf;--tag-ext-c:#7a2727;
+  --tag-new-bg:#dde5ef;--tag-new-c:#2a4877;
+  --tag-risk-bg:#e9dfee;--tag-risk-c:#553870;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{min-height:100vh}
+a{color:inherit}
+.serif{font-family:var(--font-serif);font-weight:500;letter-spacing:-0.005em}
+.mono{font-family:var(--font-mono)}
+.fi{border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,0.08)}
+
+/* ════ TOP HEADER ════ */
+.topbar{background:#fff;border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:50}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:22px 36px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px}
+.brand-search{display:flex;align-items:center;gap:14px;color:var(--ink-soft)}
+.icon-btn{width:36px;height:36px;border:1px solid var(--line);background:transparent;border-radius:50%;cursor:pointer;color:var(--ink-soft);display:inline-flex;align-items:center;justify-content:center;transition:all .2s}
+.icon-btn:hover{border-color:var(--ink);color:var(--ink)}
+.brand-mark{text-align:center;text-decoration:none;display:block;cursor:pointer}
+.brand-title{font-family:var(--font-serif);font-size:30px;font-weight:500;letter-spacing:0.14em;color:var(--ink);text-transform:uppercase;line-height:1}
+.brand-sub{font-family:var(--font-sans);font-size:9.5px;letter-spacing:0.42em;color:var(--ink-soft);margin-top:8px;text-transform:uppercase;font-weight:400}
+.brand-sub::before,.brand-sub::after{content:'+';margin:0 8px;color:var(--accent);font-weight:600}
+.topbar-actions{display:flex;align-items:center;gap:18px;justify-content:flex-end}
+.topbar-meta{font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;font-weight:500;white-space:nowrap}
+.topbar-meta span{color:var(--accent);font-weight:600}
+
+/* ════ SECTION NAV (top-level, replaces flagnav) ════ */
+.secnav{background:#fff;border-bottom:1px solid var(--line-soft);position:sticky;top:89px;z-index:49}
+.secnav-inner{max-width:1480px;margin:0 auto;padding:0 36px;display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:thin}
+.secnav-inner::-webkit-scrollbar{height:0}
+.sec-tab{flex:1;min-width:150px;padding:16px 14px;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:4px;border-bottom:2px solid transparent;transition:all .2s;color:var(--ink-soft);text-decoration:none}
+.sec-tab:hover{color:var(--ink);background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02))}
+.sec-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+.sec-tab .n{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.14em;color:var(--accent);font-weight:500}
+.sec-tab .t{font-size:12.5px;letter-spacing:0.03em;font-weight:600;line-height:1.3}
+.sec-tab.home{flex:0 0 auto;min-width:auto;padding:16px 22px;justify-content:center}
+
+/* ════ COUNTRY SUB-NAV (inside Regimes Especiais) ════ */
+.subnav{background:#fff;border-bottom:1px solid var(--line-soft)}
+.subnav-inner{max-width:1480px;margin:0 auto;padding:0 36px;display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:thin}
+.subnav-inner::-webkit-scrollbar{height:0}
+.flag-tab{flex:1;min-width:96px;padding:14px 8px 12px;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:6px;border-bottom:2px solid transparent;transition:all .2s;position:relative;color:var(--ink-soft);text-decoration:none}
+.flag-tab:hover{color:var(--ink);background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02))}
+.flag-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+.flag-tab .flag-icon{width:26px;height:19px;filter:saturate(0.92);transition:transform .25s ease}
+.flag-tab:hover .flag-icon{transform:translateY(-2px)}
+.flag-tab.active .flag-icon{filter:saturate(1.05)}
+.flag-tab .label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;text-align:center;line-height:1.3}
+.flag-tab .alert-dot{position:absolute;top:10px;right:14px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.flag-tab.home{flex:0 0 auto;min-width:auto;padding:14px 18px}
+
+/* ════ HERO ════ */
+.hero{max-width:1480px;margin:0 auto;padding:48px 36px 24px}
+.hero-eyebrow{font-size:11px;letter-spacing:0.32em;color:var(--accent);text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.hero-title{font-family:var(--font-serif);font-size:54px;font-weight:400;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin-bottom:18px;max-width:1000px}
+.hero-title em{font-style:italic;color:var(--accent);font-weight:500}
+.hero-sub{font-size:15px;color:var(--ink-soft);max-width:760px;line-height:1.7}
+.hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.hero-stat{flex:1 1 0;min-width:160px;padding:18px 24px;border-right:1px solid var(--line-soft)}
+.hero-stat:last-child{border-right:none}
+.hero-stat .num{font-family:var(--font-serif);font-size:34px;font-weight:500;color:var(--ink);line-height:1}
+.hero-stat .num em{color:var(--accent);font-style:normal}
+.hero-stat .lbl{font-size:10px;letter-spacing:0.2em;color:var(--ink-soft);margin-top:6px;text-transform:uppercase;font-weight:500}
+
+/* ════ HOME — SECTION TOC CARDS ════ */
+.toc{max-width:1480px;margin:0 auto;padding:8px 36px 40px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.toc-card{background:#fff;border:1px solid var(--line-soft);padding:26px 26px 22px;text-decoration:none;color:inherit;display:block;transition:all .2s;position:relative}
+.toc-card:hover{border-color:var(--line);box-shadow:0 8px 30px -18px rgba(26,35,50,0.18);transform:translateY(-2px)}
+.toc-card .n{font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:10px}
+.toc-card .t{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.toc-card .d{font-size:12.5px;color:var(--ink-soft);line-height:1.65}
+.toc-card .cnt{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+
+/* ════ SECTION / TABLE (kept for Regimes Especiais overview) ════ */
+.section{max-width:1480px;margin:0 auto;padding:32px 36px}
+.section-head{margin-bottom:22px;border-top:1px solid var(--line);padding-top:28px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.section-num{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;color:var(--accent);font-weight:500}
+.section-title{font-family:var(--font-serif);font-size:32px;font-weight:500;color:var(--ink);line-height:1.1;margin-top:4px}
+.section-meta{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.tablewrap{border:1px solid var(--line-soft);background:#fff;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:920px}
+thead{background:var(--ink);color:rgba(255,255,255,0.92)}
+th{padding:14px 16px;text-align:left;font-weight:500;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:var(--font-sans)}
+td{padding:16px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+tbody tr{cursor:pointer;transition:background .15s}
+tbody tr:hover,tbody tr:focus-visible{background:#faf8f3}
+tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+tbody tr:last-child td{border-bottom:none}
+.t-flag{width:22px;height:16px;margin-right:10px;vertical-align:middle}
+.t-name{font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--ink);display:inline-block;vertical-align:middle}
+.pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:10px;padding:4px 9px;border-radius:2px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid transparent}
+.p-ok{background:var(--tag-ok-bg);color:var(--tag-ok-c);border-color:#cbdacd}
+.p-changed{background:var(--tag-chg-bg);color:var(--tag-chg-c);border-color:#e6d4a3}
+.p-ext{background:var(--tag-ext-bg);color:var(--tag-ext-c);border-color:#dec0c0}
+.p-new{background:var(--tag-new-bg);color:var(--tag-new-c);border-color:#bdcadd}
+.p-risk{background:var(--tag-risk-bg);color:var(--tag-risk-c);border-color:#cdbed4}
+
+/* ════ COUNTRY DETAIL HERO ════ */
+.detail-hero{background:linear-gradient(135deg,#1a2332 0%,#2c3e52 100%);color:#fff;padding:48px 36px 40px;position:relative;overflow:hidden}
+.detail-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 20%,rgba(168,94,58,0.18),transparent 50%);pointer-events:none}
+.detail-hero-inner{max-width:1480px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.dh-flag{width:72px;height:52px;margin-bottom:14px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))}
+.dh-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:10px}
+.dh-name{font-family:var(--font-serif);font-size:58px;font-weight:400;line-height:1;letter-spacing:-0.02em;color:#fff;margin-bottom:14px}
+.dh-back{background:transparent;border:1px solid rgba(255,255,255,0.25);color:#fff;padding:11px 20px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.dh-back:hover{background:rgba(255,255,255,0.1);border-color:#fff}
+.dh-summary{margin-top:24px;display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;flex-wrap:wrap}
+.dh-stat{flex:1 1 0;min-width:200px;padding-right:30px;border-right:1px solid rgba(255,255,255,0.1);margin-right:30px}
+.dh-stat:last-child{border-right:none;margin-right:0;padding-right:0}
+.dh-stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:6px}
+.dh-stat .v{font-family:var(--font-serif);font-size:19px;color:#fff;font-weight:500;line-height:1.25}
+
+/* COLUMNS */
+.detail-body{padding:44px 36px;display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1480px;margin:0 auto}
+@media(max-width:960px){.detail-body{grid-template-columns:1fr}}
+.col-head{font-family:var(--font-serif);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:6px;display:flex;align-items:baseline;gap:12px}
+.col-head .num{font-family:var(--font-mono);font-size:11px;color:var(--accent);font-weight:500;letter-spacing:0.2em}
+.col-sub{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+
+/* ════ TOPIC / REGIME CARD (shared) ════ */
+.topics-col{max-width:880px}
+.regime{background:#fff;border:1px solid var(--line-soft);margin-bottom:24px;padding:26px 28px;transition:all .2s}
+.regime:hover{border-color:var(--line);box-shadow:0 8px 30px -18px rgba(26,35,50,0.18)}
+.regime-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
+.regime-name{font-family:var(--font-serif);font-size:21px;font-weight:600;line-height:1.25;color:var(--ink);flex:1}
+.regime-status{font-family:var(--font-mono);font-size:9px;padding:5px 9px;font-weight:500;white-space:nowrap;letter-spacing:0.18em;text-transform:uppercase;border:1px solid;flex-shrink:0;margin-top:3px}
+.s-ok{background:var(--tag-ok-bg);color:var(--tag-ok-c);border-color:#cbdacd}
+.s-changed{background:var(--tag-chg-bg);color:var(--tag-chg-c);border-color:#e6d4a3}
+.s-ext{background:var(--tag-ext-bg);color:var(--tag-ext-c);border-color:#dec0c0}
+.s-new{background:var(--tag-new-bg);color:var(--tag-new-c);border-color:#bdcadd}
+.s-risk{background:var(--tag-risk-bg);color:var(--tag-risk-c);border-color:#cdbed4}
+.s-eyebrow{background:#faf8f3;color:var(--ink-soft);border-color:var(--line-soft)}
+.regime-desc{font-size:13.5px;color:var(--ink-2);line-height:1.75;margin-bottom:18px}
+.regime-desc strong{color:var(--ink);font-weight:600}
+.regime-desc em{color:var(--accent);font-style:italic}
+.regime-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:18px;border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft)}
+.kv{padding:11px 14px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:#faf8f3}
+.kv-l{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;font-weight:500;margin-bottom:4px}
+.kv-v{font-size:13px;font-weight:500;color:var(--ink);font-family:var(--font-sans)}
+.regime-legal{font-family:var(--font-mono);font-size:10.5px;line-height:1.6;color:var(--ink-soft);background:#faf8f3;border-left:2px solid var(--line);padding:9px 12px;margin-bottom:16px}
+.rg-legal-label{text-transform:uppercase;letter-spacing:0.18em;font-weight:500;color:var(--accent);margin-right:6px}
+
+.rg-block{margin-bottom:18px;padding-top:16px;border-top:1px solid var(--line-soft)}
+.rg-block>summary{display:flex;align-items:baseline;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+.rg-block>summary::-webkit-details-marker,.rg-block>summary::marker{display:none;content:''}
+.rg-block>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.rg-block-title{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:8px}
+.rg-acc-caret{flex-shrink:0;color:var(--accent);transition:transform .18s ease;display:inline-block}
+.rg-block[open]>summary .rg-acc-caret{transform:rotate(90deg)}
+.rg-acc-meta{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;flex-shrink:0}
+.rg-block-content{margin-top:14px}
+.rg-block-body{font-size:13px;color:var(--ink-2);line-height:1.75}
+.rg-block-body strong{color:var(--ink);font-weight:600}
+.rg-block-body em{color:var(--accent);font-style:italic}
+
+.rg-checklist{list-style:none;display:flex;flex-direction:column;gap:9px}
+.rg-checklist li{position:relative;padding-left:20px;font-size:13px;line-height:1.7;color:var(--ink-2)}
+.rg-checklist li::before{content:'';position:absolute;left:3px;top:8px;width:6px;height:6px;border:1px solid var(--accent)}
+.rg-checklist strong{color:var(--ink);font-weight:600}
+
+.rg-steps{list-style:none;counter-reset:rgstep;display:flex;flex-direction:column;gap:14px}
+.rg-steps li{counter-increment:rgstep;position:relative;padding-left:30px}
+.rg-steps li::before{content:counter(rgstep,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--accent);letter-spacing:0.06em}
+.rg-step-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:3px}
+.rg-step-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.4}
+.rg-step-timing{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);background:#faf8f3;border:1px solid var(--line-soft);padding:3px 7px;white-space:nowrap;flex-shrink:0}
+.rg-step-detail{font-size:12.5px;line-height:1.7;color:var(--ink-2)}
+.rg-step-detail strong{color:var(--ink);font-weight:600}
+
+.rg-costs{border-top:1px solid var(--line-soft)}
+.rg-cost-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.rg-cost-item{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.rg-cost-value{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;line-height:1.5}
+.rg-cost-note{grid-column:1/-1;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;line-height:1.6;margin-top:4px}
+
+.brazil-box{border-left:2px solid var(--green);padding:14px 18px;margin-bottom:14px;background:#eef3ef}
+.brazil-box .l{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:6px}
+.brazil-box .t{font-size:13px;color:var(--ink-2);line-height:1.7}
+.brazil-box .t strong{color:var(--ink);font-weight:600}
+.impact-box{border-left:2px solid var(--blue);padding:14px 18px;margin-bottom:14px;background:#f4f6fa}
+.impact-box .l{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:6px}
+.impact-box .t{font-size:13px;color:var(--ink-2);line-height:1.7}
+.warn-box{border-left:2px solid var(--amber);padding:14px 18px;margin-bottom:14px;background:#fbf6e8}
+.warn-box .l{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
+.warn-box .t{font-size:13px;color:var(--ink-2);line-height:1.7}
+.src-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.src-link{font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);text-decoration:none;letter-spacing:0.05em;display:inline-flex;align-items:center;gap:5px;border-bottom:1px solid transparent;padding-bottom:1px}
+.src-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ════ FOOTER ════ */
+.footer{margin-top:60px;padding:32px 36px;border-top:1px solid var(--line);background:#fff}
+.footer-inner{max-width:1480px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.footer-legend{display:flex;gap:18px;flex-wrap:wrap}
+.leg-item{display:inline-flex;align-items:center;gap:7px}
+.leg-dot{width:8px;height:8px;border-radius:50%}
+.ld-ok{background:var(--green)}
+.ld-chg{background:var(--amber)}
+.ld-ext{background:var(--accent)}
+.ld-new{background:var(--blue)}
+.ld-risk{background:var(--purple)}
+
+.fadein{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.fadein{animation:none}.flag-tab .flag-icon{transition:none}.rg-acc-caret{transition:none}}
+
+@media(max-width:780px){
+  .topbar-inner{grid-template-columns:1fr;text-align:center;gap:14px}
+  .topbar-actions{justify-content:center}
+  .brand-title{font-size:22px}
+  .hero-title{font-size:34px}
+  .dh-name{font-size:40px}
+  .secnav{top:auto;position:static}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-search">
+      <button class="icon-btn" title="Buscar (Ctrl+F)">⌕</button>
+      <span class="topbar-meta">Edição <span id="edition-label">—</span></span>
+    </div>
+    <a href="#" class="brand-mark">
+      <div class="brand-title">Wealth Planning</div>
+      <div class="brand-sub">Material de Consulta Patrimonial</div>
+    </a>
+    <div class="topbar-actions">
+      <span class="topbar-meta">5 Módulos · <span>Uso interno</span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="secnav">
+  <div class="secnav-inner" id="secnav"></div>
+</nav>
+
+<main id="app"></main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>Wealth Planning © <span id="footer-year"></span> · Documento de uso interno · Não constitui aconselhamento jurídico ou fiscal</div>
+    <div class="footer-legend">
+      <span class="leg-item"><span class="leg-dot ld-ok"></span> Mantido</span>
+      <span class="leg-item"><span class="leg-dot ld-chg"></span> Alterado</span>
+      <span class="leg-item"><span class="leg-dot ld-ext"></span> Extinto</span>
+      <span class="leg-item"><span class="leg-dot ld-new"></span> Novo</span>
+      <span class="leg-item"><span class="leg-dot ld-risk"></span> Atenção</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════ DATA ════════════════════ */
+const SOC = "@@SOC@@";
+const SUC = "@@SUC@@";
+const ATV = "@@ATV@@";
+const SCE = "@@SCE@@";
+const REGIMES = "@@REGIMES@@";
+
+const SECTIONS = [
+  {id:'sociedades', num:'01', title:'Sociedades', short:'Sociedades', data:()=>SOC,
+    blurb:'LLC, PICs em BVI, Cayman e Bahamas: documentos societários, substância econômica, cisão e usufruto de participações.'},
+  {id:'sucessorio', num:'02', title:'Veículos Sucessórios', short:'Sucessório', data:()=>SUC,
+    blurb:'Trust, testamento e alternativas de governança patrimonial no Brasil e no exterior.'},
+  {id:'ativos', num:'03', title:'Ativos de Alto Valor', short:'Alto Valor', data:()=>ATV,
+    blurb:'Aeronaves, embarcações e obras de arte: registro, estruturação e tributação.'},
+  {id:'regimes', num:'04', title:'Regimes Especiais', short:'Regimes', data:()=>REGIMES,
+    blurb:'Regimes fiscais especiais e programas imigratórios em 10 jurisdições estratégicas.'},
+  {id:'sce', num:'05', title:'Providências — SCE', short:'SCE', data:()=>SCE,
+    blurb:'Declarações obrigatórias ao Banco Central: SCE-IED e SCE-Crédito.'},
+];
+
+const SC = {ok:'s-ok',changed:'s-changed',ext:'s-ext',new:'s-new',risk:'s-risk'};
+const StatusLabel = {ok:'Mantido',changed:'Alterado',ext:'Extinto',new:'Novo',risk:'Atenção'};
+
+/* ════════════════════ HELPERS ════════════════════ */
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ return esc(s).replace(/"/g,'&quot;'); }
+function rt(text){
+  if(!text) return '';
+  const withBreaks = String(text).replace(/\n/g,'<br/>');
+  if(window.DOMPurify){
+    return window.DOMPurify.sanitize(withBreaks, {ALLOWED_TAGS:['strong','em','br'], ALLOWED_ATTR:[]});
+  }
+  return withBreaks;
+}
+function pt(n, singular, plural){ return `${n} ${n===1?singular:plural}`; }
+const CARET = '<svg class="rg-acc-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+const EXTLINK = '<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+
+function accordion(title, meta, bodyHtml){
+  return `<details class="rg-block"><summary><span class="rg-block-title">${CARET}${title}</span>${meta?`<span class="rg-acc-meta">${meta}</span>`:''}</summary><div class="rg-block-content">${bodyHtml}</div></details>`;
+}
+
+/* Generic topic card (Sociedades / Sucessório / Ativos / SCE) */
+function topicCardHtml(t, idx){
+  let html = `<article class="regime fadein" style="animation-delay:${(idx*0.06).toFixed(2)}s">`;
+  html += `<div class="regime-top"><span class="regime-name">${esc(t.name)}</span>`;
+  if(t.eyebrow) html += `<span class="regime-status s-eyebrow">${esc(t.eyebrow)}</span>`;
+  html += `</div>`;
+  if(t.legalBasis) html += `<div class="regime-legal"><span class="rg-legal-label">Base legal</span> ${rt(t.legalBasis)}</div>`;
+  html += `<div class="regime-desc">${rt(t.desc)}</div>`;
+  if(t.kv && t.kv.length){
+    html += `<div class="regime-grid">` + t.kv.map(kv=>`<div class="kv"><div class="kv-l">${esc(kv.l)}</div><div class="kv-v">${esc(kv.v)}</div></div>`).join('') + `</div>`;
+  }
+  if(t.warning) html += `<div class="warn-box"><div class="l">— Atenção / Risco</div><div class="t">${rt(t.warning)}</div></div>`;
+  if(t.requirements && t.requirements.length){
+    html += accordion('Requisitos de elegibilidade', pt(t.requirements.length,'item','itens'),
+      `<ul class="rg-checklist">${t.requirements.map(r=>`<li>${rt(r)}</li>`).join('')}</ul>`);
+  }
+  if(t.process && t.process.length){
+    html += accordion('Processo, passo a passo', pt(t.process.length,'etapa','etapas'),
+      `<ol class="rg-steps">${t.process.map(s=>`<li><div class="rg-step-head"><span class="rg-step-name">${esc(s.step)}</span>${s.timing?`<span class="rg-step-timing">${esc(s.timing)}</span>`:''}</div><div class="rg-step-detail">${rt(s.detail)}</div></li>`).join('')}</ol>`);
+  }
+  if(t.costs && t.costs.length){
+    html += accordion('Custos e valores', pt(t.costs.length,'item','itens'),
+      `<div class="rg-costs">${t.costs.map(c=>`<div class="rg-cost-row"><div class="rg-cost-item">${esc(c.item)}</div><div class="rg-cost-value">${esc(c.value)}</div>${c.note?`<div class="rg-cost-note">${esc(c.note)}</div>`:''}</div>`).join('')}</div>`);
+  }
+  (t.sections||[]).forEach(s=>{
+    html += accordion(esc(s.title), '', `<div class="rg-block-body">${rt(s.body)}</div>`);
+  });
+  if(t.impact) html += accordion('Impacto HNWI', '', `<div class="impact-box"><div class="t">${rt(t.impact)}</div></div>`);
+  if(t.brazilNote) html += accordion('Interação com o Brasil', '', `<div class="brazil-box"><div class="t">${rt(t.brazilNote)}</div></div>`);
+  if(t.sources && t.sources.length){
+    html += accordion('Fontes', pt(t.sources.length,'link','links'),
+      `<div class="src-row">${t.sources.map(s=>`<a class="src-link" href="${escAttr(s.u)}" target="_blank" rel="noopener noreferrer">${EXTLINK} ${esc(s.t)}</a>`).join('')}</div>`);
+  }
+  html += `</article>`;
+  return html;
+}
+
+/* Regime card (Regimes Especiais — has status badge) */
+function regimeCardHtml(r, idx){
+  let html = `<article class="regime fadein" style="animation-delay:${(idx*0.06).toFixed(2)}s">`;
+  html += `<div class="regime-top"><span class="regime-name">${esc(r.name)}</span><span class="regime-status ${SC[r.status]||''}">${StatusLabel[r.status]||r.status}</span></div>`;
+  if(r.legalBasis) html += `<div class="regime-legal"><span class="rg-legal-label">Base legal</span> ${rt(r.legalBasis)}</div>`;
+  html += `<div class="regime-desc">${rt(r.desc)}</div>`;
+  if(r.kv && r.kv.length){
+    html += `<div class="regime-grid">` + r.kv.map(kv=>`<div class="kv"><div class="kv-l">${esc(kv.l)}</div><div class="kv-v">${esc(kv.v)}</div></div>`).join('') + `</div>`;
+  }
+  if(r.warning) html += `<div class="warn-box"><div class="l">— Atenção / Risco</div><div class="t">${rt(r.warning)}</div></div>`;
+  if(r.requirements && r.requirements.length){
+    html += accordion('Requisitos de elegibilidade', pt(r.requirements.length,'item','itens'),
+      `<ul class="rg-checklist">${r.requirements.map(x=>`<li>${rt(x)}</li>`).join('')}</ul>`);
+  }
+  if(r.process && r.process.length){
+    html += accordion('Processo, passo a passo', pt(r.process.length,'etapa','etapas'),
+      `<ol class="rg-steps">${r.process.map(s=>`<li><div class="rg-step-head"><span class="rg-step-name">${esc(s.step)}</span>${s.timing?`<span class="rg-step-timing">${esc(s.timing)}</span>`:''}</div><div class="rg-step-detail">${rt(s.detail)}</div></li>`).join('')}</ol>`);
+  }
+  if(r.costs && r.costs.length){
+    html += accordion('Custos e valores', pt(r.costs.length,'item','itens'),
+      `<div class="rg-costs">${r.costs.map(c=>`<div class="rg-cost-row"><div class="rg-cost-item">${esc(c.item)}</div><div class="rg-cost-value">${esc(c.value)}</div>${c.note?`<div class="rg-cost-note">${esc(c.note)}</div>`:''}</div>`).join('')}</div>`);
+  }
+  (r.sections||[]).forEach(s=>{
+    html += accordion(esc(s.title), '', `<div class="rg-block-body">${rt(s.body)}</div>`);
+  });
+  if(r.impact) html += accordion('Impacto HNWI', '', `<div class="impact-box"><div class="t">${rt(r.impact)}</div></div>`);
+  if(r.brazilNote) html += accordion('Interação com o Brasil', '', `<div class="brazil-box"><div class="t">${rt(r.brazilNote)}</div></div>`);
+  if(r.sources && r.sources.length){
+    html += accordion('Fontes', pt(r.sources.length,'link','links'),
+      `<div class="src-row">${r.sources.map(s=>`<a class="src-link" href="${escAttr(s.u)}" target="_blank" rel="noopener noreferrer">${EXTLINK} ${esc(s.t)}</a>`).join('')}</div>`);
+  }
+  html += `</article>`;
+  return html;
+}
+
+/* ════════════════════ RENDERERS ════════════════════ */
+function renderHome(){
+  const html = `
+  <div class="hero">
+    <div class="hero-eyebrow">Edição <span id="hero-edition"></span> · Compêndio de Wealth Planning</div>
+    <h1 class="hero-title serif">Estruturação patrimonial e <em>sucessória</em> internacional: sociedades, veículos sucessórios, ativos de alto valor, regimes fiscais e providências regulatórias.</h1>
+    <p class="hero-sub">Material de consulta técnica para planejamento patrimonial de indivíduos de altíssimo patrimônio (HNWIs), reunindo estruturas societárias offshore, instrumentos sucessórios, classes de ativos de alto valor agregado, regimes fiscais/imigratórios especiais e as declarações regulatórias brasileiras associadas a essas estruturas.</p>
+    <div class="hero-meta">
+      ${SECTIONS.map(s=>`<div class="hero-stat"><div class="num"><em>${s.num}</em></div><div class="lbl">${esc(s.short)}</div></div>`).join('')}
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-grid">
+      ${SECTIONS.map(s=>`<a class="toc-card" href="#${s.id}">
+        <div class="n">— ${s.num}</div>
+        <div class="t serif">${esc(s.title)}</div>
+        <div class="d">${esc(s.blurb)}</div>
+        <div class="cnt">${topicCount(s)}</div>
+      </a>`).join('')}
+    </div>
+  </div>`;
+  return html;
+}
+
+function topicCount(s){
+  if(s.id === 'regimes'){
+    const d = s.data();
+    const n = (d.COUNTRY_ORDER||[]).length;
+    return `${n} jurisdições`;
+  }
+  const d = s.data();
+  const n = (d.topics||[]).length;
+  return pt(n, 'tópico', 'tópicos');
+}
+
+function renderTopicSection(s){
+  const d = s.data();
+  const topics = d.topics || [];
+  return `
+  <div class="hero">
+    <div class="hero-eyebrow">— ${s.num} · Wealth Planning</div>
+    <h1 class="hero-title serif" style="font-size:44px">${esc(d.sectionTitle||s.title)}</h1>
+    <p class="hero-sub">${esc(d.sectionSubtitle||'')}</p>
+  </div>
+  <div class="section" style="padding-top:8px">
+    <div class="topics-col">
+      ${topics.length ? topics.map((t,i)=>topicCardHtml(t,i)).join('') : `<p style="color:var(--ink-soft);padding:24px 0">Conteúdo em preparação.</p>`}
+    </div>
+  </div>`;
+}
+
+function renderRegimesOverview(){
+  const order = REGIMES.COUNTRY_ORDER;
+  const countries = REGIMES.COUNTRIES;
+  return `
+  <div class="hero">
+    <div class="hero-eyebrow">— 04 · Wealth Planning</div>
+    <h1 class="hero-title serif" style="font-size:44px">Regimes Especiais — Monitor Global Fiscal &amp; Imigratório</h1>
+    <p class="hero-sub">Regimes fiscais especiais e programas imigratórios para HNWIs em 10 jurisdições estratégicas. Clique numa jurisdição para abrir o dossiê completo.</p>
+  </div>
+  <nav class="subnav">
+    <div class="subnav-inner">
+      ${order.map(id=>{
+        const c = countries[id];
+        return `<a class="flag-tab" href="#regimes-${id}">
+          <span class="flag-icon fi fi-${c.flagCode}"></span>
+          <span class="label">${esc(c.name)}</span>
+          ${c.alert?'<span class="alert-dot"></span>':''}
+        </a>`;
+      }).join('')}
+    </div>
+  </nav>
+  <div class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-num">— Tabela</div>
+        <div class="section-title serif">Comparativo executivo</div>
+      </div>
+      <div class="section-meta">Clique em uma linha para abrir o dossiê</div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>País</th><th>Regime fiscal principal</th><th>Status fiscal</th><th>Programa imigratório</th><th>Status visto</th></tr></thead>
+        <tbody>
+          ${order.map(id=>{
+            const c = countries[id];
+            return `<tr onclick="location.hash='regimes-${id}'" tabindex="0" onkeydown="if(event.key==='Enter'){location.hash='regimes-${id}'}">
+              <td><span class="flag-icon t-flag fi fi-${c.flagCode}"></span><span class="t-name">${esc(c.name)}</span></td>
+              <td>${esc(c.sumFiscal)}</td>
+              <td><span class="pill p-${c.sumFS}">${StatusLabel[c.sumFS]||c.sumFS}</span></td>
+              <td>${esc(c.sumVisa)}</td>
+              <td><span class="pill p-${c.sumVS}">${StatusLabel[c.sumVS]||c.sumVS}</span></td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function renderCountryDossier(id){
+  const order = REGIMES.COUNTRY_ORDER;
+  const c = REGIMES.COUNTRIES[id];
+  if(!c) return renderRegimesOverview();
+  return `
+  <div class="detail-hero">
+    <div class="detail-hero-inner">
+      <div>
+        <span class="flag-icon dh-flag fi fi-${c.flagCode}"></span>
+        <div class="dh-eyebrow">— Dossiê · ${esc(c.region)}</div>
+        <h1 class="dh-name serif">${esc(c.name)}</h1>
+      </div>
+      <a class="dh-back" href="#regimes">← Voltar aos regimes</a>
+    </div>
+    <div class="detail-hero-inner dh-summary" style="align-items:start">
+      <div class="dh-stat"><div class="l">Regime fiscal principal</div><div class="v">${esc(c.sumFiscal)}</div></div>
+      <div class="dh-stat"><div class="l">Status fiscal</div><div class="v">${StatusLabel[c.sumFS]||c.sumFS}</div></div>
+      <div class="dh-stat"><div class="l">Programa imigratório</div><div class="v">${esc(c.sumVisa)}</div></div>
+      <div class="dh-stat"><div class="l">Status visto</div><div class="v">${StatusLabel[c.sumVS]||c.sumVS}</div></div>
+    </div>
+  </div>
+  <nav class="subnav">
+    <div class="subnav-inner">
+      <a class="flag-tab home" href="#regimes">← Todas as jurisdições</a>
+      ${order.map(cid=>{
+        const cc = REGIMES.COUNTRIES[cid];
+        return `<a class="flag-tab ${cid===id?'active':''}" href="#regimes-${cid}">
+          <span class="flag-icon fi fi-${cc.flagCode}"></span><span class="label">${esc(cc.name)}</span>
+          ${cc.alert?'<span class="alert-dot"></span>':''}
+        </a>`;
+      }).join('')}
+    </div>
+  </nav>
+  <div class="detail-body">
+    <div>
+      <div class="col-head"><span class="num">— 01</span>Regimes Fiscais</div>
+      <div class="col-sub">Tributação · Planejamento Patrimonial</div>
+      ${c.fiscal.map((r,i)=>regimeCardHtml(r,i)).join('')}
+    </div>
+    <div>
+      <div class="col-head"><span class="num">— 02</span>Programas Imigratórios</div>
+      <div class="col-sub">Residência · Caminho à Cidadania</div>
+      ${c.visa.map((r,i)=>regimeCardHtml(r,i)).join('')}
+    </div>
+  </div>`;
+}
+
+/* ════════════════════ ROUTER ════════════════════ */
+function buildNav(){
+  const nav = document.getElementById('secnav');
+  let html = `<a class="sec-tab home" href="#">Visão<br/>Geral</a>`;
+  html += SECTIONS.map(s=>`<a class="sec-tab" data-id="${s.id}" href="#${s.id}"><span class="n">— ${s.num}</span><span class="t">${esc(s.title)}</span></a>`).join('');
+  nav.innerHTML = html;
+}
+
+function updateNavActive(hash){
+  const root = hash.split('-')[0] || '';
+  document.querySelectorAll('.sec-tab').forEach(el=>{
+    const id = el.getAttribute('data-id');
+    el.classList.toggle('active', id ? id===root : hash==='');
+  });
+}
+
+function route(){
+  const hash = location.hash.replace('#','');
+  const app = document.getElementById('app');
+  updateNavActive(hash);
+  if(!hash){ app.innerHTML = renderHome(); }
+  else if(hash === 'regimes'){ app.innerHTML = renderRegimesOverview(); }
+  else if(hash.startsWith('regimes-')){ app.innerHTML = renderCountryDossier(hash.slice('regimes-'.length)); }
+  else {
+    const s = SECTIONS.find(x=>x.id===hash);
+    app.innerHTML = s ? renderTopicSection(s) : renderHome();
+  }
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  const now = new Date();
+  const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const editionStr = `${months[now.getMonth()]} · ${now.getFullYear()}`;
+  document.getElementById('edition-label').textContent = editionStr;
+  const heroEd = document.getElementById('hero-edition');
+  if(heroEd) heroEd.textContent = editionStr;
+  document.getElementById('footer-year').textContent = now.getFullYear();
+  buildNav();
+  route();
+});
+window.addEventListener('hashchange', route);
+</script>
+</body>
+</html>

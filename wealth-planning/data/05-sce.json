@@ -1,0 +1,161 @@
+{
+  "sectionId": "sce",
+  "sectionTitle": "Providências — SCE IED e SCE Crédito",
+  "sectionSubtitle": "As obrigações declaratórias de capital estrangeiro perante o Banco Central — módulos SCE-IED e SCE-Crédito do novo Sistema Eletrônico de Declarações — e sua interface com estruturas patrimoniais internacionais de residentes brasileiros.",
+  "topics": [
+    {
+      "name": "Panorama do registro de capital estrangeiro no Brasil",
+      "eyebrow": "Base legal e evolução da plataforma",
+      "legalBasis": "Lei 4.131/1962; Lei 11.371/2006; Lei 14.286/2021 (Marco Legal do Mercado de Câmbio e Capitais Internacionais); Resoluções BCB 277 a 281, de 31/12/2022",
+      "desc": "A obrigação de declarar capital estrangeiro ao Banco Central do Brasil tem origem na <strong>Lei 4.131/1962</strong>, que disciplina a aplicação de capital estrangeiro no país e criou a exigência de registro como condição para a remessa de lucros, dividendos, juros e o repatriamento do capital via mercado de câmbio. A <strong>Lei 11.371/2006</strong> deu o salto tecnológico: substituiu o registro em papel por um <em>Registro Declaratório Eletrônico</em> (RDE), transferindo ao próprio declarante — pessoa física ou jurídica receptora do capital — a responsabilidade de manter as informações atualizadas diretamente no sistema do Bacen, sob sua responsabilidade legal, sem análise prévia do Banco Central a cada lançamento.\n\nDurante quase duas décadas esse arcabouço operou sob a marca RDE, com módulos como RDE-IED (investimento direto) e RDE-ROF (operações financeiras/crédito externo), regulamentados pela Circular 3.689/2013 e por sucessivas normas do Conselho Monetário Nacional. Esse desenho foi substituído a partir da entrada em vigor da <strong>Lei 14.286/2021</strong> — o novo Marco Legal do Mercado de Câmbio e Capitais Internacionais —, regulamentada pelo Bacen por meio de um pacote de resoluções editadas em 31/12/2022 (Resoluções BCB 277 a 281). A Resolução BCB 278/2022 é a que rege especificamente as operações de crédito externo e de investimento estrangeiro direto e a prestação de informações correspondente ao Bacen.\n\nNa prática operacional, os antigos módulos RDE-IED e RDE-ROF foram renomeados e reestruturados como <strong>SCE-IED</strong> e <strong>SCE-Crédito</strong>, dentro do que o mercado e a própria documentação técnica do Bacen já tratam como Sistema de Prestação de Informações de Capitais Estrangeiros (SCE). A transição ocorreu de forma escalonada a partir de 2023. [VERIFICAR: a data exata de desativação do ambiente RDE legado e de migração compulsória para o SCE, módulo a módulo, diretamente na página \"Capitais Estrangeiros\" ou nos comunicados de sistema do Bacen — fontes secundárias convergem em 2023, mas o cronograma oficial completo (e eventual continuidade de registros abertos no RDE antigo) deve ser confirmado em bcb.gov.br antes de orientar um caso concreto].\n\nEm linha de princípio, ambos os módulos hoje cobertos por este material — SCE-IED e SCE-Crédito — tratam de capital estrangeiro <em>ingressando</em> no Brasil (investidor não residente aportando em empresa brasileira, ou credor não residente concedendo crédito a um residente). O caso inverso — residente brasileiro com investimento no exterior — é disciplinado por regime declaratório distinto, a Declaração de Capitais Brasileiros no Exterior (CBE), que não integra o SCE-IED nem o SCE-Crédito e é tratada em separado neste material.",
+      "kv": [
+        {"l": "Norma fundadora", "v": "Lei 4.131/1962"},
+        {"l": "Digitalização do registro", "v": "Lei 11.371/2006 (RDE)"},
+        {"l": "Marco atual", "v": "Lei 14.286/2021 + Res. BCB 278/2022"},
+        {"l": "Plataforma vigente", "v": "SCE (sucessora do RDE-IED/RDE-ROF)"},
+        {"l": "Responsável pelo registro", "v": "Declarante residente (regra geral)"}
+      ],
+      "requirements": [
+        "Identificar se a operação é de investimento direto (participação societária) ou de crédito externo (empréstimo/financiamento) antes de escolher o módulo",
+        "Confirmar se a empresa ou pessoa física já possui histórico de registro no RDE legado a migrar para o SCE",
+        "Distinguir SCE-IED/SCE-Crédito (capital estrangeiro entrando no Brasil) da CBE (capital brasileiro no exterior) — regimes e sistemas diferentes"
+      ],
+      "warning": "O RDE-IED e o RDE-ROF, como nomenclaturas e telas de sistema, não devem mais ser referenciados como sistema vigente em orientações a clientes — ainda que a base legal remota (Lei 4.131/1962 e Lei 11.371/2006) continue citada nos manuais atuais do Bacen. Antes de qualquer orientação prática, confirmar em bcb.gov.br a nomenclatura e o fluxo vigentes, pois o Bacen já promoveu mais de uma atualização de manual desde a virada para o SCE.",
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-IED (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-IED3.pdf"},
+        {"t": "Banco Central do Brasil — Manual SCE-Crédito (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-Credito.pdf"},
+        {"t": "Planalto — Lei 4.131/1962", "u": "https://www.planalto.gov.br/ccivil_03/leis/l4131.htm"},
+        {"t": "Planalto — Lei 11.371/2006", "u": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11371.htm"},
+        {"t": "Planalto — Lei 14.286/2021 (Marco Legal do Câmbio)", "u": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14286.htm"}
+      ]
+    },
+    {
+      "name": "SCE-IED — Investimento Externo Direto",
+      "eyebrow": "Módulo de participação societária de não residente em empresa brasileira",
+      "legalBasis": "Lei 11.371/2006; Resolução BCB 278/2022 (regulamenta a Lei 14.286/2021)",
+      "desc": "O SCE-IED é o módulo através do qual a empresa brasileira <strong>receptora</strong> de aporte de capital de investidor não residente — pessoa física ou jurídica domiciliada no exterior — registra e mantém atualizada perante o Bacen a participação estrangeira em seu capital social. A responsabilidade pelo registro recai sobre a empresa receptora do investimento no Brasil, não sobre o investidor estrangeiro. É também nesse módulo que se registra o capital destacado (dotação) de filial ou sucursal de empresa estrangeira autorizada a operar no país.\n\nO registro de um aporte inicial gera um código SCE-IED próprio para o receptor, ao qual passam a ser vinculadas as operações de câmbio subsequentes relacionadas a esse investimento (novos aportes, redução de capital, remessa de lucros e dividendos, repatriamento). Segundo fontes consultadas, operações cambiais vinculadas a investimento direto sujeitam-se a registro a partir do patamar de <strong>USD 100.000,00</strong> (ou equivalente em outra moeda) [VERIFICAR: valor de corte exato e sua base normativa (artigo da Resolução BCB 278/2022 ou norma complementar) diretamente no manual SCE-IED do Bacen — fontes de mercado convergem no valor, mas não localizei o dispositivo legal correspondente para citação precisa].\n\nAlém do registro do ingresso, a empresa receptora com participação de não residente está sujeita a declarações periódicas de natureza econômico-financeira, cuja periodicidade varia conforme o total de ativos da empresa na data-base:\n\n<strong>Declaração Anual</strong> — devida por receptoras com participação de não residente e ativo total igual ou superior a R$ 100 milhões na data-base de 31/12 do ano anterior, a ser prestada entre 1º de janeiro e 31 de março do ano seguinte.\n\n<strong>Declaração Trimestral</strong> — devida por receptoras com ativo total igual ou superior a R$ 300 milhões na data-base de cada trimestre civil, com janelas de entrega nos três meses subsequentes a cada fechamento trimestral.\n\n<strong>Declaração Quinquenal (Censo)</strong> — nos anos-calendário em que se aplica o Censo de Capitais Estrangeiros no País, a exigência de declaração anual é substituída pela declaração quinquenal, devida por toda receptora com participação de não residente (qualquer valor de participação) e ativo total igual ou superior a R$ 100 mil na data-base de 31/12 do ano anterior, também no período de 1º de janeiro a 31 de março.\n\nReceptoras com ativo total abaixo dos limiares aplicáveis ficam dispensadas da declaração periódica correspondente, mas permanecem obrigadas ao registro do ingresso do investimento e à sua manutenção cadastral. [VERIFICAR: os valores de corte de R$ 100 milhões (anual), R$ 300 milhões (trimestral) e R$ 100 mil (quinquenal/censo) contra o texto vigente do manual SCE-IED e eventual norma que os fixe, pois esses limiares já foram reajustados no passado e podem voltar a sê-lo; e VERIFICAR se 2026 é de fato ano de Censo Quinquenal (ano-base 2025), o que, segundo as fontes consultadas, dispensaria a declaração anual desse ano-base específico].\n\nA omissão, o atraso ou a inconsistência na declaração periódica podem levar à <strong>suspensão do código SCE-IED</strong> da receptora, o que impede a vinculação de novas operações de câmbio de natureza de investimento direto (aportes, remessas de lucro, repatriamento) até a regularização — com efeito prático imediato sobre qualquer movimentação de capital planejada. Multas administrativas também são cominadas por infração ao dever de declarar. [VERIFICAR: faixa de multa aplicável especificamente ao SCE-IED, com percentuais e limites mínimo/máximo, e o dispositivo normativo correspondente — os valores citados por escritórios de advocacia e fontes de mercado variam entre si (algumas mencionam multas de 1% a 10% do valor sujeito a declaração com teto entre R$ 25 mil e R$ 250 mil; outras citam a faixa geral de R$ 2.500 a R$ 250.000 aplicável a outras declarações cambiais), o que sugere que essas cifras podem estar sendo replicadas por analogia entre regimes distintos (CBE, IED, ROF) sem verificação individual — não usar nenhuma delas com clientes sem confirmação no normativo aplicável ao SCE-IED especificamente].",
+      "kv": [
+        {"l": "O que declara", "v": "Participação de não residente em empresa brasileira"},
+        {"l": "Responsável", "v": "Empresa receptora no Brasil"},
+        {"l": "Registro de ingresso", "v": "A cada aporte/operação relevante"},
+        {"l": "Declaração anual", "v": "Ativo ≥ R$ 100 mi — jan/mar"},
+        {"l": "Declaração trimestral", "v": "Ativo ≥ R$ 300 mi — trimestral"},
+        {"l": "Declaração quinquenal (Censo)", "v": "Ativo ≥ R$ 100 mil — jan/mar, em ano de Censo"}
+      ],
+      "requirements": [
+        "Empresa brasileira com qualquer participação societária de não residente deve manter código SCE-IED ativo",
+        "Verificar anualmente o ativo total na data-base de 31/12 para determinar se há obrigação de declaração anual, trimestral ou quinquenal",
+        "Vincular toda operação de câmbio relacionada ao investimento (aporte, redução, dividendo, repatriamento) ao código SCE-IED do receptor",
+        "Confirmar, a cada ciclo declaratório, se o ano corresponde a ano de Censo Quinquenal, que substitui a declaração anual"
+      ],
+      "process": [
+        {"step": "Obtenção do código de receptor", "timing": "No primeiro aporte estrangeiro", "detail": "Empresa brasileira registra-se como receptora de IED e recebe código próprio no sistema"},
+        {"step": "Registro de cada operação", "timing": "Conforme ocorrência", "detail": "Aportes, reduções de capital e outras movimentações societárias com não residente são lançados e vinculados ao código"},
+        {"step": "Declaração periódica econômico-financeira", "timing": "Anual, trimestral ou quinquenal, conforme porte", "detail": "Prestação de informações patrimoniais e societárias da receptora dentro da janela aplicável"},
+        {"step": "Vinculação cambial", "timing": "A cada remessa/ingresso via câmbio", "detail": "Banco autorizado a operar em câmbio exige o código SCE-IED válido para cursar a operação"}
+      ],
+      "warning": "A suspensão do código SCE-IED por descumprimento declaratório trava operações de câmbio de investimento direto — inclusive a remessa de dividendos e o repatriamento de capital de um investidor não residente — até a regularização. Em planejamento patrimonial internacional, isso é particularmente sensível quando a receptora integra uma estrutura com prazo apertado para distribuição ou saída (venda, redomiciliação).",
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-IED (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-IED3.pdf"},
+        {"t": "gov.br — Declarar capitais estrangeiros decorrentes de investimento estrangeiro direto (SCE-IED)", "u": "https://www.gov.br/pt-br/servicos/Declarar-capitais-estrangeiros-decorrentes-de-investimento-estrangeiro-direto-SCE-IED"},
+        {"t": "Planalto — Lei 11.371/2006", "u": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11371.htm"}
+      ]
+    },
+    {
+      "name": "SCE-Crédito — Capitais estrangeiros sob forma de crédito",
+      "eyebrow": "Sucessor do RDE-ROF",
+      "legalBasis": "Resolução BCB 278/2022 (regulamenta a Lei 14.286/2021); manual de declarante atualizado pela Resolução BCB 492/2025",
+      "desc": "O SCE-Crédito é o módulo destinado ao registro de operações financeiras de <strong>crédito externo</strong> — isto é, operações em que um não residente é credor de pessoa física ou jurídica residente no Brasil — sucedendo o antigo RDE-ROF (Registro de Operações Financeiras). Abrange, entre outras modalidades: empréstimos e financiamentos diretos captados no exterior (inclusive entre partes relacionadas — operações <em>intercompany</em> com controladora, controlada ou coligada estrangeira), emissão de títulos de dívida no mercado internacional, emissão de valores mobiliários por colocação privada no mercado interno com credor não residente, importação financiada de bens ou serviços com prazo de pagamento superior a 180 dias, recebimento antecipado de exportação e arrendamento mercantil financeiro (leasing) internacional, quando sujeitas a prestação de informação ao Bacen.\n\nA obrigação de registrar depende do tipo de operação e de valores de corte específicos por modalidade, fixados pela Resolução BCB 278/2022: segundo fontes consultadas, empréstimos e financiamentos diretos (incluindo emissão de títulos internacionais e colocação privada doméstica com credor não residente) sujeitam-se a registro a partir de <strong>USD 1.000.000,00</strong> (ou equivalente); importações financiadas de bens ou serviços com prazo superior a 180 dias, a partir de <strong>USD 500.000,00</strong> (ou equivalente). [VERIFICAR: esses valores de corte, e a tabela completa por modalidade de operação, diretamente no texto da Resolução BCB 278/2022 e no Manual SCE-Crédito vigente — os patamares acima refletem o que fontes de mercado reportam, mas o Bacen pode segmentar de forma mais granular por tipo de instrumento].\n\nUma vez caracterizada a obrigação, a operação deve ser declarada no SCE-Crédito em prazo de <strong>até 30 dias</strong> contados da sua ocorrência — regra que também se aplica a conversões dentro de uma mesma operação de crédito externo (por exemplo, capitalização de juros ou encargos ao principal). [VERIFICAR: o prazo de 30 dias contra o texto vigente do Manual SCE-Crédito e/ou da Resolução BCB 278/2022, inclusive se há prazos diferenciados por tipo de evento — registro do ingresso, alteração contratual, amortização, vencimento antecipado — dentro desse mesmo módulo].\n\nO SCE-Crédito substitui integralmente o antigo RDE-ROF como ambiente de registro; não há, na estrutura atual, um sistema de Registro de Operações Financeiras autônomo e paralelo — o ROF como nomenclatura de sistema está descontinuado, tendo sua função absorvida pelo módulo Crédito do SCE. O manual de procedimentos ao declarante foi objeto de atualização pela Resolução BCB 492/2025, o que reforça que este é um módulo em revisão normativa ativa e recomenda checagem de vigência a cada novo ciclo de trabalho. [VERIFICAR: o conteúdo específico das alterações trazidas pela Resolução BCB 492/2025 ao módulo SCE-Crédito, diretamente no texto da resolução ou no comunicado do Bacen que a acompanhou].\n\nAs consequências de descumprimento seguem a mesma lógica do SCE-IED: risco de impedimento de operações de câmbio vinculadas à operação de crédito não regularizada (o que inclui o próprio ingresso dos recursos ou o pagamento de amortizações e juros ao credor no exterior) e sujeição a multa administrativa. [VERIFICAR: faixa de multa e dispositivo normativo aplicável especificamente ao SCE-Crédito — pelas mesmas razões apontadas no tópico do SCE-IED, não usar valores de multa reportados por fontes secundárias sem confirmação no normativo correspondente].",
+      "kv": [
+        {"l": "O que declara", "v": "Crédito externo tomado por residente no Brasil"},
+        {"l": "Sucede", "v": "RDE-ROF (Registro de Operações Financeiras)"},
+        {"l": "Prazo de registro", "v": "Até 30 dias da ocorrência [VERIFICAR]"},
+        {"l": "Corte — empréstimo/financiamento direto", "v": "USD 1.000.000 [VERIFICAR]"},
+        {"l": "Corte — importação financiada > 180 dias", "v": "USD 500.000 [VERIFICAR]"},
+        {"l": "Abrange intercompany", "v": "Sim — crédito de controladora/coligada estrangeira"}
+      ],
+      "requirements": [
+        "Mapear toda captação de crédito externo da empresa brasileira, incluindo mútuos intercompany com controladora ou coligada no exterior",
+        "Verificar se o valor e a modalidade da operação atingem o patamar de registro obrigatório antes de considerar a operação dispensada",
+        "Registrar dentro do prazo (a confirmar) a partir da ocorrência do evento — ingresso, alteração contratual ou capitalização de encargos",
+        "Confirmar, a cada operação, se o manual/norma vigente do SCE-Crédito já incorpora as alterações da Resolução BCB 492/2025"
+      ],
+      "process": [
+        {"step": "Caracterização da operação", "timing": "Antes da contratação, idealmente", "detail": "Confirmar modalidade (empréstimo direto, importação financiada, título, leasing) e se atinge o valor de corte aplicável"},
+        {"step": "Registro no SCE-Crédito", "timing": "Até 30 dias da ocorrência [VERIFICAR]", "detail": "Lançamento das condições contratuais — credor, valor, prazo, encargos — pelo declarante residente"},
+        {"step": "Vinculação cambial do ingresso", "timing": "No desembolso dos recursos", "detail": "Operação de câmbio de ingresso referenciada ao registro no SCE-Crédito"},
+        {"step": "Atualização de eventos", "timing": "Conforme ocorrência", "detail": "Amortizações, capitalização de juros, repactuações e o pagamento final são refletidos no registro"}
+      ],
+      "warning": "Em operações intercompany — crédito de holding estrangeira a subsidiária brasileira, comum em estruturas de wealth planning com veículo no exterior financiando operação local — o registro no SCE-Crédito costuma ser subestimado exatamente por não haver captação bancária de mercado envolvida. O dever de declarar independe da natureza relacionada das partes.",
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-Crédito (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-Credito.pdf"},
+        {"t": "gov.br — Declarar capitais estrangeiros decorrentes de operações de crédito (SCE-Crédito)", "u": "https://www.gov.br/pt-br/servicos/declarar-capitais-estrangeiros-decorrentes-de-operacoes-de-credito-sce-credito"}
+      ]
+    },
+    {
+      "name": "Processo prático de declaração",
+      "eyebrow": "Acesso ao sistema e fluxo declaratório",
+      "legalBasis": "Resolução BCB 278/2022; normas de acesso a sistemas do Bacen para pessoas físicas e jurídicas",
+      "desc": "O acesso ao SCE-IED e ao SCE-Crédito se dá por ambiente eletrônico do Banco Central, mediante identificação do declarante — a própria empresa ou pessoa física receptora do capital, ou seu representante legalmente constituído. A prática de mercado indica autenticação por certificado digital ICP-Brasil e, quando a declaração é conduzida por terceiro (escritório de contabilidade, consultoria ou departamento jurídico), a formalização de procuração eletrônica que habilite o procurador a atuar em nome do declarante perante o sistema do Bacen. [VERIFICAR: o nome atual e a URL exata do portal de acesso ao SCE (se integrado ao \"BCB Declara\", a um módulo específico do Sisbacen para empresas, ou a outro ambiente), o método de autenticação vigente (gov.br, certificado digital, ou ambos) e o procedimento formal de outorga de procuração eletrônica para o SCE especificamente — essas informações mudam com frequência e devem ser confirmadas na página de acesso do próprio Bacen antes de orientar um declarante].\n\nEm linhas gerais, o fluxo declaratório em qualquer um dos dois módulos segue a mesma lógica: (i) credenciamento do declarante e obtenção de um código/registro próprio para a empresa ou operação; (ii) registro do fato gerador (aporte societário no SCE-IED; contratação de crédito no SCE-Crédito); (iii) vinculação das operações de câmbio subsequentes a esse código, exigida pelo banco autorizado a operar em câmbio como condição para cursar a remessa; e (iv) cumprimento das declarações periódicas de atualização, quando aplicável ao porte ou à natureza da operação.\n\nRecomenda-se, para qualquer estrutura patrimonial internacional com componente societário ou de crédito no Brasil, manter um calendário de compliance cambial documentado — com as datas de cada janela declaratória, o histórico de códigos SCE ativos por veículo, e a evidência de cada protocolo entregue — de modo a permitir auditoria e resposta rápida a fiscalização.",
+      "requirements": [
+        "Confirmar o método de acesso vigente ao ambiente do SCE (certificado digital, gov.br, ou combinação) antes de iniciar qualquer registro",
+        "Formalizar procuração eletrônica quando a declaração for conduzida por terceiro em nome do declarante",
+        "Manter calendário interno de compliance cambial com todas as janelas declaratórias aplicáveis a cada veículo do grupo patrimonial"
+      ],
+      "process": [
+        {"step": "Credenciamento do declarante", "timing": "Previamente ao primeiro registro", "detail": "Habilitação de acesso ao sistema, diretamente ou por procurador eletrônico [VERIFICAR fluxo exato]"},
+        {"step": "Registro do fato gerador", "timing": "Conforme prazo do módulo aplicável", "detail": "Aporte societário (SCE-IED) ou contratação de crédito (SCE-Crédito)"},
+        {"step": "Vinculação cambial", "timing": "A cada operação de câmbio", "detail": "Banco autorizado exige o código SCE válido para liquidar a operação"},
+        {"step": "Declarações periódicas", "timing": "Conforme calendário do módulo", "detail": "Atualização econômico-financeira (IED) ou de eventos contratuais (Crédito)"}
+      ],
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-IED (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-IED3.pdf"},
+        {"t": "gov.br — Declarar capitais estrangeiros decorrentes de investimento estrangeiro direto (SCE-IED)", "u": "https://www.gov.br/pt-br/servicos/Declarar-capitais-estrangeiros-decorrentes-de-investimento-estrangeiro-direto-SCE-IED"},
+        {"t": "gov.br — Declarar capitais estrangeiros decorrentes de operações de crédito (SCE-Crédito)", "u": "https://www.gov.br/pt-br/servicos/declarar-capitais-estrangeiros-decorrentes-de-operacoes-de-credito-sce-credito"}
+      ]
+    },
+    {
+      "name": "Interação com wealth planning internacional",
+      "eyebrow": "Onde o SCE aparece na estrutura patrimonial",
+      "legalBasis": "Resolução BCB 278/2022",
+      "desc": "Para o consultor de planejamento patrimonial, o SCE-IED e o SCE-Crédito não são obrigações periféricas de compliance contábil — são pontos de controle que condicionam a própria execução de movimentos de capital dentro de uma estrutura internacional. Duas situações recorrentes merecem atenção direta:\n\n<strong>Aporte de investidor não residente em veículo brasileiro.</strong> Quando uma holding offshore controlada por um residente brasileiro (ou por terceiro não residente) aporta capital em uma empresa operacional ou patrimonial no Brasil — por exemplo, para capitalizar uma sociedade que deterá um imóvel ou uma participação societária local —, esse aporte caracteriza investimento estrangeiro direto e aciona a obrigação de registro no SCE-IED pela receptora brasileira, independentemente de o investidor final, olhando através da cadeia societária, ser o próprio brasileiro. É um ponto frequentemente negligenciado em estruturas em que o mesmo indivíduo está de ambos os lados da operação (residente que controla o veículo estrangeiro que investe na empresa brasileira): a obrigação declaratória da receptora existe de todo modo, e sua omissão trava a distribuição futura de dividendos ou o repatriamento de capital pela via cambial.\n\n<strong>Crédito de coligada ou controlada estrangeira a empresa brasileira do grupo.</strong> Estruturas de wealth planning que utilizam uma holding no exterior para financiar — em vez de capitalizar — uma operação ou veículo no Brasil (mútuo intercompany, por exemplo, para otimizar dedutibilidade de juros ou por razões de flexibilidade de saída) acionam o SCE-Crédito. A escolha entre capitalizar (SCE-IED) e emprestar (SCE-Crédito) tem, portanto, consequência declaratória distinta além dos efeitos tributários e societários já normalmente considerados no desenho da estrutura.\n\nOs riscos de não conformidade em ambos os módulos convergem para o mesmo ponto de dor prático: o <strong>bloqueio de operações no mercado de câmbio</strong> vinculadas ao registro irregular ou suspenso — o que pode inviabilizar, no momento exato em que a estrutura precisa de liquidez ou de uma saída (venda de participação, distribuição para atender a um evento familiar, redomiciliação), justamente a remessa que a estrutura foi desenhada para viabilizar. A isso somam-se a exposição a multa administrativa e o risco reputacional e de escrutínio adicional em eventual fiscalização cambial ou patrimonial mais ampla, na qual a inconsistência declaratória no SCE costuma ser o primeiro sinal que atrai atenção do órgão regulador para o restante da estrutura.",
+      "requirements": [
+        "Mapear, no desenho de qualquer estrutura com veículo estrangeiro e componente brasileiro, se o fluxo de capital será aporte (SCE-IED) ou crédito (SCE-Crédito) — e registrar antes de o fluxo cambial correspondente ser necessário",
+        "Verificar a situação declaratória do SCE de toda entidade brasileira do grupo antes de planejar uma remessa, distribuição ou repatriamento",
+        "Tratar a regularidade do SCE como pré-condição de exequibilidade de qualquer evento de liquidez da estrutura, não como formalidade posterior"
+      ],
+      "warning": "Um código SCE suspenso por pendência declaratória bloqueia a operação de câmbio vinculada — o que pode paralisar exatamente a remessa (distribuição, repatriamento, pagamento de amortização a credor externo) que motivou a análise da estrutura em primeiro lugar. A checagem da situação declaratória deve anteceder qualquer planejamento de evento de liquidez internacional envolvendo entidade brasileira.",
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-IED (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-IED3.pdf"},
+        {"t": "Banco Central do Brasil — Manual SCE-Crédito (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-Credito.pdf"}
+      ]
+    },
+    {
+      "name": "Comparativo SCE-IED vs. SCE-Crédito",
+      "eyebrow": "Síntese dos dois módulos",
+      "legalBasis": "Resolução BCB 278/2022 (ambos os módulos)",
+      "desc": "Os dois módulos partem da mesma base legal e do mesmo princípio — registro declaratório sob responsabilidade do residente que recebe o capital —, mas se aplicam a naturezas de operação e a calendários distintos. A tabela a seguir resume os pontos de maior relevância prática para o consultor de wealth planning.",
+      "kv": [
+        {"l": "Natureza da operação — IED", "v": "Participação societária de não residente"},
+        {"l": "Natureza da operação — Crédito", "v": "Empréstimo, financiamento, título de dívida, importação financiada"},
+        {"l": "Responsável pelo registro — ambos", "v": "Pessoa física/jurídica residente receptora"},
+        {"l": "Periodicidade — IED", "v": "Registro do fato + declaração anual, trimestral ou quinquenal (por porte)"},
+        {"l": "Periodicidade — Crédito", "v": "Registro do fato em até 30 dias [VERIFICAR] + atualização por evento"},
+        {"l": "Sistema antecessor — IED", "v": "RDE-IED"},
+        {"l": "Sistema antecessor — Crédito", "v": "RDE-ROF"},
+        {"l": "Base legal comum", "v": "Lei 11.371/2006; Resolução BCB 278/2022"},
+        {"l": "Efeito de descumprimento — ambos", "v": "Suspensão do código e bloqueio de operação de câmbio vinculada; multa administrativa [VERIFICAR valores]"}
+      ],
+      "sections": [
+        {
+          "title": "Quando cada módulo é acionado em uma estrutura típica",
+          "body": "Se o veículo estrangeiro do grupo familiar subscreve capital em uma sociedade brasileira — seja para deter um ativo local, seja para capitalizar uma operação —, o evento é de <strong>investimento direto</strong> e o registro cabe no SCE-IED. Se, em vez disso, o veículo estrangeiro concede um mútuo, financia uma importação da empresa brasileira ou subscreve um título de dívida emitido por ela, o evento é de <strong>crédito externo</strong> e o registro cabe no SCE-Crédito. A mesma estrutura pode acionar os dois módulos simultaneamente — por exemplo, um aporte inicial de capital seguido, anos depois, de um mútuo complementar da mesma holding estrangeira à subsidiária brasileira — e cada evento deve ser tratado e monitorado separadamente, com seu próprio calendário de conformidade."
+        }
+      ],
+      "sources": [
+        {"t": "Banco Central do Brasil — Manual SCE-IED (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-IED3.pdf"},
+        {"t": "Banco Central do Brasil — Manual SCE-Crédito (PDF)", "u": "https://www.bcb.gov.br/content/estabilidadefinanceira/rde/manuais_RDE/Manual-SCE-Credito.pdf"}
+      ]
+    }
+  ]
+}

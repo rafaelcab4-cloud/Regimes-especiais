@@ -1,0 +1,263 @@
+{
+  "sectionId": "sociedades",
+  "sectionTitle": "Sociedades",
+  "sectionSubtitle": "Estruturas societárias offshore usadas em planejamento patrimonial internacional — natureza jurídica, documentos constitutivos, regras de substância e transparência, e sua interação com a legislação brasileira.",
+  "topics": [
+    {
+      "name": "LLC americana (Limited Liability Company)",
+      "eyebrow": "Estados Unidos · Entidade Híbrida",
+      "legalBasis": "Direito estadual (ex.: Delaware Limited Liability Company Act, 6 Del. C. § 18-101 e ss.; Wyoming Limited Liability Company Act, Wyo. Stat. § 17-29-101 e ss.); tratamento fiscal federal por Treasury Regulations § 301.7701-2 e § 301.7701-3 (\"check-the-box\")",
+      "desc": "A LLC (Limited Liability Company) é uma criatura do direito estadual americano, sem correspondente direto no direito brasileiro: combina a responsabilidade limitada típica de uma sociedade de capital com a flexibilidade contratual e a possibilidade de tratamento fiscal \"passthrough\" típica de uma sociedade de pessoas. Não existe uma \"LLC Act\" federal — cada estado tem sua própria lei, e a entidade é regida pela lei do estado de constituição independentemente de onde opere.\n\nPara fins fiscais federais nos EUA, a classificação da LLC não é automática: sob o regime <em>check-the-box</em> (Treasury Regulations § 301.7701-3, em vigor desde 1º de janeiro de 1997), uma LLC com um único sócio (\"member\") é, por padrão, uma <strong>disregarded entity</strong> — a Receita americana (IRS) simplesmente ignora a existência da entidade e trata as suas operações como se fossem do próprio titular. Uma LLC com dois ou mais sócios é, por padrão, tratada como <strong>partnership</strong> (sociedade de pessoas, tributada nos sócios, não na entidade). Em ambos os casos, é possível eleger tributação como corporation (Form 8832) ou, cumpridos requisitos, como S-Corporation (Form 2553) — mas essa eleição, uma vez feita, normalmente não pode ser alterada novamente nos 60 meses seguintes.",
+      "kv": [
+        {"l":"Natureza","v":"Híbrida: capital + pessoas"},
+        {"l":"Tributação padrão (1 sócio)","v":"Disregarded entity"},
+        {"l":"Tributação padrão (2+ sócios)","v":"Partnership"},
+        {"l":"Documento constitutivo","v":"Articles / Certificate of Organization"},
+        {"l":"Contrato de governança","v":"Operating Agreement"},
+        {"l":"Estados mais usados","v":"Delaware, Wyoming, Nevada"}
+      ],
+      "requirements": [
+        "Nomeação de registered agent no estado de constituição",
+        "Certificate/Articles of Organization arquivado no Secretary of State",
+        "Operating Agreement (não é sempre exigido por lei, mas é o documento que efetivamente rege a entidade)",
+        "EIN (Employer Identification Number) junto ao IRS para abertura de conta bancária e cumprimento de obrigações fiscais",
+        "Formulário 8832 caso se deseje eleição de classificação fiscal diversa da padrão"
+      ],
+      "sections": [
+        {
+          "title": "Por que Delaware, Wyoming e Nevada",
+          "body": "<strong>Delaware</strong> é o estado dominante para LLCs que servem a estruturas de investimento e holding, por conta do seu corpo jurisprudencial extenso (Court of Chancery, tribunal especializado em direito societário) e da flexibilidade contratual do Delaware LLC Act, que permite ao Operating Agreement praticamente reescrever as regras supletivas da lei. O Certificate of Formation de Delaware não exige a listagem de members ou managers, o que confere um grau relevante de privacidade em nível estadual — a informação de titularidade não fica em registro público estadual (ainda que, para fins fiscais brasileiros e de compliance bancário/AML americano, isso não afaste o dever de identificação do beneficiário final perante o banco e, potencialmente, perante o Financial Crimes Enforcement Network — FinCEN).\n\n<strong>Wyoming</strong> foi o primeiro estado americano a criar a LLC (1977) e mantém legislação favorável a holdings e a ativos digitais, com custos de manutenção tipicamente mais baixos que Delaware e sem imposto de renda estadual.\n\n<strong>Nevada</strong> também não tributa renda no nível estadual e oferece proteção patrimonial (asset protection) considerada robusta, com regras de \"charging order\" como remédio exclusivo do credor de um member em determinadas hipóteses. A escolha entre os três depende do uso pretendido (holding de participações, veículo operacional, titularidade de imóveis) e deve ser feita com aconselhamento fiscal e societário americano específico."
+        },
+        {
+          "title": "Governança: members e managers",
+          "body": "A LLC pode ser <em>member-managed</em> (todos os sócios participam diretamente da administração) ou <em>manager-managed</em> (a administração é delegada a um ou mais managers, que podem ou não ser sócios). Essa escolha, os direitos econômicos e políticos de cada classe de participação, as regras de transferência de quotas (\"membership interests\"), de distribuição de resultados e de dissolução são todas definidas contratualmente no Operating Agreement — documento que, na maioria dos estados, não é arquivado publicamente. Essa flexibilidade é o que torna a LLC um veículo tão versátil em wealth planning: pode ser desenhada para funcionar como holding familiar, como veículo de co-investimento entre gerações, ou como estrutura de detenção de ativo único (imóvel, participação societária, obra de arte, iate)."
+        }
+      ],
+      "brazilNote": "Sob a Lei nº 14.754, de 12 de dezembro de 2023, em vigor desde 1º de janeiro de 2024, pessoa física residente fiscal no Brasil que controle entidade no exterior está sujeita ao regime de <strong>transparência fiscal (regra antidiferimento)</strong>: os lucros apurados pela entidade controlada no exterior em 31 de dezembro de cada ano são automaticamente tributados no Brasil à alíquota de 15%, no ajuste anual, independentemente de distribuição efetiva. A lei também prevê a possibilidade de o contribuinte optar, de forma irrevogável e entidade a entidade, pelo <strong>tratamento transparente</strong>, no qual os ativos, direitos e rendimentos da controlada no exterior são declarados diretamente pela pessoa física como se detidos por ela — regime regulamentado pela Instrução Normativa RFB nº 2.180/2024.\n\nO ponto de atenção prático é que uma LLC americana unipessoal, embora seja \"disregarded entity\" para o IRS (isto é, invisível para o fisco americano), <strong>não é automaticamente transparente para o fisco brasileiro</strong>: a Lei 14.754/2023 e a IN RFB 2.180/2024 tratam a entidade controlada segundo seus próprios critérios de \"controle\" e de classificação (o conceito brasileiro de entidade controlada no exterior é definido pela lei doméstica, não pela classificação fiscal americana). Na prática, boa parte da doutrina e das consultorias tributárias tem apontado que, para o titular de LLC unipessoal desregardada, a opção pela transparência da Lei 14.754/2023 tende a alinhar o tratamento brasileiro à realidade econômica da entidade (já que nos EUA ela já é ignorada), mas a análise deve ser feita caso a caso, considerando o tipo de ativo detido, a existência de sócios adicionais e a eventual incidência de outras regras (ex.: bens imóveis americanos detidos por meio de LLC, e tributação de sucessão americana — estate tax — sobre não residentes). [VERIFICAR: posicionamento formal e atualizado da Receita Federal sobre o enquadramento específico de single-member LLC disregarded como \"entidade controlada\" para fins do art. 8º da Lei 14.754/2023, para além do que consta na IN RFB 2.180/2024 e no documento de Perguntas e Respostas da Receita Federal.]",
+      "sources": [
+        {"t":"IRS — Treas. Reg. § 301.7701-3, Classification of certain business entities (check-the-box)","u":"https://www.irs.gov/irm/part5/irm_05-001-021"},
+        {"t":"Delaware Limited Liability Company Act — Delaware Code Title 6, Ch. 18","u":"https://delcode.delaware.gov/title6/c018/"},
+        {"t":"Wyoming Limited Liability Company Act — Wyo. Stat. Title 17, Ch. 29","u":"https://wyoleg.gov/statutes/compress/title17.pdf"},
+        {"t":"Planalto — Lei nº 14.754, de 12 de dezembro de 2023","u":"https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm"},
+        {"t":"Receita Federal — Instrução Normativa RFB nº 2.180/2024 (Perguntas e Respostas)","u":"https://www.gov.br/fazenda/pt-br/acesso-a-informacao/perguntas-frequentes/tributacao-offshore/29-4-24-perguntas-e-respostas-offshores-lei-14-754-e-in-rfb-2-180.pdf"}
+      ]
+    },
+    {
+      "name": "BVI Business Company",
+      "eyebrow": "Ilhas Virgens Britânicas · PIC Clássica",
+      "legalBasis": "BVI Business Companies Act, 2004 (No. 16 of 2004), conforme sucessivas emendas — última consolidação relevante em vigor desde 2 de janeiro de 2025; Beneficial Ownership Secure Search System Act, 2017 (\"BOSS Act\"); Economic Substance (Companies and Limited Partnerships) Act, 2018, conforme emendado em 2021",
+      "desc": "A BVI Business Company (BC) é a estrutura societária offshore mais difundida globalmente, sucessora da antiga International Business Company (IBC) após a unificação promovida pela BVI Business Companies Act, 2004, que revogou o regime dual anterior. É constituída como companhia limitada por ações (o formato mais comum em wealth planning), podendo também ser limitada por garantia, ilimitada, ou híbrida.\n\nA companhia é registrada junto ao BVI Registry of Corporate Affairs por meio de um <strong>registered agent</strong> licenciado nas Ilhas Virgens Britânicas — pessoa física não pode constituir uma BC diretamente; a lei exige a intermediação de um agente registrado autorizado pela BVI Financial Services Commission (FSC), responsável por due diligence de cliente (KYC/AML) e pela manutenção de registros estatutários mínimos.",
+      "kv": [
+        {"l":"Documento constitutivo","v":"Memorandum and Articles of Association"},
+        {"l":"Registro de sócios","v":"Register of Members — privado, arquivado no Registry desde jan/2025"},
+        {"l":"Registro de diretores","v":"Register of Directors — privado, não acessível ao público"},
+        {"l":"Agente registrado","v":"Obrigatório (BVI Registered Agent licenciado)"},
+        {"l":"Escritório registrado","v":"Obrigatório (endereço físico na BVI, mantido pelo agente)"},
+        {"l":"Beneficiário final","v":"BOSS System — acesso restrito, não público"}
+      ],
+      "requirements": [
+        "Registered agent licenciado na BVI",
+        "Registered office na BVI (endereço físico, tipicamente o do próprio agente)",
+        "Memorandum and Articles of Association arquivados no Registry",
+        "Register of Members mantido internamente e, desde as emendas em vigor a partir de 2 de janeiro de 2025, arquivado de forma privada junto ao Registrar",
+        "Register of Directors arquivado de forma privada junto ao Registrar em até 14 dias da nomeação de diretor",
+        "Informação de beneficiário final submetida ao agente registrado para alimentar o BOSS System",
+        "Annual return / avaliação anual de economic substance quando a companhia exercer relevant activity"
+      ],
+      "sections": [
+        {
+          "title": "Sigilo dos registros societários",
+          "body": "A BVI historicamente construiu sua reputação sobre o sigilo dos registros de sócios e diretores. Com as emendas à Business Companies Act em vigor desde 2 de janeiro de 2025, o Register of Members passou a ser obrigatoriamente arquivado junto ao Registrar de forma privada — seguindo o mesmo modelo já aplicado ao Register of Directors havia alguns anos. Isso significa que a informação passa a existir centralizada no órgão regulador, mas <strong>continua não acessível ao público</strong>: não há um portal de busca pública de sócios ou diretores de companhias BVI, ao contrário do que ocorre, por exemplo, no registro de diretores das Bahamas.\n\nA justificativa oficial dessas mudanças é o alinhamento a padrões internacionais de transparência definidos pelo Global Forum on Transparency and Exchange of Information for Tax Purposes e pelo GAFI/FATF — ou seja, a informação fica mais acessível a autoridades e trocas de informação bilaterais/multilaterais, sem se tornar pública."
+        },
+        {
+          "title": "Substância econômica (Economic Substance Act)",
+          "body": "A Economic Substance (Companies and Limited Partnerships) Act, 2018, com emendas relevantes em vigor desde 30 de junho de 2021, exige que toda companhia e limited partnership constituída na BVI avalie anualmente se exerce uma \"relevant activity\" (holding business, banking, insurance, fund management, financing and leasing, headquartering, shipping, distribution and service centre business, ou intellectual property business, entre outras). Companhias puramente passivas de holding de participações (pure equity holding entities) estão sujeitas a um teste de substância reduzido; companhias que exercem relevant activity operacional devem demonstrar direção e gestão efetivas na BVI, atividades geradoras de renda essenciais (CIGA) conduzidas localmente, e pessoal, despesa e presença física adequados no território. A partir da emenda de 2021, fundos de investimento (investment fund business) foram expressamente excluídos do conceito de relevant activity, embora a atividade de gestão de fundos (fund management business) permaneça dentro do escopo."
+        }
+      ],
+      "warning": "A ausência de substância econômica adequada em companhia que exerça relevant activity pode resultar em sanções, troca automática de informação com a jurisdição de residência fiscal dos beneficiários finais e, em casos extremos, dissolução compulsória (strike-off) da companhia.",
+      "sources": [
+        {"t":"BVI Financial Services Commission — BVI Business Companies Act (Revised Edition, texto consolidado)","u":"https://www.bvifsc.vg/sites/default/files/bvi_business_companies_act.pdf"},
+        {"t":"BVI Financial Services Commission — Beneficial Ownership Secure Search System Act (Revised Edition)","u":"https://www.bvifsc.vg/sites/default/files/beneficial_ownership_secure_search_system_act.pdf"},
+        {"t":"Harneys — Latest amendments to the BVI Business Companies Act 2004","u":"https://www.harneys.com/insights/latest-amendments-to-the-bvi-business-companies-act-2004/"},
+        {"t":"Conyers — Ten Things You Need To Know About BVI Economic Substance","u":"https://www.conyers.com/publications/view/ten-things-you-need-to-know-about-bvi-economic-substance/"}
+      ]
+    },
+    {
+      "name": "Cayman Islands Exempted Company",
+      "eyebrow": "Ilhas Cayman · PIC Institucional",
+      "legalBasis": "Companies Act (Cayman Islands), consolidação periodicamente revisada (última consolidação identificada: Companies Act, 2026 Revision); Beneficial Ownership Transparency Act, 2023, e Beneficial Ownership Transparency Regulations, 2024 (em vigor desde 31 de julho de 2024); International Tax Co-operation (Economic Substance) Act, consolidação periodicamente revisada",
+      "desc": "A Exempted Company é a forma societária cayman mais utilizada tanto para veículos de investimento institucional (fundos, SPVs de private equity) quanto para PICs de wealth planning. \"Exempted\" refere-se à isenção de determinadas obrigações aplicáveis a companhias domésticas (ordinary companies) — em contrapartida, a exempted company está proibida de exercer negócios com o público nas Ilhas Cayman e de deter imóveis localmente sem licença.\n\nA companhia é constituída por meio de Memorandum and Articles of Association registrados junto ao Registrar of Companies (Cayman Islands General Registry), e deve manter um <strong>registered office</strong> nas Ilhas Cayman, tipicamente fornecido por um corporate service provider licenciado.",
+      "kv": [
+        {"l":"Documento constitutivo","v":"Memorandum and Articles of Association"},
+        {"l":"Registro de sócios","v":"Register of Members — privado, mantido no registered office"},
+        {"l":"Registro de diretores/officers","v":"Lista de diretores correntes arquivada e consultável mediante taxa; registro completo mantido privadamente no registered office"},
+        {"l":"Escritório registrado","v":"Obrigatório (registered office nas Ilhas Cayman)"},
+        {"l":"Beneficiário final","v":"Beneficial Ownership Register (BOR) — privado, plataforma centralizada"}
+      ],
+      "requirements": [
+        "Registered office nas Ilhas Cayman, mantido por provedor de serviços licenciado",
+        "Memorandum and Articles of Association arquivados no Registrar of Companies",
+        "Register of Members mantido no registered office (não arquivado publicamente para exempted companies)",
+        "Register of Directors, Alternate Directors and Officers mantido no registered office",
+        "Lista de diretores correntes disponível para consulta pública mediante taxa nominal junto ao Registrar",
+        "Beneficial Ownership Register (BOR) estabelecido e mantido, salvo elegibilidade a rota alternativa (Contact Person / regimes de isenção)",
+        "Avaliação anual de economic substance quando exercida relevant activity"
+      ],
+      "sections": [
+        {
+          "title": "Sigilo dos registros — a distinção entre Register of Members e Register of Directors",
+          "body": "Nas Ilhas Cayman, o Register of Members de uma exempted company não é público e não é arquivado no Registrar — permanece no registered office, sujeito às restrições de inspeção que os próprios Articles da companhia estabelecerem. Já o Register of Directors, Alternate Directors and Officers segue lógica distinta: a lista de diretores correntes (nome e, quando aplicável, cargo) é arquivada junto ao Registrar e pode ser objeto de inspeção física pelo público mediante pagamento de taxa nominal — ainda que o registro completo, mantido no registered office, permaneça de acesso restrito, sujeito a autorização do conselho ou dos próprios Articles."
+        },
+        {
+          "title": "Beneficial Ownership Transparency Act, 2023",
+          "body": "A partir de 31 de julho de 2024, a Beneficial Ownership Transparency Act, 2023, e seu regulamento consolidaram e substituíram o regime anterior de beneficial ownership (que estava disperso em legislações específicas por tipo de entidade). Entidades classificadas como \"legal persons\" sob a lei devem instruir seu corporate service provider a estabelecer e manter um beneficial ownership register (BOR) privado no registered office, identificando e mantendo atualizada a informação de titularidade final. O BOR é centralizado eletronicamente e não é público — o acesso é reservado ao Registrar (por iniciativa própria ou a pedido de autoridades regulatórias específicas). Desde 28 de fevereiro de 2025, terceiros podem requerer acesso pontual a informação de beneficiário final de uma legal person específica sob o regime de \"legitimate interest access\", mediante comprovação de vínculo da consulta com investigação de lavagem de dinheiro ou financiamento ao terrorismo — mecanismo análogo ao previsto na 5ª Diretiva Antibranqueamento da União Europeia, mas de aplicação restrita e sujeita a requisitos probatórios."
+        }
+      ],
+      "sources": [
+        {"t":"Cayman Islands Government — Companies Act (2026 Revision), texto consolidado","u":"https://gov.ky/documents/35692/0/Companies+Act+(2026+Revision),.pdf/345cf168-32c9-8b07-c7f3-1e645b076320?t=1769711733775"},
+        {"t":"Cayman Islands Monetary Authority — Beneficial Ownership Transparency Act, 2023 (Act 13 of 2023)","u":"https://www.cima.ky/upimages/lawsregulations/BeneficialOwnershipTransparencyAct,2023_1705419742.pdf"},
+        {"t":"Cayman Islands General Registry — Companies Register FAQ","u":"https://www.ciregistry.ky/faq_category/companies-register/"},
+        {"t":"Cayman Islands Government — International Tax Co-operation (Economic Substance) Act","u":"https://gov.ky/documents/35692/0/International+Tax+Co-operation+(Economic+Substance)+Act+(2026+Revision),+.pdf/099118d2-c42f-65b8-6d98-cb5f43cd4ad9?t=1770320165001"}
+      ]
+    },
+    {
+      "name": "Bahamas International Business Company (IBC)",
+      "eyebrow": "Bahamas · PIC Tradicional",
+      "legalBasis": "International Business Companies Act, 2000 (Ch. 309 das Leis das Bahamas), conforme emendado; Register of Beneficial Ownership Act, 2018; Commercial Entities (Substance Requirements) Act, 2018 (\"CESRA\"), em vigor desde 31 de dezembro de 2018",
+      "desc": "A Bahamas IBC é o veículo offshore tradicional das Bahamas, regido pela International Business Companies Act, 2000, que substituiu e modernizou a legislação anterior de 1989. É constituída por meio de Memorandum and Articles of Association registrados junto à Registrar General's Department (Companies Registry) das Bahamas, mediante intermediação de um agente registrado licenciado.\n\nUma característica distintiva da Bahamas IBC frente a BVI e Cayman é que a <strong>lista de diretores e officers é, por força de lei, matéria de registro público</strong>: deve ser arquivada no Companies Registry em até doze meses da nomeação (e qualquer alteração, em igual prazo), sob pena de a companhia estar sujeita a strike-off, e é aberta à inspeção pelo público em horário de expediente.",
+      "kv": [
+        {"l":"Documento constitutivo","v":"Memorandum and Articles of Association"},
+        {"l":"Registro de sócios/acionistas","v":"Register of Members — privado, mantido pelo registered agent"},
+        {"l":"Registro de diretores/officers","v":"Register of Directors and Officers — PÚBLICO, arquivado no Companies Registry"},
+        {"l":"Agente registrado","v":"Obrigatório (registered agent licenciado nas Bahamas)"},
+        {"l":"Beneficiário final","v":"Register of Beneficial Ownership — sigiloso, acesso restrito a autoridades"}
+      ],
+      "requirements": [
+        "Registered agent licenciado nas Bahamas",
+        "Registered office nas Bahamas",
+        "Memorandum and Articles of Association arquivados no Companies Registry",
+        "Register of Directors and Officers arquivado no Companies Registry em até 12 meses da nomeação, e mantido publicamente consultável",
+        "Register of Members mantido pelo registered agent, sem publicidade equivalente à dos diretores",
+        "Informação de beneficiário final submetida ao sistema seguro de busca sob a Register of Beneficial Ownership Act, 2018",
+        "Avaliação de substância econômica sob a CESRA quando exercida relevant activity, salvo se a entidade for tax resident fora das Bahamas e centralmente gerida e controlada no exterior"
+      ],
+      "sections": [
+        {
+          "title": "A exceção de publicidade dos diretores — implicação prática",
+          "body": "Diferentemente da BVI e de Cayman, onde a informação de diretores é mantida em sigilo (ou de acesso restrito mediante taxa, no caso cayman), nas Bahamas a identidade de diretores e officers é, desde a reforma legislativa da IBC Act, matéria de registro público. Esse é um ponto de atenção relevante ao estruturar wealth planning: para famílias que priorizam privacidade, é comum não indicar o beneficiário final como diretor pessoa física da IBC, optando por diretores corporativos ou profissionais (corporate directors / nominee directors fornecidos pelo registered agent), mantendo a titularidade econômica e o controle por meio de instrumentos privados (acordo de acionistas, procurações, e a própria estrutura de Register of Members, que não tem o mesmo grau de publicidade)."
+        },
+        {
+          "title": "Register of Beneficial Ownership Act, 2018",
+          "body": "A Register of Beneficial Ownership Act, 2018, estabeleceu um sistema de busca segura (\"secure search system\") administrado pelo Attorney-General's Office como autoridade competente, no qual cada registered agent carrega a informação de beneficiário final das entidades sob sua responsabilidade. O registro <strong>não é acessível ao público</strong>: apenas pessoas designadas de autoridades regulatórias específicas — Attorney General's Office, Financial Intelligence Unit, Central Bank of The Bahamas, Compliance Commission e Securities Commission — podem, mediante autorização e a partir de local seguro designado, realizar buscas no sistema."
+        }
+      ],
+      "sources": [
+        {"t":"Government of The Bahamas — International Business Companies Act, 2000 (Ch. 309), texto consolidado","u":"http://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0045/2000-0045_2.pdf"},
+        {"t":"Government of The Bahamas — Register of Beneficial Ownership Act, 2018","u":"https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2018/2018-0038/2018-0038_1.pdf"},
+        {"t":"Bahamas Financial Services Board — texto da IBC Act (chapter 309)","u":"https://bfsb-bahamas.com/legislation/IBC_Act.pdf"},
+        {"t":"Office of the Attorney General (Bahamas) — Register of Beneficial Ownership Act, filing","u":"https://www.oag.gov.bs/notices/the-register-of-beneficial-ownership-act"}
+      ]
+    },
+    {
+      "name": "Comparativo de documentos societários e sigilo",
+      "eyebrow": "Quadro Comparativo · BVI · Cayman · Bahamas · LLC (EUA)",
+      "legalBasis": "Consolidação comparativa a partir da legislação primária de cada jurisdição (ver fontes de cada tópico acima)",
+      "desc": "Os documentos que \"rodam\" cada uma dessas estruturas cumprem funções equivalentes, mas divergem significativamente quanto à publicidade e ao órgão que os mantém. O quadro abaixo resume, para cada jurisdição, quem mantém cada registro e o grau de acesso de terceiros — informação central para decidir qual estrutura melhor atende à necessidade de sigilo versus custo de compliance de cada família.",
+      "kv": [
+        {"l":"BVI — Register of Members","v":"Privado, arquivado no Registrar (desde jan/2025)"},
+        {"l":"BVI — Register of Directors","v":"Privado, arquivado no Registrar"},
+        {"l":"BVI — Beneficiário final (BOSS)","v":"Não público; acesso restrito a autoridades designadas"},
+        {"l":"Cayman — Register of Members","v":"Privado, mantido no registered office, não arquivado no Registrar"},
+        {"l":"Cayman — Register of Directors/Officers","v":"Lista corrente consultável no Registrar mediante taxa; registro completo privado no registered office"},
+        {"l":"Cayman — Beneficiário final (BOR)","v":"Não público; acesso via Registrar e legitimate interest access (desde fev/2025)"},
+        {"l":"Bahamas — Register of Members","v":"Privado, mantido pelo registered agent"},
+        {"l":"Bahamas — Register of Directors/Officers","v":"PÚBLICO, arquivado e consultável no Companies Registry"},
+        {"l":"Bahamas — Beneficiário final","v":"Não público; acesso restrito a autoridades designadas"},
+        {"l":"LLC (EUA, ex. Delaware)","v":"Members/managers não constam do Certificate arquivado; Operating Agreement é privado"}
+      ],
+      "sections": [
+        {
+          "title": "Equivalência funcional dos documentos constitutivos",
+          "body": "Em todas as três jurisdições offshore, o documento constitutivo é o <strong>Memorandum and Articles of Association</strong> (ou, na estrutura mais recente permitida em algumas reformas, um documento único de Articles) — funcionalmente equivalente ao Contrato Social/Estatuto Social brasileiro. Na LLC americana, esse papel é dividido entre o Certificate/Articles of Organization (arquivado publicamente, com conteúdo mínimo) e o Operating Agreement (documento privado, que de fato rege a relação entre os sócios) — uma divisão que não tem paralelo direto nas estruturas societárias de common law offshore, em que Memorandum and Articles cumprem ambas as funções em um único documento arquivado."
+        },
+        {
+          "title": "Leitura do quadro para fins de wealth planning",
+          "body": "Do ponto de vista de sigilo perante terceiros privados (não autoridades), a ordem de discrição, da mais alta para a mais baixa, é aproximadamente: <strong>LLC americana (Delaware/Wyoming/Nevada)</strong> e <strong>BVI</strong> — nenhuma informação de titularidade ou administração consta de registro público — seguidas de <strong>Cayman</strong> — apenas a lista de diretores correntes é consultável mediante taxa — e, por último, <strong>Bahamas</strong>, onde diretores e officers são, por lei, matéria pública. Em nenhuma das quatro estruturas o beneficiário final é publicamente acessível: em todas, a informação de titularidade última é mantida em sistema de acesso restrito a autoridades. Essa hierarquia não deve ser o único critério de escolha de jurisdição — custo de manutenção, exigências de substância econômica, rede de acordos de troca de informação e o perfil do ativo a ser detido (imóvel, participação operacional, carteira de investimentos) pesam tanto quanto o grau de sigilo."
+        }
+      ],
+      "sources": [
+        {"t":"Harneys — Latest amendments to the BVI Business Companies Act 2004","u":"https://www.harneys.com/insights/latest-amendments-to-the-bvi-business-companies-act-2004/"},
+        {"t":"Cayman Islands General Registry — Directors & Officers FAQ","u":"https://www.ciregistry.ky/faq_category/directors-officers/"},
+        {"t":"International Business Companies Act, 2000 (Bahamas), Ch. 309","u":"http://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0045/2000-0045_2.pdf"},
+        {"t":"Delaware Limited Liability Company Act — Delaware Code Title 6, Ch. 18","u":"https://delcode.delaware.gov/title6/c018/"}
+      ]
+    },
+    {
+      "name": "Cisão societária (corporate split / demerger) em planejamento patrimonial",
+      "eyebrow": "Reorganização Societária · Brasil e Offshore",
+      "legalBasis": "Lei nº 6.404/1976 (Lei das S.A.), arts. 229 e 230, aplicável subsidiariamente às sociedades limitadas por força do art. 1.053, parágrafo único, do Código Civil; BVI Business Companies Act, 2004, Parte IX (fusão, consolidação, arrangements) e Parte X (continuation); Cayman Islands Companies Act (consolidação em vigor), Parte V (mergers, consolidations e schemes of arrangement)",
+      "desc": "A cisão é, no direito brasileiro, a operação pela qual uma companhia transfere parcelas do seu patrimônio para uma ou mais sociedades, constituídas para esse fim ou já existentes (art. 229, Lei 6.404/1976). É <strong>total</strong> quando todo o patrimônio é vertido, extinguindo-se a sociedade cindida, ou <strong>parcial</strong> quando apenas parte do patrimônio é transferida, subsistindo a sociedade cindida com capital reduzido. A sociedade que absorve o patrimônio sucede a cindida nos direitos e obrigações relacionados no ato de cisão — e, na cisão com extinção, todas as sucessoras respondem solidariamente pelas obrigações não expressamente relacionadas, na proporção do patrimônio líquido recebido.\n\nEm planejamento patrimonial, a cisão é empregada primariamente para <strong>segregar patrimônio e isolar risco</strong>: separar ativos operacionais (sujeitos a risco de negócio) de ativos financeiros e imobiliários de longo prazo (que se deseja proteger e destinar à sucessão), ou separar patrimônio entre ramos familiares distintos antes de uma sucessão, evitando que herdeiros fiquem em condomínio forçado sobre a integralidade dos bens. É também instrumento comum para preparar uma estrutura para doação com reserva de usufruto (ver tópico específico) ou para viabilizar a saída de um sócio sem liquidação de toda a sociedade.",
+      "kv": [
+        {"l":"Base legal (Brasil)","v":"Lei 6.404/1976, arts. 229-230"},
+        {"l":"Aplicação a limitadas","v":"Por remissão do art. 1.053, § único, CC"},
+        {"l":"Cisão total","v":"Extingue a sociedade cindida"},
+        {"l":"Cisão parcial","v":"Sociedade cindida subsiste, capital reduzido"},
+        {"l":"Sucessão de obrigações","v":"Conforme ato de cisão; solidariedade na extinção"},
+        {"l":"Mecanismo BVI/Cayman equivalente","v":"Scheme of arrangement / merger-consolidation; sem \"cisão\" nominal"}
+      ],
+      "sections": [
+        {
+          "title": "Mecanismos análogos nas jurisdições offshore",
+          "body": "Nem a BVI nem Cayman possuem um instituto nominalmente idêntico à \"cisão\" brasileira — a técnica de common law para reorganizações patrimoniais equivalentes é normalmente estruturada por meio de <strong>redução de capital com distribuição em espécie (capital reduction / distribution in specie)</strong> de ativos para uma nova subsidiária ou companhia irmã, seguida ou não de um <strong>scheme of arrangement</strong> aprovado judicialmente, ou por meio de fusão/consolidação estatutária seguida de nova constituição. A BVI Business Companies Act, 2004, disciplina merger e consolidation na Parte IX (com o mecanismo de scheme of arrangement tratado, conforme o texto consolidado, em conjunto com as disposições sobre continuation) e permite, na Parte X, a <strong>continuation</strong> — redomiciliação da companhia para fora da BVI (ou de fora para dentro), preservando sua personalidade jurídica, o que pode ser combinado com reorganizações de patrimônio para migrar uma estrutura entre jurisdições sem ruptura de continuidade jurídica.\n\nNas Ilhas Cayman, desde a Companies (Amendment) Act 2009, existe mecanismo de <strong>merger e consolidation estatutários</strong> que dispensa aprovação judicial (ao contrário do scheme of arrangement tradicional, que permanece disponível e sujeito a aprovação da Grand Court), permitindo fusões entre companhias cayman e entre companhias cayman e estrangeiras de forma mais célere e barata. A escolha entre scheme of arrangement (com chancela judicial, mais formal e mais robusto para vincular credores minoritários dissidentes) e merger/consolidation estatutário (mais rápido, sem intervenção judicial) depende da complexidade da estrutura e da necessidade de vincular partes não consentâneas."
+        },
+        {
+          "title": "Cisão como preparação para sucessão",
+          "body": "Um uso recorrente da cisão em wealth planning brasileiro é preceder a doação de participações societárias com reserva de usufruto: cinde-se a holding original, separando os ativos que se pretende destinar a cada ramo familiar ou a cada finalidade (proteção patrimonial versus liquidez, por exemplo), de modo que a doação subsequente da nua-propriedade das novas sociedades resultantes da cisão possa ser feita de forma segmentada, com regras de governança e de usufruto potencialmente distintas para cada braço patrimonial. Essa técnica também facilita a valoração para fins de ITCMD, ao isolar o patrimônio a ser doado do patrimônio operacional de maior risco ou de composição heterogênea."
+        }
+      ],
+      "warning": "A escolha entre scheme of arrangement e merger/consolidation estatutária em BVI/Cayman, assim como a estruturação de uma cisão brasileira que anteceda doação de participações offshore, envolve questões de direito societário estrangeiro e de direito tributário (ganho de capital, ITCMD, e possível incidência de imposto de transmissão nas jurisdições offshore, quando aplicável) que exigem assessoria jurídica local especializada em cada uma das jurisdições envolvidas.",
+      "sources": [
+        {"t":"Planalto — Lei nº 6.404, de 15 de dezembro de 1976 (consolidada)","u":"https://www.planalto.gov.br/ccivil_03/leis/l6404consol.htm"},
+        {"t":"Planalto — Código Civil, Lei nº 10.406/2002 (sociedades limitadas)","u":"https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"},
+        {"t":"BVI Financial Services Commission — BVI Business Companies Act (texto consolidado)","u":"https://www.bvifsc.vg/sites/default/files/bvi_business_companies_act.pdf"},
+        {"t":"Harneys — Continuations and mergers or consolidations involving BVI companies","u":"https://www.harneys.com/insights/continuations-and-mergers-or-consolidations-involving-bvi-companies/"},
+        {"t":"Ogier — Cayman Islands mergers and consolidations","u":"https://www.ogier.com/news-and-insights/insights/cayman-islands-mergers-and-consolidations/"}
+      ]
+    },
+    {
+      "name": "Usufruto de participações societárias como instrumento sucessório",
+      "eyebrow": "Planejamento Sucessório · Nua-Propriedade e Usufruto",
+      "legalBasis": "Código Civil, Lei nº 10.406/2002, arts. 1.390 a 1.411 (usufruto, disposições gerais); direito comparado de common law: instituto do life estate / life interest",
+      "desc": "O usufruto é direito real sobre coisa alheia que confere ao usufrutuário o uso e o gozo (fruição) de bem de titularidade de outrem — o nu-proprietário — por prazo determinado ou, mais comumente em planejamento sucessório, de forma vitalícia. O art. 1.390 do Código Civil dispõe que o usufruto pode recair sobre um ou mais bens, móveis ou imóveis, sobre um patrimônio inteiro ou parte dele, abrangendo, no todo ou em parte, os frutos e utilidades — abrangência ampla o suficiente para incluir participações societárias (quotas de sociedade limitada e ações de sociedade anônima).\n\nEm wealth planning, o instrumento clássico é a <strong>doação de participações societárias com reserva de usufruto</strong>: o titular (tipicamente os pais, fundadores do patrimônio) doa a nua-propriedade das quotas ou ações aos herdeiros (tipicamente os filhos), reservando para si, vitaliciamente, o usufruto — que lhe garante o direito aos frutos (dividendos, lucros distribuídos) e, a depender da redação do instrumento e do estatuto/contrato social, o exercício do direito de voto e de outras prerrogativas de gestão, ainda que a titularidade formal (nua-propriedade) já tenha sido transferida.",
+      "kv": [
+        {"l":"Base legal","v":"CC/2002, arts. 1.390 a 1.411"},
+        {"l":"Extinção","v":"Morte do usufrutuário (usufruto vitalício)"},
+        {"l":"Objeto","v":"Bem, patrimônio inteiro ou fração — inclui quotas/ações"},
+        {"l":"Instrumento típico","v":"Doação com reserva de usufruto (nua-propriedade ao herdeiro)"},
+        {"l":"Equivalente common law","v":"Life estate / life interest (sem identidade plena)"}
+      ],
+      "requirements": [
+        "Instrumento de doação com cláusula de reserva de usufruto, lavrado por escritura pública quando exigível",
+        "Registro/averbação da transferência de nua-propriedade no livro de registro de ações nominativas (S.A.) ou no contrato social (sociedade limitada)",
+        "Definição contratual, no ato de doação e no estatuto/contrato social, de quais prerrogativas societárias (voto, preferência, informação) permanecem com o usufrutuário e quais migram para o nu-proprietário",
+        "Avaliação do impacto de ITCMD sobre a nua-propriedade transferida, conforme a legislação do Estado competente"
+      ],
+      "sections": [
+        {
+          "title": "Usufruto de quotas e ações na prática societária",
+          "body": "A doutrina e a prática de mercado (a começar pela publicação técnica \"Usufruto de quotas na sociedade limitada\") reconhecem que o Código Civil não disciplina em detalhe o exercício do usufruto sobre participações societárias, cabendo ao contrato social ou estatuto (e ao próprio instrumento de instituição do usufruto) definir com precisão a repartição de direitos entre usufrutuário e nu-proprietário — em especial o direito de voto, que nem sempre acompanha automaticamente o usufruto e deve ser expressamente atribuído. Essa lacuna normativa torna a redação cuidadosa do instrumento de doação e do contrato/estatuto social ainda mais determinante do que em outras modalidades de usufruto (por exemplo, sobre bem imóvel), sob pena de litígio entre usufrutuário e nu-proprietário quanto ao alcance de seus respectivos direitos."
+        },
+        {
+          "title": "Correspondência em common law: life estate / life interest",
+          "body": "Nas jurisdições de common law relevantes para este material (BVI, Cayman, Bahamas, EUA), não existe um instituto de direito real chamado \"usufruto\" — a figura funcionalmente mais próxima é o <strong>life estate</strong> (ou life interest/life tenancy), no qual uma pessoa (life tenant) detém direito de uso e fruição de um bem por toda a sua vida, com a titularidade plena revertendo a um terceiro (remainderman) por ocasião de sua morte. A relação entre life tenant e remainderman é tradicionalmente tratada, inclusive por manifestações do IRS americano, como uma relação de propriedade direta (property interest), e não como uma relação fiduciária de trust — o que a aproxima estruturalmente do usufruto brasileiro, embora os regimes de direito das coisas de common law e civil law não sejam equivalentes em todos os efeitos (em especial quanto a registro, oponibilidade a terceiros e disciplina de frutos).\n\nNa prática de estruturação de PICs offshore (BVI/Cayman/Bahamas) por famílias brasileiras, o usufruto sobre quotas/ações de holding brasileira normalmente coexiste com — mas não se confunde com — os mecanismos de controle tipicamente empregados na companhia offshore em si, como classes distintas de ações com direitos de voto diferenciados, ou o uso de trust (instituto estranho ao direito brasileiro, mas nativo nas quatro jurisdições de common law aqui tratadas) para deter a companhia offshore, com o settlor/instituidor mantendo prerrogativas equivalentes às de um usufrutuário por meio de carta de desejos (letter of wishes) e da posição de protector. [VERIFICAR: tratamento tributário específico, na legislação brasileira pós-Lei 14.754/2023, da combinação de usufruto sobre holding nacional com trust estrangeiro detentor de PIC offshore — cenário de sobreposição de regimes que exige análise tributária dedicada e não está coberto com precisão suficiente pelas fontes primárias consultadas nesta pesquisa.]"
+        }
+      ],
+      "brazilNote": "O usufruto sobre participações societárias é frequentemente combinado, no planejamento sucessório brasileiro, com a doação da nua-propriedade de quotas/ações de uma holding patrimonial nacional que, por sua vez, detém a PIC offshore — de modo que a mecânica sucessória (usufruto/nua-propriedade) opera inteiramente sob o direito brasileiro, na holding nacional, enquanto a estrutura offshore permanece um nível abaixo, sob controle indireto da holding. Isso evita a necessidade de replicar o instituto do usufruto — que não existe nativamente nas jurisdições de common law aqui tratadas — diretamente sobre as ações da companhia offshore.",
+      "sources": [
+        {"t":"Planalto — Código Civil, Lei nº 10.406/2002 (usufruto, arts. 1.390 e seguintes)","u":"https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"},
+        {"t":"Migalhas — Usufruto de quotas na sociedade limitada","u":"https://www.migalhas.com.br/depeso/392004/usufruto-de-quotas-na-sociedade-limitada"},
+        {"t":"Mondaq — Estate Planning: Where usufruct and US tax laws collide","u":"https://www.mondaq.com/unitedstates/property-taxes/748380/estate-planning-where-usufruct-and-us-tax-laws-collide"}
+      ]
+    }
+  ]
+}

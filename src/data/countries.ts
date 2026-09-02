@@ -10,6 +10,7 @@ export const COUNTRY_ORDER: CountryId[] = [
   "ae",
   "us",
   "uy",
+  "py",
   "hk",
 ];
 
@@ -7390,6 +7391,820 @@ Some-se a isso o <strong>IHT tail de até 10 anos</strong> após a saída e a pr
           {
             t: "Ministério da Previdência Social · Acordos internacionais",
             u: "https://www.gov.br/previdencia/pt-br/assuntos/acordos-internacionais/acordos-internacionais",
+          },
+        ],
+      },
+    ],
+  },
+  py: {
+    id: "py",
+    flagCode: "py",
+    name: "Paraguai",
+    region: "Américas",
+    alert: true,
+    sumFiscal: "Territorialidade pura — 0% sobre renda estrangeira",
+    sumFS: "ok",
+    sumVisa: "Investor Pass — residência permanente direta desde USD 70k",
+    sumVS: "new",
+    fiscal: [
+      {
+        name: "Territorialidade pura e o IRP (Lei 6380/2019)",
+        status: "ok",
+        legalBasis:
+          "<strong>Lei n.º 6380/2019</strong>, «De Modernización y Simplificación del Sistema Tributario Nacional», em vigor desde <strong>1/jan/2020</strong>. Regulamento do IRP: <strong>Decreto n.º 3184/2019</strong>. Administração: <strong>DNIT — Dirección Nacional de Ingresos Tributarios</strong>, que sucedeu a SET (Subsecretaría de Estado de Tributación).",
+        desc: `O Paraguai aplica <strong>territorialidade pura</strong>, sem as exceções que caracterizam o modelo uruguaio. Tributa-se apenas a <strong>renda de fonte paraguaia</strong> — a que decorre de atividades desenvolvidas no território, de bens ali situados ou de direitos economicamente utilizados no país.
+
+<strong>Renda de fonte estrangeira não integra a base de cálculo do IRP.</strong> Dividendos de sociedades estrangeiras, juros de contas e aplicações no exterior, aluguéis de imóveis situados fora do Paraguai, ganhos de capital em bolsas estrangeiras e honorários pagos por clientes de fora — nada disso é alcançado, e não há alíquota reduzida nem <em>tax holiday</em> com prazo: a não incidência é <strong>estrutural e permanente</strong>, não um benefício temporário sujeito a contagem de anos.
+
+<strong>A diferença de arquitetura frente ao Uruguai é o ponto central.</strong> O regime uruguaio é territorial <em>com exceções</em> que foram sendo alargadas por lei — juros e dividendos desde sempre, aluguéis e ganhos de capital do exterior desde 2026 — e o alívio para o novo residente é um <em>tax holiday</em> com prazo determinado. No Paraguai não há exceção a alargar nem prazo a expirar: a renda estrangeira está fora do campo de incidência.
+
+<strong>O IRP divide-se em duas cédulas</strong>, com apuração separada e sem compensação entre elas:
+· <strong>IRP-RSP</strong> — rendas da prestação de serviços pessoais, escala progressiva de <strong>8%, 9% e 10%</strong>;
+· <strong>IRP-RGC</strong> — rendas e ganhos de capital, alíquota única de <strong>8%</strong>.
+
+<strong>Atenção ao risco de nexo.</strong> A territorialidade protege a renda cuja <em>fonte</em> é estrangeira, não a renda de quem simplesmente reside no Paraguai. Serviços prestados a partir do território paraguaio — ainda que faturados a cliente estrangeiro e recebidos em conta no exterior — tendem a ser renda de fonte paraguaia, tributável pelo IRP-RSP. É o erro mais comum de quem transfere residência mantendo a atividade profissional.`,
+        kv: [
+          { l: "Princípio", v: "Territorialidade pura, sem exceções" },
+          { l: "Renda estrangeira", v: "Fora do campo de incidência" },
+          { l: "IRP — serviços pessoais", v: "8% · 9% · 10%" },
+          { l: "IRP — capital e ganhos", v: "8%" },
+          { l: "Faixa de não incidência", v: "Gs. 80.000.000/ano de receita bruta" },
+          { l: "IRE (empresas)", v: "10%" },
+          { l: "IDU (dividendos)", v: "8% residente · 15% não residente" },
+          { l: "IVA", v: "10% (reduzida de 5%)" },
+          { l: "Imposto sobre patrimônio", v: "Inexistente" },
+          { l: "Imposto sucessório", v: "Inexistente" },
+          { l: "IPS (previdência, trabalhador)", v: "9% do salário bruto" },
+          { l: "Salário mínimo", v: "Gs. 3.044.000/mês (desde 1/jul/2026)" },
+        ],
+        requirements: [
+          "A não incidência sobre renda estrangeira decorre da <strong>lei</strong>, não de um regime opcional: não há adesão, opção formal nem prazo de fruição a requerer.",
+          "<strong>Faixa de não incidência do IRP-RSP:</strong> quem não supera <strong>Gs. 80.000.000</strong> de receita bruta anual gravada não fica obrigado a inscrever-se nem a recolher a cédula de serviços pessoais.",
+          "<strong>Não há retenção mensal sobre salário.</strong> O IRP é apurado anualmente e só é devido se a receita bruta do exercício superar a faixa de não incidência.",
+          "<strong>O teste é de fonte, não de residência.</strong> Renda produzida por atividade exercida em território paraguaio é de fonte paraguaia ainda que o pagador e a conta de recebimento sejam estrangeiros.",
+          "Para <strong>emitir certificado de residência fiscal</strong> — o documento que instrumentaliza a mudança perante terceiros — é preciso RUC ativo e regularidade fiscal. Ver o dossiê «Residência fiscal e o certificado».",
+        ],
+        sections: [
+          {
+            title: "IRP-RSP — escala dos serviços pessoais",
+            body: `Escala <strong>progressiva por faixas</strong>, aplicada sobre a <strong>renda líquida</strong> (receita bruta menos deduções admitidas):
+· até <strong>Gs. 50.000.000</strong> → <strong>8%</strong>
+· de Gs. 50.000.001 a <strong>Gs. 150.000.000</strong> → <strong>9%</strong>
+· acima de Gs. 150.000.000 → <strong>10%</strong>
+
+<strong>Não confundir com a faixa de não incidência.</strong> A obrigação de inscrição no IRP-RSP nasce quando a <strong>receita bruta</strong> anual gravada supera <strong>Gs. 80.000.000</strong>. As faixas de 50 e 150 milhões acima são de <strong>renda líquida</strong> e definem a alíquota, não a obrigação de declarar. São grandezas distintas, e a confusão entre elas é frequente em material de divulgação.
+
+<strong>Ordem de grandeza:</strong> mesmo no topo da escala, a alíquota marginal de <strong>10%</strong> é inferior à menor faixa tributável da tabela progressiva brasileira do IRPF. E incide apenas sobre a parcela de fonte paraguaia.
+
+<em>A composição exata das deduções admitidas (despesas de saúde, educação, previdência, e a exigência de documentação fiscal paraguaia para deduzir) deve ser conferida no Decreto 3184/2019 e nas resoluções gerais da DNIT vigentes no exercício.</em>`,
+          },
+          {
+            title: "Ausência de imposto sobre patrimônio e sucessões",
+            body: `<strong>O Paraguai não cobra imposto sobre o patrimônio</strong> — não há equivalente ao Impuesto al Patrimonio uruguaio, ao IP espanhol ou ao <em>impôt sur la fortune immobilière</em> francês.
+
+<strong>Também não há imposto sucessório autônomo</strong> — não existe tributo com fato gerador na transmissão <em>causa mortis</em> ou na doação, análogo ao ITCMD brasileiro, ao <em>Erbschaftsteuer</em> alemão ou ao <em>inheritance tax</em> britânico.
+
+<strong>Ponto tecnicamente controvertido, e materialmente relevante.</strong> A Lei 6380/2019 e o Decreto 3184/2019 trouxeram, na cédula de rendas e ganhos de capital (IRP-RGC), disposições sobre <strong>incrementos patrimoniais a título gratuito</strong>. Parte da doutrina contábil paraguaia sustenta que daí decorre incidência de <strong>8%</strong> sobre determinados recebimentos gratuitos — havendo referência específica a <strong>dinheiro em espécie recebido por herança</strong> —, enquanto a renda proveniente de herança e o ganho de capital dela derivado seriam expressamente afastados. <em>Trata-se de discussão viva, sem consenso, e as fontes profissionais divergem quanto ao alcance. A leitura do art. correspondente da Lei 6380/2019 e do Decreto 3184/2019, com parecer paraguaio, é indispensável antes de estruturar qualquer transmissão. A afirmação corrente de que «o Paraguai não tributa herança de forma alguma» é imprecisa.</em>
+
+<strong>Custo de transmissão de imóvel.</strong> Há referência profissional a IVA efetivo de <strong>1,5%</strong> na alienação posterior do imóvel pelos herdeiros (5% sobre base de 30% do preço). <em>A mecânica e a base presumida devem ser confirmadas.</em>
+
+<strong>O que isso não afasta.</strong> A inexistência de imposto sucessório paraguaio <strong>não afeta o ITCMD brasileiro</strong> sobre bens situados no Brasil, nem resolve a competência sobre bens no exterior — matéria da EC 132/2023 e do Tema 825 do STF (RE 851.108), pendente de lei complementar federal.`,
+          },
+          {
+            title: "IRE, IDU e a tributação da pessoa jurídica",
+            body: `<strong>IRE — Impuesto a la Renta Empresarial: 10%</strong> sobre a renda líquida de fonte paraguaia. É uma das alíquotas corporativas nominais mais baixas da América Latina.
+
+<strong>IDU — Impuesto a los Dividendos y a las Utilidades</strong>, criado pela Lei 6380/2019. Incide na <strong>colocação à disposição</strong> ou pagamento de dividendos, lucros ou rendimentos ao sócio, acionista ou consorciado, mediante <strong>retenção pela entidade pagadora</strong>:
+· beneficiário <strong>residente</strong> no Paraguai → <strong>8%</strong>
+· beneficiário <strong>não residente</strong> → <strong>15%</strong>
+
+<strong>Carga combinada</strong> sobre o lucro empresarial distribuído a sócio residente: 10% de IRE seguidos de 8% de IDU sobre o distribuído.
+
+<strong>INR — Impuesto a la Renta de No Residentes.</strong> Alcança a renda de fonte paraguaia auferida por não residentes, por retenção na fonte, sobre <strong>base líquida presumida</strong>. <em>A alíquota nominal de 15% e os percentuais de presunção por tipo de rendimento — dos quais decorre a alíquota efetiva frequentemente citada de 4,5% para serviços — devem ser conferidos nos arts. correspondentes da Lei 6380/2019, pois variam conforme a natureza do pagamento.</em>
+
+<strong>Nota sobre substância.</strong> Uma sociedade paraguaia usada como veículo de investimento no exterior não é tributada pelo IRE sobre a renda de fonte estrangeira, pela mesma territorialidade aplicável à pessoa física. O Paraguai <strong>não possui regime de holding nominado</strong>, e o efeito de holding é consequência da territorialidade — o que torna a substância econômica efetiva, e não o desenho societário, o ponto de exposição relevante perante o fisco de origem do investidor.`,
+          },
+        ],
+        brazilNote: `<strong>Não há acordo de dupla tributação em vigor entre Brasil e Paraguai — e essa é a assimetria mais importante deste dossiê.</strong>
+
+A «Convenção entre o Brasil e o Paraguai para Evitar a Dupla Tributação em Matéria de Imposto sobre a Renda, Prevenir e Combater a Evasão Fiscal e sobre Matéria Aduaneira» foi <strong>assinada em 20 de setembro de 2000</strong> e <strong>aprovada pelo Congresso Nacional brasileiro pelo Decreto Legislativo n.º 972, de 16 de dezembro de 2003</strong>.
+<em>Não foi localizado decreto presidencial brasileiro de promulgação — o ato que, no direito interno, dá executoriedade ao tratado. Sem ele, e sem confirmação da conclusão do processo do lado paraguaio, a Convenção deve ser tratada como <strong>não vigente</strong>. A lista oficial de acordos em vigor mantida pela RFB deve ser consultada antes de qualquer decisão que dependa do tratado.</em>
+
+<strong>Consequência prática da ausência de tratado:</strong> não há <em>tie-breaker</em> de residência. No caso uruguaio, uma dupla residência fiscal é resolvida pelos critérios do art. 4.º da Convenção (moradia permanente, centro de interesses vitais, permanência habitual, nacionalidade). <strong>Entre Brasil e Paraguai não existe esse mecanismo</strong> — uma dupla residência simplesmente subsiste, com tributação em bases universais no Brasil incidindo sobre a mesma renda, sem crédito assegurado por tratado. <strong>Isso eleva o rigor exigido da saída fiscal brasileira: ela precisa ser inequívoca, porque não há rede de proteção convencional.</strong>
+
+<strong>Saída fiscal do Brasil</strong> (IN SRF 208/2002): <strong>CSDP — Comunicação de Saída Definitiva</strong> até o último dia de fevereiro do ano-calendário subsequente à saída, e <strong>DSDP — Declaração de Saída Definitiva</strong> até o último dia útil de abril. Sem elas, a pessoa permanece residente fiscal no Brasil e tributada em bases universais — e, no cenário paraguaio, sem tratado que arbitre o conflito.
+
+<strong>Troca de informações — o ponto de maior consequência prática, e com data marcada.</strong>
+· <strong>Troca a pedido: já opera.</strong> O Paraguai aprovou a Convenção Multilateral sobre Assistência Administrativa Mútua em Matéria Fiscal pela <strong>Lei n.º 6656/2020</strong>, promulgada em <strong>26/nov/2020</strong>. A Convenção está em vigor para o Paraguai desde <strong>1/nov/2021</strong>, com efeitos para troca de informações desde <strong>1/jan/2022</strong>. O sigilo bancário foi levantado para fins fiscais. A RFB pode, hoje, requerer informações à DNIT sobre um contribuinte determinado.
+· <strong>Troca automática (CRS): ainda não opera, mas está contratada.</strong> O Paraguai <strong>não participa</strong> do intercâmbio automático de informações de contas financeiras, e por isso ainda não envia à RFB o fluxo anual e indiscriminado que Uruguai, Panamá, Suíça e Emirados enviam. Perante o Fórum Global, o país está entre as jurisdições que se comprometeram a <strong>iniciar as primeiras trocas automáticas até 2027</strong>.
+
+<strong>Leitura para planejamento:</strong> a diferença entre Paraguai e as demais jurisdições deste monitor, quanto a CRS, é <strong>temporária e tem prazo</strong>. Estruturas montadas sobre a premissa de ausência de reporte automático devem ser desenhadas para funcionar <strong>depois</strong> de 2027 — e devem ser fiscalmente corretas independentemente do reporte, já que a troca a pedido já está disponível desde 2022 e alcança fatos pretéritos.
+
+<strong>Lista brasileira de jurisdições de tributação favorecida.</strong> <em>Não foi possível confirmar, nas fontes consultadas, a posição do Paraguai na IN RFB 1.037/2010 (alterada pela IN RFB 2.265/2025). O ponto exige verificação direta do texto vigente no sítio da RFB, com atenção redobrada aos regimes de <strong>maquila</strong> e de <strong>zonas francas</strong>, que pela baixa carga efetiva são candidatos naturais à análise do art. 2.º (regimes fiscais privilegiados). A caracterização atrai preços de transferência, subcapitalização, IRRF majorado e restrições de dedutibilidade.</em>
+
+<strong>Previdência social.</strong> O <strong>Acordo Multilateral de Seguridade Social do MERCOSUL</strong>, assinado em Montevidéu em <strong>15/dez/1997</strong>, foi aprovado no Brasil pelo Decreto Legislativo n.º 451/2001 e promulgado pelo <strong>Decreto n.º 5.722, de 13/mar/2006</strong>. Permite a <strong>totalização de períodos de contribuição</strong> entre Brasil, Argentina, Paraguai e Uruguai para benefícios de velhice, idade avançada, invalidez e morte. <em>O tratamento fiscal da aposentadoria do INSS recebida no Paraguai fica, na ausência de tratado de renda, sujeito à legislação interna de cada país — sem alocação convencional de competência.</em>`,
+        warning: `<strong>Duas afirmações muito difundidas sobre o Paraguai não se sustentam, e ambas são estruturais para a decisão.</strong>
+
+<strong>1. Não existe «regra dos 120 dias» de residência fiscal.</strong> A Lei 6380/2019 <strong>não fixa contagem de dias</strong> para aquisição ou manutenção da residência fiscal da pessoa física. A cifra de 120 dias que circula em material de consultoria decorre de leitura equivocada do <strong>art. 152 da Lei 125/1991</strong>, que trata de <strong>domicílio fiscal</strong> — instrumento procedimental usado pela administração para fixar domicílio de ofício quando o endereço declarado se mostra inidôneo. Não é requisito de permanência, e tampouco um «porto seguro»: quem passa 120 dias no país não adquire por isso residência fiscal, nem quem passa menos a perde por isso.
+
+<strong>Por que isso importa — e por que é o contrário de uma boa notícia.</strong> A ausência de um critério objetivo de dias não torna a residência fiscal paraguaia mais fácil: torna-a <strong>menos demonstrável</strong>. Onde o Uruguai oferece um teste verificável (183 dias, ou limiar de investimento definido em UI), o Paraguai remete a <strong>centro de interesses econômicos e vitais</strong> — conceito aberto, aferido casuisticamente, e cuja fragilidade se manifesta exatamente no momento em que é preciso opô-lo à Receita Federal do Brasil. Soma-se a isso que a própria DNIT, ao processar o pedido de certificado de residência fiscal de pessoa física, exige <strong>constancia de movimiento migratorio</strong>: a presença física <strong>é</strong> examinada na prática, ainda que a lei não a quantifique.
+
+<strong>2. O depósito de USD 5.000 não existe mais.</strong> A via que permitia obter residência permanente de imediato mediante certificado de depósito de cerca de <strong>USD 4.500–5.000</strong> no Banco Nacional de Fomento foi <strong>extinta em outubro de 2022</strong>, com a entrada em vigor da Lei 6984/2022, que revogou a Lei 978/96. Material de divulgação que ainda a apresenta descreve regime revogado há mais de três anos.
+
+<strong>3. E o diferencial de CRS tem prazo.</strong> A ausência de intercâmbio automático de informações financeiras — hoje real — termina com o compromisso paraguaio de iniciar as trocas <strong>até 2027</strong>. Nenhuma estrutura deve depender da sua permanência.`,
+        sources: [
+          {
+            t: "BACN · Lei n.º 6380/2019 — Modernização e Simplificação do Sistema Tributário Nacional",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional",
+          },
+          {
+            t: "DNIT · IRP — Imposto à Renda Pessoal",
+            u: "https://www.dnit.gov.py/en/web/portal-institucional/irp",
+          },
+          {
+            t: "DNIT · IDU — Imposto aos Dividendos e Utilidades",
+            u: "https://www.dnit.gov.py/web/portal-institucional/idu",
+          },
+          {
+            t: "DNIT · Faixa de não incidência do IRP-RSP: Gs. 80 milhões anuais",
+            u: "https://www.dnit.gov.py/web/portal-institucional/w/desde-el-ano-2020-el-monto-que-obliga-a-inscribirse-en-el-irp-rsp-es-haber-superado-los-80-millones-de-guaranies-de-ingresos-anuales-gravados",
+          },
+          {
+            t: "vLex · Lei n.º 6656/2020 — aprova a Convenção sobre Assistência Administrativa Mútua em Matéria Fiscal",
+            u: "https://py.vlex.com/vid/ley-no-6656-aprueba-852308482",
+          },
+          {
+            t: "OCDE · Compromissos de intercâmbio automático (AEOI) por jurisdição (PDF)",
+            u: "https://www.oecd.org/content/dam/oecd/en/networks/global-forum-tax-transparency/aeoi-commitments.pdf",
+          },
+          {
+            t: "Câmara dos Deputados · Decreto Legislativo n.º 972/2003 (Convenção Brasil–Paraguai)",
+            u: "https://www2.camara.leg.br/legin/fed/decleg/2003/decretolegislativo-972-16-dezembro-2003-497436-norma-pl.html",
+          },
+          {
+            t: "Planalto · Decreto n.º 5.722/2006 (Acordo Multilateral de Seguridade Social do MERCOSUL)",
+            u: "http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5722.htm",
+          },
+          {
+            t: "RFB · Acordos para evitar a dupla tributação (lista oficial)",
+            u: "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/legislacao/acordos-internacionais/acordos-para-evitar-a-dupla-tributacao",
+          },
+        ],
+      },
+      {
+        name: "Residência fiscal e o certificado — o ponto crítico do regime",
+        status: "risk",
+        legalBasis:
+          "Lei n.º 6380/2019 e Decreto n.º 3184/2019 (residência fiscal). <strong>Resolução Geral SET/DNIT n.º 65/2020, de 17/set/2020</strong>, que disciplina a emissão do certificado de residência fiscal. Domicílio fiscal: art. 152 da Lei n.º 125/1991.",
+        desc: `<strong>Ser residente legal no Paraguai e ser residente fiscal paraguaio são coisas distintas</strong>, e a distinção é onde a maior parte dos planejamentos falha. A cédula de identidade paraguaia comprova <strong>situação migratória</strong>. Ela não prova, por si só, residência fiscal — e não é o que a Receita Federal do Brasil examina.
+
+<strong>O documento que instrumentaliza a mudança é o certificado de residência fiscal</strong> emitido pela DNIT, que atesta a sujeição do requerente às normas tributárias paraguaias no exercício indicado. É ele que se apresenta a bancos, a contrapartes e, em caso de questionamento, ao fisco brasileiro.
+
+<strong>A dificuldade estrutural:</strong> como a lei paraguaia não estabelece contagem de dias, a residência fiscal apoia-se em <strong>centro de interesses econômicos e vitais</strong> — critério aberto. O planejamento sólido, portanto, não se constrói sobre um número, mas sobre <strong>acervo probatório</strong>: presença física documentada, moradia, vínculos familiares, contas e movimentação locais, e regularidade fiscal contínua.`,
+        kv: [
+          { l: "Contagem de dias na lei", v: "Não existe" },
+          { l: "Critério aplicável", v: "Centro de interesses econômicos e vitais" },
+          { l: "Documento probatório", v: "Certificado de residência fiscal (DNIT)" },
+          { l: "Pré-requisito", v: "RUC ativo + regularidade fiscal" },
+          { l: "Exigência adicional (PF)", v: "Constancia de movimiento migratorio" },
+          { l: "Custo do movimento migratório", v: "≈ Gs. 286.000 (≈ USD 40)" },
+          { l: "Base normativa do certificado", v: "RG n.º 65/2020" },
+          { l: "Tie-breaker com o Brasil", v: "Inexistente — sem tratado" },
+        ],
+        requirements: [
+          "<strong>Situação migratória regular</strong> — residência (temporária ou permanente) e, na prática, <strong>cédula de identidade paraguaia</strong>.",
+          "<strong>Inscrição no RUC</strong> — Registro Único de Contribuyentes — perante a DNIT.",
+          "<strong>Regularidade fiscal</strong>: declarações em dia e certidão de cumprimento tributário sem pendências.",
+          "<strong>Documento civil de identidade vigente</strong>, em cópia.",
+          "<strong>Constancia de movimiento migratorio</strong> referente ao período requerido, emitida pela Dirección Nacional de Migraciones — <strong>é aqui que a presença física efetivamente entra na análise</strong>, ainda que a lei não fixe número de dias.",
+          "<strong>Acervo de centro de interesses</strong>: moradia à disposição, contas bancárias locais com movimentação real, vínculos familiares e econômicos — não exigido como formulário, mas decisivo se a residência for contestada.",
+        ],
+        process: [
+          {
+            step: "Obtenção da residência migratória",
+            detail:
+              "Residência temporária, permanente por mudança de categoria, via MERCOSUL ou <em>Investor Pass</em>. Ver a coluna de programas imigratórios.",
+            timing: "Prévio",
+          },
+          {
+            step: "Cédula de identidade paraguaia",
+            detail:
+              "Emitida pelo Departamento de Identificaciones da Polícia Nacional, com validade de <strong>10 anos</strong>. É o documento civil exigido no pedido do certificado.",
+            timing: "Após a residência",
+          },
+          {
+            step: "Inscrição no RUC",
+            detail:
+              "Registro perante a DNIT, com definição das obrigações acessórias aplicáveis. A partir daí passam a correr deveres declaratórios — inclusive quando não há imposto a pagar.",
+            timing: "Semanas",
+          },
+          {
+            step: "Constancia de movimiento migratorio",
+            detail:
+              "Solicitada à Dirección Nacional de Migraciones, on-line, referente ao período que se pretende certificar. Custo aproximado de <strong>Gs. 286.000</strong>.",
+            timing: "Dias",
+          },
+          {
+            step: "Pedido do certificado de residência fiscal",
+            detail:
+              "Apresentação do formulário de solicitação à DNIT, acompanhado da certidão de cumprimento tributário, do documento de identidade e da constancia migratória. <em>O canal (presencial ou eletrônico) e o prazo de emissão devem ser conferidos na RG 65/2020 e nas resoluções posteriores.</em>",
+            timing: "Por exercício",
+          },
+          {
+            step: "Saída fiscal do Brasil",
+            detail:
+              "<strong>CSDP</strong> até o último dia de fevereiro do ano-calendário seguinte ao da saída e <strong>DSDP</strong> até o último dia útil de abril, na forma da IN SRF 208/2002. Sem tratado, esta é a <strong>única</strong> linha de defesa contra a manutenção da residência fiscal brasileira.",
+            timing: "Prazos brasileiros",
+          },
+        ],
+        costs: [
+          {
+            item: "Constancia de movimiento migratorio",
+            value: "≈ Gs. 286.000",
+            note: "Aproximadamente USD 40. Emitida pela Dirección Nacional de Migraciones; solicitação on-line.",
+          },
+          {
+            item: "Certidão de cumprimento tributário",
+            value: "Sem custo",
+            note: "Emitida on-line mediante RUC e data de nascimento, desde que as declarações estejam em dia.",
+          },
+          {
+            item: "Inscrição no RUC",
+            value: "Sem custo direto",
+            note: "O custo relevante é o de assessoria contábil local e o das obrigações acessórias recorrentes que passam a incidir.",
+          },
+        ],
+        sections: [
+          {
+            title: "Por que a ausência de um teste de dias aumenta o risco",
+            body: `Um critério objetivo de permanência é, do ponto de vista do contribuinte, <strong>uma proteção</strong>: cumprido o número de dias, a residência fiscal é demonstrável com prova documental simples — carimbos, passagens, registros migratórios.
+
+O Paraguai não oferece esse instrumento. A residência fiscal apoia-se em conceito aberto, e o ônus de demonstrá-la recai integralmente sobre o contribuinte, <strong>no momento e no foro em que for contestada</strong> — que, para o público deste monitor, tende a ser um procedimento fiscal brasileiro.
+
+<strong>A assimetria decisiva:</strong> o Brasil <strong>tem</strong> critério objetivo. Sem CSDP e DSDP tempestivas, a pessoa permanece residente fiscal brasileira por força de norma expressa, tributada em bases universais. De um lado, uma presunção legal brasileira firme; de outro, um conceito aberto paraguaio. <strong>E, sem tratado, nenhum mecanismo convencional para arbitrar o conflito.</strong>
+
+<strong>Consequência de método:</strong> o planejamento paraguaio exige acervo probatório mais robusto, não menos — precisamente porque não há um número a cumprir. Presença física efetiva e documentada, ainda que a lei não a exija em quantidade, é o principal ativo defensivo.`,
+          },
+          {
+            title: "O que o certificado prova, e o que não prova",
+            body: `<strong>O certificado atesta</strong> que o requerente está sujeito às normas tributárias paraguaias no exercício indicado, e é emitido a partir de RUC ativo, regularidade fiscal e movimento migratório apresentado.
+
+<strong>O certificado não é imunidade.</strong> Na ausência de tratado Brasil–Paraguai em vigor, ele não aciona <em>tie-breaker</em> algum: é <strong>elemento de prova</strong> num eventual contencioso, não título que encerre a discussão. Sua força depende inteiramente da consistência dos fatos que o cercam.
+
+<strong>Consequência para a autocertificação bancária.</strong> Informar o TIN paraguaio às instituições financeiras redireciona a autocertificação — mas, enquanto o Paraguai não integrar o intercâmbio automático, <strong>não existe um fluxo paraguaio a redirecionar</strong>. Contas mantidas em terceiras jurisdições que já reportam continuam reportando, e a jurisdição de destino do reporte passa a ser o Paraguai apenas na medida em que a autocertificação for aceita. <strong>Autocertificação falsa é infração autônoma</strong> na maior parte das jurisdições CRS, com consequências próprias — independentes da correção do imposto.`,
+          },
+        ],
+        brazilNote: `<strong>Sem tratado, a saída fiscal brasileira é a peça central — e não há segunda chance convencional.</strong>
+
+No modelo uruguaio, uma CSDP intempestiva ainda pode ser mitigada pelos <em>tie-breakers</em> do art. 4.º da Convenção, ao custo de litígio. <strong>No caso paraguaio esse recurso não existe.</strong> Se a Receita Federal considerar mantida a residência fiscal brasileira, a renda mundial é tributada no Brasil, e o certificado paraguaio opera apenas como elemento de prova de fato — sem alocação convencional de competência e sem crédito de imposto assegurado por tratado.
+
+<strong>Descompasso de calendários.</strong> O exercício fiscal paraguaio é o ano civil. O Brasil, na ausência de CSDP, conta 12 meses móveis de ausência. <strong>É possível ficar sem residência fiscal reconhecida em nenhum dos dois países, ou ser considerado residente em ambos</strong> — e, sem tratado, o segundo cenário não tem solução convencional.
+
+<strong>Recomendação de sequência:</strong> configurar a residência paraguaia e reunir o acervo probatório <strong>antes</strong> de formalizar a saída no Brasil, de modo que não exista intervalo em que o contribuinte não consiga demonstrar residência fiscal em lugar algum.`,
+        warning: `<strong>A cédula paraguaia não é, por si, residência fiscal — e vendê-la como tal é o erro mais caro deste dossiê.</strong>
+
+Um arranjo em que a pessoa obtém cédula, não se inscreve no RUC, não apresenta declarações, não mantém presença física relevante e continua a residir de fato no Brasil <strong>não constitui residência fiscal paraguaia</strong>. Constitui, no Brasil, residência fiscal mantida com renda mundial não declarada.
+
+E a exposição não é hipotética nem futura: a <strong>troca de informações a pedido já opera desde 1/jan/2022</strong> por força da Lei 6656/2020 paraguaia, com sigilo bancário levantado para fins fiscais. A RFB pode requerer à DNIT informações sobre contribuinte determinado — inclusive quanto a fatos pretéritos —, muito antes de o intercâmbio automático começar, previsto <strong>até 2027</strong>.`,
+        sources: [
+          {
+            t: "DNIT · Resolução Geral n.º 65/2020 — certificado de residência fiscal (PDF)",
+            u: "https://www.dnit.gov.py/documents/20123/202522/Resoluci%C3%B3n+General+N%C2%B065-2020.pdf/e5fb7814-34fc-4744-96c8-d99aee6d9d54?t=1684165234838",
+          },
+          {
+            t: "Ferrere · Certificado de residência fiscal no Paraguai",
+            u: "https://www.ferrere.com/es/novedades/certificado-de-residencia-fiscal-en-paraguay/",
+          },
+          {
+            t: "BACN · Lei n.º 6380/2019",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional",
+          },
+          {
+            t: "Base Legal · Decreto n.º 3184/2019 — regulamento do IRP",
+            u: "https://baselegal.com.py/docs/cb7091ff-75e1-11eb-990a-525400c761ca",
+          },
+        ],
+      },
+      {
+        name: "Regimes de incentivo — maquila, zonas francas e a Lei 7548/2025",
+        status: "changed",
+        legalBasis:
+          "<strong>Lei n.º 7548/2025</strong>, «Que establece el nuevo régimen de incentivos fiscales para la inversión nacional y extranjera», publicada na Gaceta Oficial n.º 205 de <strong>8/set/2025</strong>, que <strong>revoga integralmente</strong> a Lei n.º 60/90 e o Decreto-Lei n.º 27/90. Regime de maquila: <strong>Lei n.º 1064/1997</strong>, administrada pelo CNIME. Zonas francas: <strong>Lei n.º 523/1995</strong>.",
+        desc: `Três regimes de incentivo convivem no Paraguai e são frequentemente confundidos com o regime geral de tributação da pessoa física. <strong>São regimes empresariais</strong> — relevantes para quem transfere atividade produtiva, não para quem apenas transfere residência.
+
+<strong>A mudança de 2025:</strong> a histórica <strong>Lei 60/90</strong>, marco dos incentivos ao investimento paraguaio por 35 anos, foi <strong>integralmente revogada</strong> pela Lei 7548/2025. O novo regime preserva os benefícios tradicionais — desoneração aduaneira e de IVA na importação de bens de capital, isenção de IVA nas compras locais de bens de capital e desoneração do imposto sobre distribuição de dividendos em investimentos estrangeiros — e acrescenta instrumentos de apoio à indústria nacional.
+
+<strong>Direito adquirido preservado:</strong> projetos aprovados antes da vigência da nova lei continuam regidos pelas disposições vigentes ao tempo das resoluções biministeriais que concederam os benefícios.`,
+        kv: [
+          { l: "Lei 60/90", v: "Revogada pela Lei 7548/2025" },
+          { l: "Novo regime de incentivos", v: "Lei 7548/2025 · desde 8/set/2025" },
+          { l: "Projetos anteriores", v: "Mantêm o regime da aprovação" },
+          { l: "Maquila — tributo único", v: "1% sobre o valor agregado nacional" },
+          { l: "Zona franca — imposto próprio", v: "0,5% da receita bruta de exportação" },
+          { l: "Órgão da maquila", v: "CNIME" },
+          { l: "Regulamentação da Lei 7548", v: "Até 120 dias da promulgação" },
+        ],
+        sections: [
+          {
+            title: "Regime de maquila — Lei 1064/1997",
+            body: `Instituído em 1997 e administrado pelo <strong>CNIME — Consejo Nacional de las Industrias Maquiladoras de Exportación</strong>.
+
+<strong>Tributo único de 1%</strong> sobre o <strong>valor agregado nacional</strong>, em substituição aos demais tributos que incidiriam sobre a importação, a industrialização e a exportação dos produtos. As operações de maquila são desoneradas dos gravames que afetariam esse ciclo.
+
+<strong>Lógica econômica:</strong> a empresa importa insumos com suspensão, industrializa no Paraguai e exporta, pagando 1% apenas sobre o valor agregado localmente — mão de obra, serviços e insumos nacionais. É o instrumento que sustenta a instalação de indústrias brasileiras na faixa de fronteira.
+
+<em>O regime foi objeto de atualização no pacote de leis de incentivo de 2025; a extensão exata das alterações deve ser conferida na Lei 7548/2025 e nas normas correlatas do pacote.</em>`,
+          },
+          {
+            title: "Zonas francas — Lei 523/1995",
+            body: `Áreas delimitadas com tratamento aduaneiro e tributário especial, nas quais se admitem atividades comerciais, industriais e de serviços.
+
+<strong>Imposto de Zona Franca: 0,5%</strong> sobre a <strong>receita bruta total</strong> proveniente de vendas a terceiros países, para as empresas que operem <strong>exclusivamente</strong> em exportação para fora do território aduaneiro. Trata-se de tributo único, substitutivo do regime geral quanto a essas operações.
+
+<strong>Ponto de atenção brasileiro:</strong> justamente pela carga efetiva reduzida, os regimes de maquila e de zona franca são os candidatos naturais a exame sob o art. 2.º da IN RFB 1.037/2010 (regimes fiscais privilegiados). <em>A posição atual desses regimes na lista brasileira deve ser verificada no texto vigente da IN antes de qualquer estruturação — a caracterização atrai preços de transferência, subcapitalização e restrições de dedutibilidade.</em>`,
+          },
+          {
+            title: "O que muda com a Lei 7548/2025",
+            body: `<strong>Revogação integral</strong> do Decreto-Lei n.º 27/90 e da Lei n.º 60/90, substituídos por novo regime de incentivos fiscais ao investimento nacional e estrangeiro.
+
+<strong>Benefícios preservados</strong> em relação ao regime anterior:
+· isenção de tributos aduaneiros e de <strong>IVA</strong> na importação de bens de capital, matérias-primas e insumos afetados ao projeto de investimento;
+· isenção de <strong>IVA</strong> na aquisição local de bens destinados ao ciclo produtivo industrial ou agropecuário;
+· desoneração do <strong>imposto sobre a distribuição de dividendos</strong> em investimentos de origem estrangeira.
+
+<strong>Regime transitório:</strong> projetos aprovados antes da entrada em vigor permanecem sob as disposições vigentes ao tempo das resoluções biministeriais que concederam os benefícios — não há revogação retroativa de benefício concedido.
+
+<strong>Regulamentação:</strong> o Poder Executivo deve regulamentar a lei no prazo de <strong>120 dias</strong> contados da promulgação. <em>O decreto regulamentar e as resoluções do MIC devem ser conferidos antes de estruturar projeto novo sob o regime, já que os requisitos operacionais concretos — limiares, prazos e contrapartidas — dependem dessa regulamentação.</em>`,
+          },
+        ],
+        brazilNote: `Estes são <strong>regimes empresariais</strong>, e a decisão de utilizá-los é distinta da decisão de transferir residência fiscal pessoal.
+
+Para o investidor brasileiro, três pontos de atrito merecem exame prévio: <strong>(i)</strong> a posição dos regimes de maquila e zona franca na IN RFB 1.037/2010, que condiciona preços de transferência e dedutibilidade; <strong>(ii)</strong> as regras brasileiras de <strong>tributação em bases universais de controladas no exterior</strong> — Lei 12.973/2014 para pessoa jurídica e Lei 14.754/2023 para pessoa física, esta última alcançando lucros de <em>offshores</em> controladas em regime de tributação favorecida ou renda passiva relevante; e <strong>(iii)</strong> a <strong>substância econômica efetiva</strong> da operação paraguaia, que é o que sustenta o tratamento na origem e no destino.
+
+<strong>Nota sobre a Lei 14.754/2023:</strong> para a pessoa física brasileira que permaneça residente no Brasil, os lucros de entidade controlada no Paraguai podem ser tributados anualmente <strong>independentemente de distribuição</strong>, se caracterizado regime de tributação favorecida ou renda passiva preponderante. <strong>A territorialidade paraguaia não afasta esse regime</strong> — ela opera no Paraguai, e a lei brasileira opera sobre o residente brasileiro.`,
+        sources: [
+          {
+            t: "BACN · Lei n.º 7548/2025 — novo regime de incentivos fiscais",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/12854/ley-n-7548-2025-que-establece-el-nuevo-r-gimen-de-incentivos-fiscales-para-la-inversi-n-nacional-y-extranjera",
+          },
+          {
+            t: "BACN · Lei n.º 523/1995 — regime de zonas francas",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/11620/ley-n-523-autoriza-y-establece-el-regimen-de-zonas-francas",
+          },
+          {
+            t: "MIC · Lei 60/90 — texto e benefícios (regime revogado)",
+            u: "https://www.mic.gov.py/ley-60-90/",
+          },
+          {
+            t: "REDIEX · Regime de maquila (Lei 1064/97) — ficha técnica (PDF)",
+            u: "https://www.rediex.gov.py/wp-content/uploads/2023/08/REGIMEN_MAQUILA_es.pdf",
+          },
+          {
+            t: "Vouga Abogados · Medidas fiscais do pacote de leis de incentivo ao investimento",
+            u: "https://www.vouga.com.py/en/novedades-impositivas-medidas-fiscales-del-paquete-de-leyes-de-incentivo-a-la-inversion-promulgado-por-el-ejecutivo/",
+          },
+        ],
+      },
+    ],
+    visa: [
+      {
+        name: "Paraguay Investor Pass — Constancia de Inversionista Extranjero",
+        status: "new",
+        legalBasis:
+          "<strong>Resolução MIC n.º 283/2026, de 21 de abril de 2026</strong>, firmada pelo Ministro Marco Riquelme, que <strong>revoga a Resolução n.º 1052/2025</strong> e reconstrói o marco da <strong>CIE — Constancia de Inversionista Extranjero</strong>. Dispensa da residência temporária com apoio na <strong>Lei n.º 4986/2013</strong> e na Lei n.º 6984/2022 de Migrações. Verificação pelo <strong>SUACE</strong>.",
+        desc: `<strong>É a novidade mais relevante do dossiê paraguaio</strong> e altera a estrutura de acesso à residência. Até 2026, o caminho ordinário exigia <strong>residência temporária de até 2 anos</strong> seguida de mudança de categoria para permanente. O <em>Investor Pass</em> cria uma <strong>via direta à residência permanente</strong>, dispensando integralmente a etapa temporária.
+
+<strong>O instrumento é a CIE — Constancia de Inversionista Extranjero</strong>, emitida após verificação do investimento pelo <strong>SUACE — Sistema Unificado de Apertura y Cierre de Empresas</strong>. Com a CIE, o requerente se apresenta à Dirección Nacional de Migraciones diretamente na categoria permanente.
+
+<strong>Quatro modalidades de investimento</strong>, com mínimos em dólares dos Estados Unidos ou equivalente em guaranis ao câmbio oficial da data do pedido:
+· <strong>Investimento produtivo — USD 70.000</strong>
+· <strong>Projetos de turismo — USD 150.000</strong>
+· <strong>Imobiliário — USD 200.000</strong>
+· <strong>Mercado de capitais — USD 200.000</strong>, por entidade autorizada e supervisionada pela Superintendência de Valores do Banco Central do Paraguai
+
+<strong>Comparação de ordem de grandeza:</strong> o limiar de entrada mais baixo do programa (USD 70.000) situa-se muito abaixo dos limiares de investimento das demais jurisdições deste monitor, e a via imobiliária de USD 200.000 conduz diretamente à <strong>residência permanente</strong>, não a uma autorização temporária renovável.`,
+        kv: [
+          { l: "Norma", v: "Resolução MIC n.º 283/2026 (21/abr/2026)" },
+          { l: "Norma revogada", v: "Resolução MIC n.º 1052/2025" },
+          { l: "Investimento produtivo", v: "USD 70.000" },
+          { l: "Turismo", v: "USD 150.000" },
+          { l: "Imobiliário", v: "USD 200.000" },
+          { l: "Mercado de capitais", v: "USD 200.000 (via entidade do BCP)" },
+          { l: "Residência temporária", v: "Dispensada" },
+          { l: "Emissão da CIE", v: "Até 5 dias úteis (SUACE)" },
+          { l: "Residência", v: "≈ 20 dias úteis" },
+          { l: "Categoria obtida", v: "Permanente, direta" },
+        ],
+        requirements: [
+          "Realizar investimento em uma das <strong>quatro modalidades</strong>, observado o mínimo respectivo em USD ou equivalente em guaranis ao <strong>câmbio oficial da data do pedido</strong>.",
+          "<strong>Via imobiliária (USD 200.000):</strong> o imóvel <strong>não pode destinar-se exclusivamente a uso pessoal ou familiar</strong> — deve gerar renda, valorização ou exploração produtiva. <em>É a condição mais relevante da modalidade e a que mais frequentemente é omitida em material de divulgação.</em>",
+          "<strong>Via de mercado de capitais (USD 200.000):</strong> o aporte deve ser realizado por meio de <strong>entidade autorizada e supervisionada pela Superintendência de Valores do Banco Central do Paraguai</strong>.",
+          "<strong>Geração de emprego:</strong> exigida em modalidades de investimento produtivo. <em>Segundo o material profissional disponível, a via imobiliária de USD 200.000 dispensa geração de emprego e não impõe permanência física mínima — condição a confirmar no texto da Resolução 283/2026, por ser determinante da escolha da modalidade.</em>",
+          "Submissão do expediente ao <strong>SUACE</strong> para verificação e rastreabilidade do investimento.",
+          "Documentação civil de praxe — identidade, certidão de nascimento e antecedentes penais — <strong>apostilada ou legalizada</strong> e, quando em idioma estrangeiro, traduzida ao espanhol.",
+        ],
+        process: [
+          {
+            step: "Estruturação e realização do investimento",
+            detail:
+              "Escolha da modalidade e execução do aporte, com documentação de origem lícita dos recursos e rastreabilidade bancária. Na via imobiliária, estruturar desde o início a <strong>destinação econômica</strong> do bem, dado que o uso exclusivamente pessoal não qualifica.",
+            timing: "Prévio",
+          },
+          {
+            step: "Apresentação do expediente ao SUACE",
+            detail:
+              "Protocolo do pedido de <strong>CIE</strong> com a documentação do investimento. O SUACE concentra a verificação e assegura rastreabilidade e transparência do aporte.",
+            timing: "Prévio",
+          },
+          {
+            step: "Emissão da CIE",
+            detail:
+              "O SUACE dispõe de até <strong>5 dias úteis</strong>, contados do recebimento do expediente completo, para emitir a Constancia de Inversionista Extranjero.",
+            timing: "5 dias úteis",
+          },
+          {
+            step: "Pedido de residência permanente",
+            detail:
+              "Com a CIE, o requerimento é apresentado à <strong>Dirección Nacional de Migraciones</strong> diretamente na categoria permanente, <strong>sem passar pela residência temporária</strong>.",
+            timing: "≈ 20 dias úteis",
+          },
+          {
+            step: "Cédula de identidade paraguaia",
+            detail:
+              "Emitida pelo Departamento de Identificaciones da Polícia Nacional, com validade de <strong>10 anos</strong>. É o documento civil que instrumentaliza a vida bancária e contratual no país.",
+            timing: "Após a residência",
+          },
+          {
+            step: "Residência fiscal, se pretendida",
+            detail:
+              "A residência migratória <strong>não gera automaticamente residência fiscal</strong>. Ver o dossiê fiscal «Residência fiscal e o certificado» — RUC, regularidade e acervo de centro de interesses.",
+            timing: "Etapa autônoma",
+          },
+        ],
+        costs: [
+          {
+            item: "Investimento — modalidade produtiva",
+            value: "USD 70.000",
+            note: "Menor limiar do programa. Modalidades produtivas envolvem exigência de geração de emprego local.",
+          },
+          {
+            item: "Investimento — turismo",
+            value: "USD 150.000",
+            note: "Modalidade alinhada à estratégia de diversificação do investimento estrangeiro.",
+          },
+          {
+            item: "Investimento — imobiliário",
+            value: "USD 200.000",
+            note: "O imóvel deve gerar renda, valorização ou exploração produtiva; uso exclusivamente pessoal ou familiar não qualifica.",
+          },
+          {
+            item: "Investimento — mercado de capitais",
+            value: "USD 200.000",
+            note: "Realizado por entidade autorizada e supervisionada pela Superintendência de Valores do Banco Central do Paraguai.",
+          },
+          {
+            item: "Taxas migratórias e emissão de cédula",
+            value: "A confirmar",
+            note: "Os aranceis de residência permanente por esta via não foram localizados em fonte oficial; verificar junto à Dirección Nacional de Migraciones.",
+          },
+        ],
+        sections: [
+          {
+            title: "O que a via direta efetivamente elimina",
+            body: `<strong>Elimina a residência temporária como etapa obrigatória.</strong> No caminho ordinário da Lei 6984/2022, o estrangeiro obtém residência temporária de até 2 anos, prorrogável, e só depois requer a mudança de categoria para permanente. Isso significa dois procedimentos migratórios, dois conjuntos documentais e uma janela de vários anos até a categoria definitiva.
+
+<strong>Com a CIE, o requerente entra diretamente na categoria permanente</strong>, cujo carnê é definitivo e se renova a cada 10 anos.
+
+<strong>Efeito sobre o relógio da naturalização.</strong> A naturalização paraguaia exige <strong>3 anos de residência permanente</strong>, contados da data da resolução de admissão permanente. Ao suprimir a fase temporária, a via de investimento faz esse prazo começar a correr imediatamente — em vez de somente após a conversão de categoria. <strong>É o efeito de maior consequência do programa</strong>, e o menos discutido.
+
+<em>Nota de cautela: o programa é recente — a Resolução 283/2026 é de abril de 2026 — e a prática administrativa ainda está em formação. Prazos indicativos de 5 e 20 dias úteis são os previstos na norma e no material oficial de divulgação, não estatísticas de desempenho observado.</em>`,
+          },
+          {
+            title: "Manutenção da residência e ausência do país",
+            body: `A residência permanente paraguaia <strong>não é incondicional</strong>. A Lei 6984/2022 prevê o <strong>cancelamento</strong> da residência — perda da categoria migratória e extinção do direito de permanecer no país — em hipóteses que incluem documentação falsa, fraude migratória, pedido do próprio residente, descumprimento da regulamentação migratória e <strong>ausência injustificada do país</strong>.
+
+<strong>Para o residente permanente, o parâmetro divulgado pela Dirección Nacional de Migraciones é de ausência superior a 3 anos consecutivos sem justificativa.</strong>
+
+<strong>Mitigação prevista:</strong> é possível <strong>solicitar autorização prévia</strong> à Dirección Nacional de Migraciones antes de exceder o período de ausência admitido, resguardando a situação migratória. Quem perde a condição por ausência injustificada <strong>pode recuperá-la</strong>, demonstrando novamente o cumprimento dos requisitos legais.
+
+<strong>Leitura para planejamento:</strong> a tolerância migratória a longas ausências é ampla — mas <strong>não se confunde com o teste fiscal</strong>. Manter a residência migratória com presença mínima é viável; sustentar <strong>residência fiscal</strong> paraguaia oponível ao Brasil nas mesmas condições, não. Ver o dossiê fiscal correspondente.`,
+          },
+        ],
+        brazilNote: `<strong>A CIE resolve a etapa migratória. Não resolve, sozinha, a etapa fiscal.</strong>
+
+Para o cliente brasileiro, a sequência correta tem três estágios independentes, e a confusão entre eles é a origem da maior parte dos problemas: <strong>(1)</strong> residência migratória — que a CIE entrega de forma direta e rápida; <strong>(2)</strong> residência fiscal paraguaia — RUC, regularidade, certificado e acervo de centro de interesses; <strong>(3)</strong> saída fiscal do Brasil — CSDP e DSDP na forma da IN SRF 208/2002.
+
+<strong>Sem tratado Brasil–Paraguai em vigor, não há <em>tie-breaker</em> para arbitrar conflito de residência</strong>, o que torna a etapa (3) especialmente sensível.
+
+<strong>Ponto de atenção sobre a via imobiliária.</strong> A exigência de que o imóvel gere renda, valorização ou exploração produtiva tem consequência fiscal direta: <strong>o aluguel de imóvel situado no Paraguai é renda de fonte paraguaia</strong>, alcançada pelo IRP-RGC a 8% — não protegida pela territorialidade. A modalidade que dispensa emprego e permanência é, por construção, a que gera base tributável local.
+
+<strong>Declaração no Brasil.</strong> Enquanto residente fiscal brasileiro, o investimento paraguaio — imóvel, participação societária ou aplicação — deve constar da <strong>Declaração de Bens e Direitos</strong> do IRPF, e, conforme o valor, da <strong>Declaração de Capitais Brasileiros no Exterior (CBE)</strong> do Banco Central. A CBE anual é obrigatória a partir de <strong>USD 1.000.000</strong> em ativos no exterior na data-base de 31 de dezembro, com modalidade trimestral a partir de <strong>USD 100.000.000</strong>. <em>Os limiares vigentes devem ser conferidos na regulamentação do BCB do ano-base, pois já foram alterados.</em>`,
+        warning: `<strong>Programa muito recente: a Resolução MIC n.º 283/2026 é de 21 de abril de 2026</strong> e revogou a Resolução 1052/2025, editada menos de um ano antes. <strong>O marco normativo do investidor estrangeiro paraguaio foi reescrito duas vezes em doze meses</strong>, o que recomenda confirmar a norma vigente na data do pedido, e não confiar em material de divulgação — inclusive este — sem checagem atualizada.
+
+<strong>Pontos que exigem verificação no texto da Resolução antes de decidir:</strong> quais modalidades efetivamente exigem geração de emprego e em que quantidade; se há exigência de <strong>manutenção</strong> do investimento após a concessão, e por quanto tempo; quais são as consequências migratórias do desinvestimento; e se há permanência física mínima associada a alguma modalidade.
+
+<strong>Não confundir residência permanente com cidadania.</strong> O carnê permanente é definitivo e renovável a cada 10 anos. O <strong>passaporte paraguaio</strong> exige naturalização — <strong>3 anos de residência permanente</strong> mais os demais requisitos do regime geral previstos na Constituição Nacional, com processo perante o Poder Judiciário. Nenhuma modalidade de investimento antecipa esse prazo.`,
+        sources: [
+          {
+            t: "MIC · Lançamento do «Paraguay Investor Pass»",
+            u: "https://www.mic.gov.py/mic-y-migraciones-lanzan-el-paraguay-investor-pass-para-facilitar-la-residencia-permanente-a-inversionistas-extranjeros/",
+          },
+          {
+            t: "Migraciones · «Paraguay Investor Pass» — nova ferramenta para o investimento estrangeiro",
+            u: "https://migraciones.gov.py/paraguay-investor-pass-nueva-herramienta-para-facilitar-la-inversion-extranjera-en-el-pais/",
+          },
+          {
+            t: "Ferrere · Paraguai lança o Investor Pass e simplifica a residência para investidores estrangeiros",
+            u: "https://www.ferrere.com/es/novedades/paraguay-lanza-el-investor-pass-y-simplifica-la-residencia-para-inversionistas-extranjeros/",
+          },
+          {
+            t: "La Nación · Investor Pass — investimentos a partir de USD 70.000",
+            u: "https://www.lanacion.com.py/negocios/2026/04/17/paraguay-lanza-investor-pass-para-otorgar-residencia-a-extranjeros-que-inviertan-desde-usd-150000/",
+          },
+        ],
+      },
+      {
+        name: "Residência MERCOSUL — a via natural do brasileiro",
+        status: "ok",
+        legalBasis:
+          "<strong>Acordo sobre Residência para Nacionais dos Estados Partes do MERCOSUL</strong>, Bolívia e Chile. Lei n.º 6984/2022 «De Migraciones». Procedimento administrado pela <strong>Dirección Nacional de Migraciones</strong>.",
+        desc: `Para o nacional brasileiro, esta é a via de menor custo e menor exigência documental — e, por ser fundada em acordo regional, <strong>não depende de investimento, renda mínima ou vínculo empregatício</strong>.
+
+<strong>Estrutura em duas etapas:</strong>
+· <strong>Residência temporária MERCOSUL</strong> — validade de <strong>2 anos, não prorrogável</strong>;
+· <strong>Residência permanente MERCOSUL</strong> — requerida a partir dos <strong>90 dias anteriores</strong> ao vencimento do carnê temporário.
+
+<strong>Vantagem documental específica do brasileiro:</strong> documentos emitidos no Brasil em <strong>português</strong> estão <strong>dispensados de tradução</strong> ao espanhol — o que elimina custo e prazo de tradução juramentada, um dos principais atritos das demais vias.
+
+<strong>Durante a tramitação</strong>, o requerente obtém a condição de <strong>residente precário</strong>, que já habilita a sair e reentrar no país, estudar e trabalhar.
+
+<strong>Custo:</strong> a residência permanente MERCOSUL tem arancel de <strong>Gs. 223.004</strong> — cerca de um <strong>décimo</strong> do custo da mudança de categoria pelo regime geral da Lei 6984/2022 (Gs. 2.787.550).`,
+        kv: [
+          { l: "Base", v: "Acordo de Residência do MERCOSUL" },
+          { l: "Elegibilidade", v: "Nacionalidade brasileira, sem investimento" },
+          { l: "Temporária MERCOSUL", v: "2 anos · não prorrogável" },
+          { l: "Janela do pedido de permanente", v: "90 dias antes do vencimento" },
+          { l: "Custo da permanente", v: "Gs. 223.004" },
+          { l: "Tradução de documentos", v: "Dispensada para documentos em português" },
+          { l: "Durante o trâmite", v: "Residente precário — pode trabalhar e estudar" },
+          { l: "Cédula paraguaia", v: "Validade de 10 anos" },
+        ],
+        requirements: [
+          "<strong>Nacionalidade de Estado Parte ou associado</strong> — Argentina, Brasil, Uruguai, Bolívia, Chile, Peru, Colômbia e Equador.",
+          "<strong>Passaporte ou documento de identidade válido</strong> do país de origem.",
+          "<strong>Certidão de nascimento</strong> emitida pela autoridade competente, apostilada ou legalizada.",
+          "<strong>Certidão negativa de antecedentes penais ou policiais</strong> do país de origem ou de residência dos últimos anos.",
+          "<strong>Certidão de antecedentes para estrangeiros</strong> emitida no Paraguai.",
+          "<strong>Constância de ingresso no país</strong>, comprovando entrada regular.",
+          "<strong>Certidão de estado civil</strong>, quando aplicável.",
+          "Para a <strong>permanente</strong>: possuir <strong>carnê de residência temporária MERCOSUL vigente</strong> e protocolar o pedido dentro dos <strong>90 dias anteriores</strong> ao seu vencimento — <em>a via permanente MERCOSUL não é acessível diretamente, sem a etapa temporária prévia</em>.",
+        ],
+        process: [
+          {
+            step: "Ingresso regular no Paraguai",
+            detail:
+              "O brasileiro ingressa com documento de identidade ou passaporte, obtendo a constância de ingresso que instruirá o pedido.",
+            timing: "Dia 0",
+          },
+          {
+            step: "Reunião documental",
+            detail:
+              "Certidão de nascimento e antecedentes penais brasileiros, <strong>apostilados</strong>, mais antecedentes emitidos no Paraguai. <strong>Documentos em português dispensam tradução.</strong>",
+            timing: "Semanas",
+          },
+          {
+            step: "Pedido de residência temporária MERCOSUL",
+            detail:
+              "Protocolo perante a Dirección Nacional de Migraciones. Concedida por <strong>2 anos, não prorrogáveis</strong>. Durante a tramitação vale a condição de <strong>residente precário</strong>.",
+            timing: "2 anos de validade",
+          },
+          {
+            step: "Cédula de identidade paraguaia",
+            detail:
+              "Emitida pelo Departamento de Identificaciones da Polícia Nacional. É o documento que viabiliza abertura de conta, contratação e vida civil no país.",
+            timing: "Após a concessão",
+          },
+          {
+            step: "Pedido de residência permanente MERCOSUL",
+            detail:
+              "Protocolado a partir dos <strong>90 dias anteriores</strong> ao vencimento do carnê temporário. Arancel de <strong>Gs. 223.004</strong>.",
+            timing: "Ano 2",
+          },
+          {
+            step: "Contagem para naturalização",
+            detail:
+              "O prazo de <strong>3 anos</strong> exigido para a naturalização corre da <strong>resolução de admissão permanente</strong> — não do ingresso no país nem da residência temporária.",
+            timing: "A partir da permanente",
+          },
+        ],
+        costs: [
+          {
+            item: "Residência permanente MERCOSUL",
+            value: "Gs. 223.004",
+            note: "Cerca de um décimo do custo da mudança de categoria pelo regime geral da Lei 6984/2022.",
+          },
+          {
+            item: "Residência permanente — regime geral (comparação)",
+            value: "Gs. 2.787.550",
+            note: "Equivalente a 25 jornais mínimos, pago em espécie. Aplicável à mudança de categoria a partir da residência temporária comum.",
+          },
+          {
+            item: "Apostilamento de documentos brasileiros",
+            value: "Variável",
+            note: "Custo cartorário no Brasil. A tradução juramentada, contudo, é dispensada para documentos em português.",
+          },
+        ],
+        sections: [
+          {
+            title: "Por que esta via costuma superar as demais para o brasileiro",
+            body: `<strong>Não exige investimento.</strong> Diferentemente do <em>Investor Pass</em>, que parte de USD 70.000, a via MERCOSUL apoia-se apenas na <strong>nacionalidade</strong>.
+
+<strong>Custo migratório marginal.</strong> Gs. 223.004 para a residência permanente — ordem de grandeza que torna o custo do procedimento praticamente irrelevante frente ao custo de assessoria.
+
+<strong>Atrito documental mínimo.</strong> A dispensa de tradução para documentos em português elimina o item que costuma dominar prazo e custo em processos migratórios.
+
+<strong>O custo é o tempo.</strong> A contrapartida é a espera: <strong>2 anos</strong> de residência temporária antes de acessar a permanente, e só então começa a correr o prazo de 3 anos para a naturalização. O <em>Investor Pass</em> compra exatamente esses 2 anos — a decisão entre as vias é, em essência, uma troca entre capital e tempo.
+
+<strong>Quadro comparativo até a naturalização:</strong>
+· <strong>Via MERCOSUL:</strong> 2 anos (temporária) + 3 anos (permanente) = <strong>≈ 5 anos</strong>, com custo migratório desprezível
+· <strong>Via Investor Pass:</strong> permanente imediata + 3 anos = <strong>≈ 3 anos</strong>, com investimento a partir de USD 70.000`,
+          },
+        ],
+        brazilNote: `<strong>A residência MERCOSUL é migratória e não produz, por si, efeito fiscal.</strong> Ela não gera residência fiscal paraguaia nem encerra a residência fiscal brasileira — são três procedimentos distintos, e nenhum deles decorre automaticamente do outro.
+
+<strong>Previdência.</strong> O <strong>Acordo Multilateral de Seguridade Social do MERCOSUL</strong> (Montevidéu, 15/dez/1997; promulgado no Brasil pelo Decreto n.º 5.722/2006) permite <strong>totalizar períodos de contribuição</strong> entre Brasil e Paraguai para benefícios de velhice, idade avançada, invalidez e morte. Para quem transfere residência em meio à vida contributiva, é o instrumento que evita a perda dos períodos já cumpridos no INSS.
+
+<strong>Atenção ao vínculo trabalhista.</strong> Trabalhar no Paraguai gera renda de <strong>fonte paraguaia</strong>, sujeita ao IRP-RSP (8% a 10%) e à contribuição ao <strong>IPS</strong> (9% do salário bruto a cargo do trabalhador). A territorialidade não protege renda produzida no território — protege apenas a de fonte estrangeira.`,
+        sources: [
+          {
+            t: "Migraciones · Residência permanente para nacionais do Acordo de Residência do MERCOSUL",
+            u: "https://migraciones.gov.py/residencia-permanente-mercosur/",
+          },
+          {
+            t: "Migraciones · Residência temporária para nacionais do Acordo de Residência do MERCOSUL",
+            u: "https://migraciones.gov.py/residencia-temporaria-mercosur/",
+          },
+          {
+            t: "BACN · Lei n.º 6984/2022 — De Migraciones",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones",
+          },
+          {
+            t: "Planalto · Decreto n.º 5.722/2006 — Acordo Multilateral de Seguridade Social do MERCOSUL",
+            u: "http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5722.htm",
+          },
+        ],
+      },
+      {
+        name: "Residência temporária e mudança de categoria (Lei 6984/2022)",
+        status: "changed",
+        legalBasis:
+          "<strong>Lei n.º 6984/2022, «De Migraciones»</strong>, que <strong>revogou a Lei n.º 978/1996</strong>. Cancelamento de residência: <strong>art. 55</strong> da Lei 6984/2022. Administração: Dirección Nacional de Migraciones.",
+        desc: `É o <strong>caminho ordinário</strong> para quem não é nacional do MERCOSUL nem se enquadra em modalidade de investimento: residência temporária seguida de mudança de categoria para permanente.
+
+<strong>A mudança de 2022 é o ponto que mais gera desinformação.</strong> A Lei 6984/2022 revogou a Lei 978/96 e, com ela, <strong>extinguiu a via do depósito bancário</strong> — o certificado de depósito de cerca de <strong>USD 4.500 a 5.000</strong> no Banco Nacional de Fomento que, no regime anterior, dava acesso <strong>imediato</strong> à residência permanente e podia ser resgatado ao fim do processo.
+
+<strong>Desde outubro de 2022, essa via não existe.</strong> A solvência econômica deixou de ser demonstrada por dinheiro bloqueado e passa a sê-lo por <strong>documentação de renda, poupança ou aposentadoria</strong>.
+
+<strong>Estrutura vigente:</strong> residência temporária de até <strong>2 anos, prorrogável por igual período</strong>, seguida de pedido de mudança de categoria para permanente. O carnê permanente é <strong>definitivo</strong>, com renovação a cada <strong>10 anos</strong>, e dá acesso à <strong>cédula de identidade paraguaia</strong>, também decenal.`,
+        kv: [
+          { l: "Norma vigente", v: "Lei n.º 6984/2022" },
+          { l: "Norma revogada", v: "Lei n.º 978/1996" },
+          { l: "Depósito de USD 5.000", v: "Extinto em out/2022" },
+          { l: "Residência temporária", v: "Até 2 anos · prorrogável" },
+          { l: "Permanente", v: "Por mudança de categoria" },
+          { l: "Custo da mudança de categoria", v: "Gs. 2.787.550 (25 jornais)" },
+          { l: "Renovação do carnê", v: "A cada 10 anos" },
+          { l: "Cédula paraguaia", v: "Validade de 10 anos" },
+          { l: "Naturalização", v: "3 anos de residência permanente" },
+        ],
+        requirements: [
+          "<strong>Documento de identidade vigente</strong> do país de origem — cédula, documento nacional de identidade ou passaporte.",
+          "<strong>Certidão de nascimento</strong> emitida pela autoridade competente do país emissor, <strong>apostilada</strong> ou certificada pelo Consulado paraguaio na origem e legalizada pelo Ministério das Relações Exteriores em Assunção.",
+          "<strong>Certidão de antecedentes penais ou policiais</strong> do país de origem ou de residência.",
+          "<strong>Certidão de antecedentes para estrangeiros</strong> emitida no Paraguai.",
+          "<strong>Certidão de estado civil</strong>, quando aplicável.",
+          "<strong>Constância de ingresso no país.</strong>",
+          "<strong>Demonstração de solvência econômica</strong> por documentação de renda, poupança ou aposentadoria — <strong>não mais por depósito bloqueado</strong> em banco paraguaio.",
+          "Documentos em idioma estrangeiro devem ser <strong>traduzidos ao espanhol</strong> — salvo os emitidos no Brasil em português, dispensados na via MERCOSUL.",
+        ],
+        process: [
+          {
+            step: "Residência temporária",
+            detail:
+              "Autorização concedida ao estrangeiro que ingressa com ânimo de estabelecer-se para desenvolver atividade lícita. Carnê com validade de <strong>até 2 anos, prorrogável por igual período</strong>.",
+            timing: "Até 2 anos",
+          },
+          {
+            step: "Cédula de identidade paraguaia",
+            detail:
+              "Solicitada junto ao Departamento de Identificaciones da Polícia Nacional, viabilizando a vida bancária e contratual no país.",
+            timing: "Após a concessão",
+          },
+          {
+            step: "Mudança de categoria para permanente",
+            detail:
+              "Requerimento de residência permanente por mudança de categoria, ao término do período temporário. Arancel de <strong>Gs. 2.787.550</strong>, equivalente a <strong>25 jornais mínimos</strong>, pago em espécie.",
+            timing: "Ano 2",
+          },
+          {
+            step: "Carnê permanente",
+            detail:
+              "Documento <strong>definitivo</strong>, renovado a cada <strong>10 anos</strong> — a renovação é do documento, não da condição de residente.",
+            timing: "Decenal",
+          },
+          {
+            step: "Naturalização, se pretendida",
+            detail:
+              "Exige <strong>3 anos de residência permanente</strong>, contados da <strong>resolução de admissão permanente</strong>, mais os demais requisitos do regime geral previstos na Constituição Nacional. Processada perante o <strong>Poder Judiciário</strong>.",
+            timing: "3 anos após a permanente",
+          },
+        ],
+        costs: [
+          {
+            item: "Residência permanente por mudança de categoria",
+            value: "Gs. 2.787.550",
+            note: "Equivalente a 25 jornais mínimos diários, pago em espécie. Não inclui honorários de assessoria nem custos documentais.",
+          },
+          {
+            item: "Residência permanente MERCOSUL (comparação)",
+            value: "Gs. 223.004",
+            note: "Via disponível ao brasileiro, com custo muito inferior — ver o regime «Residência MERCOSUL».",
+          },
+          {
+            item: "Depósito no Banco Nacional de Fomento",
+            value: "Extinto",
+            note: "A via do depósito de USD 4.500–5.000 foi eliminada em outubro de 2022 pela Lei 6984/2022 e não pode ser utilizada.",
+          },
+          {
+            item: "Apostilamento e tradução",
+            value: "Variável",
+            note: "Documentos estrangeiros exigem apostila ou legalização consular; tradução ao espanhol dispensada apenas para documentos brasileiros em português na via MERCOSUL.",
+          },
+        ],
+        sections: [
+          {
+            title: "Cancelamento por ausência injustificada",
+            body: `O <strong>art. 55 da Lei 6984/2022</strong> disciplina o <strong>cancelamento</strong> da residência: perda da categoria migratória concedida e extinção do direito de permanecer no país.
+
+<strong>Hipóteses:</strong> documentação falsa ou fraude migratória; <strong>ausência injustificada do país</strong> pelos prazos estabelecidos; pedido do próprio residente; e descumprimento da regulamentação migratória vigente.
+
+<strong>Parâmetro divulgado pela Dirección Nacional de Migraciones para o residente permanente: ausência superior a 3 anos consecutivos sem justificativa.</strong>
+
+<strong>Duas válvulas de escape:</strong>
+· <strong>Autorização prévia</strong> — o residente pode requerer autorização à Dirección Nacional de Migraciones <strong>antes</strong> de exceder o prazo de ausência, resguardando a situação migratória;
+· <strong>Recuperação</strong> — quem perde a condição por ausência injustificada pode recuperá-la, demonstrando novamente o cumprimento dos requisitos legais.
+
+<strong>Não confundir com o teste fiscal.</strong> Uma tolerância migratória de até 3 anos de ausência não significa que se possa sustentar <strong>residência fiscal</strong> paraguaia com presença nula. São testes distintos, aplicados por autoridades distintas, com finalidades distintas — e é o fiscal, não o migratório, que a Receita Federal do Brasil examina.`,
+          },
+          {
+            title: "Naturalização e passaporte paraguaio",
+            body: `A <strong>Carta de Naturalização</strong> é processada perante o <strong>Poder Judiciário</strong> paraguaio.
+
+<strong>Requisito temporal: 3 anos de residência permanente</strong>, contados da data da <strong>resolução de admissão permanente</strong> — não do primeiro ingresso no país, nem da concessão da residência temporária. É por isso que a via de investimento, ao suprimir a etapa temporária, antecipa em cerca de dois anos o início da contagem.
+
+Somam-se os demais requisitos do regime geral previstos na <strong>Constituição Nacional</strong>. <em>A composição exata desses requisitos — maioridade, exercício de profissão ou ofício, e eventuais exigências de idioma ou de conhecimento cívico —, bem como o rito e a duração média do processo judicial, devem ser conferidos junto ao Poder Judiciário paraguaio e a assessoria local.</em>
+
+<strong>Nenhuma das vias de investimento antecipa o prazo de 3 anos</strong> — o <em>Investor Pass</em> antecipa apenas o <em>início</em> da contagem, ao entregar a categoria permanente de imediato.`,
+          },
+        ],
+        brazilNote: `<strong>A residência migratória, em qualquer das três vias, é apenas o primeiro dos três estágios</strong> — e o mais simples deles. Não gera residência fiscal paraguaia, não encerra a residência fiscal brasileira e não substitui a CSDP/DSDP da IN SRF 208/2002.
+
+<strong>Consequência de manter a residência fiscal brasileira:</strong> a pessoa continua tributada em <strong>bases universais</strong>, com renda mundial declarável no Brasil, e — sem tratado Brasil–Paraguai em vigor — sem <em>tie-breaker</em> convencional para arbitrar eventual conflito de residência.
+
+<strong>Ponto sensível de conduta.</strong> Obter a cédula paraguaia e passar a apresentá-la a instituições financeiras como comprovação de residência fiscal, sem ter efetivamente constituído residência fiscal no Paraguai e encerrado a brasileira, configura <strong>autocertificação incorreta</strong> — infração autônoma na maior parte das jurisdições que aplicam o CRS, com consequências próprias e independentes da questão do imposto devido.`,
+        warning: `<strong>O regime descrito em boa parte do material de divulgação em circulação é o regime revogado.</strong> A premissa corrente — depósito de USD 5.000 no Banco Nacional de Fomento, residência permanente imediata, dinheiro resgatável ao final — descreve com precisão o direito paraguaio <strong>até outubro de 2022</strong>, sob a Lei 978/96.
+
+A Lei 6984/2022 revogou aquele diploma e substituiu a via do depósito pela sequência <strong>temporária (até 2 anos) → mudança de categoria → permanente</strong>, com solvência demonstrada por documentação de renda e não por capital bloqueado.
+
+<strong>Verificar sempre</strong> a norma vigente na data do pedido: entre 2022 e 2026 o marco migratório e o do investidor estrangeiro foram alterados mais de uma vez, e a Resolução MIC 283/2026 — que criou a via direta por investimento — é de abril de 2026.`,
+        sources: [
+          {
+            t: "BACN · Lei n.º 6984/2022 — De Migraciones",
+            u: "https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones",
+          },
+          {
+            t: "Repatriados · Lei n.º 6984/2022 — texto integral (PDF)",
+            u: "https://repatriados.gov.py/wp-content/uploads/2025/06/Ley_6984_de_Migraciones_-_2022.pdf",
+          },
+          {
+            t: "Migraciones · Residência permanente por mudança de categoria",
+            u: "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/",
+          },
+          {
+            t: "Migraciones · Residência temporária (Lei 6984/2022)",
+            u: "https://migraciones.gov.py/residencia-temporal/",
+          },
+          {
+            t: "Migraciones · Causas de cancelamento de residência por ausência injustificada",
+            u: "https://migraciones.gov.py/migraciones-recuerda-las-causales-de-cancelacion-de-residencia-a-extranjeros-por-ausencia-injustificada-del-pais/",
+          },
+          {
+            t: "SUACE · Requisitos de residência permanente — Lei 6984/22 (PDF)",
+            u: "https://www.suace.gov.py/wp-content/uploads/2024/04/1-REQUISITOS-MIGRACIONES.pdf",
+          },
+          {
+            t: "Poder Judicial · Carta de Naturalização",
+            u: "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463",
           },
         ],
       },

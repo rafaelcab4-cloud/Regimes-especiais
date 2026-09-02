@@ -29,4 +29,11 @@ export const ALERTS: Alert[] = [
     title: "EUA — Trump Gold Card lançado",
     body: "Executive Order 14351 criou o programa em set/2025. Contribuição USD 1M. Caminho via EB-1 ou EB-2 NIW. Apenas 1 aprovação reportada até abr/2026.",
   },
+  {
+    countryId: "py",
+    tone: "blue",
+    tag: "Novo",
+    title: "Paraguai — Investor Pass abre via direta",
+    body: "Resolução MIC 283/2026 criou a CIE, que dá residência permanente sem passar pela temporária. Investimento a partir de USD 70k. CRS automático previsto para 2027.",
+  },
 ];

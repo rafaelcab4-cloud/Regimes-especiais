@@ -55,7 +55,12 @@ export default function RegimeCard({
 
       {regime.legalBasis && (
         <div className="regime-legal">
-          <span className="rg-legal-label">Base legal</span> {regime.legalBasis}
+          <span className="rg-legal-label">Base legal</span>{" "}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: sanitizeRichText(regime.legalBasis),
+            }}
+          />
         </div>
       )}
 

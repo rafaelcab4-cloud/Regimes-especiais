@@ -5,12 +5,12 @@ export interface HeroStat {
 }
 
 export const HERO_SUBTITLE =
-  "Monitor analítico das principais janelas de planejamento patrimonial e mobilidade global. Inclui mudanças de alto impacto entre 2024–2026: abolição do Non-Dom britânico, encerramento do Golden Visa espanhol, reajuste da Flat Tax italiana e lançamento do Trump Gold Card americano.";
+  "Monitor analítico das principais janelas de planejamento patrimonial e mobilidade global. Inclui mudanças de alto impacto entre 2024–2026: abolição do Non-Dom britânico, encerramento do Golden Visa espanhol, reajuste da Flat Tax italiana, lançamento do Trump Gold Card americano e abertura do Investor Pass paraguaio.";
 
 export const HERO_STATS: HeroStat[] = [
-  { value: "10", label: "Jurisdições", accent: false },
+  { value: "11", label: "Jurisdições", accent: false },
   { value: "3", label: "Extinções", accent: true },
   { value: "4", label: "Alterações", accent: true },
-  { value: "2", label: "Novos regimes", accent: true },
-  { value: "4", label: "Alertas ativos", accent: true },
+  { value: "3", label: "Novos regimes", accent: true },
+  { value: "5", label: "Alertas ativos", accent: true },
 ];

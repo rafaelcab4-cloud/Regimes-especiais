@@ -12,6 +12,7 @@ export type CountryId =
   | "ae"
   | "us"
   | "uy"
+  | "py"
   | "hk";
 
 export interface Source {

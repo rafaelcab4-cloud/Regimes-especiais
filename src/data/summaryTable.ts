@@ -58,6 +58,13 @@ export const SUMMARY_TABLE: SummaryRow[] = [
     vs: "ok",
   },
   {
+    id: "py",
+    fiscal: "Territorialidade pura — 0% sobre renda estrangeira",
+    fs: "ok",
+    visa: "Investor Pass — permanente direta desde USD 70k",
+    vs: "new",
+  },
+  {
     id: "gb",
     fiscal: "FIG 4 anos · Non-Dom abolido",
     fs: "new",
